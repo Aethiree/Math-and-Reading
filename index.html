@@ -69,15 +69,15 @@
     height: 100vh;
     height: 100dvh;
     display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 20px;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .screen {
     width: 100%;
     max-width: 720px;
+    margin: auto;            /* centers vertically when short, top-aligns when tall */
     display: none;
     flex-direction: column;
     align-items: center;
@@ -212,8 +212,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 4px 16px;
+    padding: 8px 4px 14px;
     gap: 12px;
+    position: sticky;
+    top: -8px;
+    z-index: 20;
+    background: linear-gradient(180deg, rgba(255,246,224,0.96) 0%, rgba(255,246,224,0.92) 70%, rgba(255,246,224,0.4) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin-bottom: 4px;
   }
   .back-btn {
     width: 52px; height: 52px;
@@ -1064,7 +1071,7 @@ const state = {
   difficulty: 1,
   readingMode: 3,
   problemIndex: 0,
-  totalProblems: 5,
+  totalProblems: 10,
   correctCount: 0,
   stars: 0,
   streak: 0,
@@ -1255,12 +1262,18 @@ function range(d) {
 function rand(lo, hi) { return Math.floor(Math.random() * (hi - lo + 1)) + lo; }
 
 function genProblem(op, d) {
-  const [lo, hi] = range(d);
+  // First operand size scales with difficulty; second operand stays 1-digit for d>=2
+  const firstLo = d === 1 ? 1 : d === 2 ? 10 : 100;
+  const firstHi = d === 1 ? 9 : d === 2 ? 99 : 999;
+
   let a, b, ans;
   if (op === '+') {
-    a = rand(lo, hi); b = rand(lo, hi); ans = a + b;
+    a = rand(firstLo, firstHi);
+    b = rand(1, 9);
+    ans = a + b;
   } else if (op === '-') {
-    a = rand(lo, hi); b = rand(lo, hi);
+    a = rand(firstLo, firstHi);
+    b = rand(1, 9);
     if (b > a) [a, b] = [b, a];
     ans = a - b;
   } else if (op === '*') {
@@ -1268,14 +1281,19 @@ function genProblem(op, d) {
     if (state.fixedFactor) {
       a = state.fixedFactor;
       b = rand(1, 10);
-    } else if (d === 1) { a = rand(1, 9); b = rand(1, 9); }
-    else if (d === 2) { a = rand(10, 25); b = rand(2, 9); }
-    else { a = rand(10, 30); b = rand(10, 30); }
+    } else {
+      a = rand(firstLo, firstHi);
+      b = d === 1 ? rand(1, 9) : rand(2, 9); // avoid trivial × 1 at medium/hard
+    }
     ans = a * b;
-  } else { // division - generate clean
-    if (d === 1) { b = rand(1, 9); ans = rand(1, 9); a = b * ans; }
-    else if (d === 2) { b = rand(2, 9); ans = rand(10, 25); a = b * ans; }
-    else { b = rand(2, 9); ans = rand(50, 120); a = b * ans; }
+  } else { // division - generate clean (no remainder)
+    b = d === 1 ? rand(1, 9) : rand(2, 9);
+    let ansMin, ansMax;
+    if (d === 1) { ansMin = 1; ansMax = 9; }
+    else if (d === 2) { ansMin = Math.max(1, Math.ceil(10 / b)); ansMax = Math.floor(99 / b); }
+    else { ansMin = Math.ceil(100 / b); ansMax = Math.floor(999 / b); }
+    ans = rand(ansMin, ansMax);
+    a = b * ans;
   }
   return { a, b, op, ans };
 }
@@ -1344,7 +1362,7 @@ function singleDigitVisual(p, mode) {
 }
 
 function placeValueVisual(p, mode) {
-  // show place-value blocks for the two operands stacked
+  // show place-value blocks for the first operand; dots for a small second operand
   function blocksFor(n) {
     const h = Math.floor(n / 100);
     const t = Math.floor((n % 100) / 10);
@@ -1365,11 +1383,21 @@ function placeValueVisual(p, mode) {
     html += `<div class="pv-group"><div class="pv-blocks">${ones || '&nbsp;'}</div><div class="pv-label">${o} ones</div></div>`;
     return `<div class="pv-row">${html}</div>`;
   }
+
+  function smallDotsFor(n) {
+    let dots = '';
+    for (let i = 0; i < n; i++) {
+      dots += '<div class="pv-one" style="width:14px;height:14px;border-radius:50%;background:var(--coral);"></div>';
+    }
+    return `<div class="pv-group"><div class="pv-blocks" style="max-width:160px;gap:6px;">${dots}</div><div class="pv-label">${n} ${n === 1 ? 'one' : 'ones'}</div></div>`;
+  }
+
   const opSymbol = { '+': '+', '-': '−', '*': '×', '/': '÷' }[p.op];
   return `
-    <div style="width:100%;display:flex;flex-direction:column;gap:8px;align-items:center;">
+    <div style="width:100%;display:flex;flex-direction:column;gap:6px;align-items:center;">
       ${blocksFor(p.a)}
-      <div style="font-family:'Fredoka';font-size:1.5rem;font-weight:700;color:var(--coral);">${opSymbol} ${p.b}</div>
+      <div style="font-family:'Fredoka';font-size:1.8rem;font-weight:700;color:var(--coral);line-height:1;">${opSymbol}</div>
+      ${p.b <= 9 ? smallDotsFor(p.b) : blocksFor(p.b)}
     </div>
   `;
 }
@@ -1393,15 +1421,15 @@ function buildMathExample() {
 
   // upgrade example for higher difficulty
   if (state.difficulty === 2) {
-    if (op === '+') ex = { a: 12, b: 25, op, ans: 37 };
-    else if (op === '-') ex = { a: 28, b: 13, op, ans: 15 };
-    else if (op === '*') ex = { a: 12, b: 3, op, ans: 36 };
+    if (op === '+') ex = { a: 15, b: 5, op, ans: 20 };
+    else if (op === '-') ex = { a: 30, b: 8, op, ans: 22 };
+    else if (op === '*') ex = { a: 12, b: 2, op, ans: 24 };
     else ex = { a: 24, b: 3, op, ans: 8 };
   } else if (state.difficulty === 3) {
-    if (op === '+') ex = { a: 125, b: 240, op, ans: 365 };
-    else if (op === '-') ex = { a: 350, b: 125, op, ans: 225 };
-    else if (op === '*') ex = { a: 12, b: 12, op, ans: 144 };
-    else ex = { a: 144, b: 12, op, ans: 12 };
+    if (op === '+') ex = { a: 135, b: 8, op, ans: 143 };
+    else if (op === '-') ex = { a: 300, b: 8, op, ans: 292 };
+    else if (op === '*') ex = { a: 105, b: 2, op, ans: 210 };
+    else ex = { a: 248, b: 4, op, ans: 62 };
   }
 
   document.getElementById('exampleTitle').textContent = `Let's learn ${labels[op]}!`;
