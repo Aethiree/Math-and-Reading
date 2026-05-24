@@ -632,6 +632,154 @@
     justify-content: center;
   }
 
+  /* ===== Times Tables ===== */
+  .tables-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  @media (min-width: 560px) {
+    .tables-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  }
+  .table-pick-btn {
+    border: 4px solid var(--ink);
+    border-radius: 22px;
+    padding: 22px 12px;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--ink);
+    transition: transform 0.15s ease;
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 90px;
+  }
+  .table-pick-btn:hover { transform: translateY(-3px) rotate(-2deg); }
+  .table-pick-btn:active { transform: translateY(2px) scale(0.96); }
+  .table-pick-btn .x { color: var(--coral); font-size: 1.4rem; }
+  .table-pick-btn:nth-child(6n+1) { background: linear-gradient(135deg, #FFD23F, #FFB627); }
+  .table-pick-btn:nth-child(6n+2) { background: linear-gradient(135deg, #FF6B6B, #FF8FB1); color: white; }
+  .table-pick-btn:nth-child(6n+2) .x { color: white; }
+  .table-pick-btn:nth-child(6n+3) { background: linear-gradient(135deg, #4CB944, #7ED957); color: white; }
+  .table-pick-btn:nth-child(6n+3) .x { color: white; }
+  .table-pick-btn:nth-child(6n+4) { background: linear-gradient(135deg, #3DA5D9, #6FCBED); color: white; }
+  .table-pick-btn:nth-child(6n+4) .x { color: white; }
+  .table-pick-btn:nth-child(6n+5) { background: linear-gradient(135deg, #A06CD5, #C490E5); color: white; }
+  .table-pick-btn:nth-child(6n+5) .x { color: white; }
+  .table-pick-btn:nth-child(6n) { background: linear-gradient(135deg, #FFD23F, #FF6B6B); }
+
+  /* Skip-count strip */
+  .skip-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin: 12px 0;
+    padding: 14px;
+    background: linear-gradient(135deg, #FFF6E0, #FFE7BA);
+    border: 3px dashed var(--ink-soft);
+    border-radius: 20px;
+    width: 100%;
+  }
+  .skip-num {
+    background: var(--paper);
+    border: 3px solid var(--ink);
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    min-width: 44px;
+    text-align: center;
+    transition: transform 0.25s, background 0.25s, color 0.25s;
+    cursor: pointer;
+    box-shadow: 0 3px 0 rgba(45,42,74,0.15);
+  }
+  .skip-num.active {
+    background: var(--coral);
+    color: white;
+    transform: scale(1.25) translateY(-4px);
+  }
+
+  .skip-label {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-bottom: -4px;
+    margin-top: 4px;
+  }
+
+  /* Table rows */
+  .table-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin: 10px 0;
+  }
+  .table-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: var(--paper);
+    border: 3px solid var(--ink);
+    border-radius: 16px;
+    box-shadow: 0 4px 0 rgba(45,42,74,0.15);
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+  }
+  .table-row:hover { transform: translateY(-2px); }
+  .table-row:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(45,42,74,0.15); }
+  .table-row.active {
+    background: linear-gradient(135deg, #FFD23F, #FFB627);
+    transform: scale(1.03);
+    box-shadow: 0 6px 0 rgba(45,42,74,0.2);
+  }
+  .table-row .fact {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    min-width: 130px;
+    flex-shrink: 0;
+  }
+  .table-row .equals { color: var(--coral); margin: 0 4px; }
+  .table-row .answer { color: var(--grass-dark); }
+  .table-row.active .equals,
+  .table-row.active .answer { color: var(--ink); }
+  .dots-wrap { flex: 1; display: flex; justify-content: center; min-width: 0; }
+  .dots-arr {
+    display: grid;
+    gap: 2px;
+  }
+  .dots-arr .dot {
+    width: 7px; height: 7px;
+    background: var(--sky);
+    border-radius: 50%;
+  }
+  .table-row.active .dots-arr .dot { background: var(--ink); }
+  .table-row .play-icon {
+    font-size: 1.1rem;
+    opacity: 0.55;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 520px) {
+    .table-row { padding: 8px 10px; gap: 8px; }
+    .table-row .fact { font-size: 1rem; min-width: 100px; }
+    .dots-arr .dot { width: 5px; height: 5px; }
+    .skip-num { font-size: 1rem; padding: 6px 9px; min-width: 38px; }
+  }
+
   @media (max-width: 520px) {
     .answer-grid { grid-template-columns: 1fr 1fr; }
     .problem-display { font-size: 3rem; }
@@ -723,6 +871,15 @@
       <div class="choice-card div" onclick="chooseOperation('/')">
         <div class="icon">➗</div>
         <div class="label">Divide</div>
+      </div>
+    </div>
+    <div style="width:100%; margin-top: 16px;">
+      <div class="choice-card" style="background: linear-gradient(135deg, #A06CD5, #FF8FB1); color: white; flex-direction: row; min-height: 100px; gap: 18px;" onclick="openTables()">
+        <div class="icon" style="font-size: 2.8rem;">📊</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;">
+          <div class="label" style="font-size: 1.4rem;">Times Tables</div>
+          <div class="sub" style="color: rgba(255,255,255,0.9);">Learn 1× to 12× with sound &amp; pictures</div>
+        </div>
       </div>
     </div>
   </div>
@@ -854,9 +1011,36 @@
     </div>
   </div>
 
+  <!-- ============ TIMES TABLES PICK ============ -->
+  <div class="screen" id="screen-tables-pick">
+    <div class="topbar">
+      <button class="back-btn" onclick="showScreen('math-op')">←</button>
+      <h2 style="flex:1;">Pick a Times Table!</h2>
+      <div style="width:52px;"></div>
+    </div>
+    <div class="subtitle">Tap a number to learn it</div>
+    <div class="tables-grid" id="tablesPickGrid"></div>
+  </div>
+
+  <!-- ============ TIMES TABLES LEARN ============ -->
+  <div class="screen" id="screen-tables-learn">
+    <div class="topbar">
+      <button class="back-btn" onclick="stopAllSpeech(); showScreen('tables-pick')">←</button>
+      <h2 style="flex:1;" id="tablesTitle">Times Table</h2>
+      <div style="width:52px;"></div>
+    </div>
+    <div class="skip-label">🦘 Skip counting — tap any number!</div>
+    <div class="skip-strip" id="skipStrip"></div>
+    <div class="table-rows" id="tableRows"></div>
+    <div class="center-actions">
+      <button class="btn btn-sun" id="singAllBtn" onclick="singAllFacts()">🎵 Sing All</button>
+      <button class="btn btn-grass" onclick="practiceTable()">🎮 Practice!</button>
+    </div>
+  </div>
+
 </div>
 
-<!-- ============ CELEBRATION OVERLAY ============ -->
+
 <div class="celebration" id="celebration">
   <div class="celebration-card">
     <h1 id="celebTitle">Amazing! 🎉</h1>
@@ -887,6 +1071,8 @@ const state = {
   bestStreak: 0,
   currentProblem: null,
   muted: false,
+  currentTable: 1,
+  fixedFactor: null,
 };
 
 const STAR = '⭐';
@@ -1027,15 +1213,23 @@ function showScreen(name) {
 
 function chooseSubject(s) {
   state.subject = s;
+  state.fixedFactor = null;
   if (s === 'math') showScreen('math-op');
   else showScreen('reading-mode');
 }
 
 function chooseOperation(op) {
   state.operation = op;
+  state.fixedFactor = null;
   const labels = { '+': 'Addition', '-': 'Subtraction', '*': 'Multiplication', '/': 'Division' };
   document.getElementById('diffSubtitle').textContent = labels[op] + ' time!';
   showScreen('math-diff');
+}
+
+function openTables() {
+  sfxClick();
+  buildTablesPicker();
+  showScreen('tables-pick');
 }
 
 function chooseDifficulty(d) {
@@ -1070,8 +1264,11 @@ function genProblem(op, d) {
     if (b > a) [a, b] = [b, a];
     ans = a - b;
   } else if (op === '*') {
-    // keep multiplication friendlier
-    if (d === 1) { a = rand(1, 9); b = rand(1, 9); }
+    // when practicing a specific times table, lock one factor
+    if (state.fixedFactor) {
+      a = state.fixedFactor;
+      b = rand(1, 10);
+    } else if (d === 1) { a = rand(1, 9); b = rand(1, 9); }
     else if (d === 2) { a = rand(10, 25); b = rand(2, 9); }
     else { a = rand(10, 30); b = rand(10, 30); }
     ans = a * b;
@@ -1531,6 +1728,172 @@ function readingDone() {
 }
 
 // ===============================
+// TIMES TABLES
+// ===============================
+function numberWord(n) {
+  const words = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
+  return n >= 0 && n <= 12 ? words[n] : String(n);
+}
+
+function stopAllSpeech() {
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  // also clear any highlights
+  document.querySelectorAll('.table-row').forEach(r => r.classList.remove('active'));
+  document.querySelectorAll('.skip-num').forEach(s => s.classList.remove('active'));
+}
+
+function buildTablesPicker() {
+  const grid = document.getElementById('tablesPickGrid');
+  grid.innerHTML = '';
+  for (let i = 1; i <= 12; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'table-pick-btn';
+    btn.innerHTML = `${i}<span class="x">×</span>`;
+    btn.onclick = () => pickTable(i);
+    grid.appendChild(btn);
+  }
+}
+
+function pickTable(n) {
+  sfxClick();
+  state.currentTable = n;
+  buildTableView(n);
+  showScreen('tables-learn');
+  setTimeout(() => speak(`The ${numberWord(n)} times table!`, 0.9), 350);
+}
+
+function buildTableView(n) {
+  document.getElementById('tablesTitle').textContent = `${n}× Table`;
+
+  // Skip-count strip
+  const strip = document.getElementById('skipStrip');
+  strip.innerHTML = '';
+  for (let m = 1; m <= 10; m++) {
+    const el = document.createElement('div');
+    el.className = 'skip-num';
+    el.textContent = n * m;
+    el.id = `skip-${m}`;
+    el.onclick = () => {
+      stopAllSpeech();
+      el.classList.add('active');
+      sfxStar();
+      speak(String(n * m), 0.95);
+      setTimeout(() => el.classList.remove('active'), 800);
+    };
+    strip.appendChild(el);
+  }
+
+  // Rows
+  const rows = document.getElementById('tableRows');
+  rows.innerHTML = '';
+  for (let m = 1; m <= 10; m++) {
+    const result = n * m;
+    const row = document.createElement('div');
+    row.className = 'table-row';
+    row.id = `row-${m}`;
+    row.innerHTML = `
+      <span class="fact">${n} × ${m} <span class="equals">=</span> <span class="answer">${result}</span></span>
+      <div class="dots-wrap">${makeDotArray(n, m)}</div>
+      <span class="play-icon">🔊</span>
+    `;
+    row.onclick = () => playTableFact(n, m);
+    rows.appendChild(row);
+  }
+}
+
+function makeDotArray(rows, cols) {
+  // dots arranged as rows × cols (rows = first factor, cols = second)
+  // cap dot size visually if grid would be too wide
+  let dotSize = 7;
+  if (cols > 8) dotSize = 5;
+  if (rows * cols > 80) dotSize = 4;
+  let html = `<div class="dots-arr" style="grid-template-columns:repeat(${cols},1fr);">`;
+  for (let i = 0; i < rows * cols; i++) {
+    html += `<div class="dot" style="width:${dotSize}px;height:${dotSize}px;"></div>`;
+  }
+  html += '</div>';
+  return html;
+}
+
+function playTableFact(n, m) {
+  stopAllSpeech();
+  const row = document.getElementById(`row-${m}`);
+  const skip = document.getElementById(`skip-${m}`);
+  if (row) row.classList.add('active');
+  if (skip) skip.classList.add('active');
+  sfxStar();
+  speak(`${numberWord(n)} times ${numberWord(m)} equals ${numberWord(n * m)}`, 0.85);
+  setTimeout(() => {
+    if (row) row.classList.remove('active');
+    if (skip) skip.classList.remove('active');
+  }, 1800);
+}
+
+let singingFacts = false;
+function singAllFacts() {
+  if (singingFacts) {
+    // toggle off
+    singingFacts = false;
+    stopAllSpeech();
+    document.getElementById('singAllBtn').innerHTML = '🎵 Sing All';
+    return;
+  }
+  sfxClick();
+  singingFacts = true;
+  document.getElementById('singAllBtn').innerHTML = '⏹ Stop';
+  const n = state.currentTable;
+  let m = 1;
+
+  function nextFact() {
+    if (!singingFacts || m > 10 || state.screen !== 'tables-learn') {
+      singingFacts = false;
+      document.getElementById('singAllBtn').innerHTML = '🎵 Sing All';
+      stopAllSpeech();
+      return;
+    }
+    document.querySelectorAll('.table-row').forEach(r => r.classList.remove('active'));
+    document.querySelectorAll('.skip-num').forEach(s => s.classList.remove('active'));
+    const row = document.getElementById(`row-${m}`);
+    const skip = document.getElementById(`skip-${m}`);
+    if (row) row.classList.add('active');
+    if (skip) skip.classList.add('active');
+    // scroll the row into view
+    if (row && row.scrollIntoView) row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    if (state.muted) {
+      m++;
+      setTimeout(nextFact, 700);
+      return;
+    }
+    const utter = new SpeechSynthesisUtterance(
+      `${numberWord(n)} times ${numberWord(m)} equals ${numberWord(n * m)}`
+    );
+    utter.rate = 0.85;
+    utter.pitch = 1.15;
+    if (preferredVoice) utter.voice = preferredVoice;
+    utter.onend = () => {
+      m++;
+      setTimeout(nextFact, 250);
+    };
+    utter.onerror = () => {
+      m++;
+      setTimeout(nextFact, 300);
+    };
+    window.speechSynthesis.speak(utter);
+  }
+  window.speechSynthesis?.cancel();
+  nextFact();
+}
+
+function practiceTable() {
+  sfxClick();
+  state.operation = '*';
+  state.difficulty = 1;
+  state.fixedFactor = state.currentTable;
+  startMathGame();
+}
+
+// ===============================
 // CELEBRATION
 // ===============================
 function celebrate(type) {
@@ -1562,6 +1925,8 @@ function celebrate(type) {
 
 function playAgain() {
   sfxClick();
+  stopAllSpeech();
+  singingFacts = false;
   document.getElementById('celebration').classList.remove('active');
   if (state.subject === 'math') startMathGame();
   else startReadingGame();
@@ -1569,6 +1934,9 @@ function playAgain() {
 
 function goHome() {
   sfxClick();
+  stopAllSpeech();
+  singingFacts = false;
+  state.fixedFactor = null;
   document.getElementById('celebration').classList.remove('active');
   showScreen('welcome');
 }
