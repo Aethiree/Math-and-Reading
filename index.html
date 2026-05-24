@@ -2,6 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+  <meta name="application-name" content="Keshav Learns">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Keshav Learns">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#FFD23F">
+  <meta name="msapplication-TileColor" content="#FFD23F">
+  <meta name="msapplication-TileImage" content="icon-144.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB2ElEQVR4nLWXrXLDMAzHlV5YXyNodwsqLxjbE5QF7XZXuAcpzN1uKKxPUDYwXuTeFeU1hjOQKrFlSZbbTKT1R/T/WXZkpYBMe356HbTxy/VU5PgzTZZE3fEXAADq3fpumOQEKu7O7dzom/G36qauerPPghAHVWEFIBeE7RzcdsCwssIGAA6Eg4g6BredV644tloqEkEDw46H6xEIKixBlOyMqpvD2zcRhOTc3y53bgH6RnxD0CaSafX0lCsnXDJJ3J3byQdGofDFIwDPfPFgi/w5niBCaNG7XE/FKiK/U5yO1Zs9e36oxiqaYRDn9nV6bSlEwgp27xmAVNqVIFN+1QjkigfC+EwiCsktoI6XnlsC3GjxvQdQk497ex9Fvj5N/SYAi6FA0H45jI3vD2beIXbiLdIdx0iVAOMf9dL5RzNHYBFjsqp6CDEq9W49hxvNbzNjpuscSCrmJluzYPAMTcmCzygVc+Y7yMkDkji1AIBNGn1jhrCIU430dYxWdXnXse+DOXzBdcxCKInJUpBoC0hXRImsaM4ZtLKCePuiojSoCxcoSmfxm2D9IxelFALAsNpEae7fqFRcBKAQKogA8NCHSRYIAVjs00yDCICUYmWRj9McGKuob39EkxmAawttFQAAAABJRU5ErkJggg==">
+  <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>Keshav's Learning Adventure!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2030,6 +2042,53 @@ document.body.addEventListener('click', () => {
     setTimeout(() => speak("Hi Keshav! Let's play and learn!", 0.9), 300);
   }
 }, { once: true });
+</script>
+<script>
+  // ── Service Worker registration ──────────────────────────────
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => {
+          console.log('SW registered:', reg.scope);
+
+          // Listen for an update and show a gentle reload prompt
+          reg.addEventListener('updatefound', () => {
+            const newWorker = reg.installing;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                showUpdateBanner();
+              }
+            });
+          });
+        })
+        .catch(err => console.warn('SW registration failed:', err));
+
+      // When a new SW takes over, reload so Keshav gets the latest
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload();
+      });
+    });
+  }
+
+  function showUpdateBanner() {
+    const banner = document.createElement('div');
+    banner.style.cssText = `
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: #4CB944; color: white; border: 3px solid #2D2A4A;
+      border-radius: 20px; padding: 14px 24px; z-index: 9999;
+      font-family: Fredoka, sans-serif; font-size: 1.1rem; font-weight: 700;
+      box-shadow: 0 6px 0 rgba(0,0,0,0.2); cursor: pointer; white-space: nowrap;
+    `;
+    banner.textContent = '🎉 New version ready! Tap to update';
+    banner.onclick = () => {
+      if (navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+      }
+      banner.remove();
+    };
+    document.body.appendChild(banner);
+    setTimeout(() => banner.remove && banner.remove(), 12000);
+  }
 </script>
 </body>
 </html>
