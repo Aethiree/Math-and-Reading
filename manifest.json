@@ -5,8 +5,8 @@
   "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#FFF6E0",
-  "theme_color": "#FFD23F",
+  "background_color": "#F8F9FE",
+  "theme_color": "#6C5CE7",
   "categories": [
     "education",
     "games",

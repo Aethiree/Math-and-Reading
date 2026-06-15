@@ -3,7 +3,7 @@
 // Cache-first strategy: game works 100% offline after first load
 // ============================================================
 
-const CACHE_NAME = 'keshav-learn-v2';
+const CACHE_NAME = 'keshav-learn-v3';
 
 // All assets we need to cache on install
 const PRECACHE_URLS = [
@@ -19,7 +19,7 @@ const PRECACHE_URLS = [
   './icon-512.png',
   './icon-maskable-512.png',
   // Google Fonts – cache for offline use
-  'https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap',
+  'https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@500;600;700;800&display=swap',
 ];
 
 // ── Install: pre-cache everything we can ──────────────────────

@@ -7,430 +7,403 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Keshav Learns">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#1CB0F6">
-<meta name="msapplication-TileColor" content="#1CB0F6">
+<meta name="theme-color" content="#6C5CE7">
+<meta name="msapplication-TileColor" content="#6C5CE7">
 <meta name="msapplication-TileImage" content="icon-144.png">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>Keshav's Learning Adventure</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-top: #EAF4FF;
-    --bg-bot: #FFF6E8;
+    --ink: #1E2138;
+    --ink-soft: #717691;
+    --bg: #F6F7FD;
     --card: #FFFFFF;
-    --ink: #2B2D55;
-    --ink-soft: #6E7191;
-    --line: #E6EAF4;
-    --sun: #FFC83D;     --sun-edge: #E0A400;
-    --green: #58CC02;   --green-edge: #46A302;
-    --coral: #FF7864;   --coral-edge: #E04E3A;
-    --blue: #1CB0F6;    --blue-edge: #1690C9;
-    --grape: #9069E0;   --grape-edge: #7146C4;
-    --pink: #FF8FB1;    --pink-edge: #E86490;
-    --soft-shadow: 0 8px 24px rgba(43,45,85,0.10);
-    --r-lg: 26px;
-    --r-md: 18px;
+    --line: #ECEEF7;
+    --line-2: #E1E4F2;
+
+    --violet: #6C5CE7; --violet-2: #8B7CF6;
+    --pink: #FF7AA8;   --pink-2: #FF9EC0;
+    --coral: #FF7563;  --coral-2: #FF9385;
+    --amber: #FFB23E;  --amber-2: #FFC868;
+    --green: #36C98D;  --green-2: #5BD9A6;
+    --teal: #19C8D6;   --teal-2: #57DCE6;
+    --blue: #4D96FF;   --blue-2: #74AEFF;
+    --lime: #8DD23F;   --lime-2: #A6E05F;
+
+    --good: #2FBF71; --good-edge: #259a5b;
+    --bad: #FF5A6E;  --bad-edge: #d63d50;
+
+    --shadow-sm: 0 2px 8px rgba(30,33,56,.06);
+    --shadow-md: 0 10px 30px rgba(30,33,56,.10);
+    --shadow-lg: 0 20px 48px rgba(30,33,56,.16);
+    --r-xl: 30px; --r-lg: 24px; --r-md: 16px; --r-sm: 12px;
   }
 
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
   body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     color: var(--ink);
-    background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bot) 100%);
+    background: var(--bg);
     user-select: none; -webkit-user-select: none;
   }
 
-  /* gentle drifting clouds */
-  .cloud { position: fixed; z-index: 0; opacity: .8; pointer-events: none; filter: blur(.4px); }
-  .cloud span { display:block; background:#fff; border-radius:999px; }
-  .cloud.c1 { top: 7%;  left: -120px; animation: drift 70s linear infinite; }
-  .cloud.c2 { top: 22%; left: -200px; animation: drift 95s linear infinite 12s; transform: scale(.7); }
-  .cloud.c3 { top: 70%; left: -160px; animation: drift 85s linear infinite 30s; transform: scale(.85); opacity:.6; }
-  .cloud .puff { width: 120px; height: 38px; box-shadow: 28px -16px 0 6px #fff, 58px -8px 0 2px #fff; }
-  @keyframes drift { from { transform: translateX(0); } to { transform: translateX(120vw); } }
-  @media (prefers-reduced-motion: reduce) { .cloud { animation: none !important; } .mascot { animation: none !important; } }
+  /* soft mesh-gradient atmosphere */
+  .mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .42; }
+  .blob.b1 { width: 46vw; height: 46vw; background: var(--violet); top: -12vh; left: -10vw; }
+  .blob.b2 { width: 42vw; height: 42vw; background: var(--teal); top: -8vh; right: -12vw; opacity:.34; }
+  .blob.b3 { width: 50vw; height: 50vw; background: var(--pink); bottom: -16vh; left: -8vw; opacity:.30; }
+  .blob.b4 { width: 40vw; height: 40vw; background: var(--amber); bottom: -14vh; right: -10vw; opacity:.30; }
+  @media (prefers-reduced-motion: no-preference) {
+    .blob { animation: floaty 18s ease-in-out infinite; }
+    .blob.b2 { animation-delay: -6s; } .blob.b3 { animation-delay: -9s; } .blob.b4 { animation-delay: -3s; }
+  }
+  @keyframes floaty { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(2vw,3vh) scale(1.08); } }
 
   #app {
     position: relative; z-index: 1;
     width: 100%; height: 100vh; height: 100dvh;
-    display: flex; padding: 18px;
+    display: flex; padding: 16px;
     overflow-y: auto; -webkit-overflow-scrolling: touch;
   }
   .screen {
-    width: 100%; max-width: 680px;
-    margin: auto;            /* centers when short, scrolls when tall */
+    width: 100%; max-width: 660px; margin: auto;
     display: none; flex-direction: column; align-items: center; text-align: center;
-    animation: rise .4s cubic-bezier(.22,1.2,.36,1);
-    padding-bottom: 28px;
+    animation: rise .42s cubic-bezier(.22,1.1,.32,1);
+    padding-bottom: 30px;
   }
   .screen.active { display: flex; }
-  @keyframes rise { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes rise { from { transform: translateY(16px); opacity: 0; } to { transform: none; opacity: 1; } }
 
-  h1, h2, h3 { font-family: 'Fredoka', sans-serif; font-weight: 600; margin: 0; letter-spacing: -.3px; }
-  h1 { font-size: clamp(2rem, 6vw, 2.9rem); line-height: 1.12; }
-  h2 { font-size: clamp(1.4rem, 4vw, 1.85rem); }
-  .subtitle { font-size: clamp(.98rem, 2.5vw, 1.1rem); color: var(--ink-soft); margin-top: 6px; font-weight: 700; }
+  h1,h2,h3 { font-family: 'Fredoka', sans-serif; font-weight: 600; margin: 0; letter-spacing: -.4px; }
+  h1 { font-size: clamp(1.9rem, 6vw, 2.7rem); line-height: 1.1; }
+  h2 { font-size: clamp(1.35rem, 4vw, 1.8rem); }
+  h3 { font-size: clamp(1.15rem, 3vw, 1.4rem); }
+  .subtitle { font-size: clamp(.95rem, 2.4vw, 1.08rem); color: var(--ink-soft); margin-top: 6px; font-weight: 600; }
 
-  .mascot { width: 116px; height: 116px; margin-bottom: 6px; animation: bob 2.6s ease-in-out infinite; filter: drop-shadow(0 10px 14px rgba(43,45,85,.14)); }
-  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
-
-  /* ===== Buttons: chunky press style ===== */
-  .btn {
-    font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.12rem;
-    padding: 15px 26px; border-radius: var(--r-md); border: none;
-    color: #fff; cursor: pointer; min-height: 56px;
-    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-    transition: transform .08s ease, box-shadow .08s ease, filter .15s;
+  /* ===== Greeting / hub header ===== */
+  .hub-head {
+    width: 100%; background: var(--card); border-radius: var(--r-xl);
+    box-shadow: var(--shadow-md); padding: 18px 20px; display: flex; align-items: center; gap: 14px;
+    margin-bottom: 18px; border: 1px solid var(--line);
   }
-  .btn:active { transform: translateY(4px); box-shadow: 0 0 0 transparent !important; }
-  .btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
-  .btn-green { background: var(--green); box-shadow: 0 4px 0 var(--green-edge); }
-  .btn-blue  { background: var(--blue);  box-shadow: 0 4px 0 var(--blue-edge); }
-  .btn-sun   { background: var(--sun);   box-shadow: 0 4px 0 var(--sun-edge); color: var(--ink); }
-  .btn-grape { background: var(--grape); box-shadow: 0 4px 0 var(--grape-edge); }
-  .btn-coral { background: var(--coral); box-shadow: 0 4px 0 var(--coral-edge); }
-  .btn-ghost { background: #fff; color: var(--ink); box-shadow: 0 4px 0 var(--line); border: 2px solid var(--line); }
+  .hub-head .mascot { width: 66px; height: 66px; flex-shrink: 0; animation: bob 2.8s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  .hub-head .greet { text-align: left; flex: 1; min-width: 0; }
+  .hub-head .greet h1 { font-size: clamp(1.5rem,5vw,2rem); }
+  .hub-head .greet p { margin: 2px 0 0; color: var(--ink-soft); font-weight: 600; font-size: .92rem; }
+  .star-badge {
+    display: flex; align-items: center; gap: 6px; background: linear-gradient(135deg, var(--amber), var(--amber-2));
+    color: #fff; font-family: 'Fredoka'; font-weight: 600; font-size: 1.05rem;
+    padding: 9px 14px; border-radius: 999px; box-shadow: var(--shadow-sm); flex-shrink: 0;
+  }
 
   /* ===== Hub tiles ===== */
-  .hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; width: 100%; margin-top: 24px; }
-  @media (min-width: 560px) { .hub-grid { grid-template-columns: repeat(3, 1fr); } }
+  .hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; width: 100%; }
+  @media (min-width: 540px) { .hub-grid { grid-template-columns: repeat(3, 1fr); } }
   .tile {
-    border: none; border-radius: var(--r-lg); padding: 22px 12px 18px; cursor: pointer;
-    display: flex; flex-direction: column; align-items: center; gap: 6px; min-height: 138px; justify-content: center;
-    color: #fff; transition: transform .1s ease, box-shadow .1s ease;
+    position: relative; border: none; border-radius: var(--r-lg); padding: 20px 14px 18px; cursor: pointer;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-height: 134px; justify-content: flex-end;
+    color: #fff; overflow: hidden; text-align: left;
+    box-shadow: var(--shadow-md); transition: transform .14s cubic-bezier(.22,1.1,.32,1), box-shadow .14s;
   }
-  .tile:active { transform: translateY(4px); box-shadow: 0 0 0 transparent !important; }
-  .tile .icon { font-size: 2.7rem; line-height: 1; filter: drop-shadow(0 3px 4px rgba(0,0,0,.12)); }
-  .tile .label { font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.18rem; }
-  .tile .sub { font-size: .8rem; font-weight: 800; opacity: .92; }
-  .tile.t-math    { background: linear-gradient(160deg, #FFC83D, #FFA51F); box-shadow: 0 5px 0 var(--sun-edge), var(--soft-shadow); color: var(--ink); }
-  .tile.t-read    { background: linear-gradient(160deg, #9069E0, #6F47CB); box-shadow: 0 5px 0 var(--grape-edge), var(--soft-shadow); }
-  .tile.t-coder   { background: linear-gradient(160deg, #1CB0F6, #0E8FD0); box-shadow: 0 5px 0 var(--blue-edge), var(--soft-shadow); }
-  .tile.t-pattern { background: linear-gradient(160deg, #FF7864, #F3543E); box-shadow: 0 5px 0 var(--coral-edge), var(--soft-shadow); }
-  .tile.t-memory  { background: linear-gradient(160deg, #FF8FB1, #F76794); box-shadow: 0 5px 0 var(--pink-edge), var(--soft-shadow); }
-  .tile.t-tables  { background: linear-gradient(160deg, #58CC02, #43A102); box-shadow: 0 5px 0 var(--green-edge), var(--soft-shadow); }
+  .tile::before {
+    content: ''; position: absolute; inset: 0; background: var(--grad); z-index: 0;
+  }
+  .tile::after {
+    content: ''; position: absolute; top: -30%; right: -20%; width: 120px; height: 120px; border-radius: 50%;
+    background: rgba(255,255,255,.18); z-index: 1;
+  }
+  .tile:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .tile:active { transform: translateY(-1px) scale(.98); }
+  .tile > * { position: relative; z-index: 2; }
+  .tile .ic { font-size: 2.5rem; line-height: 1; margin-bottom: auto; filter: drop-shadow(0 3px 5px rgba(0,0,0,.16)); }
+  .tile .nm { font-family: 'Fredoka'; font-weight: 600; font-size: 1.16rem; }
+  .tile .ds { font-size: .76rem; font-weight: 700; opacity: .92; }
+  .tile .lvl {
+    position: absolute; top: 12px; right: 12px; z-index: 3; background: rgba(255,255,255,.95); color: var(--ink);
+    font-family: 'Fredoka'; font-weight: 600; font-size: .72rem; padding: 4px 9px; border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.12); letter-spacing: .2px;
+  }
 
-  /* ===== Choice cards (operations, difficulty, reading modes) ===== */
-  .choice-grid { display: grid; gap: 14px; width: 100%; margin-top: 22px; }
-  .choice-grid.cols-2 { grid-template-columns: 1fr 1fr; }
-  .choice-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-  .choice-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
-  @media (min-width: 560px) { .choice-grid.cols-4 { grid-template-columns: repeat(4, 1fr); } }
-
-  .choice-card {
-    background: var(--card); border: 2px solid var(--line); border-radius: var(--r-lg);
-    padding: 20px 12px; cursor: pointer; box-shadow: var(--soft-shadow);
-    display: flex; flex-direction: column; align-items: center; gap: 7px; min-height: 126px; justify-content: center;
-    transition: transform .12s ease, border-color .15s;
+  /* ===== Buttons ===== */
+  .btn {
+    font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.08rem;
+    padding: 14px 24px; border-radius: var(--r-md); border: none; color: #fff; cursor: pointer; min-height: 54px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    transition: transform .1s, filter .15s, box-shadow .15s; box-shadow: var(--shadow-sm);
   }
-  .choice-card:hover { transform: translateY(-3px); border-color: var(--blue); }
-  .choice-card:active { transform: translateY(2px) scale(.98); }
-  .choice-card .icon { font-size: 2.6rem; line-height: 1; }
-  .choice-card .label { font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.12rem; }
-  .choice-card .sub { font-size: .82rem; color: var(--ink-soft); font-weight: 800; }
-  .choice-card .chip {
-    font-size: .72rem; font-weight: 900; letter-spacing: .4px; text-transform: uppercase;
-    padding: 4px 10px; border-radius: 999px; color: #fff;
-  }
-  .chip.add { background: var(--sun); color: var(--ink); } .chip.sub { background: var(--coral); }
-  .chip.mul { background: var(--green); } .chip.div { background: var(--blue); }
-  .chip.easy { background: var(--green); } .chip.med { background: var(--sun); color: var(--ink); } .chip.hard { background: var(--coral); }
+  .btn:hover { filter: brightness(1.04); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .btn:active { transform: translateY(1px); filter: brightness(.97); }
+  .btn:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
+  .btn-primary { background: linear-gradient(135deg, var(--violet), var(--violet-2)); }
+  .btn-green { background: linear-gradient(135deg, var(--green), var(--green-2)); }
+  .btn-blue  { background: linear-gradient(135deg, var(--blue), var(--blue-2)); }
+  .btn-amber { background: linear-gradient(135deg, var(--amber), var(--amber-2)); color: var(--ink); }
+  .btn-coral { background: linear-gradient(135deg, var(--coral), var(--coral-2)); }
+  .btn-pink  { background: linear-gradient(135deg, var(--pink), var(--pink-2)); }
+  .btn-ghost { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 2px var(--line-2), var(--shadow-sm); }
 
   /* ===== Topbar ===== */
   .topbar {
-    width: 100%; max-width: 680px; display: flex; justify-content: space-between; align-items: center;
-    padding: 8px 2px 12px; gap: 12px;
-    position: sticky; top: -8px; z-index: 20;
-    background: linear-gradient(180deg, rgba(234,244,255,.97) 0%, rgba(234,244,255,.9) 70%, rgba(234,244,255,0) 100%);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    width: 100%; max-width: 660px; display: flex; justify-content: space-between; align-items: center;
+    padding: 6px 0 12px; gap: 12px; position: sticky; top: -6px; z-index: 20;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg) 62%, rgba(246,247,253,0) 100%);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   }
   .back-btn {
-    width: 48px; height: 48px; border-radius: 14px; border: 2px solid var(--line);
-    background: #fff; font-size: 1.35rem; cursor: pointer; box-shadow: 0 3px 0 var(--line);
-    display: flex; align-items: center; justify-content: center; color: var(--ink-soft);
-    font-family: 'Fredoka', sans-serif; transition: transform .08s;
+    width: 46px; height: 46px; border-radius: 14px; border: none; background: #fff;
+    font-size: 1.3rem; cursor: pointer; box-shadow: var(--shadow-sm); color: var(--ink-soft);
+    display: flex; align-items: center; justify-content: center; font-family: 'Fredoka'; transition: transform .1s;
   }
-  .back-btn:active { transform: translateY(3px); box-shadow: none; }
+  .back-btn:active { transform: scale(.92); }
   .progress-area { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: center; }
-  .progress-bar {
-    flex: 1; max-width: 240px; height: 16px; background: #fff;
-    border-radius: 999px; border: 2px solid var(--line); overflow: hidden;
-  }
-  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--green), #8EE000); width: 0%; border-radius: 999px; transition: width .5s cubic-bezier(.22,1.2,.36,1); }
+  .progress-bar { flex: 1; max-width: 230px; height: 14px; background: #fff; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line-2); overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--teal)); width: 0%; border-radius: 999px; transition: width .5s cubic-bezier(.22,1.1,.32,1); }
   .star-count {
-    background: #fff; border: 2px solid var(--line); padding: 7px 14px; border-radius: 999px;
-    font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.02rem;
-    box-shadow: 0 3px 0 var(--line); display: flex; align-items: center; gap: 5px; white-space: nowrap;
+    background: #fff; padding: 7px 13px; border-radius: 999px; font-family: 'Fredoka'; font-weight: 600;
+    font-size: 1rem; box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 5px; white-space: nowrap;
   }
 
-  /* ===== Game card ===== */
-  .game-card {
-    background: var(--card); border: 2px solid var(--line); border-radius: var(--r-lg);
-    padding: 26px 20px; width: 100%; box-shadow: var(--soft-shadow);
-  }
-  .qcount { font-size: .85rem; font-weight: 900; color: var(--ink-soft); letter-spacing: .5px; text-transform: uppercase; }
+  /* ===== Cards ===== */
+  .game-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-xl); padding: 24px 20px; width: 100%; box-shadow: var(--shadow-md); }
+  .qcount { font-size: .78rem; font-weight: 800; color: var(--ink-soft); letter-spacing: .6px; text-transform: uppercase; }
 
-  .problem-display {
-    font-family: 'Fredoka', sans-serif; font-size: clamp(2.6rem, 8vw, 4rem); font-weight: 600;
-    text-align: center; margin: 6px 0 14px; line-height: 1.1;
+  /* ===== Choice cards ===== */
+  .choice-grid { display: grid; gap: 13px; width: 100%; margin-top: 20px; }
+  .choice-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+  .choice-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .choice-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 540px) { .choice-grid.cols-4 { grid-template-columns: repeat(4, 1fr); } }
+  .choice-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 18px 12px; cursor: pointer;
+    box-shadow: var(--shadow-sm); display: flex; flex-direction: column; align-items: center; gap: 6px; min-height: 120px; justify-content: center;
+    transition: transform .12s, box-shadow .15s, border-color .15s;
   }
+  .choice-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--line-2); }
+  .choice-card:active { transform: scale(.97); }
+  .choice-card .icon { font-size: 2.5rem; line-height: 1; }
+  .choice-card .label { font-family: 'Fredoka'; font-weight: 600; font-size: 1.08rem; }
+  .choice-card .sub { font-size: .8rem; color: var(--ink-soft); font-weight: 700; }
+  .chip { font-size: .68rem; font-weight: 800; letter-spacing: .3px; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; color: #fff; }
+  .chip.add { background: var(--amber); color: var(--ink); } .chip.sub { background: var(--coral); }
+  .chip.mul { background: var(--green); } .chip.div { background: var(--blue); }
+  .chip.easy { background: var(--green); } .chip.med { background: var(--amber); color: var(--ink); } .chip.hard { background: var(--coral); }
+
+  /* ===== Problem / math ===== */
+  .problem-display { font-family: 'Fredoka'; font-size: clamp(2.6rem, 8vw, 3.8rem); font-weight: 600; margin: 6px 0 14px; line-height: 1.1; }
   .problem-display .op { color: var(--coral); margin: 0 8px; }
   .problem-display .equals { color: var(--ink-soft); margin: 0 8px; }
-  .problem-display .blank { display: inline-block; min-width: 76px; border-bottom: 5px dashed var(--sun-edge); padding: 0 8px; color: var(--sun-edge); }
+  .problem-display .blank { display: inline-block; min-width: 74px; border-bottom: 5px dashed var(--amber); padding: 0 8px; color: var(--amber); }
 
-  /* ===== Visual counters ===== */
-  .visual-area {
-    background: #F6F9FF; border: 2px dashed #C9D6EE; border-radius: var(--r-md);
-    padding: 14px; margin: 12px 0; min-height: 92px;
-    display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center;
-  }
-  .visual-group { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px; background: #fff; border-radius: 14px; border: 2px solid var(--line); align-items: center; justify-content: center; max-width: 100%; }
+  .visual-area { background: #F8F9FE; border: 1px solid var(--line); border-radius: var(--r-md); padding: 14px; margin: 12px 0; min-height: 88px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; }
+  .visual-group { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px; background: #fff; border-radius: 14px; box-shadow: var(--shadow-sm); align-items: center; justify-content: center; max-width: 100%; }
   .visual-item { font-size: 1.7rem; line-height: 1; animation: popS .3s cubic-bezier(.34,1.56,.64,1); }
-  .visual-item.crossed { opacity: .3; text-decoration: line-through; text-decoration-color: var(--coral); text-decoration-thickness: 4px; }
+  .visual-item.crossed { opacity: .28; text-decoration: line-through; text-decoration-color: var(--coral); text-decoration-thickness: 4px; }
   @keyframes popS { from { transform: scale(0); } to { transform: scale(1); } }
-  .visual-plus { font-family: 'Fredoka', sans-serif; font-size: 1.9rem; font-weight: 600; color: var(--coral); padding: 0 4px; }
-
+  .visual-plus { font-family: 'Fredoka'; font-size: 1.9rem; font-weight: 600; color: var(--coral); padding: 0 4px; }
   .pv-row { display: flex; align-items: flex-end; gap: 14px; padding: 6px; flex-wrap: wrap; justify-content: center; }
   .pv-group { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .pv-label { font-size: .72rem; font-weight: 900; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .3px; }
+  .pv-label { font-size: .7rem; font-weight: 800; color: var(--ink-soft); text-transform: uppercase; }
   .pv-blocks { display: flex; flex-wrap: wrap; gap: 4px; max-width: 200px; justify-content: center; }
-  .pv-hundred { width: 34px; height: 34px; background: linear-gradient(135deg, var(--grape), var(--blue)); border-radius: 6px;
-    background-image: linear-gradient(0deg, rgba(255,255,255,.35) 50%, transparent 50%), linear-gradient(90deg, rgba(255,255,255,.35) 50%, transparent 50%); background-size: 5px 5px; }
+  .pv-hundred { width: 34px; height: 34px; background: linear-gradient(135deg, var(--violet), var(--blue)); border-radius: 6px; background-image: linear-gradient(0deg, rgba(255,255,255,.35) 50%, transparent 50%), linear-gradient(90deg, rgba(255,255,255,.35) 50%, transparent 50%); background-size: 5px 5px; }
   .pv-ten { width: 10px; height: 34px; background: var(--green); border-radius: 4px; }
-  .pv-one { width: 11px; height: 11px; background: var(--sun); border-radius: 3px; }
+  .pv-one { width: 11px; height: 11px; background: var(--amber); border-radius: 3px; }
 
-  /* ===== Answers ===== */
   .answer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
-  .answer-btn {
-    font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.8rem; padding: 16px;
-    border-radius: var(--r-md); border: 2px solid var(--line); background: #fff; color: var(--ink);
-    cursor: pointer; box-shadow: 0 4px 0 var(--line); transition: transform .1s, background .2s, color .2s;
-    min-height: 74px;
-  }
-  .answer-btn:hover { transform: translateY(-2px); border-color: var(--blue); }
-  .answer-btn:active { transform: translateY(3px); box-shadow: none; }
-  .answer-btn.correct { background: var(--green); border-color: var(--green-edge); box-shadow: 0 4px 0 var(--green-edge); color: #fff; animation: winB .55s ease; }
-  .answer-btn.wrong { background: var(--coral); border-color: var(--coral-edge); box-shadow: 0 4px 0 var(--coral-edge); color: #fff; animation: shake .45s ease; }
-  .answer-btn:disabled { cursor: not-allowed; opacity: .75; }
-  @keyframes winB { 30% { transform: scale(1.12); } 60% { transform: scale(.96); } }
+  .answer-btn { font-family: 'Fredoka'; font-weight: 600; font-size: 1.8rem; padding: 16px; border-radius: var(--r-md); border: 1px solid var(--line-2); background: #fff; color: var(--ink); cursor: pointer; box-shadow: var(--shadow-sm); transition: transform .1s, background .2s, color .2s, box-shadow .2s; min-height: 72px; }
+  .answer-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .answer-btn:active { transform: scale(.97); }
+  .answer-btn.correct { background: linear-gradient(135deg, var(--good), #45d488); border-color: var(--good-edge); color: #fff; animation: winB .55s ease; }
+  .answer-btn.wrong { background: linear-gradient(135deg, var(--bad), #ff7d8c); border-color: var(--bad-edge); color: #fff; animation: shake .45s ease; }
+  .answer-btn:disabled { cursor: not-allowed; opacity: .8; }
+  @keyframes winB { 30% { transform: scale(1.1); } 60% { transform: scale(.96); } }
   @keyframes shake { 20%,60% { transform: translateX(-7px); } 40%,80% { transform: translateX(7px); } }
 
   /* ===== Reading ===== */
-  .word-display { font-family: 'Fredoka', sans-serif; font-size: clamp(2.8rem, 10vw, 4.6rem); font-weight: 600; letter-spacing: 5px; margin: 16px 0; cursor: pointer; }
+  .word-display { font-family: 'Fredoka'; font-size: clamp(2.8rem, 10vw, 4.4rem); font-weight: 600; letter-spacing: 5px; margin: 16px 0; cursor: pointer; }
   .word-display .letter { display: inline-block; transition: color .3s, transform .3s; padding: 0 2px; }
   .word-display .letter.highlight { color: var(--coral); transform: translateY(-10px) scale(1.18); }
-  .sentence-display { font-family: 'Fredoka', sans-serif; font-size: clamp(1.4rem, 4.5vw, 2.1rem); font-weight: 500; line-height: 1.55; margin: 16px 0; }
-  .sentence-display .word { display: inline-block; padding: 4px 10px; margin: 3px; border-radius: 12px; background: #FFF2CF; cursor: pointer; transition: background .2s, transform .2s; }
-  .sentence-display .word:hover { background: #FFE49A; transform: translateY(-2px); }
+  .sentence-display { font-family: 'Fredoka'; font-size: clamp(1.4rem, 4.5vw, 2rem); font-weight: 500; line-height: 1.55; margin: 16px 0; }
+  .sentence-display .word { display: inline-block; padding: 4px 10px; margin: 3px; border-radius: 12px; background: #FFF1D6; cursor: pointer; transition: background .2s, transform .2s; }
+  .sentence-display .word:hover { background: #FFE3AC; transform: translateY(-2px); }
   .sentence-display .word.highlight { background: var(--coral); color: #fff; }
   .reading-controls { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 16px; }
-  .reading-controls .btn { font-size: 1rem; padding: 13px 18px; min-height: 52px; }
-  .hint { font-size: .9rem; color: var(--ink-soft); margin-top: 8px; font-weight: 800; }
+  .reading-controls .btn { font-size: 1rem; padding: 12px 18px; min-height: 50px; }
+  .hint { font-size: .88rem; color: var(--ink-soft); margin-top: 8px; font-weight: 700; }
 
-  /* ===== Example / how-to ===== */
-  .example-card { background: var(--card); border: 2px solid var(--line); border-radius: var(--r-lg); padding: 24px 20px; margin-top: 16px; width: 100%; box-shadow: var(--soft-shadow); }
-  .example-card h3 { margin-bottom: 12px; color: var(--ink); font-size: 1.25rem; }
-  .example-step { text-align: left; margin: 10px 0; font-size: 1rem; font-weight: 700; line-height: 1.5; display: flex; align-items: flex-start; gap: 11px; color: var(--ink); }
-  .step-num { background: var(--sun); border-radius: 50%; width: 32px; height: 32px; min-width: 32px; display: flex; align-items: center; justify-content: center; font-family: 'Fredoka', sans-serif; font-weight: 600; box-shadow: 0 2px 0 var(--sun-edge); }
+  /* ===== Example ===== */
+  .example-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-xl); padding: 24px 20px; margin-top: 16px; width: 100%; box-shadow: var(--shadow-md); }
+  .example-card h3 { margin-bottom: 12px; }
+  .example-step { text-align: left; margin: 10px 0; font-size: 1rem; font-weight: 600; line-height: 1.5; display: flex; align-items: flex-start; gap: 11px; }
+  .step-num { background: linear-gradient(135deg, var(--amber), var(--amber-2)); border-radius: 50%; width: 32px; height: 32px; min-width: 32px; display: flex; align-items: center; justify-content: center; font-family: 'Fredoka'; font-weight: 600; color: #fff; box-shadow: var(--shadow-sm); }
 
   /* ===== Times tables ===== */
   .tables-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%; margin-top: 18px; }
-  @media (min-width: 560px) { .tables-grid { grid-template-columns: repeat(4, 1fr); } }
-  .table-pick-btn {
-    border: none; border-radius: var(--r-md); padding: 20px 10px; cursor: pointer;
-    font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.8rem; color: #fff;
-    display: flex; align-items: center; justify-content: center; gap: 3px; min-height: 84px;
-    transition: transform .1s;
-  }
-  .table-pick-btn:active { transform: translateY(4px); box-shadow: none !important; }
-  .table-pick-btn .x { font-size: 1.2rem; opacity: .85; }
-  .table-pick-btn:nth-child(6n+1) { background: var(--sun); box-shadow: 0 4px 0 var(--sun-edge); color: var(--ink); }
-  .table-pick-btn:nth-child(6n+2) { background: var(--coral); box-shadow: 0 4px 0 var(--coral-edge); }
-  .table-pick-btn:nth-child(6n+3) { background: var(--green); box-shadow: 0 4px 0 var(--green-edge); }
-  .table-pick-btn:nth-child(6n+4) { background: var(--blue); box-shadow: 0 4px 0 var(--blue-edge); }
-  .table-pick-btn:nth-child(6n+5) { background: var(--grape); box-shadow: 0 4px 0 var(--grape-edge); }
-  .table-pick-btn:nth-child(6n)   { background: var(--pink); box-shadow: 0 4px 0 var(--pink-edge); }
-
-  .skip-label { font-family: 'Fredoka', sans-serif; font-weight: 500; font-size: .95rem; color: var(--ink-soft); margin: 6px 0 -2px; }
-  .skip-strip { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 10px 0; padding: 13px; background: #fff; border: 2px solid var(--line); border-radius: var(--r-md); width: 100%; box-shadow: var(--soft-shadow); }
-  .skip-num { background: #F6F9FF; border: 2px solid var(--line); border-radius: 11px; padding: 7px 11px; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.05rem; min-width: 42px; text-align: center; transition: transform .25s, background .25s, color .25s; cursor: pointer; }
-  .skip-num.active { background: var(--coral); border-color: var(--coral-edge); color: #fff; transform: scale(1.2) translateY(-3px); }
-
+  @media (min-width: 540px) { .tables-grid { grid-template-columns: repeat(4, 1fr); } }
+  .table-pick-btn { border: none; border-radius: var(--r-md); padding: 18px 10px; cursor: pointer; font-family: 'Fredoka'; font-weight: 600; font-size: 1.7rem; color: #fff; display: flex; align-items: center; justify-content: center; gap: 3px; min-height: 80px; box-shadow: var(--shadow-sm); transition: transform .1s, box-shadow .15s; }
+  .table-pick-btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .table-pick-btn:active { transform: scale(.96); }
+  .table-pick-btn .x { font-size: 1.1rem; opacity: .8; }
+  .table-pick-btn:nth-child(6n+1){background:linear-gradient(135deg,var(--amber),var(--amber-2));color:var(--ink);}
+  .table-pick-btn:nth-child(6n+2){background:linear-gradient(135deg,var(--coral),var(--coral-2));}
+  .table-pick-btn:nth-child(6n+3){background:linear-gradient(135deg,var(--green),var(--green-2));}
+  .table-pick-btn:nth-child(6n+4){background:linear-gradient(135deg,var(--blue),var(--blue-2));}
+  .table-pick-btn:nth-child(6n+5){background:linear-gradient(135deg,var(--violet),var(--violet-2));}
+  .table-pick-btn:nth-child(6n){background:linear-gradient(135deg,var(--pink),var(--pink-2));}
+  .skip-label { font-family: 'Fredoka'; font-weight: 500; font-size: .92rem; color: var(--ink-soft); margin: 6px 0 -2px; }
+  .skip-strip { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 10px 0; padding: 13px; background: #fff; border-radius: var(--r-md); width: 100%; box-shadow: var(--shadow-sm); }
+  .skip-num { background: #F6F7FD; border-radius: 11px; padding: 7px 11px; font-family: 'Fredoka'; font-weight: 600; font-size: 1.02rem; min-width: 42px; text-align: center; transition: transform .25s, background .25s, color .25s; cursor: pointer; box-shadow: inset 0 0 0 1px var(--line-2); }
+  .skip-num.active { background: linear-gradient(135deg, var(--coral), var(--coral-2)); color: #fff; transform: scale(1.18) translateY(-3px); box-shadow: var(--shadow-sm); }
   .table-rows { display: flex; flex-direction: column; gap: 8px; width: 100%; margin: 8px 0; }
-  .table-row { display: flex; align-items: center; gap: 12px; padding: 11px 14px; background: #fff; border: 2px solid var(--line); border-radius: var(--r-md); box-shadow: 0 3px 0 var(--line); cursor: pointer; transition: transform .12s, background .2s; }
-  .table-row:active { transform: translateY(2px); box-shadow: none; }
-  .table-row.active { background: #FFF2CF; border-color: var(--sun-edge); transform: scale(1.02); }
-  .table-row .fact { font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.15rem; min-width: 126px; flex-shrink: 0; text-align: left; }
-  .table-row .equals { color: var(--coral); margin: 0 4px; }
-  .table-row .answer { color: var(--green-edge); }
+  .table-row { display: flex; align-items: center; gap: 12px; padding: 11px 14px; background: #fff; border-radius: var(--r-md); box-shadow: var(--shadow-sm); cursor: pointer; transition: transform .12s, background .2s; }
+  .table-row:active { transform: scale(.99); }
+  .table-row.active { background: linear-gradient(135deg, #FFF6E4, #FFEFD0); }
+  .table-row .fact { font-family: 'Fredoka'; font-weight: 600; font-size: 1.12rem; min-width: 124px; flex-shrink: 0; text-align: left; }
+  .table-row .equals { color: var(--coral); margin: 0 4px; } .table-row .answer { color: var(--green); }
   .dots-wrap { flex: 1; display: flex; justify-content: center; min-width: 0; }
-  .dots-arr { display: grid; gap: 2px; }
-  .dots-arr .dot { background: var(--blue); border-radius: 50%; }
-  .table-row.active .dots-arr .dot { background: var(--ink); }
-  .table-row .play-icon { font-size: 1rem; opacity: .5; flex-shrink: 0; }
+  .dots-arr { display: grid; gap: 2px; } .dots-arr .dot { background: var(--blue); border-radius: 50%; }
+  .table-row.active .dots-arr .dot { background: var(--ink); } .table-row .play-icon { font-size: 1rem; opacity: .5; flex-shrink: 0; }
 
   /* ===== Robot Coder ===== */
-  .coder-wrap { width: 100%; display: flex; flex-direction: column; gap: 14px; align-items: center; }
-  .coder-board {
-    position: relative; background: #fff; border: 2px solid var(--line); border-radius: var(--r-lg);
-    box-shadow: var(--soft-shadow); padding: 12px; width: 100%; max-width: 380px;
-  }
+  .coder-wrap { width: 100%; display: flex; flex-direction: column; gap: 13px; align-items: center; }
+  .coder-board { position: relative; background: #fff; border-radius: var(--r-lg); box-shadow: var(--shadow-md); padding: 12px; width: 100%; max-width: 360px; }
   .coder-grid { display: grid; gap: 6px; position: relative; }
-  .coder-cell { aspect-ratio: 1; background: #F2F7FF; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; }
-  .coder-cell.wall { background: #DEE6F2; }
-  .coder-cell.goal { background: #FFF2CF; }
-  .robot {
-    position: absolute; display: flex; align-items: center; justify-content: center;
-    font-size: 2rem; pointer-events: none; z-index: 5;
-    transition: left .38s cubic-bezier(.3,1.1,.4,1), top .38s cubic-bezier(.3,1.1,.4,1);
-    filter: drop-shadow(0 4px 6px rgba(43,45,85,.25));
-  }
+  .coder-cell { aspect-ratio: 1; background: #F2F5FE; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; }
+  .coder-cell.wall { background: #DCE2F2; }
+  .coder-cell.goal { background: linear-gradient(135deg, #FFF1D6, #FFE3AC); }
+  .robot { position: absolute; display: flex; align-items: center; justify-content: center; font-size: 1.9rem; pointer-events: none; z-index: 5; transition: left .36s cubic-bezier(.3,1.1,.4,1), top .36s cubic-bezier(.3,1.1,.4,1); filter: drop-shadow(0 4px 6px rgba(30,33,56,.25)); }
   .robot.bump { animation: shake .4s ease; }
-  .program-strip {
-    width: 100%; min-height: 62px; background: #fff; border: 2px dashed #C9D6EE; border-radius: var(--r-md);
-    display: flex; flex-wrap: wrap; gap: 7px; align-items: center; padding: 9px; justify-content: center;
-  }
-  .program-strip .empty-hint { color: var(--ink-soft); font-weight: 800; font-size: .88rem; }
-  .cmd-chip {
-    width: 44px; height: 44px; border-radius: 12px; background: var(--blue); color: #fff;
-    box-shadow: 0 3px 0 var(--blue-edge); border: none; font-size: 1.25rem; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    animation: popS .25s cubic-bezier(.34,1.56,.64,1);
-  }
-  .cmd-chip.running { background: var(--sun); box-shadow: 0 3px 0 var(--sun-edge); color: var(--ink); transform: scale(1.15); }
-  .coder-pad { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-  .pad-btn {
-    width: 60px; height: 60px; border-radius: var(--r-md); border: none; font-size: 1.6rem;
-    background: var(--grape); color: #fff; box-shadow: 0 4px 0 var(--grape-edge); cursor: pointer;
-    transition: transform .08s;
-  }
-  .pad-btn:active { transform: translateY(4px); box-shadow: none; }
+  .program-strip { width: 100%; min-height: 60px; background: #fff; border: 2px dashed var(--line-2); border-radius: var(--r-md); display: flex; flex-wrap: wrap; gap: 7px; align-items: center; padding: 9px; justify-content: center; }
+  .program-strip .empty-hint { color: var(--ink-soft); font-weight: 700; font-size: .86rem; }
+  .cmd-chip { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, var(--blue), var(--blue-2)); color: #fff; box-shadow: var(--shadow-sm); border: none; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; animation: popS .25s cubic-bezier(.34,1.56,.64,1); }
+  .cmd-chip.loop { background: linear-gradient(135deg, var(--violet), var(--violet-2)); }
+  .cmd-chip.running { transform: scale(1.16); filter: brightness(1.15) saturate(1.3); box-shadow: var(--shadow-md); }
+  .coder-pad { display: flex; gap: 9px; justify-content: center; flex-wrap: wrap; }
+  .pad-btn { width: 56px; height: 56px; border-radius: var(--r-md); border: none; font-size: 1.5rem; background: linear-gradient(135deg, var(--violet), var(--violet-2)); color: #fff; box-shadow: var(--shadow-sm); cursor: pointer; transition: transform .1s; }
+  .pad-btn:active { transform: scale(.9); }
+  .pad-btn.loop-btn { background: linear-gradient(135deg, var(--pink), var(--pink-2)); font-family: 'Fredoka'; font-weight: 600; font-size: 1rem; }
   .coder-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-  .level-pill { font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1rem; background: #fff; border: 2px solid var(--line); border-radius: 999px; padding: 6px 16px; box-shadow: 0 3px 0 var(--line); }
+  .level-pill { font-family: 'Fredoka'; font-weight: 600; font-size: .98rem; background: #fff; border-radius: 999px; padding: 6px 16px; box-shadow: var(--shadow-sm); }
 
-  /* ===== Pattern game ===== */
+  /* ===== Patterns ===== */
   .pattern-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; margin: 14px 0; }
-  .pattern-cell {
-    width: 60px; height: 60px; border-radius: var(--r-md); background: #F6F9FF; border: 2px solid var(--line);
-    display: flex; align-items: center; justify-content: center; font-size: 2rem;
-    font-family: 'Fredoka', sans-serif; font-weight: 600;
-  }
-  .pattern-cell.missing { background: #FFF2CF; border: 3px dashed var(--sun-edge); color: var(--sun-edge); font-size: 1.7rem; }
+  .pattern-cell { width: 58px; height: 58px; border-radius: var(--r-md); background: #F6F7FD; box-shadow: inset 0 0 0 1px var(--line-2); display: flex; align-items: center; justify-content: center; font-size: 1.9rem; font-family: 'Fredoka'; font-weight: 600; }
+  .pattern-cell.missing { background: linear-gradient(135deg, #FFF6E4, #FFEFD0); box-shadow: inset 0 0 0 2px var(--amber); color: var(--amber); }
   .pattern-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px; }
-  .pattern-opt {
-    aspect-ratio: 1; border-radius: var(--r-md); border: 2px solid var(--line); background: #fff;
-    font-size: 2rem; cursor: pointer; box-shadow: 0 4px 0 var(--line); transition: transform .1s;
-    font-family: 'Fredoka', sans-serif; font-weight: 600; color: var(--ink);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .pattern-opt:active { transform: translateY(3px); box-shadow: none; }
-  .pattern-opt.correct { background: var(--green); border-color: var(--green-edge); box-shadow: 0 4px 0 var(--green-edge); color: #fff; animation: winB .55s ease; }
-  .pattern-opt.wrong { background: var(--coral); border-color: var(--coral-edge); box-shadow: 0 4px 0 var(--coral-edge); color: #fff; animation: shake .45s ease; }
+  .pattern-opt { aspect-ratio: 1; border-radius: var(--r-md); border: 1px solid var(--line-2); background: #fff; font-size: 1.9rem; cursor: pointer; box-shadow: var(--shadow-sm); transition: transform .1s, box-shadow .15s; font-family: 'Fredoka'; font-weight: 600; color: var(--ink); display: flex; align-items: center; justify-content: center; }
+  .pattern-opt:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .pattern-opt:active { transform: scale(.95); }
+  .pattern-opt.correct { background: linear-gradient(135deg, var(--good), #45d488); border-color: var(--good-edge); color: #fff; animation: winB .55s ease; }
+  .pattern-opt.wrong { background: linear-gradient(135deg, var(--bad), #ff7d8c); border-color: var(--bad-edge); color: #fff; animation: shake .45s ease; }
 
-  /* ===== Memory match ===== */
-  .memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; width: 100%; max-width: 420px; margin: 12px auto 0; }
-  .mem-card { aspect-ratio: 3/3.6; perspective: 600px; cursor: pointer; }
-  .mem-inner { position: relative; width: 100%; height: 100%; transition: transform .45s cubic-bezier(.3,1.1,.4,1); transform-style: preserve-3d; }
+  /* ===== Odd One Out ===== */
+  .odd-grid { display: grid; gap: 12px; width: 100%; max-width: 420px; margin: 16px auto 0; }
+  .odd-cell { aspect-ratio: 1; border-radius: var(--r-lg); border: 1px solid var(--line-2); background: #fff; font-size: 2.6rem; cursor: pointer; box-shadow: var(--shadow-sm); transition: transform .1s, box-shadow .15s; display: flex; align-items: center; justify-content: center; }
+  .odd-cell:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .odd-cell:active { transform: scale(.95); }
+  .odd-cell.correct { background: linear-gradient(135deg, var(--good), #45d488); color: #fff; animation: winB .55s ease; }
+  .odd-cell.wrong { background: linear-gradient(135deg, var(--bad), #ff7d8c); color: #fff; animation: shake .45s ease; }
+  .odd-cell.dim { opacity: .4; }
+
+  /* ===== Hungry Croc (compare) ===== */
+  .croc-arena { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 18px 0 8px; }
+  .croc-num { flex: 1; max-width: 150px; aspect-ratio: 1.1; border-radius: var(--r-lg); border: none; cursor: pointer; font-family: 'Fredoka'; font-weight: 600; font-size: clamp(2.2rem, 9vw, 3.4rem); color: #fff; box-shadow: var(--shadow-md); transition: transform .12s, box-shadow .15s; display: flex; align-items: center; justify-content: center; }
+  .croc-num.left { background: linear-gradient(135deg, var(--blue), var(--blue-2)); }
+  .croc-num.right { background: linear-gradient(135deg, var(--violet), var(--violet-2)); }
+  .croc-num:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .croc-num:active { transform: scale(.96); }
+  .croc-num.win { animation: winB .55s ease; }
+  .croc-num.lose { opacity: .5; }
+  .croc-mid { font-size: 2.6rem; transition: transform .35s cubic-bezier(.3,1.3,.4,1); }
+  .croc-mid.eat-left { transform: scaleX(-1) translateX(8px); }
+  .croc-mid.eat-right { transform: translateX(8px); }
+  .croc-hint { color: var(--ink-soft); font-weight: 700; font-size: .92rem; margin-top: 4px; }
+
+  /* ===== Memory ===== */
+  .memory-grid { display: grid; gap: 9px; width: 100%; max-width: 440px; margin: 14px auto 0; }
+  .mem-card { aspect-ratio: 1; perspective: 600px; cursor: pointer; }
+  .mem-inner { position: relative; width: 100%; height: 100%; transition: transform .42s cubic-bezier(.3,1.1,.4,1); transform-style: preserve-3d; }
   .mem-card.flipped .mem-inner, .mem-card.matched .mem-inner { transform: rotateY(180deg); }
-  .mem-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 16px; display: flex; align-items: center; justify-content: center; }
-  .mem-back { background: linear-gradient(160deg, var(--blue), #0E8FD0); box-shadow: 0 4px 0 var(--blue-edge); font-size: 1.6rem; }
-  .mem-front { background: #fff; border: 2px solid var(--line); box-shadow: 0 4px 0 var(--line); transform: rotateY(180deg); font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 2rem; color: var(--ink); flex-direction: column; gap: 2px; }
-  .mem-card.matched .mem-front { background: #EDFBE3; border-color: var(--green); box-shadow: 0 4px 0 var(--green-edge); }
-  .mem-dots { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; max-width: 70%; }
-  .mem-dots i { width: 13px; height: 13px; border-radius: 50%; background: var(--coral); display: block; }
-  .moves-pill { font-weight: 900; font-size: .9rem; color: var(--ink-soft); margin-top: 10px; }
+  .mem-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); }
+  .mem-back { background: linear-gradient(135deg, var(--violet), var(--teal)); font-size: 1.5rem; color: #fff; }
+  .mem-front { background: #fff; border: 1px solid var(--line-2); transform: rotateY(180deg); font-size: clamp(1.6rem, 7vw, 2.4rem); }
+  .mem-card.matched .mem-front { background: linear-gradient(135deg, #E7FBF1, #D6F7E6); box-shadow: inset 0 0 0 2px var(--green); animation: matchPop .5s ease; }
+  @keyframes matchPop { 30% { transform: rotateY(180deg) scale(1.1); } }
+  .moves-pill { font-weight: 800; font-size: .88rem; color: var(--ink-soft); margin-top: 12px; }
 
   /* ===== Celebration ===== */
-  .celebration { position: fixed; inset: 0; background: rgba(43,45,85,.55); z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(6px); }
+  .celebration { position: fixed; inset: 0; background: rgba(30,33,56,.5); z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(7px); }
   .celebration.active { display: flex; animation: fadeIn .3s ease; }
   @keyframes fadeIn { from { opacity: 0; } }
-  .celebration-card {
-    background: #fff; border-radius: 30px; padding: 34px 26px; text-align: center; max-width: 440px; width: 100%;
-    box-shadow: 0 24px 60px rgba(20,22,52,.35); animation: bounceIn .6s cubic-bezier(.34,1.56,.64,1);
-  }
-  @keyframes bounceIn { 0% { transform: scale(.4); opacity: 0; } 60% { transform: scale(1.08); opacity: 1; } 100% { transform: scale(1); } }
-  .celebration-card h1 { font-size: 1.9rem; }
-  .big-stars { font-size: 3.2rem; margin: 12px 0; letter-spacing: 5px; }
-  .celeb-msg { color: var(--ink-soft); font-size: 1.08rem; font-weight: 800; margin-bottom: 16px; }
+  .celebration-card { background: #fff; border-radius: var(--r-xl); padding: 32px 26px; text-align: center; max-width: 430px; width: 100%; box-shadow: var(--shadow-lg); animation: bounceIn .6s cubic-bezier(.34,1.56,.64,1); }
+  @keyframes bounceIn { 0% { transform: scale(.5); opacity: 0; } 60% { transform: scale(1.06); opacity: 1; } 100% { transform: scale(1); } }
+  .celebration-card h1 { font-size: 1.8rem; }
+  .big-stars { font-size: 3rem; margin: 12px 0; letter-spacing: 5px; }
+  .celeb-msg { color: var(--ink-soft); font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+  .levelup-tag { display: inline-block; background: linear-gradient(135deg, var(--violet), var(--violet-2)); color: #fff; font-family: 'Fredoka'; font-weight: 600; padding: 7px 16px; border-radius: 999px; font-size: .95rem; margin-bottom: 14px; box-shadow: var(--shadow-sm); }
   .celebration-card .btn { margin: 5px; }
 
   .confetti { position: fixed; width: 11px; height: 11px; z-index: 99; pointer-events: none; animation: fall 2.4s linear forwards; }
   @keyframes fall { from { transform: translateY(-20px) rotate(0); opacity: 1; } to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
-
-  .streak-pop {
-    position: fixed; top: 28%; left: 50%; transform: translateX(-50%);
-    font-family: 'Fredoka', sans-serif; font-size: 2.6rem; font-weight: 700; color: var(--coral);
-    text-shadow: 0 3px 0 #fff; pointer-events: none; z-index: 200; animation: streakA 1.2s ease forwards;
-  }
-  @keyframes streakA { 0% { transform: translate(-50%,0) scale(.5); opacity: 0; } 30% { transform: translate(-50%,-18px) scale(1.25); opacity: 1; } 100% { transform: translate(-50%,-72px) scale(1); opacity: 0; } }
-
-  .feedback-msg { text-align: center; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.25rem; min-height: 28px; margin-top: 12px; color: var(--green-edge); }
-  .feedback-msg.wrong { color: var(--coral-edge); }
+  .streak-pop { position: fixed; top: 26%; left: 50%; transform: translateX(-50%); font-family: 'Fredoka'; font-size: 2.4rem; font-weight: 700; color: var(--coral); text-shadow: 0 2px 0 #fff; pointer-events: none; z-index: 200; animation: streakA 1.2s ease forwards; }
+  @keyframes streakA { 0% { transform: translate(-50%,0) scale(.5); opacity: 0; } 30% { transform: translate(-50%,-16px) scale(1.22); opacity: 1; } 100% { transform: translate(-50%,-66px) scale(1); opacity: 0; } }
+  .feedback-msg { text-align: center; font-family: 'Fredoka'; font-weight: 600; font-size: 1.2rem; min-height: 26px; margin-top: 12px; color: var(--good); }
+  .feedback-msg.wrong { color: var(--bad); }
   .center-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
 
-  .mute-btn {
-    position: fixed; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 14px;
-    background: #fff; border: 2px solid var(--line); cursor: pointer; font-size: 1.15rem;
-    box-shadow: 0 3px 0 var(--line); z-index: 50; display: flex; align-items: center; justify-content: center;
-  }
+  .mute-btn { position: fixed; top: 12px; right: 12px; width: 42px; height: 42px; border-radius: 13px; background: #fff; border: none; cursor: pointer; font-size: 1.1rem; box-shadow: var(--shadow-sm); z-index: 50; display: flex; align-items: center; justify-content: center; }
 
-  @media (max-width: 480px) {
-    .problem-display { font-size: 2.7rem; }
-    .mascot { width: 96px; height: 96px; }
+  @media (max-width: 470px) {
+    .problem-display { font-size: 2.6rem; }
     .game-card { padding: 20px 14px; }
     .visual-item { font-size: 1.45rem; }
     .pattern-cell { width: 48px; height: 48px; font-size: 1.6rem; }
-    .pad-btn { width: 54px; height: 54px; }
+    .pad-btn { width: 52px; height: 52px; }
+    .odd-cell { font-size: 2.1rem; }
   }
 </style>
 </head>
 <body>
 
-<div class="cloud c1"><span class="puff"></span></div>
-<div class="cloud c2"><span class="puff"></span></div>
-<div class="cloud c3"><span class="puff"></span></div>
-
+<div class="mesh"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div></div>
 <button class="mute-btn" id="muteBtn" aria-label="Mute sounds">🔊</button>
 
 <div id="app">
 
-  <!-- ============ HOME HUB ============ -->
+  <!-- ============ HOME ============ -->
   <div class="screen active" id="screen-welcome">
-    <svg class="mascot" viewBox="0 0 200 200" aria-hidden="true">
-      <g fill="#FFC83D" stroke="#2B2D55" stroke-width="3">
-        <polygon points="100,8 108,28 92,28"/><polygon points="100,192 108,172 92,172"/>
-        <polygon points="8,100 28,92 28,108"/><polygon points="192,100 172,92 172,108"/>
-        <polygon points="35,35 50,42 42,50"/><polygon points="165,35 150,42 158,50"/>
-        <polygon points="35,165 50,158 42,150"/><polygon points="165,165 150,158 158,150"/>
-      </g>
-      <circle cx="100" cy="100" r="55" fill="#FFC83D" stroke="#2B2D55" stroke-width="4"/>
-      <circle cx="78" cy="110" r="7" fill="#FF8FB1" opacity=".85"/><circle cx="122" cy="110" r="7" fill="#FF8FB1" opacity=".85"/>
-      <circle cx="84" cy="92" r="6" fill="#2B2D55"/><circle cx="116" cy="92" r="6" fill="#2B2D55"/>
-      <circle cx="86" cy="90" r="2" fill="#fff"/><circle cx="118" cy="90" r="2" fill="#fff"/>
-      <path d="M 80 112 Q 100 130 120 112" stroke="#2B2D55" stroke-width="4" fill="none" stroke-linecap="round"/>
-    </svg>
-    <h1>Hi Keshav!</h1>
-    <div class="subtitle">What do you want to play today?</div>
-    <div class="hub-grid">
-      <button class="tile t-math" onclick="goMath()"><span class="icon">🔢</span><span class="label">Math</span><span class="sub">Add · Subtract · More</span></button>
-      <button class="tile t-read" onclick="goReading()"><span class="icon">📖</span><span class="label">Reading</span><span class="sub">Words &amp; sentences</span></button>
-      <button class="tile t-coder" onclick="goCoder()"><span class="icon">🤖</span><span class="label">Robot Coder</span><span class="sub">Program the robot!</span></button>
-      <button class="tile t-pattern" onclick="goPatterns()"><span class="icon">🧩</span><span class="label">Patterns</span><span class="sub">What comes next?</span></button>
-      <button class="tile t-memory" onclick="goMemory()"><span class="icon">🃏</span><span class="label">Memory</span><span class="sub">Match the pairs</span></button>
-      <button class="tile t-tables" onclick="openTables()"><span class="icon">✖️</span><span class="label">Times Tables</span><span class="sub">Learn 1× to 12×</span></button>
+    <div class="hub-head">
+      <svg class="mascot" viewBox="0 0 200 200" aria-hidden="true">
+        <g fill="#FFB23E" stroke="#1E2138" stroke-width="3">
+          <polygon points="100,8 108,28 92,28"/><polygon points="100,192 108,172 92,172"/>
+          <polygon points="8,100 28,92 28,108"/><polygon points="192,100 172,92 172,108"/>
+          <polygon points="35,35 50,42 42,50"/><polygon points="165,35 150,42 158,50"/>
+          <polygon points="35,165 50,158 42,150"/><polygon points="165,165 150,158 158,150"/>
+        </g>
+        <circle cx="100" cy="100" r="55" fill="#FFB23E" stroke="#1E2138" stroke-width="4"/>
+        <circle cx="78" cy="110" r="7" fill="#FF7AA8" opacity=".85"/><circle cx="122" cy="110" r="7" fill="#FF7AA8" opacity=".85"/>
+        <circle cx="84" cy="92" r="6" fill="#1E2138"/><circle cx="116" cy="92" r="6" fill="#1E2138"/>
+        <circle cx="86" cy="90" r="2" fill="#fff"/><circle cx="118" cy="90" r="2" fill="#fff"/>
+        <path d="M 80 112 Q 100 130 120 112" stroke="#1E2138" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="greet"><h1>Hi Keshav!</h1><p>Pick a game to play and learn</p></div>
+      <div class="star-badge">⭐ <span id="totalStars">0</span></div>
     </div>
+    <div class="hub-grid" id="hubGrid"></div>
   </div>
 
   <!-- ============ MATH OP ============ -->
   <div class="screen" id="screen-math-op">
-    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Pick a math game</h2><div style="width:48px;"></div></div>
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Pick a math game</h2><div style="width:46px;"></div></div>
     <div class="choice-grid cols-4">
       <div class="choice-card" onclick="chooseOperation('+')"><div class="icon">➕</div><div class="label">Add</div><span class="chip add">Plus</span></div>
       <div class="choice-card" onclick="chooseOperation('-')"><div class="icon">➖</div><div class="label">Subtract</div><span class="chip sub">Minus</span></div>
@@ -441,7 +414,7 @@
 
   <!-- ============ MATH DIFFICULTY ============ -->
   <div class="screen" id="screen-math-diff">
-    <div class="topbar"><button class="back-btn" onclick="showScreen('math-op')">←</button><h2 style="flex:1;">How hard?</h2><div style="width:48px;"></div></div>
+    <div class="topbar"><button class="back-btn" onclick="showScreen('math-op')">←</button><h2 style="flex:1;">How hard?</h2><div style="width:46px;"></div></div>
     <div class="subtitle" id="diffSubtitle">Pick a level</div>
     <div class="choice-grid cols-3">
       <div class="choice-card" onclick="chooseDifficulty(1)"><div class="icon">🌱</div><div class="label">Easy</div><span class="chip easy">1 digit</span></div>
@@ -452,9 +425,9 @@
 
   <!-- ============ MATH EXAMPLE ============ -->
   <div class="screen" id="screen-math-example">
-    <div class="topbar"><button class="back-btn" onclick="showScreen('math-diff')">←</button><h2 style="flex:1;">How to play</h2><div style="width:48px;"></div></div>
+    <div class="topbar"><button class="back-btn" onclick="showScreen('math-diff')">←</button><h2 style="flex:1;">How to play</h2><div style="width:46px;"></div></div>
     <div class="example-card">
-      <h3 id="exampleTitle">Let's try one together!</h3>
+      <h3 id="exampleTitle">Let's try one!</h3>
       <div id="exampleProblem" class="problem-display"></div>
       <div id="exampleVisual" class="visual-area"></div>
       <div id="exampleSteps"></div>
@@ -464,11 +437,7 @@
 
   <!-- ============ MATH GAME ============ -->
   <div class="screen" id="screen-math-game">
-    <div class="topbar">
-      <button class="back-btn" onclick="showScreen('math-op')">←</button>
-      <div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="mathProgress"></div></div></div>
-      <div class="star-count">⭐ <span id="mathStars">0</span></div>
-    </div>
+    <div class="topbar"><button class="back-btn" onclick="showScreen('math-op')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="mathProgress"></div></div></div><div class="star-count">⭐ <span id="mathStars">0</span></div></div>
     <div class="game-card">
       <div class="qcount">Question <span id="mathQNum">1</span> of <span id="mathQTotal">10</span></div>
       <div class="problem-display" id="mathProblem"></div>
@@ -480,26 +449,23 @@
 
   <!-- ============ TABLES PICK ============ -->
   <div class="screen" id="screen-tables-pick">
-    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Pick a times table</h2><div style="width:48px;"></div></div>
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Pick a times table</h2><div style="width:46px;"></div></div>
     <div class="subtitle">Tap a number to learn it</div>
     <div class="tables-grid" id="tablesPickGrid"></div>
   </div>
 
   <!-- ============ TABLES LEARN ============ -->
   <div class="screen" id="screen-tables-learn">
-    <div class="topbar"><button class="back-btn" onclick="stopAllSpeech(); showScreen('tables-pick')">←</button><h2 style="flex:1;" id="tablesTitle">Times table</h2><div style="width:48px;"></div></div>
+    <div class="topbar"><button class="back-btn" onclick="stopAllSpeech(); showScreen('tables-pick')">←</button><h2 style="flex:1;" id="tablesTitle">Times table</h2><div style="width:46px;"></div></div>
     <div class="skip-label">🦘 Skip counting — tap any number</div>
     <div class="skip-strip" id="skipStrip"></div>
     <div class="table-rows" id="tableRows"></div>
-    <div class="center-actions">
-      <button class="btn btn-sun" id="singAllBtn" onclick="singAllFacts()">🎵 Sing all</button>
-      <button class="btn btn-green" onclick="practiceTable()">🎮 Practice</button>
-    </div>
+    <div class="center-actions"><button class="btn btn-amber" id="singAllBtn" onclick="singAllFacts()">🎵 Sing all</button><button class="btn btn-green" onclick="practiceTable()">🎮 Practice</button></div>
   </div>
 
   <!-- ============ READING MODE ============ -->
   <div class="screen" id="screen-reading-mode">
-    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Pick a reading game</h2><div style="width:48px;"></div></div>
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Pick a reading game</h2><div style="width:46px;"></div></div>
     <div class="choice-grid cols-2">
       <div class="choice-card" onclick="chooseReadingMode(3)"><div class="icon">🐱</div><div class="label">3 letters</div><div class="sub">cat · dog · sun</div></div>
       <div class="choice-card" onclick="chooseReadingMode(4)"><div class="icon">🐟</div><div class="label">4 letters</div><div class="sub">fish · ball · jump</div></div>
@@ -510,18 +476,14 @@
 
   <!-- ============ READING EXAMPLE ============ -->
   <div class="screen" id="screen-reading-example">
-    <div class="topbar"><button class="back-btn" onclick="showScreen('reading-mode')">←</button><h2 style="flex:1;">How to read</h2><div style="width:48px;"></div></div>
+    <div class="topbar"><button class="back-btn" onclick="showScreen('reading-mode')">←</button><h2 style="flex:1;">How to read</h2><div style="width:46px;"></div></div>
     <div class="example-card"><h3>Here's how it works!</h3><div id="readingExampleContent"></div></div>
-    <div class="center-actions"><button class="btn btn-grape" onclick="startReadingGame()">Start reading! 📖</button></div>
+    <div class="center-actions"><button class="btn btn-primary" onclick="startReadingGame()">Start reading! 📖</button></div>
   </div>
 
   <!-- ============ READING GAME ============ -->
   <div class="screen" id="screen-reading-game">
-    <div class="topbar">
-      <button class="back-btn" onclick="showScreen('reading-mode')">←</button>
-      <div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="readingProgress"></div></div></div>
-      <div class="star-count">⭐ <span id="readingStars">0</span></div>
-    </div>
+    <div class="topbar"><button class="back-btn" onclick="showScreen('reading-mode')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="readingProgress"></div></div></div><div class="star-count">⭐ <span id="readingStars">0</span></div></div>
     <div class="game-card">
       <div class="qcount" id="readingPrompt">Read the word out loud!</div>
       <div id="readingContent"></div>
@@ -532,65 +494,49 @@
 
   <!-- ============ CODER EXAMPLE ============ -->
   <div class="screen" id="screen-coder-example">
-    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Robot Coder</h2><div style="width:48px;"></div></div>
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Robot Coder</h2><div style="width:46px;"></div></div>
     <div class="example-card">
       <h3>You're the programmer! 🤖</h3>
-      <div class="example-step"><div class="step-num">1</div><div>The robot needs to reach the star ⭐.</div></div>
-      <div class="example-step"><div class="step-num">2</div><div>Tap the arrow buttons to build your program — each arrow is one step.</div></div>
-      <div class="example-step"><div class="step-num">3</div><div>Press <b>Run ▶</b> and watch the robot follow your steps in order!</div></div>
-      <div class="example-step"><div class="step-num">4</div><div>Don't crash into walls 🧱 — if you do, fix your program and try again.</div></div>
-      <div class="example-step"><div class="step-num">5</div><div>Tap an arrow in your program to remove it.</div></div>
+      <div class="example-step"><div class="step-num">1</div><div>Get the robot to the star ⭐.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>Tap arrows to build your program — each arrow is one step.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Press <b>Run ▶</b> and watch the robot follow your steps in order.</div></div>
+      <div class="example-step"><div class="step-num">4</div><div>Later levels add a <b>Loop 🔁</b> button — it repeats your steps. And watch out for walls 🧱!</div></div>
+      <div class="example-step"><div class="step-num">5</div><div>Tap any arrow in your program to remove it.</div></div>
     </div>
     <div class="center-actions"><button class="btn btn-blue" onclick="startCoder()">Start coding! 🤖</button></div>
   </div>
 
   <!-- ============ CODER GAME ============ -->
   <div class="screen" id="screen-coder-game">
-    <div class="topbar">
-      <button class="back-btn" onclick="showScreen('coder-example')">←</button>
-      <div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="coderProgress"></div></div></div>
-      <div class="star-count">⭐ <span id="coderStars">0</span></div>
-    </div>
+    <div class="topbar"><button class="back-btn" onclick="showScreen('coder-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="coderProgress"></div></div></div><div class="star-count">⭐ <span id="coderStars">0</span></div></div>
     <div class="coder-wrap">
       <div class="level-pill" id="coderLevelPill">Level 1</div>
       <div class="coder-board"><div class="coder-grid" id="coderGrid"></div><div class="robot" id="robotEl">🤖</div></div>
       <div class="program-strip" id="programStrip"><span class="empty-hint">Tap arrows below to build your program 👇</span></div>
-      <div class="coder-pad">
-        <button class="pad-btn" onclick="addCmd('up')" aria-label="Up">⬆️</button>
-        <button class="pad-btn" onclick="addCmd('down')" aria-label="Down">⬇️</button>
-        <button class="pad-btn" onclick="addCmd('left')" aria-label="Left">⬅️</button>
-        <button class="pad-btn" onclick="addCmd('right')" aria-label="Right">➡️</button>
-      </div>
-      <div class="coder-actions">
-        <button class="btn btn-green" id="runBtn" onclick="runProgram()">Run ▶</button>
-        <button class="btn btn-ghost" onclick="clearProgram()">Clear 🧹</button>
-      </div>
+      <div class="coder-pad" id="coderPad"></div>
+      <div class="coder-actions"><button class="btn btn-green" id="runBtn" onclick="runProgram()">Run ▶</button><button class="btn btn-ghost" onclick="clearProgram()">Clear 🧹</button></div>
       <div class="feedback-msg" id="coderFeedback"></div>
     </div>
   </div>
 
   <!-- ============ PATTERN EXAMPLE ============ -->
   <div class="screen" id="screen-pattern-example">
-    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Patterns</h2><div style="width:48px;"></div></div>
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Patterns</h2><div style="width:46px;"></div></div>
     <div class="example-card">
       <h3>What comes next? 🧩</h3>
       <div class="pattern-row">
         <div class="pattern-cell">🔴</div><div class="pattern-cell">🔵</div><div class="pattern-cell">🔴</div><div class="pattern-cell">🔵</div><div class="pattern-cell missing">?</div>
       </div>
       <div class="example-step"><div class="step-num">1</div><div>Look at the pattern: red, blue, red, blue…</div></div>
-      <div class="example-step"><div class="step-num">2</div><div>What should go in the ? box? Red! 🔴</div></div>
-      <div class="example-step"><div class="step-num">3</div><div>Some puzzles use numbers too, like 2, 4, 6, ?</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>What comes next? Red! 🔴</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>It gets trickier as you go — longer patterns and number sequences like 2, 4, 6, ?</div></div>
     </div>
     <div class="center-actions"><button class="btn btn-coral" onclick="startPatterns()">Start puzzling! 🧩</button></div>
   </div>
 
   <!-- ============ PATTERN GAME ============ -->
   <div class="screen" id="screen-pattern-game">
-    <div class="topbar">
-      <button class="back-btn" onclick="showScreen('pattern-example')">←</button>
-      <div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="patternProgress"></div></div></div>
-      <div class="star-count">⭐ <span id="patternStars">0</span></div>
-    </div>
+    <div class="topbar"><button class="back-btn" onclick="showScreen('pattern-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="patternProgress"></div></div></div><div class="star-count">⭐ <span id="patternStars">0</span></div></div>
     <div class="game-card">
       <div class="qcount">Puzzle <span id="patternQNum">1</span> of <span id="patternQTotal">10</span></div>
       <h3 style="margin-top:6px;">What comes next?</h3>
@@ -600,15 +546,71 @@
     </div>
   </div>
 
+  <!-- ============ ODD ONE OUT EXAMPLE ============ -->
+  <div class="screen" id="screen-odd-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Odd One Out</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Find what doesn't belong! 🔍</h3>
+      <div class="odd-grid" style="grid-template-columns:repeat(2,1fr);max-width:240px;">
+        <div class="odd-cell">🐶</div><div class="odd-cell">🐱</div><div class="odd-cell">🐰</div><div class="odd-cell">🚗</div>
+      </div>
+      <div class="example-step" style="margin-top:16px;"><div class="step-num">1</div><div>Three are animals — but one is a car! 🚗</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>Tap the one that doesn't belong with the others.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>More tiles and trickier groups appear as you get better!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-primary" onclick="startOdd()">Start! 🔍</button></div>
+  </div>
+
+  <!-- ============ ODD ONE OUT GAME ============ -->
+  <div class="screen" id="screen-odd-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('odd-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="oddProgress"></div></div></div><div class="star-count">⭐ <span id="oddStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Puzzle <span id="oddQNum">1</span> of <span id="oddQTotal">10</span></div>
+      <h3 style="margin-top:6px;">Which one doesn't belong?</h3>
+      <div class="odd-grid" id="oddGrid"></div>
+      <div class="feedback-msg" id="oddFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ CROC EXAMPLE ============ -->
+  <div class="screen" id="screen-croc-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Hungry Croc</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Feed the hungry croc! 🐊</h3>
+      <div class="croc-arena">
+        <div class="croc-num left" style="pointer-events:none;">7</div>
+        <div class="croc-mid">🐊</div>
+        <div class="croc-num right" style="pointer-events:none;">4</div>
+      </div>
+      <div class="example-step"><div class="step-num">1</div><div>The croc is hungry and always eats the <b>bigger</b> number!</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>Tap the bigger number — here it's 7.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Numbers get bigger as you play. Great for learning more and less!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-green" onclick="startCroc()">Start! 🐊</button></div>
+  </div>
+
+  <!-- ============ CROC GAME ============ -->
+  <div class="screen" id="screen-croc-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('croc-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="crocProgress"></div></div></div><div class="star-count">⭐ <span id="crocStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Round <span id="crocQNum">1</span> of <span id="crocQTotal">10</span></div>
+      <h3 style="margin-top:6px;">Tap the bigger number!</h3>
+      <div class="croc-arena">
+        <button class="croc-num left" id="crocLeft" onclick="answerCroc('left')">0</button>
+        <div class="croc-mid" id="crocMid">🐊</div>
+        <button class="croc-num right" id="crocRight" onclick="answerCroc('right')">0</button>
+      </div>
+      <div class="croc-hint">The croc eats the bigger one 😋</div>
+      <div class="feedback-msg" id="crocFeedback"></div>
+    </div>
+  </div>
+
   <!-- ============ MEMORY GAME ============ -->
   <div class="screen" id="screen-memory-game">
-    <div class="topbar">
-      <button class="back-btn" onclick="showScreen('welcome')">←</button>
-      <div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="memoryProgress"></div></div></div>
-      <div class="star-count">⭐ <span id="memoryStars">0</span></div>
-    </div>
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="memoryProgress"></div></div></div><div class="star-count">⭐ <span id="memoryStars">0</span></div></div>
     <div class="game-card">
-      <h3>Match the number to its dots! 🃏</h3>
+      <h3 id="memoryTitle">Match the pairs! 🧠</h3>
+      <div class="subtitle" id="memorySub" style="margin-bottom:4px;">Find two cards that are the same</div>
       <div class="memory-grid" id="memoryGrid"></div>
       <div class="moves-pill">Moves: <span id="movesCount">0</span></div>
     </div>
@@ -620,37 +622,89 @@
 <div class="celebration" id="celebration">
   <div class="celebration-card">
     <h1 id="celebTitle">Amazing! 🎉</h1>
-    <div class="big-stars" id="celebStars">⭐⭐⭐⭐⭐</div>
+    <div class="big-stars" id="celebStars">⭐⭐⭐</div>
+    <div id="celebLevelUp"></div>
     <div class="celeb-msg" id="celebMsg"></div>
     <div class="center-actions">
       <button class="btn btn-green" onclick="playAgain()">Play again 🔁</button>
-      <button class="btn btn-blue" onclick="goHome()">Home 🏠</button>
+      <button class="btn btn-primary" onclick="goHome()">Home 🏠</button>
     </div>
   </div>
 </div>
 
 <script>
 // ===============================
-// STATE
+// STATE & PROGRESS PERSISTENCE
 // ===============================
 const state = {
   screen: 'welcome', subject: null, operation: null, difficulty: 1,
   readingMode: 3, problemIndex: 0, totalProblems: 10,
   correctCount: 0, stars: 0, streak: 0, currentProblem: null,
-  muted: false, currentTable: 1, fixedFactor: null,
+  muted: false, currentTable: 1, fixedFactor: null, leveledUp: false,
 };
 const STAR = '⭐';
+
+function loadProgress() {
+  try { return JSON.parse(localStorage.getItem('keshav_progress') || '{}'); }
+  catch (e) { return {}; }
+}
+function saveProgress() {
+  try { localStorage.setItem('keshav_progress', JSON.stringify(progress)); } catch (e) {}
+}
+let progress = loadProgress();
+progress.coder    = progress.coder    || 0;
+progress.patterns = progress.patterns || 0;
+progress.memory   = progress.memory   || 0;
+progress.odd      = progress.odd      || 0;
+progress.croc     = progress.croc     || 0;
+progress.totalStars = progress.totalStars || 0;
+
+function addTotalStars(n) {
+  progress.totalStars += n;
+  saveProgress();
+  const el = document.getElementById('totalStars');
+  if (el) el.textContent = progress.totalStars;
+}
+
+// ===============================
+// HUB
+// ===============================
+const GAMES = [
+  { id:'math',     ic:'🔢', nm:'Math',         ds:'Add · Subtract · More', grad:'linear-gradient(150deg,#FFB23E,#FF8A3D)', fn:goMath },
+  { id:'tables',   ic:'✖️', nm:'Times Tables',  ds:'Learn 1× to 12×',       grad:'linear-gradient(150deg,#36C98D,#19C8D6)', fn:openTables },
+  { id:'reading',  ic:'📖', nm:'Reading',       ds:'Words & sentences',     grad:'linear-gradient(150deg,#6C5CE7,#8B7CF6)', fn:goReading },
+  { id:'coder',    ic:'🤖', nm:'Robot Coder',   ds:'Program the robot!',    grad:'linear-gradient(150deg,#4D96FF,#19C8D6)', fn:goCoder,    levelKey:'coder' },
+  { id:'patterns', ic:'🧩', nm:'Patterns',      ds:'What comes next?',      grad:'linear-gradient(150deg,#FF7563,#FF7AA8)', fn:goPatterns, levelKey:'patterns' },
+  { id:'memory',   ic:'🧠', nm:'Memory',        ds:'Match the pairs',       grad:'linear-gradient(150deg,#19C8D6,#36C98D)', fn:goMemory,   levelKey:'memory' },
+  { id:'odd',      ic:'🔍', nm:'Odd One Out',   ds:"Find what's different", grad:'linear-gradient(150deg,#8B7CF6,#FF7AA8)', fn:goOdd,      levelKey:'odd' },
+  { id:'croc',     ic:'🐊', nm:'Hungry Croc',   ds:'Bigger or smaller?',    grad:'linear-gradient(150deg,#8DD23F,#36C98D)', fn:goCroc,     levelKey:'croc' },
+];
+
+function renderHub() {
+  const grid = document.getElementById('hubGrid');
+  grid.innerHTML = '';
+  GAMES.forEach(g => {
+    const btn = document.createElement('button');
+    btn.className = 'tile';
+    btn.style.setProperty('--grad', g.grad);
+    const lvlBadge = g.levelKey ? `<span class="lvl">Lvl ${progress[g.levelKey] + 1}</span>` : '';
+    btn.innerHTML = `${lvlBadge}<span class="ic">${g.ic}</span><span class="nm">${g.nm}</span><span class="ds">${g.ds}</span>`;
+    btn.onclick = g.fn;
+    grid.appendChild(btn);
+  });
+  document.getElementById('totalStars').textContent = progress.totalStars;
+}
 
 // ===============================
 // AUDIO
 // ===============================
 let audioCtx = null;
 function ensureAudio() {
-  if (!audioCtx) { try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e) { audioCtx = null; } }
+  if (!audioCtx) { try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { audioCtx = null; } }
   if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
   return audioCtx;
 }
-function tone(freq, duration, type='sine', startTime=0, vol=0.16) {
+function tone(freq, duration, type = 'sine', startTime = 0, vol = 0.16) {
   if (state.muted) return;
   const ctx = ensureAudio(); if (!ctx) return;
   const osc = ctx.createOscillator(), gain = ctx.createGain();
@@ -677,11 +731,10 @@ function loadVoices() {
   const voices = window.speechSynthesis.getVoices();
   preferredVoice = voices.find(v => /en[-_]US/i.test(v.lang) && /female|samantha|karen|moira|tessa|google us/i.test(v.name))
                 || voices.find(v => /en[-_](US|GB)/i.test(v.lang))
-                || voices.find(v => v.lang.startsWith('en')) || voices[0];
+                || voices.find(v => v.lang && v.lang.startsWith('en')) || voices[0];
 }
 if (window.speechSynthesis) { loadVoices(); window.speechSynthesis.onvoiceschanged = loadVoices; }
-
-function speak(text, rate=0.85) {
+function speak(text, rate = 0.85) {
   if (state.muted || !window.speechSynthesis) return;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
@@ -689,22 +742,17 @@ function speak(text, rate=0.85) {
   if (preferredVoice) u.voice = preferredVoice;
   window.speechSynthesis.speak(u);
 }
-
 function letterSound(l) {
   const s = { a:'a',b:'buh',c:'kuh',d:'duh',e:'eh',f:'fff',g:'guh',h:'huh',i:'ih',j:'juh',k:'kuh',l:'lll',m:'mmm',n:'nnn',o:'oh',p:'puh',q:'kw',r:'rrr',s:'sss',t:'tuh',u:'uh',v:'vvv',w:'wuh',x:'ks',y:'yuh',z:'zzz' };
   return s[l.toLowerCase()] || l;
 }
-
-function speakLetters(word, onEachLetter, onDone) {
+function speakLetters(word, onEach, onDone) {
   if (!window.speechSynthesis) return;
   window.speechSynthesis.cancel();
   const letters = word.split(''); let i = 0;
   function next() {
-    if (i >= letters.length) {
-      setTimeout(() => { if (onEachLetter) onEachLetter(-1); speak(word, .85); if (onDone) setTimeout(onDone, 800); }, 350);
-      return;
-    }
-    if (onEachLetter) onEachLetter(i);
+    if (i >= letters.length) { setTimeout(() => { if (onEach) onEach(-1); speak(word, .85); if (onDone) setTimeout(onDone, 800); }, 350); return; }
+    if (onEach) onEach(i);
     if (state.muted) { i++; setTimeout(next, 600); return; }
     const u = new SpeechSynthesisUtterance(letterSound(letters[i]));
     u.rate = .75; u.pitch = 1.15;
@@ -715,7 +763,6 @@ function speakLetters(word, onEachLetter, onDone) {
   }
   next();
 }
-
 function stopAllSpeech() {
   if (window.speechSynthesis) window.speechSynthesis.cancel();
   document.querySelectorAll('.table-row').forEach(r => r.classList.remove('active'));
@@ -723,7 +770,7 @@ function stopAllSpeech() {
 }
 
 // ===============================
-// SCREENS & NAV
+// NAV
 // ===============================
 function showScreen(name) {
   sfxClick();
@@ -731,14 +778,17 @@ function showScreen(name) {
   const el = document.getElementById('screen-' + name);
   if (el) el.classList.add('active');
   state.screen = name;
-  window.speechSynthesis?.cancel();
+  window.speechSynthesis && window.speechSynthesis.cancel();
   document.getElementById('app').scrollTop = 0;
+  if (name === 'welcome') renderHub();
 }
-function goMath()    { state.subject = 'math'; state.fixedFactor = null; showScreen('math-op'); }
-function goReading() { state.subject = 'reading'; showScreen('reading-mode'); }
-function goCoder()   { state.subject = 'coder'; showScreen('coder-example'); }
-function goPatterns(){ state.subject = 'patterns'; showScreen('pattern-example'); }
-function goMemory()  { state.subject = 'memory'; startMemory(); }
+function goMath()     { state.subject = 'math'; state.fixedFactor = null; showScreen('math-op'); }
+function goReading()  { state.subject = 'reading'; showScreen('reading-mode'); }
+function goCoder()    { state.subject = 'coder'; showScreen('coder-example'); }
+function goPatterns() { state.subject = 'patterns'; showScreen('pattern-example'); }
+function goMemory()   { state.subject = 'memory'; showScreen('welcome'); startMemory(); }
+function goOdd()      { state.subject = 'odd'; showScreen('odd-example'); }
+function goCroc()     { state.subject = 'croc'; showScreen('croc-example'); }
 
 function chooseOperation(op) {
   state.operation = op; state.fixedFactor = null;
@@ -750,35 +800,39 @@ function chooseDifficulty(d) { state.difficulty = d; buildMathExample(); showScr
 function chooseReadingMode(m) { state.readingMode = m; buildReadingExample(); showScreen('reading-example'); }
 function openTables() { sfxClick(); buildTablesPicker(); showScreen('tables-pick'); }
 
+function rand(lo, hi) { return Math.floor(Math.random() * (hi - lo + 1)) + lo; }
+function shuffle(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random()*(i+1)); [arr[i],arr[j]] = [arr[j],arr[i]]; } return arr; }
+function updateProgress(id, pct) { const el = document.getElementById(id); if (el) el.style.width = pct + '%'; }
+function showStreak(n) {
+  const el = document.createElement('div');
+  el.className = 'streak-pop'; el.textContent = n + 'x STREAK! 🔥';
+  document.body.appendChild(el); sfxStar();
+  setTimeout(() => el.remove(), 1300);
+}
+
 // ===============================
 // MATH
 // ===============================
-function rand(lo, hi) { return Math.floor(Math.random() * (hi - lo + 1)) + lo; }
-
 function genProblem(op, d) {
   const firstLo = d === 1 ? 1 : d === 2 ? 10 : 100;
   const firstHi = d === 1 ? 9 : d === 2 ? 99 : 999;
   let a, b, ans;
   if (op === '+') { a = rand(firstLo, firstHi); b = rand(1, 9); ans = a + b; }
-  else if (op === '-') {
-    a = rand(firstLo, firstHi); b = rand(1, 9);
-    if (b > a) [a, b] = [b, a];
-    ans = a - b;
-  } else if (op === '*') {
+  else if (op === '-') { a = rand(firstLo, firstHi); b = rand(1, 9); if (b > a) [a, b] = [b, a]; ans = a - b; }
+  else if (op === '*') {
     if (state.fixedFactor) { a = state.fixedFactor; b = rand(1, 10); }
     else { a = rand(firstLo, firstHi); b = d === 1 ? rand(1, 9) : rand(2, 9); }
     ans = a * b;
   } else {
     b = d === 1 ? rand(1, 9) : rand(2, 9);
-    let ansMin, ansMax;
-    if (d === 1) { ansMin = 1; ansMax = 9; }
-    else if (d === 2) { ansMin = Math.max(1, Math.ceil(10 / b)); ansMax = Math.floor(99 / b); }
-    else { ansMin = Math.ceil(100 / b); ansMax = Math.floor(999 / b); }
-    ans = rand(ansMin, ansMax); a = b * ans;
+    let lo, hi;
+    if (d === 1) { lo = 1; hi = 9; }
+    else if (d === 2) { lo = Math.max(1, Math.ceil(10 / b)); hi = Math.floor(99 / b); }
+    else { lo = Math.ceil(100 / b); hi = Math.floor(999 / b); }
+    ans = rand(lo, hi); a = b * ans;
   }
   return { a, b, op, ans };
 }
-
 function genOptions(correct) {
   const opts = new Set([correct]); let tries = 0;
   while (opts.size < 4 && tries < 60) {
@@ -788,15 +842,11 @@ function genOptions(correct) {
     if (cand >= 0 && cand !== correct) opts.add(cand);
   }
   while (opts.size < 4) opts.add(correct + opts.size + 1);
-  const arr = [...opts];
-  for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; }
-  return arr;
+  return shuffle([...opts]);
 }
-
 const MATH_EMOJI = ['🍎','⭐','🐠','🌸','🎈','🍓','🦋','🐝'];
 function pickEmoji(seed) { return MATH_EMOJI[seed % MATH_EMOJI.length]; }
 function repeat(s, n) { return new Array(n).fill(s).join(''); }
-
 function singleDigitVisual(p) {
   const e = pickEmoji(state.problemIndex), e2 = pickEmoji(state.problemIndex + 3), html = [];
   if (p.op === '+') {
@@ -816,239 +866,158 @@ function singleDigitVisual(p) {
     for (let g = 0; g < p.b; g++) {
       let items = '';
       for (let i = 0; i < p.ans; i++) items += `<span class="visual-item">${e}</span>`;
-      html.push(`<div class="visual-group" style="border-color:var(--blue);">${items}</div>`);
+      html.push(`<div class="visual-group">${items}</div>`);
     }
   }
   return html.join('');
 }
-
 function placeValueVisual(p) {
   function blocksFor(n) {
-    const h = Math.floor(n/100), t = Math.floor((n%100)/10), o = n%10;
-    let html = '';
-    if (h > 0) { let b=''; for (let i=0;i<h;i++) b+='<div class="pv-hundred"></div>';
-      html += `<div class="pv-group"><div class="pv-blocks">${b}</div><div class="pv-label">${h} × 100</div></div>`; }
-    if (t > 0 || n >= 10) { let b=''; for (let i=0;i<t;i++) b+='<div class="pv-ten"></div>';
-      html += `<div class="pv-group"><div class="pv-blocks">${b||'&nbsp;'}</div><div class="pv-label">${t} × 10</div></div>`; }
+    const h = Math.floor(n/100), t = Math.floor((n%100)/10), o = n%10; let html = '';
+    if (h > 0) { let b=''; for (let i=0;i<h;i++) b+='<div class="pv-hundred"></div>'; html += `<div class="pv-group"><div class="pv-blocks">${b}</div><div class="pv-label">${h} × 100</div></div>`; }
+    if (t > 0 || n >= 10) { let b=''; for (let i=0;i<t;i++) b+='<div class="pv-ten"></div>'; html += `<div class="pv-group"><div class="pv-blocks">${b||'&nbsp;'}</div><div class="pv-label">${t} × 10</div></div>`; }
     let ones=''; for (let i=0;i<o;i++) ones+='<div class="pv-one"></div>';
     html += `<div class="pv-group"><div class="pv-blocks">${ones||'&nbsp;'}</div><div class="pv-label">${o} ones</div></div>`;
     return `<div class="pv-row">${html}</div>`;
   }
-  function smallDotsFor(n) {
-    let dots='';
-    for (let i=0;i<n;i++) dots += '<div class="pv-one" style="width:14px;height:14px;border-radius:50%;background:var(--coral);"></div>';
-    return `<div class="pv-group"><div class="pv-blocks" style="max-width:160px;gap:6px;">${dots}</div><div class="pv-label">${n} ${n===1?'one':'ones'}</div></div>`;
+  function smallDots(n) {
+    let d=''; for (let i=0;i<n;i++) d+='<div class="pv-one" style="width:14px;height:14px;border-radius:50%;background:var(--coral);"></div>';
+    return `<div class="pv-group"><div class="pv-blocks" style="max-width:160px;gap:6px;">${d}</div><div class="pv-label">${n} ${n===1?'one':'ones'}</div></div>`;
   }
   const sym = { '+':'+', '-':'−', '*':'×', '/':'÷' }[p.op];
-  return `<div style="width:100%;display:flex;flex-direction:column;gap:6px;align-items:center;">
-    ${blocksFor(p.a)}
-    <div style="font-family:'Fredoka';font-size:1.7rem;font-weight:600;color:var(--coral);line-height:1;">${sym}</div>
-    ${p.b <= 9 ? smallDotsFor(p.b) : blocksFor(p.b)}
-  </div>`;
+  return `<div style="width:100%;display:flex;flex-direction:column;gap:6px;align-items:center;">${blocksFor(p.a)}<div style="font-family:'Fredoka';font-size:1.7rem;font-weight:600;color:var(--coral);">${sym}</div>${p.b<=9?smallDots(p.b):blocksFor(p.b)}</div>`;
 }
-
 function visualForProblem(p) { return state.difficulty === 1 ? singleDigitVisual(p) : placeValueVisual(p); }
 
 function buildMathExample() {
   const op = state.operation;
-  const labels = { '+':'Addition', '-':'Subtraction', '*':'Multiplication', '/':'Division' };
+  const labels = { '+':'addition', '-':'subtraction', '*':'multiplication', '/':'division' };
   const sym = { '+':'+', '-':'−', '*':'×', '/':'÷' }[op];
   let ex;
-  if (op === '+') ex = { a:2, b:3, op, ans:5 };
-  else if (op === '-') ex = { a:5, b:2, op, ans:3 };
-  else if (op === '*') ex = { a:3, b:2, op, ans:6 };
-  else ex = { a:6, b:2, op, ans:3 };
+  if (op === '+') ex = { a:2,b:3,op,ans:5 }; else if (op === '-') ex = { a:5,b:2,op,ans:3 };
+  else if (op === '*') ex = { a:3,b:2,op,ans:6 }; else ex = { a:6,b:2,op,ans:3 };
   if (state.difficulty === 2) {
-    if (op === '+') ex = { a:15, b:5, op, ans:20 };
-    else if (op === '-') ex = { a:30, b:8, op, ans:22 };
-    else if (op === '*') ex = { a:12, b:2, op, ans:24 };
-    else ex = { a:24, b:3, op, ans:8 };
+    if (op === '+') ex = { a:15,b:5,op,ans:20 }; else if (op === '-') ex = { a:30,b:8,op,ans:22 };
+    else if (op === '*') ex = { a:12,b:2,op,ans:24 }; else ex = { a:24,b:3,op,ans:8 };
   } else if (state.difficulty === 3) {
-    if (op === '+') ex = { a:135, b:8, op, ans:143 };
-    else if (op === '-') ex = { a:300, b:8, op, ans:292 };
-    else if (op === '*') ex = { a:105, b:2, op, ans:210 };
-    else ex = { a:248, b:4, op, ans:62 };
+    if (op === '+') ex = { a:135,b:8,op,ans:143 }; else if (op === '-') ex = { a:300,b:8,op,ans:292 };
+    else if (op === '*') ex = { a:105,b:2,op,ans:210 }; else ex = { a:248,b:4,op,ans:62 };
   }
-  document.getElementById('exampleTitle').textContent = `Let's learn ${labels[op].toLowerCase()}!`;
-  document.getElementById('exampleProblem').innerHTML =
-    `${ex.a} <span class="op">${sym}</span> ${ex.b} <span class="equals">=</span> <span style="color:var(--green-edge)">${ex.ans}</span>`;
-  const savedIdx = state.problemIndex; state.problemIndex = 0;
+  document.getElementById('exampleTitle').textContent = `Let's learn ${labels[op]}!`;
+  document.getElementById('exampleProblem').innerHTML = `${ex.a} <span class="op">${sym}</span> ${ex.b} <span class="equals">=</span> <span style="color:var(--green)">${ex.ans}</span>`;
+  const saved = state.problemIndex; state.problemIndex = 0;
   document.getElementById('exampleVisual').innerHTML = (ex.a <= 12 && ex.b <= 12) ? singleDigitVisual(ex) : placeValueVisual(ex);
-  state.problemIndex = savedIdx;
+  state.problemIndex = saved;
   const steps = {
     '+': [`Count the first group: ${ex.a}.`, `Count the second group: ${ex.b}.`, `Put them together: ${ex.a} + ${ex.b} = ${ex.ans}! 🎉`],
     '-': [`Start with ${ex.a} things.`, `Take ${ex.b} away (cross them out).`, `Count what's left: ${ex.ans}! 🎉`],
     '*': [`Make ${ex.a} groups.`, `Put ${ex.b} in each group.`, `Count everything: ${ex.a} × ${ex.b} = ${ex.ans}! 🎉`],
-    '/': [`Start with ${ex.a} things.`, `Share them into ${ex.b} equal groups.`, `Count one group: ${ex.ans}! 🎉`]
+    '/': [`Start with ${ex.a} things.`, `Share into ${ex.b} equal groups.`, `Count one group: ${ex.ans}! 🎉`]
   }[op];
-  document.getElementById('exampleSteps').innerHTML = steps.map((s,i) =>
-    `<div class="example-step"><div class="step-num">${i+1}</div><div>${s}</div></div>`).join('');
+  document.getElementById('exampleSteps').innerHTML = steps.map((s,i) => `<div class="example-step"><div class="step-num">${i+1}</div><div>${s}</div></div>`).join('');
 }
 
 function startMathGame() {
   state.subject = 'math';
-  state.problemIndex = 0; state.correctCount = 0; state.stars = 0; state.streak = 0;
-  state.totalProblems = 10;
+  state.problemIndex = 0; state.correctCount = 0; state.stars = 0; state.streak = 0; state.totalProblems = 10;
   document.getElementById('mathStars').textContent = '0';
   document.getElementById('mathQTotal').textContent = state.totalProblems;
   updateProgress('mathProgress', 0);
-  showScreen('math-game');
-  nextMathProblem();
+  showScreen('math-game'); nextMathProblem();
 }
-
 function nextMathProblem() {
   if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
-  const p = genProblem(state.operation, state.difficulty);
-  state.currentProblem = p;
+  const p = genProblem(state.operation, state.difficulty); state.currentProblem = p;
   const sym = { '+':'+', '-':'−', '*':'×', '/':'÷' }[p.op];
   document.getElementById('mathQNum').textContent = state.problemIndex + 1;
-  document.getElementById('mathProblem').innerHTML =
-    `${p.a} <span class="op">${sym}</span> ${p.b} <span class="equals">=</span> <span class="blank">?</span>`;
+  document.getElementById('mathProblem').innerHTML = `${p.a} <span class="op">${sym}</span> ${p.b} <span class="equals">=</span> <span class="blank">?</span>`;
   document.getElementById('mathVisual').innerHTML = visualForProblem(p);
-  const fb = document.getElementById('mathFeedback');
-  fb.textContent = ''; fb.classList.remove('wrong');
+  const fb = document.getElementById('mathFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
   const grid = document.getElementById('mathAnswers'); grid.innerHTML = '';
   genOptions(p.ans).forEach(o => {
-    const btn = document.createElement('button');
-    btn.className = 'answer-btn'; btn.textContent = o;
-    btn.onclick = () => answerMath(btn, o);
-    grid.appendChild(btn);
+    const btn = document.createElement('button'); btn.className = 'answer-btn'; btn.textContent = o;
+    btn.onclick = () => answerMath(btn, o); grid.appendChild(btn);
   });
 }
-
 function answerMath(btn, choice) {
   const p = state.currentProblem;
-  const all = document.querySelectorAll('#mathAnswers .answer-btn');
-  all.forEach(b => b.disabled = true);
+  const all = document.querySelectorAll('#mathAnswers .answer-btn'); all.forEach(b => b.disabled = true);
   if (choice === p.ans) {
-    btn.classList.add('correct');
-    state.correctCount++; state.streak++; state.stars++;
-    sfxCorrect();
+    btn.classList.add('correct'); state.correctCount++; state.streak++; state.stars++; sfxCorrect();
     document.getElementById('mathStars').textContent = state.stars;
-    const msgs = ['Great job! 🎉','Awesome! ⭐','You got it! 🌟','Super! 🚀','Yay! 🎈','Perfect! ✨'];
-    document.getElementById('mathFeedback').textContent = msgs[Math.floor(Math.random()*msgs.length)];
+    document.getElementById('mathFeedback').textContent = ['Great job! 🎉','Awesome! ⭐','You got it! 🌟','Super! 🚀','Yay! 🎈','Perfect! ✨'][rand(0,5)];
     if (state.streak >= 2) showStreak(state.streak);
     confetti(14);
-    setTimeout(() => { state.problemIndex++; updateProgress('mathProgress',(state.problemIndex/state.totalProblems)*100); nextMathProblem(); }, 1400);
+    setTimeout(() => { state.problemIndex++; updateProgress('mathProgress',(state.problemIndex/state.totalProblems)*100); nextMathProblem(); }, 1300);
   } else {
     btn.classList.add('wrong'); state.streak = 0; sfxWrong();
-    const fb = document.getElementById('mathFeedback');
-    fb.textContent = `Oops! The answer is ${p.ans}.`; fb.classList.add('wrong');
+    const fb = document.getElementById('mathFeedback'); fb.textContent = `Oops! The answer is ${p.ans}.`; fb.classList.add('wrong');
     all.forEach(b => { if (parseInt(b.textContent) === p.ans) b.classList.add('correct'); });
-    setTimeout(() => { state.problemIndex++; updateProgress('mathProgress',(state.problemIndex/state.totalProblems)*100); nextMathProblem(); }, 2200);
+    setTimeout(() => { state.problemIndex++; updateProgress('mathProgress',(state.problemIndex/state.totalProblems)*100); nextMathProblem(); }, 2100);
   }
-}
-
-function updateProgress(id, pct) { document.getElementById(id).style.width = pct + '%'; }
-
-function showStreak(n) {
-  const el = document.createElement('div');
-  el.className = 'streak-pop'; el.textContent = n + 'x STREAK! 🔥';
-  document.body.appendChild(el); sfxStar();
-  setTimeout(() => el.remove(), 1300);
 }
 
 // ===============================
 // TIMES TABLES
 // ===============================
-function numberWord(n) {
-  const w = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
-  return n >= 0 && n <= 12 ? w[n] : String(n);
-}
-
+function numberWord(n) { const w = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve']; return n>=0&&n<=12 ? w[n] : String(n); }
 function buildTablesPicker() {
   const grid = document.getElementById('tablesPickGrid'); grid.innerHTML = '';
   for (let i = 1; i <= 12; i++) {
-    const btn = document.createElement('button');
-    btn.className = 'table-pick-btn';
-    btn.innerHTML = `${i}<span class="x">×</span>`;
-    btn.onclick = () => pickTable(i);
-    grid.appendChild(btn);
+    const btn = document.createElement('button'); btn.className = 'table-pick-btn';
+    btn.innerHTML = `${i}<span class="x">×</span>`; btn.onclick = () => pickTable(i); grid.appendChild(btn);
   }
 }
-
-function pickTable(n) {
-  sfxClick(); state.currentTable = n;
-  buildTableView(n); showScreen('tables-learn');
-  setTimeout(() => speak(`The ${numberWord(n)} times table!`, .9), 350);
-}
-
+function pickTable(n) { sfxClick(); state.currentTable = n; buildTableView(n); showScreen('tables-learn'); setTimeout(() => speak(`The ${numberWord(n)} times table!`, .9), 350); }
 function buildTableView(n) {
   document.getElementById('tablesTitle').textContent = `${n}× table`;
   const strip = document.getElementById('skipStrip'); strip.innerHTML = '';
   for (let m = 1; m <= 10; m++) {
-    const el = document.createElement('div');
-    el.className = 'skip-num'; el.textContent = n*m; el.id = `skip-${m}`;
+    const el = document.createElement('div'); el.className = 'skip-num'; el.textContent = n*m; el.id = `skip-${m}`;
     el.onclick = () => { stopAllSpeech(); el.classList.add('active'); sfxStar(); speak(String(n*m), .95); setTimeout(()=>el.classList.remove('active'), 800); };
     strip.appendChild(el);
   }
   const rows = document.getElementById('tableRows'); rows.innerHTML = '';
   for (let m = 1; m <= 10; m++) {
-    const row = document.createElement('div');
-    row.className = 'table-row'; row.id = `row-${m}`;
-    row.innerHTML = `<span class="fact">${n} × ${m} <span class="equals">=</span> <span class="answer">${n*m}</span></span>
-      <div class="dots-wrap">${makeDotArray(n, m)}</div><span class="play-icon">🔊</span>`;
-    row.onclick = () => playTableFact(n, m);
-    rows.appendChild(row);
+    const row = document.createElement('div'); row.className = 'table-row'; row.id = `row-${m}`;
+    row.innerHTML = `<span class="fact">${n} × ${m} <span class="equals">=</span> <span class="answer">${n*m}</span></span><div class="dots-wrap">${makeDotArray(n,m)}</div><span class="play-icon">🔊</span>`;
+    row.onclick = () => playTableFact(n, m); rows.appendChild(row);
   }
 }
-
 function makeDotArray(rows, cols) {
-  let d = 7;
-  if (cols > 8) d = 5;
-  if (rows * cols > 80) d = 4;
+  let d = 7; if (cols > 8) d = 5; if (rows*cols > 80) d = 4;
   let html = `<div class="dots-arr" style="grid-template-columns:repeat(${cols},1fr);">`;
-  for (let i = 0; i < rows * cols; i++) html += `<div class="dot" style="width:${d}px;height:${d}px;"></div>`;
+  for (let i = 0; i < rows*cols; i++) html += `<div class="dot" style="width:${d}px;height:${d}px;"></div>`;
   return html + '</div>';
 }
-
 function playTableFact(n, m) {
   stopAllSpeech();
   const row = document.getElementById(`row-${m}`), skip = document.getElementById(`skip-${m}`);
   if (row) row.classList.add('active'); if (skip) skip.classList.add('active');
-  sfxStar();
-  speak(`${numberWord(n)} times ${numberWord(m)} equals ${numberWord(n*m)}`, .85);
+  sfxStar(); speak(`${numberWord(n)} times ${numberWord(m)} equals ${numberWord(n*m)}`, .85);
   setTimeout(() => { if (row) row.classList.remove('active'); if (skip) skip.classList.remove('active'); }, 1800);
 }
-
 let singingFacts = false;
 function singAllFacts() {
-  if (singingFacts) {
-    singingFacts = false; stopAllSpeech();
-    document.getElementById('singAllBtn').innerHTML = '🎵 Sing all';
-    return;
-  }
-  sfxClick(); singingFacts = true;
-  document.getElementById('singAllBtn').innerHTML = '⏹ Stop';
+  if (singingFacts) { singingFacts = false; stopAllSpeech(); document.getElementById('singAllBtn').innerHTML = '🎵 Sing all'; return; }
+  sfxClick(); singingFacts = true; document.getElementById('singAllBtn').innerHTML = '⏹ Stop';
   const n = state.currentTable; let m = 1;
   function nextFact() {
-    if (!singingFacts || m > 10 || state.screen !== 'tables-learn') {
-      singingFacts = false;
-      document.getElementById('singAllBtn').innerHTML = '🎵 Sing all';
-      stopAllSpeech(); return;
-    }
+    if (!singingFacts || m > 10 || state.screen !== 'tables-learn') { singingFacts = false; document.getElementById('singAllBtn').innerHTML = '🎵 Sing all'; stopAllSpeech(); return; }
     document.querySelectorAll('.table-row').forEach(r => r.classList.remove('active'));
     document.querySelectorAll('.skip-num').forEach(s => s.classList.remove('active'));
     const row = document.getElementById(`row-${m}`), skip = document.getElementById(`skip-${m}`);
-    if (row) { row.classList.add('active'); row.scrollIntoView && row.scrollIntoView({ behavior:'smooth', block:'center' }); }
+    if (row) { row.classList.add('active'); row.scrollIntoView && row.scrollIntoView({behavior:'smooth',block:'center'}); }
     if (skip) skip.classList.add('active');
     if (state.muted) { m++; setTimeout(nextFact, 700); return; }
     const u = new SpeechSynthesisUtterance(`${numberWord(n)} times ${numberWord(m)} equals ${numberWord(n*m)}`);
-    u.rate = .85; u.pitch = 1.15;
-    if (preferredVoice) u.voice = preferredVoice;
-    u.onend = () => { m++; setTimeout(nextFact, 250); };
-    u.onerror = () => { m++; setTimeout(nextFact, 300); };
+    u.rate = .85; u.pitch = 1.15; if (preferredVoice) u.voice = preferredVoice;
+    u.onend = () => { m++; setTimeout(nextFact, 250); }; u.onerror = () => { m++; setTimeout(nextFact, 300); };
     window.speechSynthesis.speak(u);
   }
-  window.speechSynthesis?.cancel();
-  nextFact();
+  window.speechSynthesis && window.speechSynthesis.cancel(); nextFact();
 }
-
-function practiceTable() {
-  sfxClick();
-  state.operation = '*'; state.difficulty = 1; state.fixedFactor = state.currentTable;
-  startMathGame();
-}
+function practiceTable() { sfxClick(); state.operation = '*'; state.difficulty = 1; state.fixedFactor = state.currentTable; startMathGame(); }
 
 // ===============================
 // READING
@@ -1058,92 +1027,51 @@ const WORDS = {
   4: ['fish','ball','jump','play','book','frog','tree','milk','kite','lion','moon','rain','bird','duck','ship','goat','farm','star','cake','door'],
   5: ['apple','smile','happy','train','plant','horse','sheep','bread','green','cloud','grape','table','chair','snake','clock','dance','beach','party','queen','tiger']
 };
-const SENTENCES = [
-  'The cat sat on the mat.','I see a big dog.','We play in the sun.','The fish swims fast.',
-  'I like red apples.','My mom is the best.','The bird can fly high.','I jump on the bed.',
-  'The bus is yellow.','A frog is on the log.','I love my mom and dad.','The moon is in the sky.'
-];
+const SENTENCES = ['The cat sat on the mat.','I see a big dog.','We play in the sun.','The fish swims fast.','I like red apples.','My mom is the best.','The bird can fly high.','I jump on the bed.','The bus is yellow.','A frog is on the log.','I love my mom and dad.','The moon is in the sky.'];
 let readingPool = [], currentReadingItem = '';
-
 function pickReadingItem() {
-  if (readingPool.length === 0) {
-    readingPool = state.readingMode === 'sentence'
-      ? [...SENTENCES].sort(() => Math.random() - .5)
-      : [...WORDS[state.readingMode]].sort(() => Math.random() - .5);
-  }
+  if (readingPool.length === 0) readingPool = state.readingMode === 'sentence' ? shuffle([...SENTENCES]) : shuffle([...WORDS[state.readingMode]]);
   return readingPool.shift();
 }
-
 function buildReadingExample() {
   const c = document.getElementById('readingExampleContent');
   if (state.readingMode === 'sentence') {
-    c.innerHTML = `
-      <div class="example-step"><div class="step-num">1</div><div>You'll see a sentence on the screen.</div></div>
+    c.innerHTML = `<div class="example-step"><div class="step-num">1</div><div>You'll see a sentence on the screen.</div></div>
       <div style="text-align:center;margin:14px 0;"><div class="sentence-display">The cat sat on the mat.</div></div>
       <div class="example-step"><div class="step-num">2</div><div>Tap any word to hear it!</div></div>
-      <div class="example-step"><div class="step-num">3</div><div>Press "Hear it" 🔊 to listen to the whole sentence.</div></div>
-      <div class="example-step"><div class="step-num">4</div><div>Read it out loud, then press "I read it!" ✅ to win a star ⭐</div></div>`;
+      <div class="example-step"><div class="step-num">3</div><div>Press "Hear it" 🔊 for the whole sentence.</div></div>
+      <div class="example-step"><div class="step-num">4</div><div>Read it out loud, then press "I read it!" ✅ for a star ⭐</div></div>`;
   } else {
     const word = { 3:'cat', 4:'fish', 5:'apple' }[state.readingMode];
-    c.innerHTML = `
-      <div class="example-step"><div class="step-num">1</div><div>You'll see a ${state.readingMode}-letter word.</div></div>
+    c.innerHTML = `<div class="example-step"><div class="step-num">1</div><div>You'll see a ${state.readingMode}-letter word.</div></div>
       <div style="text-align:center;margin:14px 0;"><div class="word-display">${word.split('').map(l=>'<span class="letter">'+l+'</span>').join('')}</div></div>
       <div class="example-step"><div class="step-num">2</div><div>Press "Sound out" 🔤 to hear each letter.</div></div>
-      <div class="example-step"><div class="step-num">3</div><div>Press "Hear it" 🔊 to hear the whole word.</div></div>
-      <div class="example-step"><div class="step-num">4</div><div>Say the word out loud, then press "I read it!" ✅ to win a star ⭐</div></div>`;
+      <div class="example-step"><div class="step-num">3</div><div>Press "Hear it" 🔊 for the whole word.</div></div>
+      <div class="example-step"><div class="step-num">4</div><div>Say it out loud, then press "I read it!" ✅ for a star ⭐</div></div>`;
   }
 }
-
 function startReadingGame() {
-  state.subject = 'reading';
-  state.problemIndex = 0; state.stars = 0; state.streak = 0; state.correctCount = 0;
-  state.totalProblems = 10; readingPool = [];
-  document.getElementById('readingStars').textContent = '0';
-  updateProgress('readingProgress', 0);
-  showScreen('reading-game');
-  nextReadingItem();
+  state.subject = 'reading'; state.problemIndex = 0; state.stars = 0; state.streak = 0; state.correctCount = 0; state.totalProblems = 10; readingPool = [];
+  document.getElementById('readingStars').textContent = '0'; updateProgress('readingProgress', 0);
+  showScreen('reading-game'); nextReadingItem();
 }
-
 function nextReadingItem() {
   if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
   currentReadingItem = pickReadingItem();
   const isSentence = state.readingMode === 'sentence';
-  const content = document.getElementById('readingContent');
-  const controls = document.getElementById('readingControls');
-  const fb = document.getElementById('readingFeedback');
+  const content = document.getElementById('readingContent'), controls = document.getElementById('readingControls'), fb = document.getElementById('readingFeedback');
   fb.textContent = ''; fb.classList.remove('wrong');
   document.getElementById('readingPrompt').textContent = isSentence ? 'Read the sentence out loud!' : 'Read the word out loud!';
   if (isSentence) {
-    content.innerHTML = `<div class="sentence-display" id="sentenceEl">${
-      currentReadingItem.split(/(\s+)/).map(part => {
-        if (/^\s+$/.test(part) || part === '') return part;
-        const clean = part.replace(/[.,!?]/g, '');
-        return `<span class="word" onclick="sayWord('${clean}', this)">${part}</span>`;
-      }).join('')
-    }</div><div class="hint">👆 Tap any word to hear it!</div>`;
-    controls.innerHTML = `
-      <button class="btn btn-blue" onclick="hearItAll()">🔊 Hear it</button>
-      <button class="btn btn-sun" onclick="slowItDown()">🐢 Slowly</button>
-      <button class="btn btn-green" onclick="readingDone()">✅ I read it!</button>`;
+    content.innerHTML = `<div class="sentence-display" id="sentenceEl">${currentReadingItem.split(/(\s+)/).map(part => { if (/^\s+$/.test(part) || part === '') return part; const clean = part.replace(/[.,!?]/g,''); return `<span class="word" onclick="sayWord('${clean}', this)">${part}</span>`; }).join('')}</div><div class="hint">👆 Tap any word to hear it!</div>`;
+    controls.innerHTML = `<button class="btn btn-blue" onclick="hearItAll()">🔊 Hear it</button><button class="btn btn-amber" onclick="slowItDown()">🐢 Slowly</button><button class="btn btn-green" onclick="readingDone()">✅ I read it!</button>`;
   } else {
     const letters = currentReadingItem.split('').map((l,i) => `<span class="letter" id="letter-${i}">${l}</span>`).join('');
-    content.innerHTML = `<div class="word-display" id="wordEl" onclick="hearItAll()">${letters}</div>
-      <div class="hint">👆 Tap the word to hear it!</div>`;
-    controls.innerHTML = `
-      <button class="btn btn-blue" onclick="hearItAll()">🔊 Hear it</button>
-      <button class="btn btn-grape" onclick="soundItOut()">🔤 Sound out</button>
-      <button class="btn btn-green" onclick="readingDone()">✅ I read it!</button>`;
+    content.innerHTML = `<div class="word-display" id="wordEl" onclick="hearItAll()">${letters}</div><div class="hint">👆 Tap the word to hear it!</div>`;
+    controls.innerHTML = `<button class="btn btn-blue" onclick="hearItAll()">🔊 Hear it</button><button class="btn btn-primary" onclick="soundItOut()">🔤 Sound out</button><button class="btn btn-green" onclick="readingDone()">✅ I read it!</button>`;
   }
 }
-
-function sayWord(word, el) {
-  if (el) {
-    document.querySelectorAll('.sentence-display .word').forEach(w => w.classList.remove('highlight'));
-    el.classList.add('highlight');
-    setTimeout(() => el.classList.remove('highlight'), 900);
-  }
-  speak(word, .85);
-}
+function sayWord(word, el) { if (el) { document.querySelectorAll('.sentence-display .word').forEach(w => w.classList.remove('highlight')); el.classList.add('highlight'); setTimeout(() => el.classList.remove('highlight'), 900); } speak(word, .85); }
 function hearItAll() { sfxClick(); speak(currentReadingItem, state.readingMode === 'sentence' ? .85 : .8); }
 function slowItDown() { sfxClick(); speak(currentReadingItem, .55); }
 function soundItOut() {
@@ -1154,21 +1082,16 @@ function soundItOut() {
     else document.querySelectorAll('#wordEl .letter').forEach(l => l.classList.add('highlight'));
   }, () => document.querySelectorAll('#wordEl .letter').forEach(l => l.classList.remove('highlight')));
 }
-
 function readingDone() {
   state.stars++; state.streak++; state.correctCount++;
-  document.getElementById('readingStars').textContent = state.stars;
-  sfxCorrect();
-  const msgs = ['Wow Keshav! 🌟','You read it! 🎉','Super reader! 📖','Amazing! ⭐','Great reading! 🚀'];
-  const fb = document.getElementById('readingFeedback');
-  fb.textContent = msgs[Math.floor(Math.random()*msgs.length)]; fb.classList.remove('wrong');
-  confetti(18);
-  if (state.streak >= 2) showStreak(state.streak);
+  document.getElementById('readingStars').textContent = state.stars; sfxCorrect();
+  const fb = document.getElementById('readingFeedback'); fb.textContent = ['Wow Keshav! 🌟','You read it! 🎉','Super reader! 📖','Amazing! ⭐','Great reading! 🚀'][rand(0,4)]; fb.classList.remove('wrong');
+  confetti(18); if (state.streak >= 2) showStreak(state.streak);
   setTimeout(() => { state.problemIndex++; updateProgress('readingProgress',(state.problemIndex/state.totalProblems)*100); nextReadingItem(); }, 1500);
 }
 
 // ===============================
-// ROBOT CODER
+// ROBOT CODER (12 levels, loops from level 7)
 // ===============================
 const CODER_LEVELS = [
   { size:[3,3], start:[0,1], goal:[2,1], walls:[] },
@@ -1177,391 +1100,442 @@ const CODER_LEVELS = [
   { size:[4,4], start:[0,0], goal:[3,3], walls:[[1,1],[2,2]] },
   { size:[4,4], start:[0,3], goal:[3,0], walls:[[1,2],[2,1]] },
   { size:[5,4], start:[0,0], goal:[4,3], walls:[[1,0],[1,1],[3,2],[3,3]] },
-  { size:[5,5], start:[0,2], goal:[4,2], walls:[[2,1],[2,2],[2,3]] },
-  { size:[5,5], start:[0,4], goal:[4,0], walls:[[1,3],[2,2],[3,1],[1,1]] },
+  { size:[5,5], start:[0,2], goal:[4,2], walls:[[2,1],[2,2],[2,3]], loop:true },
+  { size:[5,5], start:[0,4], goal:[4,0], walls:[[1,3],[2,2],[3,1],[1,1]], loop:true },
+  { size:[5,5], start:[0,0], goal:[4,4], walls:[[1,1],[2,2],[3,3],[1,3],[3,1]], loop:true },
+  { size:[6,5], start:[0,2], goal:[5,2], walls:[[2,1],[2,3],[3,2]], loop:true },
+  { size:[6,6], start:[0,0], goal:[5,5], walls:[[1,1],[2,2],[3,3],[4,4],[1,4],[4,1]], loop:true },
+  { size:[6,6], start:[0,5], goal:[5,0], walls:[[1,4],[2,3],[3,2],[4,1],[2,1],[4,3]], loop:true },
 ];
-const coder = { level: 0, program: [], running: false, pos: [0,0] };
+const coder = { level: 0, program: [], running: false, pos: [0,0], loopActive: false };
 const CMD_ICON = { up:'⬆️', down:'⬇️', left:'⬅️', right:'➡️' };
 const CMD_DELTA = { up:[0,-1], down:[0,1], left:[-1,0], right:[1,0] };
 
 function startCoder() {
   state.subject = 'coder';
   coder.level = 0; state.stars = 0; state.totalProblems = CODER_LEVELS.length;
-  document.getElementById('coderStars').textContent = '0';
-  updateProgress('coderProgress', 0);
-  showScreen('coder-game');
-  loadCoderLevel();
+  document.getElementById('coderStars').textContent = '0'; updateProgress('coderProgress', 0);
+  showScreen('coder-game'); loadCoderLevel();
   setTimeout(() => speak("Tap the arrows to move the robot to the star!", .9), 400);
 }
-
+function buildCoderPad() {
+  const pad = document.getElementById('coderPad');
+  const lvl = CODER_LEVELS[coder.level];
+  let html = `<button class="pad-btn" onclick="addCmd('up')" aria-label="Up">⬆️</button>
+    <button class="pad-btn" onclick="addCmd('down')" aria-label="Down">⬇️</button>
+    <button class="pad-btn" onclick="addCmd('left')" aria-label="Left">⬅️</button>
+    <button class="pad-btn" onclick="addCmd('right')" aria-label="Right">➡️</button>`;
+  if (lvl.loop) html += `<button class="pad-btn loop-btn" onclick="addCmd('loop')" aria-label="Loop">🔁×2</button>`;
+  pad.innerHTML = html;
+}
 function loadCoderLevel() {
   const lvl = CODER_LEVELS[coder.level];
   coder.program = []; coder.running = false; coder.pos = [...lvl.start];
   document.getElementById('coderLevelPill').textContent = `Level ${coder.level + 1} of ${CODER_LEVELS.length}`;
-  document.getElementById('coderFeedback').textContent = '';
-  document.getElementById('coderFeedback').classList.remove('wrong');
+  const fb = document.getElementById('coderFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
   document.getElementById('runBtn').disabled = false;
+  buildCoderPad();
   const [cols, rows] = lvl.size;
   const grid = document.getElementById('coderGrid');
-  grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-  grid.innerHTML = '';
+  grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`; grid.innerHTML = '';
   const wallSet = new Set(lvl.walls.map(w => w.join(',')));
   for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
-    const cell = document.createElement('div');
-    cell.className = 'coder-cell';
+    const cell = document.createElement('div'); cell.className = 'coder-cell';
     if (wallSet.has(x + ',' + y)) { cell.classList.add('wall'); cell.textContent = '🧱'; }
     if (x === lvl.goal[0] && y === lvl.goal[1]) { cell.classList.add('goal'); cell.textContent = '⭐'; }
     grid.appendChild(cell);
   }
   renderProgram();
-  placeRobot(lvl.start[0], lvl.start[1], false);
+  requestAnimationFrame(() => placeRobot(lvl.start[0], lvl.start[1], false));
 }
-
 function placeRobot(x, y, animate = true) {
-  const lvl = CODER_LEVELS[coder.level];
-  const [cols, rows] = lvl.size;
-  const grid = document.getElementById('coderGrid');
-  const robot = document.getElementById('robotEl');
-  // position robot over the grid using cell geometry
-  const board = grid.parentElement;
-  const gridRect = { left: grid.offsetLeft, top: grid.offsetTop, width: grid.offsetWidth, height: grid.offsetHeight };
+  const lvl = CODER_LEVELS[coder.level]; const [cols, rows] = lvl.size;
+  const grid = document.getElementById('coderGrid'); const robot = document.getElementById('robotEl');
+  const gridLeft = grid.offsetLeft, gridTop = grid.offsetTop, gw = grid.offsetWidth, gh = grid.offsetHeight;
   const gap = 6;
-  const cellW = (gridRect.width - gap * (cols - 1)) / cols;
-  const cellH = (gridRect.height - gap * (rows - 1)) / rows;
+  const cellW = (gw - gap * (cols - 1)) / cols, cellH = (gh - gap * (rows - 1)) / rows;
   if (!animate) robot.style.transition = 'none';
-  robot.style.width = cellW + 'px';
-  robot.style.height = cellH + 'px';
-  robot.style.left = (gridRect.left + x * (cellW + gap)) + 'px';
-  robot.style.top = (gridRect.top + y * (cellH + gap)) + 'px';
+  robot.style.width = cellW + 'px'; robot.style.height = cellH + 'px';
+  robot.style.left = (gridLeft + x * (cellW + gap)) + 'px';
+  robot.style.top = (gridTop + y * (cellH + gap)) + 'px';
   if (!animate) { void robot.offsetWidth; robot.style.transition = ''; }
 }
-
 function addCmd(dir) {
   if (coder.running) return;
-  if (coder.program.length >= 16) { sfxWrong(); return; }
-  sfxClick();
-  coder.program.push(dir);
-  renderProgram();
+  if (coder.program.length >= 20) { sfxWrong(); return; }
+  sfxClick(); coder.program.push(dir); renderProgram();
 }
-
-function removeCmd(i) {
-  if (coder.running) return;
-  sfxClick();
-  coder.program.splice(i, 1);
-  renderProgram();
-}
-
+function removeCmd(i) { if (coder.running) return; sfxClick(); coder.program.splice(i, 1); renderProgram(); }
 function clearProgram() {
-  if (coder.running) return;
-  sfxClick();
-  coder.program = [];
-  renderProgram();
-  const lvl = CODER_LEVELS[coder.level];
-  coder.pos = [...lvl.start];
-  placeRobot(lvl.start[0], lvl.start[1]);
+  if (coder.running) return; sfxClick(); coder.program = []; renderProgram();
+  const lvl = CODER_LEVELS[coder.level]; coder.pos = [...lvl.start]; placeRobot(lvl.start[0], lvl.start[1]);
 }
-
 function renderProgram() {
   const strip = document.getElementById('programStrip');
-  if (coder.program.length === 0) {
-    strip.innerHTML = '<span class="empty-hint">Tap arrows below to build your program 👇</span>';
-    return;
-  }
+  if (coder.program.length === 0) { strip.innerHTML = '<span class="empty-hint">Tap arrows below to build your program 👇</span>'; return; }
   strip.innerHTML = '';
   coder.program.forEach((cmd, i) => {
     const chip = document.createElement('button');
-    chip.className = 'cmd-chip'; chip.id = 'chip-' + i;
-    chip.textContent = CMD_ICON[cmd];
-    chip.onclick = () => removeCmd(i);
-    strip.appendChild(chip);
+    chip.className = 'cmd-chip' + (cmd === 'loop' ? ' loop' : ''); chip.id = 'chip-' + i;
+    chip.textContent = cmd === 'loop' ? '🔁' : CMD_ICON[cmd];
+    chip.onclick = () => removeCmd(i); strip.appendChild(chip);
   });
 }
-
-function runProgram() {
-  if (coder.running || coder.program.length === 0) {
-    if (coder.program.length === 0) { sfxWrong(); speak("Add some arrows first!", .9); }
-    return;
+// expand loop tokens: a 'loop' repeats the PRECEDING run of moves 2x
+function expandProgram(prog) {
+  const out = [];
+  let segStart = 0;
+  for (let i = 0; i < prog.length; i++) {
+    if (prog[i] === 'loop') {
+      const seg = prog.slice(segStart, i).filter(c => c !== 'loop');
+      out.push(...seg); // already added below? rebuild cleanly
+    }
   }
-  sfxClick();
-  coder.running = true;
-  document.getElementById('runBtn').disabled = true;
+  // simpler robust approach: walk, buffering moves; on 'loop', repeat buffer once more then reset buffer
+  const result = []; let buffer = [];
+  for (const c of prog) {
+    if (c === 'loop') { result.push(...buffer); buffer = []; }  // loop repeats current buffer again
+    else { buffer.push(c); result.push(c); }
+  }
+  return result;
+}
+function runProgram() {
+  if (coder.running) return;
+  if (coder.program.length === 0) { sfxWrong(); speak("Add some arrows first!", .9); return; }
+  sfxClick(); coder.running = true; document.getElementById('runBtn').disabled = true;
   const lvl = CODER_LEVELS[coder.level];
   const wallSet = new Set(lvl.walls.map(w => w.join(',')));
-  coder.pos = [...lvl.start];
-  placeRobot(lvl.start[0], lvl.start[1], false);
+  coder.pos = [...lvl.start]; placeRobot(lvl.start[0], lvl.start[1], false);
+  const steps = expandProgram(coder.program);
   let step = 0;
-
   function doStep() {
     document.querySelectorAll('.cmd-chip').forEach(c => c.classList.remove('running'));
-    if (step >= coder.program.length) { finishRun(false); return; }
-    const chip = document.getElementById('chip-' + step);
+    if (step >= steps.length) { finishRun(false); return; }
+    // highlight the matching chip (best-effort: map step to nearest chip)
+    const chip = document.getElementById('chip-' + Math.min(step, coder.program.length - 1));
     if (chip) chip.classList.add('running');
-    const [dx, dy] = CMD_DELTA[coder.program[step]];
+    const [dx, dy] = CMD_DELTA[steps[step]];
     const nx = coder.pos[0] + dx, ny = coder.pos[1] + dy;
     const [cols, rows] = lvl.size;
     if (nx < 0 || ny < 0 || nx >= cols || ny >= rows || wallSet.has(nx + ',' + ny)) {
-      // crash!
       sfxWrong();
-      const robot = document.getElementById('robotEl');
-      robot.classList.add('bump');
-      setTimeout(() => robot.classList.remove('bump'), 450);
-      const fb = document.getElementById('coderFeedback');
-      fb.textContent = 'Bump! 🧱 Fix your program and try again!';
-      fb.classList.add('wrong');
+      const robot = document.getElementById('robotEl'); robot.classList.add('bump'); setTimeout(() => robot.classList.remove('bump'), 450);
+      const fb = document.getElementById('coderFeedback'); fb.textContent = 'Bump! 🧱 Fix your program and try again!'; fb.classList.add('wrong');
       speak("Bump! Try changing your arrows!", .9);
-      setTimeout(() => {
-        coder.pos = [...lvl.start];
-        placeRobot(lvl.start[0], lvl.start[1]);
-        coder.running = false;
-        document.getElementById('runBtn').disabled = false;
-        document.querySelectorAll('.cmd-chip').forEach(c => c.classList.remove('running'));
-      }, 900);
+      setTimeout(() => { coder.pos = [...lvl.start]; placeRobot(lvl.start[0], lvl.start[1]); coder.running = false; document.getElementById('runBtn').disabled = false; document.querySelectorAll('.cmd-chip').forEach(c => c.classList.remove('running')); }, 900);
       return;
     }
-    coder.pos = [nx, ny];
-    sfxStep();
-    placeRobot(nx, ny);
+    coder.pos = [nx, ny]; sfxStep(); placeRobot(nx, ny);
     if (nx === lvl.goal[0] && ny === lvl.goal[1]) { setTimeout(() => finishRun(true), 420); return; }
-    step++;
-    setTimeout(doStep, 460);
+    step++; setTimeout(doStep, 440);
   }
   setTimeout(doStep, 200);
 }
-
 function finishRun(reachedGoal) {
   document.querySelectorAll('.cmd-chip').forEach(c => c.classList.remove('running'));
   const fb = document.getElementById('coderFeedback');
   if (reachedGoal) {
-    sfxCorrect(); confetti(20);
-    state.stars++;
+    sfxCorrect(); confetti(20); state.stars++;
     document.getElementById('coderStars').textContent = state.stars;
-    fb.textContent = 'You did it! Great program! 🎉';
-    fb.classList.remove('wrong');
+    fb.textContent = 'You did it! Great program! 🎉'; fb.classList.remove('wrong');
     speak("You did it! Great programming!", .9);
     updateProgress('coderProgress', ((coder.level + 1) / CODER_LEVELS.length) * 100);
+    if (coder.level + 1 > progress.coder) { progress.coder = Math.min(coder.level + 1, CODER_LEVELS.length - 1); saveProgress(); }
     setTimeout(() => {
       coder.level++;
       if (coder.level >= CODER_LEVELS.length) { celebrate(); }
       else { coder.running = false; loadCoderLevel(); }
     }, 1600);
   } else {
-    sfxWrong();
-    fb.textContent = "Not there yet — add more arrows! 🤖";
-    fb.classList.add('wrong');
+    sfxWrong(); fb.textContent = "Not there yet — add more arrows! 🤖"; fb.classList.add('wrong');
     speak("Not there yet! Add more arrows!", .9);
     const lvl = CODER_LEVELS[coder.level];
-    setTimeout(() => {
-      coder.pos = [...lvl.start];
-      placeRobot(lvl.start[0], lvl.start[1]);
-      coder.running = false;
-      document.getElementById('runBtn').disabled = false;
-    }, 1100);
+    setTimeout(() => { coder.pos = [...lvl.start]; placeRobot(lvl.start[0], lvl.start[1]); coder.running = false; document.getElementById('runBtn').disabled = false; }, 1100);
   }
 }
-
-// reposition robot on resize
-window.addEventListener('resize', () => {
-  if (state.screen === 'coder-game') placeRobot(coder.pos[0], coder.pos[1], false);
-});
+window.addEventListener('resize', () => { if (state.screen === 'coder-game') placeRobot(coder.pos[0], coder.pos[1], false); });
 
 // ===============================
-// PATTERN PUZZLES
+// PATTERNS (difficulty ramps with level + index)
 // ===============================
 const PATTERN_SETS = [
   ['🔴','🔵','🟡','🟢'], ['🍎','🍌','🍇','🍊'], ['🐶','🐱','🐰','🐸'],
   ['⭐','🌙','☀️','☁️'], ['🚗','🚌','🚲','✈️'], ['❤️','💙','💛','💚'],
+  ['🔺','🟦','🟣','🟧'], ['🌸','🌻','🌷','🌼'],
 ];
-const PATTERN_TYPES = ['AB','AAB','ABB','ABC','AABB'];
 let currentPattern = null;
-
-function startPatterns() {
-  state.subject = 'patterns';
-  state.problemIndex = 0; state.stars = 0; state.streak = 0; state.correctCount = 0;
-  state.totalProblems = 10;
-  document.getElementById('patternStars').textContent = '0';
-  document.getElementById('patternQTotal').textContent = state.totalProblems;
-  updateProgress('patternProgress', 0);
-  showScreen('pattern-game');
-  nextPattern();
+function patternDifficulty() {
+  // 0..4 based on stored level + progress within round
+  return Math.min(4, progress.patterns + Math.floor(state.problemIndex / 3));
 }
-
 function genPattern() {
-  // 1 in 3 puzzles: number sequence
-  if (Math.random() < 0.34 && state.problemIndex >= 2) {
-    const step = [1,2,5,10][rand(0,3)];
-    const start = step === 1 ? rand(1,6) : step;
-    const seq = [start, start+step, start+2*step, start+3*step];
-    const answer = start + 4*step;
+  const d = patternDifficulty();
+  // number sequences more often at higher difficulty
+  if ((d >= 2 && Math.random() < 0.4) || (d >= 1 && Math.random() < 0.25)) {
+    const steps = d >= 3 ? [2,3,5,10] : [1,2,5,10];
+    const step = steps[rand(0, steps.length - 1)];
+    const start = step === 1 ? rand(1,6) : step * rand(1,3);
+    const len = d >= 3 ? 5 : 4;
+    const seq = []; for (let i = 0; i < len; i++) seq.push(start + i*step);
+    const answer = start + len*step;
     const opts = new Set([answer]);
-    while (opts.size < 4) {
-      const c = answer + [-step, step, -1, 1, 2][rand(0,4)];
-      if (c > 0 && c !== answer) opts.add(c);
-    }
+    while (opts.size < 4) { const c = answer + [-step, step, -1, 1, 2*step][rand(0,4)]; if (c > 0 && c !== answer) opts.add(c); }
     return { type:'number', seq: seq.map(String), answer: String(answer), options: shuffle([...opts].map(String)) };
   }
+  // emoji repeating pattern; unit complexity grows with d
+  const units = d <= 0 ? ['AB'] : d === 1 ? ['AB','AAB','ABB'] : d === 2 ? ['AAB','ABB','ABC'] : ['ABC','AABB','ABCD','ABBA'];
+  const ptype = units[rand(0, units.length - 1)];
   const set = PATTERN_SETS[rand(0, PATTERN_SETS.length - 1)];
-  const ptype = PATTERN_TYPES[rand(0, PATTERN_TYPES.length - 1)];
   const symbols = shuffle([...set]);
-  const unit = ptype.split('').map(ch => symbols[ch.charCodeAt(0) - 65]); // A->0, B->1, C->2
-  const seq = [];
-  while (seq.length < 7) seq.push(...unit);
-  const shown = seq.slice(0, 6);
-  const answer = seq[6];
+  const unit = ptype.split('').map(ch => symbols[ch.charCodeAt(0) - 65]);
+  const showLen = d >= 3 ? 7 : 6;
+  const seq = []; while (seq.length < showLen + 1) seq.push(...unit);
+  const shown = seq.slice(0, showLen);
+  const answer = seq[showLen];
   const optSet = new Set([answer]);
-  for (const s of symbols) { if (optSet.size < 4) optSet.add(s); }
-  let i = 0;
-  while (optSet.size < 4) { optSet.add(PATTERN_SETS[(i++) % PATTERN_SETS.length][0]); }
+  for (const s of symbols) if (optSet.size < 4) optSet.add(s);
+  let i = 0; while (optSet.size < 4) optSet.add(PATTERN_SETS[(i++) % PATTERN_SETS.length][0]);
   return { type:'emoji', seq: shown, answer, options: shuffle([...optSet]) };
 }
-
-function shuffle(arr) {
-  for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random()*(i+1)); [arr[i],arr[j]] = [arr[j],arr[i]]; }
-  return arr;
+function startPatterns() {
+  state.subject = 'patterns'; state.problemIndex = 0; state.stars = 0; state.streak = 0; state.correctCount = 0; state.totalProblems = 10;
+  document.getElementById('patternStars').textContent = '0'; document.getElementById('patternQTotal').textContent = state.totalProblems;
+  updateProgress('patternProgress', 0); showScreen('pattern-game'); nextPattern();
 }
-
 function nextPattern() {
   if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
   currentPattern = genPattern();
   document.getElementById('patternQNum').textContent = state.problemIndex + 1;
-  const row = document.getElementById('patternRow');
-  row.innerHTML = currentPattern.seq.map(s => `<div class="pattern-cell">${s}</div>`).join('') + '<div class="pattern-cell missing">?</div>';
-  const fb = document.getElementById('patternFeedback');
-  fb.textContent = ''; fb.classList.remove('wrong');
+  document.getElementById('patternRow').innerHTML = currentPattern.seq.map(s => `<div class="pattern-cell">${s}</div>`).join('') + '<div class="pattern-cell missing">?</div>';
+  const fb = document.getElementById('patternFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
   const opts = document.getElementById('patternOptions'); opts.innerHTML = '';
-  currentPattern.options.forEach(o => {
-    const btn = document.createElement('button');
-    btn.className = 'pattern-opt'; btn.textContent = o;
-    btn.onclick = () => answerPattern(btn, o);
-    opts.appendChild(btn);
-  });
+  currentPattern.options.forEach(o => { const b = document.createElement('button'); b.className = 'pattern-opt'; b.textContent = o; b.onclick = () => answerPattern(b, o); opts.appendChild(b); });
 }
-
 function answerPattern(btn, choice) {
-  const all = document.querySelectorAll('.pattern-opt');
-  all.forEach(b => b.disabled = true);
+  const all = document.querySelectorAll('.pattern-opt'); all.forEach(b => b.disabled = true);
   if (choice === currentPattern.answer) {
-    btn.classList.add('correct');
-    state.stars++; state.streak++; state.correctCount++;
-    sfxCorrect();
+    btn.classList.add('correct'); state.stars++; state.streak++; state.correctCount++; sfxCorrect();
     document.getElementById('patternStars').textContent = state.stars;
-    // fill the missing cell
-    const missing = document.querySelector('.pattern-cell.missing');
-    if (missing) { missing.textContent = currentPattern.answer; missing.classList.remove('missing'); }
+    const missing = document.querySelector('.pattern-cell.missing'); if (missing) { missing.textContent = currentPattern.answer; missing.classList.remove('missing'); }
     document.getElementById('patternFeedback').textContent = ['Pattern master! 🧩','You found it! 🌟','Brilliant! ✨','Yes! 🎉'][rand(0,3)];
-    if (state.streak >= 2) showStreak(state.streak);
-    confetti(14);
-    setTimeout(() => { state.problemIndex++; updateProgress('patternProgress',(state.problemIndex/state.totalProblems)*100); nextPattern(); }, 1400);
+    if (state.streak >= 2) showStreak(state.streak); confetti(14);
+    setTimeout(() => { state.problemIndex++; updateProgress('patternProgress',(state.problemIndex/state.totalProblems)*100); nextPattern(); }, 1300);
   } else {
     btn.classList.add('wrong'); state.streak = 0; sfxWrong();
     all.forEach(b => { if (b.textContent === currentPattern.answer) b.classList.add('correct'); });
-    const fb = document.getElementById('patternFeedback');
-    fb.textContent = `It was ${currentPattern.answer} — keep looking for the pattern!`;
-    fb.classList.add('wrong');
-    setTimeout(() => { state.problemIndex++; updateProgress('patternProgress',(state.problemIndex/state.totalProblems)*100); nextPattern(); }, 2200);
+    const fb = document.getElementById('patternFeedback'); fb.textContent = `It was ${currentPattern.answer} — keep looking for the pattern!`; fb.classList.add('wrong');
+    setTimeout(() => { state.problemIndex++; updateProgress('patternProgress',(state.problemIndex/state.totalProblems)*100); nextPattern(); }, 2100);
   }
 }
 
 // ===============================
-// MEMORY MATCH
+// ODD ONE OUT (logic; tiles & subtlety ramp)
 // ===============================
-const memory = { deck: [], first: null, lock: false, matched: 0, moves: 0 };
-
-function startMemory() {
-  state.subject = 'memory';
-  state.stars = 0; state.totalProblems = 6;
-  memory.first = null; memory.lock = false; memory.matched = 0; memory.moves = 0;
-  document.getElementById('memoryStars').textContent = '0';
-  document.getElementById('movesCount').textContent = '0';
-  updateProgress('memoryProgress', 0);
-
-  const values = [1,2,3,4,5,6];
-  const deck = [];
-  values.forEach(v => { deck.push({ v, kind:'num' }); deck.push({ v, kind:'dots' }); });
-  shuffle(deck);
-  memory.deck = deck;
-
-  const grid = document.getElementById('memoryGrid'); grid.innerHTML = '';
-  deck.forEach((card, i) => {
-    const el = document.createElement('div');
-    el.className = 'mem-card'; el.dataset.idx = i;
-    const front = card.kind === 'num'
-      ? `<span>${card.v}</span>`
-      : `<div class="mem-dots">${'<i></i>'.repeat(card.v)}</div>`;
-    el.innerHTML = `<div class="mem-inner">
-      <div class="mem-face mem-back">❓</div>
-      <div class="mem-face mem-front">${front}</div>
-    </div>`;
-    el.onclick = () => flipCard(el, card);
-    grid.appendChild(el);
+const CATEGORIES = {
+  animals:  ['🐶','🐱','🐰','🦊','🐻','🐼','🐸','🐵','🦁','🐯','🐮','🐷'],
+  food:     ['🍎','🍌','🍇','🍓','🍕','🍔','🍩','🍪','🥕','🌽','🍊','🍉'],
+  vehicles: ['🚗','🚌','🚲','✈️','🚀','🚂','🚁','⛵','🚜','🏍️','🚓','🚕'],
+  nature:   ['🌳','🌸','🌻','🍄','🌵','🌷','🍁','🌊','🌙','⭐','🌈','❄️'],
+  toys:     ['🧸','🎈','🎁','🪁','🎨','🪀','🧩','⚽','🎲','🎸','🪅','🎯'],
+  clothes:  ['👕','👖','🧦','🧢','👟','🧤','🧣','👗','👞','🥾','👔','🩳'],
+};
+const CAT_KEYS = Object.keys(CATEGORIES);
+let currentOdd = null;
+function oddCount() { return progress.odd <= 0 ? 4 : progress.odd === 1 ? 4 : progress.odd <= 3 ? 6 : 9; }
+function startOdd() {
+  state.subject = 'odd'; state.problemIndex = 0; state.stars = 0; state.streak = 0; state.correctCount = 0; state.totalProblems = 10;
+  document.getElementById('oddStars').textContent = '0'; document.getElementById('oddQTotal').textContent = state.totalProblems;
+  updateProgress('oddProgress', 0); showScreen('odd-game'); nextOdd();
+}
+function genOdd() {
+  const total = oddCount() + Math.min(2, Math.floor(state.problemIndex / 5)); // grows slightly within round
+  const n = Math.min(total, 9);
+  const keys = shuffle([...CAT_KEYS]);
+  const mainCat = keys[0], oddCat = keys[1];
+  const main = shuffle([...CATEGORIES[mainCat]]).slice(0, n - 1);
+  const odd = shuffle([...CATEGORIES[oddCat]])[0];
+  const items = shuffle([...main, odd]);
+  const oddIndex = items.indexOf(odd);
+  return { items, oddIndex, cols: n <= 4 ? 2 : n <= 6 ? 3 : 3 };
+}
+function nextOdd() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  currentOdd = genOdd();
+  document.getElementById('oddQNum').textContent = state.problemIndex + 1;
+  const grid = document.getElementById('oddGrid');
+  grid.style.gridTemplateColumns = `repeat(${currentOdd.cols}, 1fr)`;
+  grid.style.maxWidth = currentOdd.cols >= 3 ? '420px' : '300px';
+  grid.innerHTML = '';
+  currentOdd.items.forEach((it, i) => {
+    const cell = document.createElement('button'); cell.className = 'odd-cell'; cell.textContent = it;
+    cell.onclick = () => answerOdd(cell, i); grid.appendChild(cell);
   });
-  showScreen('memory-game');
-  setTimeout(() => speak("Find the matching pairs! Match each number to its dots!", .9), 400);
+  const fb = document.getElementById('oddFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+}
+function answerOdd(cell, i) {
+  const all = document.querySelectorAll('#oddGrid .odd-cell'); all.forEach(c => c.onclick = null);
+  if (i === currentOdd.oddIndex) {
+    cell.classList.add('correct'); state.stars++; state.streak++; state.correctCount++; sfxCorrect();
+    document.getElementById('oddStars').textContent = state.stars;
+    all.forEach((c, j) => { if (j !== i) c.classList.add('dim'); });
+    document.getElementById('oddFeedback').textContent = ['Sharp eyes! 🔍','You spotted it! 🌟','Correct! ✨','Great thinking! 🎉'][rand(0,3)];
+    if (state.streak >= 2) showStreak(state.streak); confetti(14);
+    setTimeout(() => { state.problemIndex++; updateProgress('oddProgress',(state.problemIndex/state.totalProblems)*100); nextOdd(); }, 1300);
+  } else {
+    cell.classList.add('wrong'); state.streak = 0; sfxWrong();
+    all[currentOdd.oddIndex].classList.add('correct');
+    const fb = document.getElementById('oddFeedback'); fb.textContent = 'That one fits the group — the glowing one is the odd one!'; fb.classList.add('wrong');
+    setTimeout(() => { state.problemIndex++; updateProgress('oddProgress',(state.problemIndex/state.totalProblems)*100); nextOdd(); }, 2100);
+  }
 }
 
+// ===============================
+// HUNGRY CROC (number comparison; digits ramp)
+// ===============================
+let currentCroc = null;
+function startCroc() {
+  state.subject = 'croc'; state.problemIndex = 0; state.stars = 0; state.streak = 0; state.correctCount = 0; state.totalProblems = 10;
+  document.getElementById('crocStars').textContent = '0'; document.getElementById('crocQTotal').textContent = state.totalProblems;
+  updateProgress('crocProgress', 0); showScreen('croc-game'); nextCroc();
+}
+function crocRange() {
+  const lvl = progress.croc + Math.floor(state.problemIndex / 4); // ramps
+  if (lvl <= 0) return [1, 9];
+  if (lvl === 1) return [1, 20];
+  if (lvl === 2) return [10, 99];
+  if (lvl === 3) return [50, 199];
+  return [100, 999];
+}
+function nextCroc() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const [lo, hi] = crocRange();
+  let a = rand(lo, hi), b = rand(lo, hi);
+  while (a === b) b = rand(lo, hi);
+  currentCroc = { a, b, bigger: a > b ? 'left' : 'right' };
+  document.getElementById('crocQNum').textContent = state.problemIndex + 1;
+  const L = document.getElementById('crocLeft'), R = document.getElementById('crocRight');
+  L.textContent = a; R.textContent = b;
+  L.className = 'croc-num left'; R.className = 'croc-num right';
+  L.disabled = false; R.disabled = false;
+  const mid = document.getElementById('crocMid'); mid.className = 'croc-mid'; mid.textContent = '🐊';
+  const fb = document.getElementById('crocFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+}
+function answerCroc(side) {
+  const L = document.getElementById('crocLeft'), R = document.getElementById('crocRight');
+  L.disabled = true; R.disabled = true;
+  const mid = document.getElementById('crocMid');
+  if (side === currentCroc.bigger) {
+    const winEl = side === 'left' ? L : R;
+    winEl.classList.add('win');
+    (side === 'left' ? R : L).classList.add('lose');
+    mid.classList.add(side === 'left' ? 'eat-left' : 'eat-right');
+    state.stars++; state.streak++; state.correctCount++; sfxCorrect();
+    document.getElementById('crocStars').textContent = state.stars;
+    document.getElementById('crocFeedback').textContent = ['Yum! 😋','Correct! 🐊','Bigger one! 🌟','Great! 🎉'][rand(0,3)];
+    if (state.streak >= 2) showStreak(state.streak); confetti(12);
+    setTimeout(() => { state.problemIndex++; updateProgress('crocProgress',(state.problemIndex/state.totalProblems)*100); nextCroc(); }, 1300);
+  } else {
+    (side === 'left' ? L : R).classList.add('lose'); state.streak = 0; sfxWrong();
+    const bigEl = currentCroc.bigger === 'left' ? L : R; bigEl.classList.add('win');
+    const fb = document.getElementById('crocFeedback'); fb.textContent = `The croc wants the bigger number — ${Math.max(currentCroc.a, currentCroc.b)}!`; fb.classList.add('wrong');
+    setTimeout(() => { state.problemIndex++; updateProgress('crocProgress',(state.problemIndex/state.totalProblems)*100); nextCroc(); }, 2100);
+  }
+}
+
+// ===============================
+// MEMORY (picture pairs; pairs grow with level)
+// ===============================
+const MEMORY_THEMES = [
+  { name:'Animals', set:['🐶','🐱','🐰','🦊','🐻','🐼','🐸','🦁','🐯','🐵'] },
+  { name:'Food',    set:['🍎','🍌','🍇','🍓','🍕','🍔','🍩','🍪','🍊','🍉'] },
+  { name:'Things',  set:['🚗','✈️','⚽','🎈','🎸','🚀','🎁','🧸','🪁','⛵'] },
+  { name:'Nature',  set:['🌳','🌸','🌻','🍄','🌵','🌈','⭐','🌙','🍁','❄️'] },
+];
+const memory = { deck: [], first: null, lock: false, matched: 0, moves: 0, pairs: 6 };
+function memoryPairs() { return [6, 8, 10][Math.min(progress.memory, 2)]; }
+function startMemory() {
+  state.subject = 'memory'; state.stars = 0;
+  memory.first = null; memory.lock = false; memory.matched = 0; memory.moves = 0;
+  memory.pairs = memoryPairs(); state.totalProblems = memory.pairs;
+  document.getElementById('memoryStars').textContent = '0'; document.getElementById('movesCount').textContent = '0';
+  updateProgress('memoryProgress', 0);
+  const theme = MEMORY_THEMES[rand(0, MEMORY_THEMES.length - 1)];
+  document.getElementById('memoryTitle').textContent = `Match the ${theme.name.toLowerCase()}! 🧠`;
+  document.getElementById('memorySub').textContent = `Find ${memory.pairs} matching pairs`;
+  const chosen = shuffle([...theme.set]).slice(0, memory.pairs);
+  const deck = shuffle([...chosen, ...chosen].map(v => ({ v })));
+  memory.deck = deck;
+  const cards = deck.length;
+  const cols = cards % 5 === 0 ? 5 : 4;
+  const grid = document.getElementById('memoryGrid'); grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`; grid.innerHTML = '';
+  deck.forEach((card, i) => {
+    const el = document.createElement('div'); el.className = 'mem-card'; el.dataset.idx = i;
+    el.innerHTML = `<div class="mem-inner"><div class="mem-face mem-back">❓</div><div class="mem-face mem-front">${card.v}</div></div>`;
+    el.onclick = () => flipCard(el, card); grid.appendChild(el);
+  });
+  showScreen('memory-game');
+  setTimeout(() => speak("Find the matching pairs!", .9), 400);
+}
 function flipCard(el, card) {
   if (memory.lock || el.classList.contains('flipped') || el.classList.contains('matched')) return;
-  sfxClick();
-  el.classList.add('flipped');
+  sfxClick(); el.classList.add('flipped');
   if (!memory.first) { memory.first = { el, card }; return; }
-  // second card
-  memory.moves++;
-  document.getElementById('movesCount').textContent = memory.moves;
+  memory.moves++; document.getElementById('movesCount').textContent = memory.moves;
   const a = memory.first; memory.first = null;
-  if (a.card.v === card.v && a.card.kind !== card.kind) {
-    // match!
+  if (a.card.v === card.v && a.el !== el) {
     memory.lock = true;
     setTimeout(() => {
       a.el.classList.add('matched'); el.classList.add('matched');
-      a.el.classList.remove('flipped'); el.classList.remove('flipped');
       memory.matched++; state.stars++;
       document.getElementById('memoryStars').textContent = state.stars;
       sfxCorrect(); confetti(10);
-      speak(String(card.v), .95);
-      updateProgress('memoryProgress', (memory.matched / 6) * 100);
+      updateProgress('memoryProgress', (memory.matched / memory.pairs) * 100);
       memory.lock = false;
-      if (memory.matched === 6) setTimeout(() => celebrate(), 700);
+      if (memory.matched === memory.pairs) setTimeout(() => celebrate(), 700);
     }, 350);
   } else {
-    memory.lock = true;
-    sfxWrong();
-    setTimeout(() => {
-      a.el.classList.remove('flipped'); el.classList.remove('flipped');
-      memory.lock = false;
-    }, 950);
+    memory.lock = true; sfxWrong();
+    setTimeout(() => { a.el.classList.remove('flipped'); el.classList.remove('flipped'); memory.lock = false; }, 950);
   }
 }
 
 // ===============================
-// CELEBRATION
+// CELEBRATION + LEVEL UP
 // ===============================
 function celebrate() {
   sfxLevelComplete();
   const stars = state.stars, total = state.totalProblems;
-  document.getElementById('celebStars').textContent = STAR.repeat(Math.min(5, Math.max(1, Math.round((stars/total)*5))));
-  let title, msg;
-  if (state.subject === 'memory') {
-    title = 'All pairs found! 🏆';
-    msg = `You matched all 6 pairs in ${memory.moves} moves!`;
-  } else if (state.subject === 'coder') {
-    title = stars === total ? 'Master Coder! 🤖🏆' : 'Great coding! 🤖';
-    msg = `You finished ${stars} of ${total} levels!`;
-  } else if (stars === total) {
-    title = 'PERFECT, Keshav! 🏆';
-    msg = `You got all ${total} right! You're a superstar! 🌟`;
-  } else if (stars >= total * .6) {
-    title = 'Great job! 🎉';
-    msg = `You earned ${stars} stars out of ${total}!`;
-  } else {
-    title = 'Nice try, Keshav! 💪';
-    msg = `You earned ${stars} stars. Let's keep practicing!`;
+  const pass = stars >= Math.ceil(total * 0.6);
+  state.leveledUp = false;
+
+  // level up logic for ramping games (on success)
+  const lk = { patterns:'patterns', odd:'odd', croc:'croc', memory:'memory' }[state.subject];
+  if (lk && pass) {
+    const caps = { patterns: 6, odd: 5, croc: 4, memory: 2 };
+    if (progress[lk] < caps[lk]) { progress[lk]++; state.leveledUp = true; saveProgress(); }
   }
+  addTotalStars(stars);
+
+  document.getElementById('celebStars').textContent = STAR.repeat(Math.min(5, Math.max(1, Math.round((stars/Math.max(1,total))*5))));
+  const luEl = document.getElementById('celebLevelUp');
+  luEl.innerHTML = state.leveledUp ? `<div class="levelup-tag">⬆️ Level Up! Next time is trickier 🚀</div>` : '';
+
+  let title, msg;
+  if (state.subject === 'memory') { title = 'All pairs found! 🏆'; msg = `You matched all ${memory.pairs} pairs in ${memory.moves} moves!`; }
+  else if (state.subject === 'coder') { title = stars === total ? 'Master Coder! 🤖🏆' : 'Great coding! 🤖'; msg = `You finished ${stars} of ${total} levels!`; }
+  else if (state.subject === 'odd') { title = pass ? 'Sharp eyes! 🔍🏆' : 'Good try! 🔍'; msg = `You found ${stars} of ${total}!`; }
+  else if (state.subject === 'croc') { title = pass ? 'Croc is full! 🐊🏆' : 'Nice work! 🐊'; msg = `You fed the croc ${stars} of ${total} times!`; }
+  else if (state.subject === 'patterns') { title = pass ? 'Pattern Master! 🧩🏆' : 'Good try! 🧩'; msg = `You solved ${stars} of ${total}!`; }
+  else if (stars === total) { title = 'PERFECT, Keshav! 🏆'; msg = `You got all ${total} right! Superstar! 🌟`; }
+  else if (pass) { title = 'Great job! 🎉'; msg = `You earned ${stars} stars out of ${total}!`; }
+  else { title = 'Nice try, Keshav! 💪'; msg = `You earned ${stars} stars. Keep practicing!`; }
+
   document.getElementById('celebTitle').textContent = title;
   document.getElementById('celebMsg').textContent = msg;
   document.getElementById('celebration').classList.add('active');
   confettiBurst(55);
-  setTimeout(() => speak(title.replace(/[!🏆🎉💪🤖]/g, '')), 400);
+  setTimeout(() => speak(title.replace(/[!🏆🎉💪🤖🔍🐊🧩]/g, '')), 400);
 }
-
 function playAgain() {
   sfxClick(); stopAllSpeech(); singingFacts = false;
   document.getElementById('celebration').classList.remove('active');
@@ -1569,10 +1543,11 @@ function playAgain() {
   else if (state.subject === 'reading') startReadingGame();
   else if (state.subject === 'coder') startCoder();
   else if (state.subject === 'patterns') startPatterns();
+  else if (state.subject === 'odd') startOdd();
+  else if (state.subject === 'croc') startCroc();
   else if (state.subject === 'memory') startMemory();
   else showScreen('welcome');
 }
-
 function goHome() {
   sfxClick(); stopAllSpeech(); singingFacts = false; state.fixedFactor = null;
   document.getElementById('celebration').classList.remove('active');
@@ -1582,31 +1557,23 @@ function goHome() {
 // ===============================
 // CONFETTI
 // ===============================
-const CONFETTI_COLORS = ['#FFC83D','#FF7864','#58CC02','#1CB0F6','#9069E0','#FF8FB1'];
+const CONFETTI_COLORS = ['#FFB23E','#FF7563','#36C98D','#4D96FF','#6C5CE7','#FF7AA8','#19C8D6'];
 function confetti(n) {
   for (let i = 0; i < n; i++) setTimeout(() => {
-    const d = document.createElement('div');
-    d.className = 'confetti';
-    d.style.left = Math.random()*100 + 'vw';
-    d.style.background = CONFETTI_COLORS[rand(0,5)];
-    d.style.borderRadius = Math.random() > .5 ? '50%' : '3px';
-    d.style.animationDuration = (1.5 + Math.random()*1.5) + 's';
-    document.body.appendChild(d);
-    setTimeout(() => d.remove(), 3000);
+    const d = document.createElement('div'); d.className = 'confetti';
+    d.style.left = Math.random()*100 + 'vw'; d.style.background = CONFETTI_COLORS[rand(0, CONFETTI_COLORS.length-1)];
+    d.style.borderRadius = Math.random() > .5 ? '50%' : '3px'; d.style.animationDuration = (1.5 + Math.random()*1.5) + 's';
+    document.body.appendChild(d); setTimeout(() => d.remove(), 3000);
   }, i * 28);
 }
 function confettiBurst(n) {
   for (let i = 0; i < n; i++) setTimeout(() => {
-    const d = document.createElement('div');
-    d.className = 'confetti';
-    d.style.left = Math.random()*100 + 'vw'; d.style.top = '-20px';
-    d.style.background = CONFETTI_COLORS[rand(0,5)];
+    const d = document.createElement('div'); d.className = 'confetti';
+    d.style.left = Math.random()*100 + 'vw'; d.style.top = '-20px'; d.style.background = CONFETTI_COLORS[rand(0, CONFETTI_COLORS.length-1)];
     d.style.borderRadius = Math.random() > .5 ? '50%' : '3px';
-    const sz = (8 + Math.random()*9) + 'px';
-    d.style.width = sz; d.style.height = sz;
+    const sz = (8 + Math.random()*9) + 'px'; d.style.width = sz; d.style.height = sz;
     d.style.animationDuration = (2 + Math.random()*2) + 's';
-    document.body.appendChild(d);
-    setTimeout(() => d.remove(), 4400);
+    document.body.appendChild(d); setTimeout(() => d.remove(), 4400);
   }, i * 18);
 }
 
@@ -1616,44 +1583,38 @@ function confettiBurst(n) {
 document.getElementById('muteBtn').onclick = () => {
   state.muted = !state.muted;
   document.getElementById('muteBtn').textContent = state.muted ? '🔇' : '🔊';
-  if (state.muted) window.speechSynthesis?.cancel();
+  if (state.muted) window.speechSynthesis && window.speechSynthesis.cancel();
 };
 document.body.addEventListener('touchstart', ensureAudio, { once: true });
 document.body.addEventListener('click', ensureAudio, { once: true });
 let welcomed = false;
-document.body.addEventListener('click', () => {
-  if (!welcomed) { welcomed = true; setTimeout(() => speak("Hi Keshav! Let's play and learn!", .9), 300); }
-}, { once: true });
+document.body.addEventListener('click', () => { if (!welcomed) { welcomed = true; setTimeout(() => speak("Hi Keshav! Let's play and learn!", .9), 300); } }, { once: true });
+
+renderHub();
 
 // ===============================
-// SERVICE WORKER (PWA)
+// SERVICE WORKER
 // ===============================
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => {
-        reg.addEventListener('updatefound', () => {
-          const nw = reg.installing;
-          nw.addEventListener('statechange', () => {
-            if (nw.state === 'installed' && navigator.serviceWorker.controller) showUpdateBanner();
-          });
-        });
-      })
-      .catch(err => console.warn('SW registration failed:', err));
+    navigator.serviceWorker.register('./sw.js').then(reg => {
+      reg.addEventListener('updatefound', () => {
+        const nw = reg.installing;
+        nw.addEventListener('statechange', () => { if (nw.state === 'installed' && navigator.serviceWorker.controller) showUpdateBanner(); });
+      });
+    }).catch(err => console.warn('SW registration failed:', err));
     navigator.serviceWorker.addEventListener('controllerchange', () => window.location.reload());
   });
 }
 function showUpdateBanner() {
   const b = document.createElement('div');
-  b.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#58CC02;color:#fff;border-radius:18px;padding:14px 24px;z-index:9999;font-family:Fredoka,sans-serif;font-size:1.05rem;font-weight:600;box-shadow:0 4px 0 #46A302, 0 10px 24px rgba(0,0,0,.2);cursor:pointer;white-space:nowrap;';
+  b.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#36C98D,#19C8D6);color:#fff;border-radius:16px;padding:14px 24px;z-index:9999;font-family:Fredoka,sans-serif;font-size:1.05rem;font-weight:600;box-shadow:0 10px 28px rgba(0,0,0,.22);cursor:pointer;white-space:nowrap;';
   b.textContent = '🎉 New version ready! Tap to update';
-  b.onclick = () => {
-    if (navigator.serviceWorker.controller) navigator.serviceWorker.controller.postMessage({ type:'SKIP_WAITING' });
-    b.remove();
-  };
+  b.onclick = () => { if (navigator.serviceWorker.controller) navigator.serviceWorker.controller.postMessage({ type:'SKIP_WAITING' }); b.remove(); };
   document.body.appendChild(b);
   setTimeout(() => b.remove && b.remove(), 12000);
 }
+
 </script>
 </body>
 </html>
