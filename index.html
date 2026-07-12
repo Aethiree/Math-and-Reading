@@ -362,6 +362,105 @@
 
   .mute-btn { position: fixed; top: 12px; right: 12px; width: 42px; height: 42px; border-radius: 13px; background: #fff; border: none; cursor: pointer; font-size: 1.1rem; box-shadow: var(--shadow-sm); z-index: 50; display: flex; align-items: center; justify-content: center; }
 
+
+  /* ===== Multiply Lab ===== */
+  .ml-stage { background:#F8F9FE; border:1px solid var(--line); border-radius:var(--r-lg); padding:14px; margin:12px 0; min-height:120px; }
+  .ml-groups { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .ml-group {
+    background:#fff; border:2px dashed var(--line-2); border-radius:var(--r-md); padding:8px;
+    display:flex; flex-wrap:wrap; gap:4px; align-items:center; justify-content:center;
+    min-width:66px; min-height:60px; cursor:pointer; transition:transform .12s, box-shadow .15s, border-color .2s;
+  }
+  .ml-group:active { transform:scale(.96); }
+  .ml-group.counted { border-color:var(--green); border-style:solid; background:linear-gradient(135deg,#E7FBF1,#D6F7E6); box-shadow:var(--shadow-sm); }
+  .ml-group .gi { font-size:1.35rem; }
+  .ml-group .gtag { width:100%; text-align:center; font-size:.66rem; font-weight:800; color:var(--green); }
+  .ml-array { display:flex; flex-direction:column; gap:5px; align-items:center; }
+  .ml-arow {
+    display:flex; gap:5px; padding:5px 8px; border-radius:10px; cursor:pointer;
+    background:#fff; box-shadow:inset 0 0 0 1px var(--line-2); transition:background .2s, transform .12s;
+  }
+  .ml-arow:active { transform:scale(.97); }
+  .ml-arow.counted { background:linear-gradient(135deg,#E7FBF1,#D6F7E6); box-shadow:inset 0 0 0 2px var(--green); }
+  .ml-arow .adot { width:16px; height:16px; border-radius:50%; background:var(--blue); }
+  .ml-arow.counted .adot { background:var(--green); }
+  .ml-line { position:relative; padding:26px 6px 6px; }
+  .ml-track { position:relative; height:6px; background:var(--line-2); border-radius:999px; }
+  .ml-tick { position:absolute; top:-5px; width:3px; height:16px; background:var(--ink-soft); border-radius:2px; transform:translateX(-50%); }
+  .ml-tick.hit { background:var(--green); height:20px; top:-7px; }
+  .ml-tlabel { position:absolute; top:16px; transform:translateX(-50%); font-size:.66rem; font-weight:800; color:var(--ink-soft); }
+  .ml-tlabel.hit { color:var(--green); }
+  .ml-roo { position:absolute; top:-30px; font-size:1.5rem; transform:translateX(-50%); transition:left .4s cubic-bezier(.3,1.2,.4,1); }
+  .ml-total { font-family:'Fredoka'; font-weight:600; font-size:1.25rem; margin-top:10px; color:var(--ink-soft); }
+  .ml-total b { color:var(--green); font-size:1.6rem; }
+  .ml-hint { font-size:.88rem; font-weight:700; color:var(--ink-soft); margin-top:6px; }
+  .factfam { background:linear-gradient(135deg,#FFF6E4,#FFEFD0); border-radius:var(--r-md); padding:12px; margin-top:12px; }
+  .factfam h4 { margin:0 0 8px; font-family:'Fredoka'; font-weight:600; font-size:1rem; }
+  .factfam .ff { font-family:'Fredoka'; font-weight:600; font-size:1.05rem; margin:3px 0; }
+
+  /* ===== Share It (division) ===== */
+  .jar { background:#F8F9FE; border:1px solid var(--line); border-radius:var(--r-md); padding:12px; min-height:74px;
+         display:flex; flex-wrap:wrap; gap:5px; align-items:center; justify-content:center; }
+  .jar .ci { font-size:1.35rem; animation:popS .25s cubic-bezier(.34,1.56,.64,1); }
+  .plates { display:flex; flex-wrap:wrap; gap:9px; justify-content:center; margin-top:12px; }
+  .plate {
+    background:#fff; border-radius:50%; box-shadow:inset 0 0 0 3px var(--line-2), var(--shadow-sm);
+    width:84px; height:84px; display:flex; flex-wrap:wrap; gap:2px; align-items:center; justify-content:center; padding:8px;
+  }
+  .plate .ci { font-size:1.05rem; }
+  .plate.full { box-shadow:inset 0 0 0 3px var(--green), var(--shadow-sm); }
+
+  /* ===== AI Academy ===== */
+  .ai-cards { display:grid; gap:13px; width:100%; margin-top:14px; }
+  @media (min-width:540px){ .ai-cards { grid-template-columns:1fr 1fr; } }
+  .ai-blurb { background:linear-gradient(135deg,#EDEAFE,#E4F6FA); border-radius:var(--r-lg); padding:16px; width:100%; text-align:left; }
+  .ai-blurb h3 { margin-bottom:6px; }
+  .ai-blurb p { margin:0; font-size:.95rem; font-weight:600; color:#4A4F73; line-height:1.5; }
+  .ai-item { font-size:4.2rem; line-height:1; margin:10px 0; animation:popS .32s cubic-bezier(.34,1.56,.64,1); }
+  .ai-name { font-family:'Fredoka'; font-weight:600; font-size:1.3rem; }
+  .ai-bins { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+  .ai-bin {
+    border:none; border-radius:var(--r-lg); padding:16px 10px; cursor:pointer; color:#fff;
+    font-family:'Fredoka'; font-weight:600; font-size:1.05rem; box-shadow:var(--shadow-sm);
+    display:flex; flex-direction:column; align-items:center; gap:5px; min-height:92px; justify-content:center;
+    transition:transform .12s, box-shadow .15s;
+  }
+  .ai-bin:active { transform:scale(.96); }
+  .ai-bin.fly { background:linear-gradient(135deg,var(--blue),var(--teal)); }
+  .ai-bin.nofly { background:linear-gradient(135deg,var(--coral),var(--amber)); }
+  .ai-bin .bi { font-size:1.9rem; }
+  .brain {
+    background:#fff; border:1px solid var(--line); border-radius:var(--r-md); padding:12px; margin-top:12px; text-align:left;
+  }
+  .brain h4 { margin:0 0 8px; font-family:'Fredoka'; font-weight:600; font-size:.98rem; display:flex; align-items:center; gap:6px; }
+  .brain .empty { font-size:.85rem; font-weight:700; color:var(--ink-soft); }
+  .brule { display:flex; align-items:center; gap:8px; margin:6px 0; font-size:.85rem; font-weight:700; }
+  .brule .bf { min-width:74px; font-family:'Fredoka'; font-weight:600; }
+  .bbar { flex:1; height:12px; background:#F0F2FA; border-radius:999px; overflow:hidden; display:flex; }
+  .bbar .bfill { height:100%; transition:width .45s cubic-bezier(.22,1.1,.32,1); }
+  .bbar .bfill.f { background:linear-gradient(90deg,var(--blue),var(--teal)); }
+  .bbar .bfill.n { background:linear-gradient(90deg,var(--amber),var(--coral)); }
+  .brule .bv { font-size:.75rem; color:var(--ink-soft); min-width:62px; text-align:right; }
+  .ai-guess {
+    background:linear-gradient(135deg,#EDEAFE,#E4F6FA); border-radius:var(--r-md); padding:13px; margin-top:12px;
+    font-weight:700; font-size:.95rem; line-height:1.5; text-align:left;
+  }
+  .ai-guess .verdict { font-family:'Fredoka'; font-weight:600; font-size:1.1rem; display:block; margin-bottom:4px; }
+  .ai-guess.right { background:linear-gradient(135deg,#E7FBF1,#D6F7E6); }
+  .ai-guess.wrongg { background:linear-gradient(135deg,#FFE9EC,#FFD9DF); }
+  .ai-phase { font-size:.72rem; font-weight:800; letter-spacing:.6px; text-transform:uppercase; color:var(--violet); }
+  .quiz-opts { display:grid; gap:11px; margin-top:16px; }
+  .quiz-opt {
+    background:#fff; border:1px solid var(--line-2); border-radius:var(--r-md); padding:15px 14px; cursor:pointer;
+    font-weight:700; font-size:1rem; text-align:left; box-shadow:var(--shadow-sm); transition:transform .1s, box-shadow .15s;
+    display:flex; align-items:center; gap:10px; color:var(--ink);
+  }
+  .quiz-opt:hover { transform:translateY(-2px); box-shadow:var(--shadow-md); }
+  .quiz-opt:active { transform:scale(.98); }
+  .quiz-opt.correct { background:linear-gradient(135deg,var(--good),#45d488); border-color:var(--good-edge); color:#fff; animation:winB .55s ease; }
+  .quiz-opt.wrong { background:linear-gradient(135deg,var(--bad),#ff7d8c); border-color:var(--bad-edge); color:#fff; animation:shake .45s ease; }
+  .quiz-why { background:#F8F9FE; border-radius:var(--r-md); padding:12px; margin-top:12px; font-size:.9rem; font-weight:700; color:#4A4F73; line-height:1.5; text-align:left; }
+
   @media (max-width: 470px) {
     .problem-display { font-size: 2.6rem; }
     .game-card { padding: 20px 14px; }
@@ -616,6 +715,116 @@
     </div>
   </div>
 
+
+  <!-- ============ MULTIPLY LAB EXAMPLE ============ -->
+  <div class="screen" id="screen-multlab-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Multiply Lab</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>What does × really mean? ⚡</h3>
+      <div class="example-step"><div class="step-num">1</div><div><b>3 × 4</b> means <b>3 groups of 4</b>.</div></div>
+      <div class="ml-stage"><div class="ml-groups">
+        <div class="ml-group counted"><span class="gi">🍎</span><span class="gi">🍎</span><span class="gi">🍎</span><span class="gi">🍎</span><span class="gtag">4</span></div>
+        <div class="ml-group counted"><span class="gi">🍎</span><span class="gi">🍎</span><span class="gi">🍎</span><span class="gi">🍎</span><span class="gtag">8</span></div>
+        <div class="ml-group counted"><span class="gi">🍎</span><span class="gi">🍎</span><span class="gi">🍎</span><span class="gi">🍎</span><span class="gtag">12</span></div>
+      </div><div class="ml-total">Total: <b>12</b></div></div>
+      <div class="example-step"><div class="step-num">2</div><div><b>Tap each group</b> to count it. Watch it skip-count: 4… 8… 12!</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>So <b>3 × 4 = 12</b>. Multiplying is just fast adding! 🚀</div></div>
+      <div class="example-step"><div class="step-num">4</div><div>You'll also see <b>dot rows</b> and a <b>hopping kangaroo</b> 🦘 — three ways to see the same thing.</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-amber" onclick="startMultLab()">Let's multiply! ⚡</button></div>
+  </div>
+
+  <!-- ============ MULTIPLY LAB GAME ============ -->
+  <div class="screen" id="screen-multlab-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('multlab-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="mlProgress"></div></div></div><div class="star-count">⭐ <span id="mlStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Question <span id="mlQNum">1</span> of <span id="mlQTotal">10</span></div>
+      <div class="problem-display" id="mlProblem"></div>
+      <div class="ml-hint" id="mlHint"></div>
+      <div class="ml-stage" id="mlStage"></div>
+      <div class="ml-total" id="mlTotal"></div>
+      <div class="answer-grid" id="mlAnswers"></div>
+      <div id="mlFactFam"></div>
+      <div class="feedback-msg" id="mlFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ SHARE IT EXAMPLE ============ -->
+  <div class="screen" id="screen-share-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Share It!</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Division is just fair sharing 🍪</h3>
+      <div class="example-step"><div class="step-num">1</div><div><b>12 ÷ 3</b> means: share <b>12 cookies</b> onto <b>3 plates</b>, fairly.</div></div>
+      <div class="plates" style="margin:12px 0;">
+        <div class="plate full"><span class="ci">🍪</span><span class="ci">🍪</span><span class="ci">🍪</span><span class="ci">🍪</span></div>
+        <div class="plate full"><span class="ci">🍪</span><span class="ci">🍪</span><span class="ci">🍪</span><span class="ci">🍪</span></div>
+        <div class="plate full"><span class="ci">🍪</span><span class="ci">🍪</span><span class="ci">🍪</span><span class="ci">🍪</span></div>
+      </div>
+      <div class="example-step"><div class="step-num">2</div><div>Tap <b>Share one to each 👐</b> — one cookie goes to every plate, again and again.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>When the jar is empty, <b>count ONE plate</b>. That's the answer: <b>4</b>!</div></div>
+      <div class="example-step"><div class="step-num">4</div><div>And that's why <b>3 × 4 = 12</b>. Multiply and divide are opposites! 🔄</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-coral" onclick="startShare()">Let's share! 🍪</button></div>
+  </div>
+
+  <!-- ============ SHARE IT GAME ============ -->
+  <div class="screen" id="screen-share-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('share-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="shProgress"></div></div></div><div class="star-count">⭐ <span id="shStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Question <span id="shQNum">1</span> of <span id="shQTotal">10</span></div>
+      <div class="problem-display" id="shProblem"></div>
+      <div class="ml-hint" id="shHint"></div>
+      <div class="jar" id="shJar"></div>
+      <div class="plates" id="shPlates"></div>
+      <div class="center-actions"><button class="btn btn-primary" id="shDealBtn" onclick="dealRound()">👐 Share one to each</button></div>
+      <div class="answer-grid" id="shAnswers"></div>
+      <div id="shFactFam"></div>
+      <div class="feedback-msg" id="shFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ AI HUB ============ -->
+  <div class="screen" id="screen-ai-hub">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">AI Academy</h2><div style="width:46px;"></div></div>
+    <div class="ai-blurb">
+      <h3>What is AI? 🧠</h3>
+      <p>AI means <b>Artificial Intelligence</b> — a computer that learns from <b>examples</b>, instead of being told every rule.<br><br>
+      Show it lots of cat pictures, and it learns what a cat looks like. It's a <b>super pattern-spotter</b>! But it can only learn from what you show it — so it can make mistakes.</p>
+    </div>
+    <div class="ai-cards">
+      <div class="choice-card" onclick="startAITrain()"><div class="icon">🤖</div><div class="label">Teach the Robot</div><div class="sub">Train a real AI brain!</div></div>
+      <div class="choice-card" onclick="startAIQuiz()"><div class="icon">❓</div><div class="label">AI Quiz</div><div class="sub">What do you know?</div></div>
+    </div>
+  </div>
+
+  <!-- ============ AI TRAIN ============ -->
+  <div class="screen" id="screen-ai-train">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('ai-hub')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="aiProgress"></div></div></div><div class="star-count">⭐ <span id="aiStars">0</span></div></div>
+    <div class="game-card">
+      <div class="ai-phase" id="aiPhase">Training</div>
+      <h3 id="aiTitle" style="margin-top:4px;">Teach the robot!</h3>
+      <div class="ml-hint" id="aiHint"></div>
+      <div class="ai-item" id="aiItem">🦅</div>
+      <div class="ai-name" id="aiItemName">eagle</div>
+      <div id="aiBins"></div>
+      <div id="aiGuessBox"></div>
+      <div class="brain" id="aiBrain"></div>
+      <div class="feedback-msg" id="aiFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ AI QUIZ ============ -->
+  <div class="screen" id="screen-ai-quiz">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('ai-hub')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="aqProgress"></div></div></div><div class="star-count">⭐ <span id="aqStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Question <span id="aqQNum">1</span> of <span id="aqQTotal">8</span></div>
+      <h3 id="aqQuestion" style="margin-top:8px;"></h3>
+      <div class="quiz-opts" id="aqOptions"></div>
+      <div id="aqWhy"></div>
+      <div class="feedback-msg" id="aqFeedback"></div>
+    </div>
+  </div>
+
 </div>
 
 <!-- ============ CELEBRATION ============ -->
@@ -657,6 +866,8 @@ progress.patterns = progress.patterns || 0;
 progress.memory   = progress.memory   || 0;
 progress.odd      = progress.odd      || 0;
 progress.croc     = progress.croc     || 0;
+progress.multlab  = progress.multlab  || 0;
+progress.share    = progress.share    || 0;
 progress.totalStars = progress.totalStars || 0;
 
 function addTotalStars(n) {
@@ -675,9 +886,12 @@ const GAMES = [
   { id:'reading',  ic:'📖', nm:'Reading',       ds:'Words & sentences',     grad:'linear-gradient(150deg,#6C5CE7,#8B7CF6)', fn:goReading },
   { id:'coder',    ic:'🤖', nm:'Robot Coder',   ds:'Program the robot!',    grad:'linear-gradient(150deg,#4D96FF,#19C8D6)', fn:goCoder,    levelKey:'coder' },
   { id:'patterns', ic:'🧩', nm:'Patterns',      ds:'What comes next?',      grad:'linear-gradient(150deg,#FF7563,#FF7AA8)', fn:goPatterns, levelKey:'patterns' },
-  { id:'memory',   ic:'🧠', nm:'Memory',        ds:'Match the pairs',       grad:'linear-gradient(150deg,#19C8D6,#36C98D)', fn:goMemory,   levelKey:'memory' },
+  { id:'memory',   ic:'🃏', nm:'Memory',        ds:'Match the pairs',       grad:'linear-gradient(150deg,#19C8D6,#36C98D)', fn:goMemory,   levelKey:'memory' },
   { id:'odd',      ic:'🔍', nm:'Odd One Out',   ds:"Find what's different", grad:'linear-gradient(150deg,#8B7CF6,#FF7AA8)', fn:goOdd,      levelKey:'odd' },
   { id:'croc',     ic:'🐊', nm:'Hungry Croc',   ds:'Bigger or smaller?',    grad:'linear-gradient(150deg,#8DD23F,#36C98D)', fn:goCroc,     levelKey:'croc' },
+  { id:'multlab',  ic:'⚡', nm:'Multiply Lab',  ds:'See how × works',       grad:'linear-gradient(150deg,#FF9F1C,#FFB23E)', fn:goMultLab,  levelKey:'multlab' },
+  { id:'share',    ic:'🍪', nm:'Share It!',     ds:'Division by sharing',   grad:'linear-gradient(150deg,#FF7563,#FFB23E)', fn:goShare,    levelKey:'share' },
+  { id:'ai',       ic:'🧠', nm:'AI Academy',    ds:'Teach a robot to think',grad:'linear-gradient(150deg,#6C5CE7,#19C8D6)', fn:goAI },
 ];
 
 function renderHub() {
@@ -1113,7 +1327,8 @@ const CMD_DELTA = { up:[0,-1], down:[0,1], left:[-1,0], right:[1,0] };
 
 function startCoder() {
   state.subject = 'coder';
-  coder.level = 0; state.stars = 0; state.totalProblems = CODER_LEVELS.length;
+  coder.level = Math.min(progress.coder, CODER_LEVELS.length - 1);
+  state.stars = 0; state.totalProblems = CODER_LEVELS.length - coder.level;
   document.getElementById('coderStars').textContent = '0'; updateProgress('coderProgress', 0);
   showScreen('coder-game'); loadCoderLevel();
   setTimeout(() => speak("Tap the arrows to move the robot to the star!", .9), 400);
@@ -1162,6 +1377,7 @@ function placeRobot(x, y, animate = true) {
 }
 function addCmd(dir) {
   if (coder.running) return;
+  if (dir === 'loop' && coder.program.length === 0) { sfxWrong(); speak("Add some arrows first, then loop them!", .9); return; }
   if (coder.program.length >= 20) { sfxWrong(); return; }
   sfxClick(); coder.program.push(dir); renderProgram();
 }
@@ -1182,19 +1398,12 @@ function renderProgram() {
   });
 }
 // expand loop tokens: a 'loop' repeats the PRECEDING run of moves 2x
+// Each 🔁 repeats the moves you've built so far, once more.
+// Tapping 🔁 twice adds TWO repeats (no silent no-ops).
 function expandProgram(prog) {
-  const out = [];
-  let segStart = 0;
-  for (let i = 0; i < prog.length; i++) {
-    if (prog[i] === 'loop') {
-      const seg = prog.slice(segStart, i).filter(c => c !== 'loop');
-      out.push(...seg); // already added below? rebuild cleanly
-    }
-  }
-  // simpler robust approach: walk, buffering moves; on 'loop', repeat buffer once more then reset buffer
-  const result = []; let buffer = [];
+  const result = [], buffer = [];
   for (const c of prog) {
-    if (c === 'loop') { result.push(...buffer); buffer = []; }  // loop repeats current buffer again
+    if (c === 'loop') { result.push(...buffer); }   // buffer kept, so repeated loops stack
     else { buffer.push(c); result.push(c); }
   }
   return result;
@@ -1239,7 +1448,7 @@ function finishRun(reachedGoal) {
     document.getElementById('coderStars').textContent = state.stars;
     fb.textContent = 'You did it! Great program! 🎉'; fb.classList.remove('wrong');
     speak("You did it! Great programming!", .9);
-    updateProgress('coderProgress', ((coder.level + 1) / CODER_LEVELS.length) * 100);
+    updateProgress('coderProgress', (state.stars / Math.max(1, state.totalProblems)) * 100);
     if (coder.level + 1 > progress.coder) { progress.coder = Math.min(coder.level + 1, CODER_LEVELS.length - 1); saveProgress(); }
     setTimeout(() => {
       coder.level++;
@@ -1509,9 +1718,9 @@ function celebrate() {
   state.leveledUp = false;
 
   // level up logic for ramping games (on success)
-  const lk = { patterns:'patterns', odd:'odd', croc:'croc', memory:'memory' }[state.subject];
+  const lk = { patterns:'patterns', odd:'odd', croc:'croc', memory:'memory', multlab:'multlab', share:'share' }[state.subject];
   if (lk && pass) {
-    const caps = { patterns: 6, odd: 5, croc: 4, memory: 2 };
+    const caps = { patterns: 6, odd: 5, croc: 4, memory: 2, multlab: 3, share: 3 };
     if (progress[lk] < caps[lk]) { progress[lk]++; state.leveledUp = true; saveProgress(); }
   }
   addTotalStars(stars);
@@ -1526,6 +1735,10 @@ function celebrate() {
   else if (state.subject === 'odd') { title = pass ? 'Sharp eyes! 🔍🏆' : 'Good try! 🔍'; msg = `You found ${stars} of ${total}!`; }
   else if (state.subject === 'croc') { title = pass ? 'Croc is full! 🐊🏆' : 'Nice work! 🐊'; msg = `You fed the croc ${stars} of ${total} times!`; }
   else if (state.subject === 'patterns') { title = pass ? 'Pattern Master! 🧩🏆' : 'Good try! 🧩'; msg = `You solved ${stars} of ${total}!`; }
+  else if (state.subject === 'multlab') { title = pass ? 'Multiply Master! ⚡🏆' : 'Good try! ⚡'; msg = `You worked out ${stars} of ${total}!`; }
+  else if (state.subject === 'share') { title = pass ? 'Sharing Star! 🍪🏆' : 'Good try! 🍪'; msg = `You shared ${stars} of ${total} fairly!`; }
+  else if (state.subject === 'ai') { title = 'AI Trainer! 🤖🎓'; msg = `You taught the robot, and it got ${ai.robotRight} of ${AI_TEST_SET.length} tests right. More examples = smarter AI!`; }
+  else if (state.subject === 'aiquiz') { title = pass ? 'AI Expert! 🧠🏆' : 'Keep learning! 🧠'; msg = `You got ${stars} of ${total} right!`; }
   else if (stars === total) { title = 'PERFECT, Keshav! 🏆'; msg = `You got all ${total} right! Superstar! 🌟`; }
   else if (pass) { title = 'Great job! 🎉'; msg = `You earned ${stars} stars out of ${total}!`; }
   else { title = 'Nice try, Keshav! 💪'; msg = `You earned ${stars} stars. Keep practicing!`; }
@@ -1546,6 +1759,10 @@ function playAgain() {
   else if (state.subject === 'odd') startOdd();
   else if (state.subject === 'croc') startCroc();
   else if (state.subject === 'memory') startMemory();
+  else if (state.subject === 'multlab') startMultLab();
+  else if (state.subject === 'share') startShare();
+  else if (state.subject === 'ai') startAITrain();
+  else if (state.subject === 'aiquiz') startAIQuiz();
   else showScreen('welcome');
 }
 function goHome() {
@@ -1591,6 +1808,413 @@ let welcomed = false;
 document.body.addEventListener('click', () => { if (!welcomed) { welcomed = true; setTimeout(() => speak("Hi Keshav! Let's play and learn!", .9), 300); } }, { once: true });
 
 renderHub();
+
+
+// ===============================
+// MULTIPLY LAB — see WHY multiplication works
+// 3 models: groups, dot-array, kangaroo skip-hops
+// ===============================
+const ML_EMOJI = ['🍎','⭐','🐠','🌸','🎈','🍓','🦋','🐝','🍪','🚗'];
+let mlQ = null;
+function mlLevel() { return Math.min(3, progress.multlab); }
+function goMultLab() { state.subject = 'multlab'; showScreen('multlab-example'); }
+function startMultLab() {
+  state.subject = 'multlab'; state.problemIndex = 0; state.stars = 0; state.streak = 0; state.totalProblems = 10;
+  document.getElementById('mlStars').textContent = '0';
+  document.getElementById('mlQTotal').textContent = state.totalProblems;
+  updateProgress('mlProgress', 0); showScreen('multlab-game'); nextMultLab();
+}
+function genMultQ() {
+  const L = mlLevel();
+  const hi = L === 0 ? 5 : L === 1 ? 6 : L === 2 ? 10 : 12;
+  const a = rand(2, Math.min(hi, 5 + L)), b = rand(2, hi);
+  const models = L === 0 ? ['groups'] : L === 1 ? ['groups','array'] : ['groups','array','hops'];
+  const model = models[rand(0, models.length - 1)];
+  return { a, b, ans: a * b, model, counted: 0, emoji: ML_EMOJI[rand(0, ML_EMOJI.length - 1)] };
+}
+function nextMultLab() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  mlQ = genMultQ();
+  document.getElementById('mlQNum').textContent = state.problemIndex + 1;
+  document.getElementById('mlProblem').innerHTML =
+    `${mlQ.a} <span class="op">×</span> ${mlQ.b} <span class="equals">=</span> <span class="blank">?</span>`;
+  document.getElementById('mlFactFam').innerHTML = '';
+  document.getElementById('mlAnswers').innerHTML = '';
+  const fb = document.getElementById('mlFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  renderMLStage();
+}
+function renderMLStage() {
+  const stage = document.getElementById('mlStage'), hint = document.getElementById('mlHint');
+  const { a, b, model, emoji } = mlQ;
+  if (model === 'groups') {
+    hint.textContent = `👆 Tap each of the ${a} groups to count them`;
+    stage.innerHTML = `<div class="ml-groups">${Array.from({length:a},(_,i)=>
+      `<div class="ml-group" id="mlg-${i}" onclick="countML(${i})">${
+        Array.from({length:b},()=>`<span class="gi">${emoji}</span>`).join('')
+      }<span class="gtag" id="mlgt-${i}"></span></div>`).join('')}</div>`;
+  } else if (model === 'array') {
+    hint.textContent = `👆 Tap each of the ${a} rows (${b} dots in every row)`;
+    stage.innerHTML = `<div class="ml-array">${Array.from({length:a},(_,i)=>
+      `<div class="ml-arow" id="mlg-${i}" onclick="countML(${i})">${
+        Array.from({length:b},()=>`<span class="adot"></span>`).join('')
+      }<span class="gtag" id="mlgt-${i}" style="width:auto;margin-left:6px;"></span></div>`).join('')}</div>`;
+  } else {
+    hint.textContent = `👆 Tap the track to hop ${a} times, ${b} steps each!`;
+    const max = a * b;
+    const ticks = Array.from({length: a + 1}, (_, i) => {
+      const pct = (i / a) * 100;
+      return `<div class="ml-tick" id="mlt-${i}" style="left:${pct}%"></div>
+              <div class="ml-tlabel" id="mltl-${i}" style="left:${pct}%">${i*b}</div>`;
+    }).join('');
+    stage.innerHTML = `<div class="ml-line" onclick="countML(-1)">
+        <div class="ml-roo" id="mlRoo" style="left:0%">🦘</div>
+        <div class="ml-track">${ticks}</div>
+      </div>`;
+  }
+  updateMLTotal();
+}
+function countML(i) {
+  if (!mlQ || mlQ.counted >= mlQ.a) return;
+  if (mlQ.model === 'hops') {
+    mlQ.counted++;
+    const pct = (mlQ.counted / mlQ.a) * 100;
+    const roo = document.getElementById('mlRoo'); if (roo) roo.style.left = pct + '%';
+    const t = document.getElementById('mlt-' + mlQ.counted); if (t) t.classList.add('hit');
+    const tl = document.getElementById('mltl-' + mlQ.counted); if (tl) tl.classList.add('hit');
+  } else {
+    const el = document.getElementById('mlg-' + i);
+    if (!el || el.classList.contains('counted')) return;
+    el.classList.add('counted');
+    mlQ.counted++;
+    const tag = document.getElementById('mlgt-' + i);
+    if (tag) tag.textContent = mlQ.counted * mlQ.b;
+  }
+  sfxStar();
+  speak(String(mlQ.counted * mlQ.b), 1);
+  updateMLTotal();
+  if (mlQ.counted >= mlQ.a) showMLAnswers();
+}
+function updateMLTotal() {
+  const el = document.getElementById('mlTotal');
+  if (el) el.innerHTML = mlQ.counted === 0
+    ? `Counted so far: <b>0</b>`
+    : `Skip counting: <b>${Array.from({length:mlQ.counted},(_,i)=>(i+1)*mlQ.b).join(' … ')}</b>`;
+}
+function showMLAnswers() {
+  const grid = document.getElementById('mlAnswers'); grid.innerHTML = '';
+  genOptions(mlQ.ans).forEach(o => {
+    const b = document.createElement('button'); b.className = 'answer-btn'; b.textContent = o;
+    b.onclick = () => answerML(b, o); grid.appendChild(b);
+  });
+  document.getElementById('mlHint').textContent = `So what is ${mlQ.a} × ${mlQ.b}?`;
+}
+function answerML(btn, choice) {
+  const all = document.querySelectorAll('#mlAnswers .answer-btn'); all.forEach(b => b.disabled = true);
+  const { a, b, ans } = mlQ;
+  if (choice === ans) {
+    btn.classList.add('correct'); state.stars++; state.streak++; sfxCorrect(); confetti(14);
+    document.getElementById('mlStars').textContent = state.stars;
+    document.getElementById('mlFeedback').textContent = ['You saw it! ⚡','Yes! 🎉','Brilliant! 🌟','Multiplying master! 🚀'][rand(0,3)];
+    document.getElementById('mlFactFam').innerHTML =
+      `<div class="factfam"><h4>🔄 This fact family:</h4>
+        <div class="ff">${a} × ${b} = ${ans}</div>
+        <div class="ff">${b} × ${a} = ${ans} &nbsp;<span style="color:var(--ink-soft);font-size:.85rem;">(same answer, flipped!)</span></div>
+        <div class="ff">${ans} ÷ ${a} = ${b}</div>
+        <div class="ff">${ans} ÷ ${b} = ${a}</div></div>`;
+    if (state.streak >= 2) showStreak(state.streak);
+    setTimeout(() => { state.problemIndex++; updateProgress('mlProgress',(state.problemIndex/state.totalProblems)*100); nextMultLab(); }, 2600);
+  } else {
+    btn.classList.add('wrong'); state.streak = 0; sfxWrong();
+    all.forEach(x => { if (parseInt(x.textContent) === ans) x.classList.add('correct'); });
+    const fb = document.getElementById('mlFeedback');
+    fb.textContent = `${a} groups of ${b} makes ${ans}. Count again next time!`; fb.classList.add('wrong');
+    setTimeout(() => { state.problemIndex++; updateProgress('mlProgress',(state.problemIndex/state.totalProblems)*100); nextMultLab(); }, 2400);
+  }
+}
+
+// ===============================
+// SHARE IT — division as fair sharing
+// ===============================
+let shQ = null;
+function shLevel() { return Math.min(3, progress.share); }
+function goShare() { state.subject = 'share'; showScreen('share-example'); }
+function startShare() {
+  state.subject = 'share'; state.problemIndex = 0; state.stars = 0; state.streak = 0; state.totalProblems = 10;
+  document.getElementById('shStars').textContent = '0';
+  document.getElementById('shQTotal').textContent = state.totalProblems;
+  updateProgress('shProgress', 0); showScreen('share-game'); nextShare();
+}
+function genShareQ() {
+  const L = shLevel();
+  const plates = L === 0 ? rand(2,3) : L === 1 ? rand(2,4) : L === 2 ? rand(2,5) : rand(2,6);
+  const each   = L === 0 ? rand(2,4) : L === 1 ? rand(2,5) : L === 2 ? rand(2,7) : rand(2,9);
+  return { plates, each, total: plates * each, dealt: 0, emoji: ['🍪','🍎','⭐','🍬','🍓'][rand(0,4)] };
+}
+function nextShare() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  shQ = genShareQ();
+  document.getElementById('shQNum').textContent = state.problemIndex + 1;
+  document.getElementById('shProblem').innerHTML =
+    `${shQ.total} <span class="op">÷</span> ${shQ.plates} <span class="equals">=</span> <span class="blank">?</span>`;
+  document.getElementById('shHint').textContent =
+    `Share ${shQ.total} ${shQ.emoji} fairly onto ${shQ.plates} plates`;
+  document.getElementById('shAnswers').innerHTML = '';
+  document.getElementById('shFactFam').innerHTML = '';
+  const fb = document.getElementById('shFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  const btn = document.getElementById('shDealBtn');
+  btn.style.display = ''; btn.disabled = false;
+  renderShare();
+}
+function renderShare() {
+  const left = shQ.total - shQ.dealt * shQ.plates;
+  document.getElementById('shJar').innerHTML = left > 0
+    ? Array.from({length:left},()=>`<span class="ci">${shQ.emoji}</span>`).join('')
+    : `<span style="font-weight:800;color:var(--ink-soft);">Jar is empty! 🎉</span>`;
+  document.getElementById('shPlates').innerHTML = Array.from({length:shQ.plates},()=>
+    `<div class="plate${shQ.dealt>0?' full':''}">${Array.from({length:shQ.dealt},()=>`<span class="ci">${shQ.emoji}</span>`).join('')}</div>`
+  ).join('');
+}
+function dealRound() {
+  if (!shQ || shQ.dealt >= shQ.each) return;
+  shQ.dealt++; sfxStar(); renderShare();
+  speak(String(shQ.dealt), 1);
+  if (shQ.dealt >= shQ.each) {
+    const btn = document.getElementById('shDealBtn'); btn.style.display = 'none';
+    document.getElementById('shHint').textContent = `Jar empty! Now count ONE plate — how many on it?`;
+    const grid = document.getElementById('shAnswers'); grid.innerHTML = '';
+    genOptions(shQ.each).forEach(o => {
+      const b = document.createElement('button'); b.className = 'answer-btn'; b.textContent = o;
+      b.onclick = () => answerShare(b, o); grid.appendChild(b);
+    });
+  }
+}
+function answerShare(btn, choice) {
+  const all = document.querySelectorAll('#shAnswers .answer-btn'); all.forEach(b => b.disabled = true);
+  const { total, plates, each } = shQ;
+  if (choice === each) {
+    btn.classList.add('correct'); state.stars++; state.streak++; sfxCorrect(); confetti(14);
+    document.getElementById('shStars').textContent = state.stars;
+    document.getElementById('shFeedback').textContent = ['Fair share! 🍪','Perfect! 🎉','You divided it! 🌟','Sharing star! ✨'][rand(0,3)];
+    document.getElementById('shFactFam').innerHTML =
+      `<div class="factfam"><h4>🔄 Divide and multiply are opposites:</h4>
+        <div class="ff">${total} ÷ ${plates} = ${each}</div>
+        <div class="ff">${plates} × ${each} = ${total} &nbsp;<span style="color:var(--ink-soft);font-size:.85rem;">(check it!)</span></div>
+        <div class="ff">${total} ÷ ${each} = ${plates}</div></div>`;
+    if (state.streak >= 2) showStreak(state.streak);
+    setTimeout(() => { state.problemIndex++; updateProgress('shProgress',(state.problemIndex/state.totalProblems)*100); nextShare(); }, 2600);
+  } else {
+    btn.classList.add('wrong'); state.streak = 0; sfxWrong();
+    all.forEach(x => { if (parseInt(x.textContent) === each) x.classList.add('correct'); });
+    const fb = document.getElementById('shFeedback');
+    fb.textContent = `Each plate got ${each}. Count one plate!`; fb.classList.add('wrong');
+    setTimeout(() => { state.problemIndex++; updateProgress('shProgress',(state.problemIndex/state.totalProblems)*100); nextShare(); }, 2400);
+  }
+}
+
+// ===============================
+// AI ACADEMY — Teach the Robot (a REAL tiny classifier)
+// The robot learns feature->class counts from the examples Keshav gives it,
+// then predicts on things it has never seen. Honest, and it can be wrong.
+// ===============================
+const AI_TRAIN_SET = [
+  { e:'🦅', n:'eagle',      f:['wings','alive'],  t:'fly' },
+  { e:'✈️', n:'airplane',   f:['wings','metal'],  t:'fly' },
+  { e:'🦋', n:'butterfly',  f:['wings','alive'],  t:'fly' },
+  { e:'🐝', n:'bee',        f:['wings','alive'],  t:'fly' },
+  { e:'🐶', n:'dog',        f:['legs','alive'],   t:'nofly' },
+  { e:'🚗', n:'car',        f:['wheels','metal'], t:'nofly' },
+  { e:'🐟', n:'fish',       f:['water','alive'],  t:'nofly' },
+  { e:'🚲', n:'bicycle',    f:['wheels'],         t:'nofly' },
+];
+const AI_TEST_SET = [
+  { e:'🦆', n:'duck',       f:['wings','alive'],  t:'fly' },
+  { e:'🚌', n:'bus',        f:['wheels','metal'], t:'nofly' },
+  { e:'🦇', n:'bat',        f:['wings','alive'],  t:'fly' },
+  { e:'🚀', n:'rocket',     f:['fire','metal'],   t:'fly' },   // never-seen features → robot is unsure. The lesson!
+];
+const FEAT_LABEL = { wings:'wings 🪽', legs:'legs 🦵', wheels:'wheels 🛞', water:'water 🌊', metal:'metal 🔩', alive:'alive 💚', fire:'fire 🔥' };
+const ai = { brain:{}, queue:[], idx:0, phase:'train', testIdx:0, robotRight:0, answered:false };
+
+function goAI() { state.subject = 'ai'; showScreen('ai-hub'); }
+function aiLearn(item, label) {
+  item.f.forEach(f => {
+    if (!ai.brain[f]) ai.brain[f] = { fly:0, nofly:0 };
+    ai.brain[f][label]++;
+  });
+}
+function aiPredict(item) {
+  let score = 0, seen = [];
+  item.f.forEach(f => {
+    const b = ai.brain[f];
+    if (b) { score += b.fly - b.nofly; if (b.fly !== b.nofly) seen.push(f); }
+  });
+  return { guess: score > 0 ? 'fly' : score < 0 ? 'nofly' : 'unsure', score, seen };
+}
+function renderBrain() {
+  const el = document.getElementById('aiBrain');
+  const feats = Object.keys(ai.brain);
+  if (!feats.length) { el.innerHTML = `<h4>🧠 Robot's brain</h4><div class="empty">Empty! The robot knows nothing yet. Teach it! 👇</div>`; return; }
+  el.innerHTML = `<h4>🧠 Robot's brain — what it learned</h4>` + feats.map(f => {
+    const b = ai.brain[f], tot = b.fly + b.nofly;
+    const fp = (b.fly/tot)*100, np = (b.nofly/tot)*100;
+    return `<div class="brule">
+      <span class="bf">${FEAT_LABEL[f]||f}</span>
+      <span class="bbar"><span class="bfill f" style="width:${fp}%"></span><span class="bfill n" style="width:${np}%"></span></span>
+      <span class="bv">${b.fly} fly / ${b.nofly} no</span></div>`;
+  }).join('');
+}
+function startAITrain() {
+  state.subject = 'ai';
+  ai.brain = {}; ai.idx = 0; ai.testIdx = 0; ai.phase = 'train'; ai.robotRight = 0; ai.answered = false;
+  ai.queue = shuffle([...AI_TRAIN_SET]);
+  state.stars = 0; state.totalProblems = AI_TRAIN_SET.length + AI_TEST_SET.length;
+  document.getElementById('aiStars').textContent = '0';
+  updateProgress('aiProgress', 0);
+  showScreen('ai-train'); renderAIStep();
+  setTimeout(() => speak("Teach the robot which things can fly!", .9), 400);
+}
+function renderAIStep() {
+  const phaseEl = document.getElementById('aiPhase'), titleEl = document.getElementById('aiTitle');
+  const hint = document.getElementById('aiHint'), bins = document.getElementById('aiBins');
+  const guessBox = document.getElementById('aiGuessBox'), fb = document.getElementById('aiFeedback');
+  fb.textContent = ''; fb.classList.remove('wrong'); guessBox.innerHTML = ''; ai.answered = false;
+
+  if (ai.phase === 'train') {
+    const item = ai.queue[ai.idx];
+    phaseEl.textContent = `Training • example ${ai.idx + 1} of ${ai.queue.length}`;
+    titleEl.textContent = 'Can this fly?';
+    hint.textContent = 'Your answer teaches the robot 🤖';
+    document.getElementById('aiItem').textContent = item.e;
+    document.getElementById('aiItemName').textContent = item.n;
+    bins.innerHTML = `<div class="ai-bins">
+      <button class="ai-bin fly" onclick="aiTeach('fly')"><span class="bi">☁️</span>Can fly</button>
+      <button class="ai-bin nofly" onclick="aiTeach('nofly')"><span class="bi">🚫</span>Cannot fly</button></div>`;
+  } else {
+    const item = AI_TEST_SET[ai.testIdx];
+    phaseEl.textContent = `Testing • ${ai.testIdx + 1} of ${AI_TEST_SET.length}`;
+    titleEl.textContent = "Now the robot guesses!";
+    hint.textContent = "The robot has NEVER seen this one before 👀";
+    document.getElementById('aiItem').textContent = item.e;
+    document.getElementById('aiItemName').textContent = item.n;
+    bins.innerHTML = `<div class="center-actions"><button class="btn btn-primary" onclick="aiGuess()">🤖 Ask the robot!</button></div>`;
+  }
+  renderBrain();
+}
+function aiTeach(label) {
+  const item = ai.queue[ai.idx];
+  const right = label === item.t;
+  aiLearn(item, item.t);           // robot always learns the TRUE label
+  const fb = document.getElementById('aiFeedback');
+  if (right) {
+    state.stars++; sfxCorrect(); confetti(10);
+    document.getElementById('aiStars').textContent = state.stars;
+    fb.textContent = `Correct! The robot learned: ${item.n} → ${item.t === 'fly' ? 'can fly ☁️' : 'cannot fly 🚫'}`;
+    fb.classList.remove('wrong');
+  } else {
+    sfxWrong();
+    fb.textContent = `Actually a ${item.n} ${item.t === 'fly' ? 'CAN fly ☁️' : 'CANNOT fly 🚫'}. The robot learned the right answer.`;
+    fb.classList.add('wrong');
+  }
+  renderBrain();
+  document.getElementById('aiBins').innerHTML = '';
+  ai.idx++;
+  updateProgress('aiProgress', ((ai.idx) / state.totalProblems) * 100);
+  setTimeout(() => {
+    if (ai.idx >= ai.queue.length) { ai.phase = 'test'; ai.testIdx = 0; }
+    renderAIStep();
+  }, right ? 1500 : 2400);
+}
+function aiGuess() {
+  if (ai.answered) return; ai.answered = true;
+  const item = AI_TEST_SET[ai.testIdx];
+  const p = aiPredict(item);
+  const box = document.getElementById('aiGuessBox');
+  const correct = p.guess === item.t;
+  const reason = p.seen.length
+    ? `I see <b>${p.seen.map(f=>FEAT_LABEL[f]||f).join(' and ')}</b> — I learned that from your examples!`
+    : `I don't recognise <b>anything</b> about this. I've never seen ${item.f.map(f=>FEAT_LABEL[f]||f).join(' or ')} before!`;
+
+  if (p.guess === 'unsure') {
+    box.innerHTML = `<div class="ai-guess wrongg"><span class="verdict">🤔 "I'm not sure!"</span>${reason}<br><br>
+      <b>That's the big lesson:</b> AI can only learn from examples you show it. Nobody showed the robot a rocket — so it can't know! 🚀</div>`;
+    sfxWrong();
+  } else {
+    box.innerHTML = `<div class="ai-guess ${correct?'right':'wrongg'}">
+      <span class="verdict">🤖 "I think it ${p.guess === 'fly' ? 'CAN fly ☁️' : 'CANNOT fly 🚫'}"</span>${reason}
+      <br><br><b>${correct ? '✅ The robot got it RIGHT!' : '❌ The robot got it WRONG! AI makes mistakes too.'}</b></div>`;
+    if (correct) { ai.robotRight++; state.stars++; document.getElementById('aiStars').textContent = state.stars; sfxCorrect(); confetti(12); }
+    else sfxWrong();
+  }
+  ai.testIdx++;
+  updateProgress('aiProgress', ((ai.queue.length + ai.testIdx) / state.totalProblems) * 100);
+  const bins = document.getElementById('aiBins');
+  bins.innerHTML = `<div class="center-actions"><button class="btn btn-green" onclick="aiNextTest()">${ai.testIdx >= AI_TEST_SET.length ? 'See what I learned! 🎓' : 'Next →'}</button></div>`;
+}
+function aiNextTest() {
+  if (ai.testIdx >= AI_TEST_SET.length) { celebrate(); return; }
+  renderAIStep();
+}
+
+// ===============================
+// AI QUIZ
+// ===============================
+const AI_QUIZ = [
+  { q:'How does an AI learn?', o:['From lots of examples 📚','By magic ✨','It is born knowing 👶'], a:0,
+    why:'AI learns by looking at TONS of examples and spotting patterns — just like the robot you trained!' },
+  { q:'Can an AI make a mistake?', o:['Yes, definitely! ✅','No, never ❌'], a:0,
+    why:'Yes! If it has not seen something before, it can guess wrong — like the robot and the rocket 🚀' },
+  { q:'Is a robot alive, like a puppy?', o:['No — it is a machine 🤖','Yes, it is alive 🐶'], a:0,
+    why:'A robot is a machine. It does not feel hungry, sleepy, or sad. Your puppy does!' },
+  { q:'If you only show an AI CATS, will it know what a DOG is?', o:['No — nobody showed it dogs 🚫','Yes, it knows everything 🌍'], a:0,
+    why:'It can only learn what you show it. No dog examples = no dog knowledge!' },
+  { q:'Should you tell an AI where you live?', o:['No — keep it private 🔒','Yes, tell it everything 📢'], a:0,
+    why:'Never share private things like your address or passwords. Keep them safe!' },
+  { q:'An AI says something scary or weird. What do you do?', o:['Tell a grown-up 👨‍👩‍👦','Believe it right away 😨'], a:0,
+    why:'Always tell a grown-up you trust. AI can be wrong, and grown-ups can help!' },
+  { q:'What is AI really good at?', o:['Spotting patterns 🔍','Eating cookies 🍪','Sleeping 😴'], a:0,
+    why:'AI is a super pattern-spotter! That is how it reads words and sees pictures.' },
+  { q:'Who made AI?', o:['People, like you could! 👩‍💻','It made itself 🪄'], a:0,
+    why:'People build AI by writing code — just like you programmed the robot in Robot Coder!' },
+];
+let aq = { idx:0, order:[] };
+function startAIQuiz() {
+  state.subject = 'aiquiz'; state.stars = 0; state.problemIndex = 0; state.totalProblems = AI_QUIZ.length;
+  aq.idx = 0; aq.order = shuffle(AI_QUIZ.map((_,i)=>i));
+  document.getElementById('aqStars').textContent = '0';
+  document.getElementById('aqQTotal').textContent = AI_QUIZ.length;
+  updateProgress('aqProgress', 0); showScreen('ai-quiz'); nextAQ();
+}
+function nextAQ() {
+  if (aq.idx >= AI_QUIZ.length) { celebrate(); return; }
+  const q = AI_QUIZ[aq.order[aq.idx]];
+  document.getElementById('aqQNum').textContent = aq.idx + 1;
+  document.getElementById('aqQuestion').textContent = q.q;
+  document.getElementById('aqWhy').innerHTML = '';
+  const fb = document.getElementById('aqFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  const box = document.getElementById('aqOptions'); box.innerHTML = '';
+  q.o.forEach((opt, i) => {
+    const b = document.createElement('button'); b.className = 'quiz-opt'; b.textContent = opt;
+    b.onclick = () => answerAQ(b, i, q); box.appendChild(b);
+  });
+}
+function answerAQ(btn, i, q) {
+  const all = document.querySelectorAll('#aqOptions .quiz-opt'); all.forEach(b => b.disabled = true);
+  const right = i === q.a;
+  if (right) {
+    btn.classList.add('correct'); state.stars++; state.streak++; sfxCorrect(); confetti(12);
+    document.getElementById('aqStars').textContent = state.stars;
+    document.getElementById('aqFeedback').textContent = ['Smart! 🧠','Yes! 🎉','You get AI! 🤖'][rand(0,2)];
+  } else {
+    btn.classList.add('wrong'); state.streak = 0; sfxWrong();
+    all.forEach((b, j) => { if (j === q.a) b.classList.add('correct'); });
+    const fb = document.getElementById('aqFeedback'); fb.textContent = 'Not quite — read why! 👇'; fb.classList.add('wrong');
+  }
+  document.getElementById('aqWhy').innerHTML = `<div class="quiz-why">💡 ${q.why}</div>`;
+  speak(q.why, .9);
+  aq.idx++; state.problemIndex = aq.idx;
+  updateProgress('aqProgress', (aq.idx / AI_QUIZ.length) * 100);
+  setTimeout(nextAQ, right ? 3200 : 4200);
+}
 
 // ===============================
 // SERVICE WORKER
