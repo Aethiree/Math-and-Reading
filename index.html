@@ -461,6 +461,78 @@
   .quiz-opt.wrong { background:linear-gradient(135deg,var(--bad),#ff7d8c); border-color:var(--bad-edge); color:#fff; animation:shake .45s ease; }
   .quiz-why { background:#F8F9FE; border-radius:var(--r-md); padding:12px; margin-top:12px; font-size:.9rem; font-weight:700; color:#4A4F73; line-height:1.5; text-align:left; }
 
+
+  /* ===== v5: sectioned hub ===== */
+  .hub-sect { width:100%; margin-top:6px; }
+  .sect-title { display:flex; align-items:center; gap:8px; font-family:'Fredoka'; font-weight:600; font-size:1.08rem; color:var(--ink); text-align:left; margin:14px 4px 10px; }
+  .sect-title .sl { flex:1; height:2px; background:var(--line-2); border-radius:2px; }
+  .sect-title .sc { font-size:.74rem; font-weight:800; color:var(--ink-soft); letter-spacing:.4px; }
+  .tile .lvl.max { background:linear-gradient(135deg,var(--amber),var(--amber-2)); color:#fff; }
+  .surprise { width:100%; margin-top:16px; }
+  .surprise .btn { width:100%; font-size:1.15rem; min-height:60px; }
+  .hub-head .greet p.sub2 { font-size:.8rem; margin-top:4px; color:var(--violet); }
+
+  /* ===== level picker (Robot Coder) ===== */
+  .lvl-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:11px; width:100%; margin-top:16px; }
+  .lvl-btn { aspect-ratio:1; border:none; border-radius:var(--r-md); font-family:'Fredoka'; font-weight:600; font-size:1.4rem; color:#fff; cursor:pointer; box-shadow:var(--shadow-sm); background:linear-gradient(135deg,var(--blue),var(--teal)); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; transition:transform .1s; }
+  .lvl-btn small { font-size:.62rem; font-weight:800; opacity:.9; }
+  .lvl-btn:active { transform:scale(.94); }
+  .lvl-btn.done { background:linear-gradient(135deg,var(--green),var(--green-2)); }
+  .lvl-btn.locked { background:#E1E4F2; color:#9AA0BC; box-shadow:none; cursor:not-allowed; }
+
+  /* ===== Sudoku Jr ===== */
+  .sk-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; width:100%; max-width:300px; margin:14px auto 0; border:3px solid var(--ink); border-radius:14px; overflow:hidden; background:var(--ink); }
+  .sk-cell { aspect-ratio:1; background:#fff; display:flex; align-items:center; justify-content:center; font-size:2rem; cursor:pointer; border:1px solid var(--line-2); transition:background .15s; }
+  .sk-cell:nth-child(4n+2), .sk-cell:nth-child(4n+3) { }
+  .sk-cell.br { border-right:3px solid var(--ink); }
+  .sk-cell.bb { border-bottom:3px solid var(--ink); }
+  .sk-cell.given { background:#F2F4FC; cursor:default; }
+  .sk-cell.sel { background:linear-gradient(135deg,#FFF6E4,#FFEFD0); box-shadow:inset 0 0 0 3px var(--amber); }
+  .sk-cell.bad { animation:shake .4s ease; background:#FFE9EC; }
+  .sk-cell.ok { animation:winB .4s ease; }
+  .sk-pal { display:flex; gap:10px; justify-content:center; margin-top:14px; }
+  .sk-pal button { width:60px; height:60px; border-radius:var(--r-md); border:1px solid var(--line-2); background:#fff; font-size:1.9rem; cursor:pointer; box-shadow:var(--shadow-sm); transition:transform .1s; }
+  .sk-pal button:active { transform:scale(.92); }
+
+  /* ===== Shadow Match ===== */
+  .sd-wrap { display:grid; grid-template-columns:1fr auto 1fr; gap:14px; align-items:start; margin-top:14px; width:100%; }
+  .sd-col { display:flex; flex-direction:column; gap:10px; }
+  .sd-mid { width:2px; background:var(--line-2); align-self:stretch; border-radius:2px; }
+  .sd-item { height:66px; border-radius:var(--r-md); background:#fff; border:1px solid var(--line-2); box-shadow:var(--shadow-sm); display:flex; align-items:center; justify-content:center; font-size:2.3rem; cursor:pointer; transition:transform .12s, box-shadow .15s, opacity .3s; }
+  .sd-item .g { display:inline-block; }
+  .sd-item.shadow .g { filter:brightness(0); opacity:.82; }
+  .sd-item:active { transform:scale(.95); }
+  .sd-item.sel { box-shadow:inset 0 0 0 3px var(--violet), var(--shadow-md); transform:translateY(-3px); }
+  .sd-item.done { opacity:.25; pointer-events:none; }
+  .sd-item.bad { animation:shake .4s ease; }
+
+  /* ===== Word Match ===== */
+  .wm-word { font-family:'Fredoka'; font-size:clamp(2.4rem,9vw,3.6rem); font-weight:600; letter-spacing:5px; margin:10px 0 4px; cursor:pointer; }
+  .wm-pics { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; }
+  .wm-pic { aspect-ratio:1.25; border-radius:var(--r-lg); border:1px solid var(--line-2); background:#fff; font-size:3rem; cursor:pointer; box-shadow:var(--shadow-sm); display:flex; align-items:center; justify-content:center; transition:transform .1s, box-shadow .15s; }
+  .wm-pic:active { transform:scale(.95); }
+  .wm-pic.correct { background:linear-gradient(135deg,var(--good),#45d488); animation:winB .55s ease; }
+  .wm-pic.wrong { background:linear-gradient(135deg,var(--bad),#ff7d8c); animation:shake .45s ease; }
+
+  /* ===== Order Up ===== */
+  .od-line { display:flex; gap:8px; justify-content:center; min-height:64px; padding:10px; background:#F8F9FE; border:2px dashed var(--line-2); border-radius:var(--r-md); margin-top:14px; flex-wrap:wrap; align-items:center; }
+  .od-line .empty-hint { font-size:.85rem; font-weight:700; color:var(--ink-soft); }
+  .od-pool { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
+  .od-tile { min-width:62px; height:62px; padding:0 12px; border-radius:var(--r-md); border:none; color:#fff; font-family:'Fredoka'; font-weight:600; font-size:1.7rem; cursor:pointer; box-shadow:var(--shadow-sm); background:linear-gradient(135deg,var(--violet),var(--blue)); transition:transform .1s; display:flex; align-items:center; justify-content:center; }
+  .od-tile:active { transform:scale(.93); }
+  .od-tile.placed { background:linear-gradient(135deg,var(--green),var(--green-2)); animation:popS .3s cubic-bezier(.34,1.56,.64,1); }
+  .od-tile.bad { animation:shake .4s ease; }
+  .od-arrow { font-size:1.2rem; color:var(--ink-soft); align-self:center; }
+
+  /* ===== AI lessons ===== */
+  .ai-lessons { display:grid; grid-template-columns:1fr 1fr 1fr; gap:11px; width:100%; margin-top:12px; }
+  .ai-lesson { background:#fff; border:1px solid var(--line-2); border-radius:var(--r-lg); padding:14px 8px; cursor:pointer; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; align-items:center; gap:4px; transition:transform .12s; }
+  .ai-lesson:active { transform:scale(.96); }
+  .ai-lesson .li { font-size:2.2rem; }
+  .ai-lesson .ln { font-family:'Fredoka'; font-weight:600; font-size:.95rem; text-align:center; }
+  .ai-lesson .ls { font-size:.7rem; font-weight:800; color:var(--ink-soft); }
+  .ai-key { background:linear-gradient(135deg,#FFF6E4,#FFEFD0); border-radius:var(--r-md); padding:10px 12px; margin-top:10px; font-size:.88rem; font-weight:700; text-align:left; }
+
   @media (max-width: 470px) {
     .problem-display { font-size: 2.6rem; }
     .game-card { padding: 20px 14px; }
@@ -494,7 +566,7 @@
         <circle cx="86" cy="90" r="2" fill="#fff"/><circle cx="118" cy="90" r="2" fill="#fff"/>
         <path d="M 80 112 Q 100 130 120 112" stroke="#1E2138" stroke-width="4" fill="none" stroke-linecap="round"/>
       </svg>
-      <div class="greet"><h1>Hi Keshav!</h1><p>Pick a game to play and learn</p></div>
+      <div class="greet"><h1>Hi Keshav!</h1><p id="hubSub">Pick a game to play and learn</p></div>
       <div class="star-badge">⭐ <span id="totalStars">0</span></div>
     </div>
     <div class="hub-grid" id="hubGrid"></div>
@@ -602,7 +674,7 @@
       <div class="example-step"><div class="step-num">4</div><div>Later levels add a <b>Loop 🔁</b> button — it repeats your steps. And watch out for walls 🧱!</div></div>
       <div class="example-step"><div class="step-num">5</div><div>Tap any arrow in your program to remove it.</div></div>
     </div>
-    <div class="center-actions"><button class="btn btn-blue" onclick="startCoder()">Start coding! 🤖</button></div>
+    <div class="center-actions"><button class="btn btn-blue" onclick="showCoderPick()">Start coding! 🤖</button></div>
   </div>
 
   <!-- ============ CODER GAME ============ -->
@@ -791,9 +863,15 @@
       <p>AI means <b>Artificial Intelligence</b> — a computer that learns from <b>examples</b>, instead of being told every rule.<br><br>
       Show it lots of cat pictures, and it learns what a cat looks like. It's a <b>super pattern-spotter</b>! But it can only learn from what you show it — so it can make mistakes.</p>
     </div>
-    <div class="ai-cards">
-      <div class="choice-card" onclick="startAITrain()"><div class="icon">🤖</div><div class="label">Teach the Robot</div><div class="sub">Train a real AI brain!</div></div>
-      <div class="choice-card" onclick="startAIQuiz()"><div class="icon">❓</div><div class="label">AI Quiz</div><div class="sub">What do you know?</div></div>
+    <h3 style="margin-top:16px;">🤖 Teach the robot a lesson</h3>
+    <div class="subtitle" style="margin-top:2px;">Pick what to teach — you show it examples, then it guesses!</div>
+    <div class="ai-lessons">
+      <div class="ai-lesson" onclick="startAITrain('fly')"><span class="li">☁️</span><span class="ln">Can it fly?</span><span class="ls">8 examples</span></div>
+      <div class="ai-lesson" onclick="startAITrain('alive')"><span class="li">💚</span><span class="ln">Is it alive?</span><span class="ls">8 examples</span></div>
+      <div class="ai-lesson" onclick="startAITrain('swim')"><span class="li">🌊</span><span class="ln">Can it swim?</span><span class="ls">8 examples</span></div>
+    </div>
+    <div class="ai-cards" style="grid-template-columns:1fr;">
+      <div class="choice-card" onclick="startAIQuiz()"><div class="icon">❓</div><div class="label">AI Quiz</div><div class="sub">What do you know about AI?</div></div>
     </div>
   </div>
 
@@ -822,6 +900,116 @@
       <div class="quiz-opts" id="aqOptions"></div>
       <div id="aqWhy"></div>
       <div class="feedback-msg" id="aqFeedback"></div>
+    </div>
+  </div>
+
+
+  <!-- ============ CODER LEVEL PICKER ============ -->
+  <div class="screen" id="screen-coder-pick">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('coder-example')">←</button><h2 style="flex:1;">Pick a level</h2><div style="width:46px;"></div></div>
+    <div class="subtitle" id="coderPickSub">Beat a level to unlock the next one!</div>
+    <div class="lvl-grid" id="lvlGrid"></div>
+  </div>
+
+  <!-- ============ SUDOKU JR ============ -->
+  <div class="screen" id="screen-sudoku-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Sudoku Jr</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Every row, column and box gets each picture once! 🔲</h3>
+      <div class="sk-grid" style="max-width:220px;">
+        <div class="sk-cell given">🍎</div><div class="sk-cell given br">🍌</div><div class="sk-cell given">🍇</div><div class="sk-cell given">🍓</div>
+        <div class="sk-cell given bb">🍇</div><div class="sk-cell given br bb">🍓</div><div class="sk-cell given bb">🍎</div><div class="sk-cell given bb">🍌</div>
+        <div class="sk-cell given">🍌</div><div class="sk-cell given br">🍎</div><div class="sk-cell given">🍓</div><div class="sk-cell sel">?</div>
+        <div class="sk-cell given">🍓</div><div class="sk-cell given br">🍇</div><div class="sk-cell given">🍌</div><div class="sk-cell given">🍎</div>
+      </div>
+      <div class="example-step" style="margin-top:14px;"><div class="step-num">1</div><div>Look at the row with the <b>?</b> — it already has 🍌 🍎 🍓. What's missing? 🍇!</div></div>
+      <div class="example-step"><div class="step-num">2</div><div><b>Tap a blank</b>, then <b>tap a picture</b> to put it in.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Wrong ones shake and pop out — keep trying! More blanks as you level up.</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-primary" onclick="startSudoku()">Let's solve! 🔲</button></div>
+  </div>
+  <div class="screen" id="screen-sudoku-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('sudoku-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="skProgress"></div></div></div><div class="star-count">⭐ <span id="skStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Puzzle <span id="skQNum">1</span> of <span id="skQTotal">4</span></div>
+      <h3 style="margin-top:6px;">Fill the empty squares</h3>
+      <div class="ml-hint" id="skHint">Tap a blank square, then tap a picture</div>
+      <div class="sk-grid" id="skGrid"></div>
+      <div class="sk-pal" id="skPal"></div>
+      <div class="feedback-msg" id="skFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ SHADOW MATCH ============ -->
+  <div class="screen" id="screen-shadow-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Shadow Match</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Whose shadow is it? 🔦</h3>
+      <div class="sd-wrap" style="max-width:300px;margin:12px auto 0;">
+        <div class="sd-col"><div class="sd-item"><span class="g">🐘</span></div><div class="sd-item"><span class="g">🦒</span></div></div>
+        <div class="sd-mid"></div>
+        <div class="sd-col"><div class="sd-item shadow"><span class="g">🦒</span></div><div class="sd-item shadow"><span class="g">🐘</span></div></div>
+      </div>
+      <div class="example-step" style="margin-top:14px;"><div class="step-num">1</div><div>Tap a picture on the left…</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>…then tap its <b>shadow</b> on the right. Look at the shape!</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Match them all to clear the board. More pairs as you level up!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-blue" onclick="startShadow()">Find the shadows! 🔦</button></div>
+  </div>
+  <div class="screen" id="screen-shadow-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('shadow-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="sdProgress"></div></div></div><div class="star-count">⭐ <span id="sdStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Board <span id="sdQNum">1</span> of <span id="sdQTotal">5</span></div>
+      <h3 style="margin-top:6px;">Match each picture to its shadow</h3>
+      <div class="sd-wrap"><div class="sd-col" id="sdLeft"></div><div class="sd-mid"></div><div class="sd-col" id="sdRight"></div></div>
+      <div class="feedback-msg" id="sdFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ WORD MATCH ============ -->
+  <div class="screen" id="screen-wordmatch-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Word Match</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Read the word, find the picture 🔤</h3>
+      <div class="wm-word">cat</div>
+      <div class="wm-pics" style="max-width:280px;margin:8px auto 0;"><div class="wm-pic">🐶</div><div class="wm-pic correct">🐱</div><div class="wm-pic">🐟</div><div class="wm-pic">🐸</div></div>
+      <div class="example-step" style="margin-top:14px;"><div class="step-num">1</div><div>Sound out the word: <b>c-a-t</b>. Tap it to hear it! 🔊</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>Tap the picture that matches.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Longer words as you level up!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-primary" onclick="startWordMatch()">Let's read! 🔤</button></div>
+  </div>
+  <div class="screen" id="screen-wordmatch-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('wordmatch-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="wmProgress"></div></div></div><div class="star-count">⭐ <span id="wmStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Word <span id="wmQNum">1</span> of <span id="wmQTotal">10</span></div>
+      <div class="wm-word" id="wmWord" onclick="wmHear()"></div>
+      <div class="hint">👆 Tap the word to hear it</div>
+      <div class="wm-pics" id="wmPics"></div>
+      <div class="feedback-msg" id="wmFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ ORDER UP ============ -->
+  <div class="screen" id="screen-order-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Order Up!</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Put the numbers in order 🪜</h3>
+      <div class="od-line" style="margin-top:10px;"><div class="od-tile placed">2</div><span class="od-arrow">→</span><div class="od-tile placed">5</div><span class="od-arrow">→</span><div class="od-tile placed">9</div></div>
+      <div class="example-step" style="margin-top:14px;"><div class="step-num">1</div><div>Tap the <b>smallest</b> number first.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>Then the next smallest… until they're all in a line!</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Bigger numbers and more tiles as you level up.</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-green" onclick="startOrder()">Let's sort! 🪜</button></div>
+  </div>
+  <div class="screen" id="screen-order-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('order-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="odProgress"></div></div></div><div class="star-count">⭐ <span id="odStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Round <span id="odQNum">1</span> of <span id="odQTotal">8</span></div>
+      <h3 style="margin-top:6px;">Tap the numbers from smallest to biggest</h3>
+      <div class="od-line" id="odLine"></div>
+      <div class="od-pool" id="odPool"></div>
+      <div class="feedback-msg" id="odFeedback"></div>
     </div>
   </div>
 
@@ -868,6 +1056,9 @@ progress.odd      = progress.odd      || 0;
 progress.croc     = progress.croc     || 0;
 progress.multlab  = progress.multlab  || 0;
 progress.share    = progress.share    || 0;
+progress.sudoku = progress.sudoku || 0; progress.shadow = progress.shadow || 0;
+progress.wordmatch = progress.wordmatch || 0; progress.order = progress.order || 0;
+progress.coderDone = !!progress.coderDone;
 progress.totalStars = progress.totalStars || 0;
 
 function addTotalStars(n) {
@@ -881,33 +1072,23 @@ function addTotalStars(n) {
 // HUB
 // ===============================
 const GAMES = [
-  { id:'math',     ic:'🔢', nm:'Math',         ds:'Add · Subtract · More', grad:'linear-gradient(150deg,#FFB23E,#FF8A3D)', fn:goMath },
-  { id:'tables',   ic:'✖️', nm:'Times Tables',  ds:'Learn 1× to 12×',       grad:'linear-gradient(150deg,#36C98D,#19C8D6)', fn:openTables },
-  { id:'reading',  ic:'📖', nm:'Reading',       ds:'Words & sentences',     grad:'linear-gradient(150deg,#6C5CE7,#8B7CF6)', fn:goReading },
-  { id:'coder',    ic:'🤖', nm:'Robot Coder',   ds:'Program the robot!',    grad:'linear-gradient(150deg,#4D96FF,#19C8D6)', fn:goCoder,    levelKey:'coder' },
-  { id:'patterns', ic:'🧩', nm:'Patterns',      ds:'What comes next?',      grad:'linear-gradient(150deg,#FF7563,#FF7AA8)', fn:goPatterns, levelKey:'patterns' },
-  { id:'memory',   ic:'🃏', nm:'Memory',        ds:'Match the pairs',       grad:'linear-gradient(150deg,#19C8D6,#36C98D)', fn:goMemory,   levelKey:'memory' },
-  { id:'odd',      ic:'🔍', nm:'Odd One Out',   ds:"Find what's different", grad:'linear-gradient(150deg,#8B7CF6,#FF7AA8)', fn:goOdd,      levelKey:'odd' },
-  { id:'croc',     ic:'🐊', nm:'Hungry Croc',   ds:'Bigger or smaller?',    grad:'linear-gradient(150deg,#8DD23F,#36C98D)', fn:goCroc,     levelKey:'croc' },
-  { id:'multlab',  ic:'⚡', nm:'Multiply Lab',  ds:'See how × works',       grad:'linear-gradient(150deg,#FF9F1C,#FFB23E)', fn:goMultLab,  levelKey:'multlab' },
-  { id:'share',    ic:'🍪', nm:'Share It!',     ds:'Division by sharing',   grad:'linear-gradient(150deg,#FF7563,#FFB23E)', fn:goShare,    levelKey:'share' },
-  { id:'ai',       ic:'🧠', nm:'AI Academy',    ds:'Teach a robot to think',grad:'linear-gradient(150deg,#6C5CE7,#19C8D6)', fn:goAI },
+  { cat:'math', id:'math',     ic:'🔢', nm:'Math',         ds:'Add · Subtract · More', grad:'linear-gradient(150deg,#FFB23E,#FF8A3D)', fn:goMath },
+  { cat:'math', id:'tables',   ic:'✖️', nm:'Times Tables',  ds:'Learn 1× to 12×',       grad:'linear-gradient(150deg,#36C98D,#19C8D6)', fn:openTables },
+  { cat:'reading', id:'reading',  ic:'📖', nm:'Reading',       ds:'Words & sentences',     grad:'linear-gradient(150deg,#6C5CE7,#8B7CF6)', fn:goReading },
+  { cat:'puzzle', id:'coder',    ic:'🤖', nm:'Robot Coder',   ds:'Program the robot!',    grad:'linear-gradient(150deg,#4D96FF,#19C8D6)', fn:goCoder,    levelKey:'coder' },
+  { cat:'puzzle', id:'sudoku',   ic:'🔲', nm:'Sudoku Jr',     ds:'Picture logic grid',    grad:'linear-gradient(150deg,#6C5CE7,#4D96FF)', fn:goSudoku,   levelKey:'sudoku' },
+  { cat:'puzzle', id:'shadow',   ic:'🔦', nm:'Shadow Match',  ds:'Find the shadow',       grad:'linear-gradient(150deg,#1E2138,#6C5CE7)', fn:goShadow,   levelKey:'shadow' },
+  { cat:'reading', id:'wordmatch',ic:'🔤', nm:'Word Match',   ds:'Read it, find it',      grad:'linear-gradient(150deg,#FF7AA8,#6C5CE7)', fn:goWordMatch,levelKey:'wordmatch' },
+  { cat:'math', id:'order',      ic:'🪜', nm:'Order Up!',     ds:'Smallest to biggest',   grad:'linear-gradient(150deg,#19C8D6,#4D96FF)', fn:goOrder,    levelKey:'order' },
+  { cat:'puzzle', id:'patterns', ic:'🧩', nm:'Patterns',      ds:'What comes next?',      grad:'linear-gradient(150deg,#FF7563,#FF7AA8)', fn:goPatterns, levelKey:'patterns' },
+  { cat:'puzzle', id:'memory',   ic:'🃏', nm:'Memory',        ds:'Match the pairs',       grad:'linear-gradient(150deg,#19C8D6,#36C98D)', fn:goMemory,   levelKey:'memory' },
+  { cat:'puzzle', id:'odd',      ic:'🔍', nm:'Odd One Out',   ds:"Find what's different", grad:'linear-gradient(150deg,#8B7CF6,#FF7AA8)', fn:goOdd,      levelKey:'odd' },
+  { cat:'math', id:'croc',     ic:'🐊', nm:'Hungry Croc',   ds:'Bigger or smaller?',    grad:'linear-gradient(150deg,#8DD23F,#36C98D)', fn:goCroc,     levelKey:'croc' },
+  { cat:'math', id:'multlab',  ic:'⚡', nm:'Multiply Lab',  ds:'See how × works',       grad:'linear-gradient(150deg,#FF9F1C,#FFB23E)', fn:goMultLab,  levelKey:'multlab' },
+  { cat:'math', id:'share',    ic:'🍪', nm:'Share It!',     ds:'Division by sharing',   grad:'linear-gradient(150deg,#FF7563,#FFB23E)', fn:goShare,    levelKey:'share' },
+  { cat:'ai', id:'ai',       ic:'🧠', nm:'AI Academy',    ds:'Teach a robot to think',grad:'linear-gradient(150deg,#6C5CE7,#19C8D6)', fn:goAI },
 ];
 
-function renderHub() {
-  const grid = document.getElementById('hubGrid');
-  grid.innerHTML = '';
-  GAMES.forEach(g => {
-    const btn = document.createElement('button');
-    btn.className = 'tile';
-    btn.style.setProperty('--grad', g.grad);
-    const lvlBadge = g.levelKey ? `<span class="lvl">Lvl ${progress[g.levelKey] + 1}</span>` : '';
-    btn.innerHTML = `${lvlBadge}<span class="ic">${g.ic}</span><span class="nm">${g.nm}</span><span class="ds">${g.ds}</span>`;
-    btn.onclick = g.fn;
-    grid.appendChild(btn);
-  });
-  document.getElementById('totalStars').textContent = progress.totalStars;
-}
 
 // ===============================
 // AUDIO
@@ -930,7 +1111,7 @@ function tone(freq, duration, type = 'sine', startTime = 0, vol = 0.16) {
   osc.connect(gain).connect(ctx.destination);
   osc.start(t); osc.stop(t + duration + .05);
 }
-function sfxCorrect(){ tone(523.25,.15,'sine',0); tone(659.25,.15,'sine',.1); tone(783.99,.3,'sine',.2); }
+function sfxCorrect(){ buzz(30); tone(523.25,.15,'sine',0); tone(659.25,.15,'sine',.1); tone(783.99,.3,'sine',.2); }
 function sfxWrong(){ tone(300,.18,'triangle',0); tone(220,.25,'triangle',.12); }
 function sfxClick(){ tone(700,.06,'square',0,.07); }
 function sfxLevelComplete(){ [523.25,659.25,783.99,1046.5].forEach((n,i)=>tone(n,.2,'sine',i*.12)); tone(1318.5,.4,'sine',.6,.2); }
@@ -1325,14 +1506,7 @@ const coder = { level: 0, program: [], running: false, pos: [0,0], loopActive: f
 const CMD_ICON = { up:'⬆️', down:'⬇️', left:'⬅️', right:'➡️' };
 const CMD_DELTA = { up:[0,-1], down:[0,1], left:[-1,0], right:[1,0] };
 
-function startCoder() {
-  state.subject = 'coder';
-  coder.level = Math.min(progress.coder, CODER_LEVELS.length - 1);
-  state.stars = 0; state.totalProblems = CODER_LEVELS.length - coder.level;
-  document.getElementById('coderStars').textContent = '0'; updateProgress('coderProgress', 0);
-  showScreen('coder-game'); loadCoderLevel();
-  setTimeout(() => speak("Tap the arrows to move the robot to the star!", .9), 400);
-}
+function startCoder() { showCoderPick(); }
 function buildCoderPad() {
   const pad = document.getElementById('coderPad');
   const lvl = CODER_LEVELS[coder.level];
@@ -1449,7 +1623,9 @@ function finishRun(reachedGoal) {
     fb.textContent = 'You did it! Great program! 🎉'; fb.classList.remove('wrong');
     speak("You did it! Great programming!", .9);
     updateProgress('coderProgress', (state.stars / Math.max(1, state.totalProblems)) * 100);
-    if (coder.level + 1 > progress.coder) { progress.coder = Math.min(coder.level + 1, CODER_LEVELS.length - 1); saveProgress(); }
+    if (coder.level + 1 > progress.coder) progress.coder = Math.min(coder.level + 1, CODER_LEVELS.length - 1);
+    if (coder.level === CODER_LEVELS.length - 1) progress.coderDone = true;
+    saveProgress();
     setTimeout(() => {
       coder.level++;
       if (coder.level >= CODER_LEVELS.length) { celebrate(); }
@@ -1718,9 +1894,9 @@ function celebrate() {
   state.leveledUp = false;
 
   // level up logic for ramping games (on success)
-  const lk = { patterns:'patterns', odd:'odd', croc:'croc', memory:'memory', multlab:'multlab', share:'share' }[state.subject];
+  const lk = LEVEL_CAPS[state.subject] !== undefined ? state.subject : null;
   if (lk && pass) {
-    const caps = { patterns: 6, odd: 5, croc: 4, memory: 2, multlab: 3, share: 3 };
+    const caps = LEVEL_CAPS;
     if (progress[lk] < caps[lk]) { progress[lk]++; state.leveledUp = true; saveProgress(); }
   }
   addTotalStars(stars);
@@ -1737,7 +1913,11 @@ function celebrate() {
   else if (state.subject === 'patterns') { title = pass ? 'Pattern Master! 🧩🏆' : 'Good try! 🧩'; msg = `You solved ${stars} of ${total}!`; }
   else if (state.subject === 'multlab') { title = pass ? 'Multiply Master! ⚡🏆' : 'Good try! ⚡'; msg = `You worked out ${stars} of ${total}!`; }
   else if (state.subject === 'share') { title = pass ? 'Sharing Star! 🍪🏆' : 'Good try! 🍪'; msg = `You shared ${stars} of ${total} fairly!`; }
-  else if (state.subject === 'ai') { title = 'AI Trainer! 🤖🎓'; msg = `You taught the robot, and it got ${ai.robotRight} of ${AI_TEST_SET.length} tests right. More examples = smarter AI!`; }
+  else if (state.subject === 'ai') { title = 'AI Trainer! 🤖🎓'; msg = `You taught the robot "${ai.lesson.name}" and it got ${ai.robotRight} of ${ai.lesson.test.length} tests right. ${state.aiKeyMsg || ''}`; }
+  else if (state.subject === 'sudoku') { title = pass ? 'Sudoku Star! 🔲🏆' : 'Good try! 🔲'; msg = `You solved ${stars} of ${total} puzzles!`; }
+  else if (state.subject === 'shadow') { title = pass ? 'Shadow Detective! 🔦🏆' : 'Good try! 🔦'; msg = `You cleared ${stars} of ${total} boards!`; }
+  else if (state.subject === 'wordmatch') { title = pass ? 'Word Wizard! 🔤🏆' : 'Keep reading! 🔤'; msg = `You read ${stars} of ${total} words!`; }
+  else if (state.subject === 'order') { title = pass ? 'Sorting Star! 🪜🏆' : 'Good try! 🪜'; msg = `You sorted ${stars} of ${total} rounds!`; }
   else if (state.subject === 'aiquiz') { title = pass ? 'AI Expert! 🧠🏆' : 'Keep learning! 🧠'; msg = `You got ${stars} of ${total} right!`; }
   else if (stars === total) { title = 'PERFECT, Keshav! 🏆'; msg = `You got all ${total} right! Superstar! 🌟`; }
   else if (pass) { title = 'Great job! 🎉'; msg = `You earned ${stars} stars out of ${total}!`; }
@@ -1754,15 +1934,19 @@ function playAgain() {
   document.getElementById('celebration').classList.remove('active');
   if (state.subject === 'math') startMathGame();
   else if (state.subject === 'reading') startReadingGame();
-  else if (state.subject === 'coder') startCoder();
+  else if (state.subject === 'coder') showCoderPick();
   else if (state.subject === 'patterns') startPatterns();
   else if (state.subject === 'odd') startOdd();
   else if (state.subject === 'croc') startCroc();
   else if (state.subject === 'memory') startMemory();
   else if (state.subject === 'multlab') startMultLab();
   else if (state.subject === 'share') startShare();
-  else if (state.subject === 'ai') startAITrain();
+  else if (state.subject === 'ai') showScreen('ai-hub');
   else if (state.subject === 'aiquiz') startAIQuiz();
+  else if (state.subject === 'sudoku') startSudoku();
+  else if (state.subject === 'shadow') startShadow();
+  else if (state.subject === 'wordmatch') startWordMatch();
+  else if (state.subject === 'order') startOrder();
   else showScreen('welcome');
 }
 function goHome() {
@@ -1807,7 +1991,6 @@ document.body.addEventListener('click', ensureAudio, { once: true });
 let welcomed = false;
 document.body.addEventListener('click', () => { if (!welcomed) { welcomed = true; setTimeout(() => speak("Hi Keshav! Let's play and learn!", .9), 300); } }, { once: true });
 
-renderHub();
 
 
 // ===============================
@@ -2012,146 +2195,116 @@ function answerShare(btn, choice) {
 }
 
 // ===============================
-// AI ACADEMY — Teach the Robot (a REAL tiny classifier)
-// The robot learns feature->class counts from the examples Keshav gives it,
-// then predicts on things it has never seen. Honest, and it can be wrong.
+// AI ACADEMY (v5) — pick a lesson, teach the robot, watch it think.
+// Real tiny classifier: learns feature→answer counts from Keshav's examples,
+// then predicts on things it has never seen. Each lesson has one "surprise"
+// test item with unseen features so the robot honestly says "I'm not sure".
 // ===============================
-const AI_TRAIN_SET = [
-  { e:'🦅', n:'eagle',      f:['wings','alive'],  t:'fly' },
-  { e:'✈️', n:'airplane',   f:['wings','metal'],  t:'fly' },
-  { e:'🦋', n:'butterfly',  f:['wings','alive'],  t:'fly' },
-  { e:'🐝', n:'bee',        f:['wings','alive'],  t:'fly' },
-  { e:'🐶', n:'dog',        f:['legs','alive'],   t:'nofly' },
-  { e:'🚗', n:'car',        f:['wheels','metal'], t:'nofly' },
-  { e:'🐟', n:'fish',       f:['water','alive'],  t:'nofly' },
-  { e:'🚲', n:'bicycle',    f:['wheels'],         t:'nofly' },
-];
-const AI_TEST_SET = [
-  { e:'🦆', n:'duck',       f:['wings','alive'],  t:'fly' },
-  { e:'🚌', n:'bus',        f:['wheels','metal'], t:'nofly' },
-  { e:'🦇', n:'bat',        f:['wings','alive'],  t:'fly' },
-  { e:'🚀', n:'rocket',     f:['fire','metal'],   t:'fly' },   // never-seen features → robot is unsure. The lesson!
-];
-const FEAT_LABEL = { wings:'wings 🪽', legs:'legs 🦵', wheels:'wheels 🛞', water:'water 🌊', metal:'metal 🔩', alive:'alive 💚', fire:'fire 🔥' };
-const ai = { brain:{}, queue:[], idx:0, phase:'train', testIdx:0, robotRight:0, answered:false };
+const FEAT_LABEL = { wings:'wings 🪽', legs:'legs 🦵', wheels:'wheels 🛞', water:'water 🌊', metal:'metal 🔩', alive:'alive 💚', fire:'fire 🔥', fur:'fur 🧸', fins:'fins 🐟', leaves:'leaves 🍃', stone:'stone 🪨', sky:'sky ☁️', shell:'shell 🐚' };
+const AI_LESSONS = {
+  fly: { ic:'☁️', name:'Can it fly?', yes:'Can fly ☁️', no:'Cannot fly 🚫', yesIc:'☁️', noIc:'🚫',
+    train:[ {e:'🦅',n:'eagle',f:['wings','alive'],t:'yes'},{e:'✈️',n:'airplane',f:['wings','metal'],t:'yes'},{e:'🦋',n:'butterfly',f:['wings','alive'],t:'yes'},{e:'🐝',n:'bee',f:['wings','alive'],t:'yes'},
+            {e:'🐶',n:'dog',f:['legs','fur','alive'],t:'no'},{e:'🚗',n:'car',f:['wheels','metal'],t:'no'},{e:'🐟',n:'fish',f:['water','fins','alive'],t:'no'},{e:'🚲',n:'bicycle',f:['wheels'],t:'no'} ],
+    test:[ {e:'🦆',n:'duck',f:['wings','alive'],t:'yes'},{e:'🚌',n:'bus',f:['wheels','metal'],t:'no'},{e:'🦇',n:'bat',f:['wings','alive'],t:'yes'},{e:'🚀',n:'rocket',f:['fire'],t:'yes'} ],
+    key:'wings' },
+  alive: { ic:'💚', name:'Is it alive?', yes:'Alive 💚', no:'Not alive 🪨', yesIc:'💚', noIc:'🪨',
+    train:[ {e:'🐶',n:'dog',f:['legs','fur'],t:'yes'},{e:'🌳',n:'tree',f:['leaves'],t:'yes'},{e:'🐟',n:'fish',f:['fins','water'],t:'yes'},{e:'🌸',n:'flower',f:['leaves'],t:'yes'},
+            {e:'🚗',n:'car',f:['wheels','metal'],t:'no'},{e:'🪨',n:'rock',f:['stone'],t:'no'},{e:'🤖',n:'robot',f:['metal','legs'],t:'no'},{e:'🚲',n:'bicycle',f:['wheels','metal'],t:'no'} ],
+    test:[ {e:'🐮',n:'cow',f:['legs','fur'],t:'yes'},{e:'🚌',n:'bus',f:['wheels','metal'],t:'no'},{e:'🌵',n:'cactus',f:['leaves'],t:'yes'},{e:'☁️',n:'cloud',f:['sky'],t:'no'} ],
+    key:'metal' },
+  swim: { ic:'🌊', name:'Can it swim?', yes:'Can swim 🌊', no:'Cannot swim 🏜️', yesIc:'🌊', noIc:'🏜️',
+    train:[ {e:'🐟',n:'fish',f:['fins','water','alive'],t:'yes'},{e:'🐳',n:'whale',f:['fins','water','alive'],t:'yes'},{e:'🦆',n:'duck',f:['wings','water','alive'],t:'yes'},{e:'🐢',n:'turtle',f:['shell','water','alive'],t:'yes'},
+            {e:'🐱',n:'cat',f:['legs','fur','alive'],t:'no'},{e:'🚗',n:'car',f:['wheels','metal'],t:'no'},{e:'🦅',n:'eagle',f:['wings','alive'],t:'no'},{e:'🌳',n:'tree',f:['leaves','alive'],t:'no'} ],
+    test:[ {e:'🦈',n:'shark',f:['fins','water','alive'],t:'yes'},{e:'🚌',n:'bus',f:['wheels','metal'],t:'no'},{e:'🐸',n:'frog',f:['legs','water','alive'],t:'yes'},{e:'🚀',n:'rocket',f:['fire'],t:'no'} ],
+    key:'water' },
+};
+const ai = { lesson:null, brain:{}, queue:[], idx:0, phase:'train', testIdx:0, robotRight:0, answered:false };
 
 function goAI() { state.subject = 'ai'; showScreen('ai-hub'); }
-function aiLearn(item, label) {
-  item.f.forEach(f => {
-    if (!ai.brain[f]) ai.brain[f] = { fly:0, nofly:0 };
-    ai.brain[f][label]++;
-  });
-}
+function aiLearn(item, label) { item.f.forEach(f => { if (!ai.brain[f]) ai.brain[f] = { yes:0, no:0 }; ai.brain[f][label]++; }); }
 function aiPredict(item) {
   let score = 0, seen = [];
-  item.f.forEach(f => {
-    const b = ai.brain[f];
-    if (b) { score += b.fly - b.nofly; if (b.fly !== b.nofly) seen.push(f); }
-  });
-  return { guess: score > 0 ? 'fly' : score < 0 ? 'nofly' : 'unsure', score, seen };
+  item.f.forEach(f => { const b = ai.brain[f]; if (b) { score += b.yes - b.no; if (b.yes !== b.no) seen.push(f); } });
+  return { guess: score > 0 ? 'yes' : score < 0 ? 'no' : 'unsure', score, seen };
 }
 function renderBrain() {
-  const el = document.getElementById('aiBrain');
+  const el = document.getElementById('aiBrain'), L = ai.lesson;
   const feats = Object.keys(ai.brain);
   if (!feats.length) { el.innerHTML = `<h4>🧠 Robot's brain</h4><div class="empty">Empty! The robot knows nothing yet. Teach it! 👇</div>`; return; }
   el.innerHTML = `<h4>🧠 Robot's brain — what it learned</h4>` + feats.map(f => {
-    const b = ai.brain[f], tot = b.fly + b.nofly;
-    const fp = (b.fly/tot)*100, np = (b.nofly/tot)*100;
-    return `<div class="brule">
-      <span class="bf">${FEAT_LABEL[f]||f}</span>
-      <span class="bbar"><span class="bfill f" style="width:${fp}%"></span><span class="bfill n" style="width:${np}%"></span></span>
-      <span class="bv">${b.fly} fly / ${b.nofly} no</span></div>`;
+    const b = ai.brain[f], tot = b.yes + b.no;
+    return `<div class="brule"><span class="bf">${FEAT_LABEL[f] || f}</span>
+      <span class="bbar"><span class="bfill f" style="width:${(b.yes/tot)*100}%"></span><span class="bfill n" style="width:${(b.no/tot)*100}%"></span></span>
+      <span class="bv">${b.yes} ${L.yesIc} / ${b.no} ${L.noIc}</span></div>`;
   }).join('');
 }
-function startAITrain() {
-  state.subject = 'ai';
+function startAITrain(lessonId) {
+  state.subject = 'ai'; ai.lesson = AI_LESSONS[lessonId || 'fly'];
   ai.brain = {}; ai.idx = 0; ai.testIdx = 0; ai.phase = 'train'; ai.robotRight = 0; ai.answered = false;
-  ai.queue = shuffle([...AI_TRAIN_SET]);
-  state.stars = 0; state.totalProblems = AI_TRAIN_SET.length + AI_TEST_SET.length;
-  document.getElementById('aiStars').textContent = '0';
-  updateProgress('aiProgress', 0);
+  ai.queue = shuffle([...ai.lesson.train]);
+  state.stars = 0; state.totalProblems = ai.lesson.train.length + ai.lesson.test.length;
+  document.getElementById('aiStars').textContent = '0'; updateProgress('aiProgress', 0);
   showScreen('ai-train'); renderAIStep();
-  setTimeout(() => speak("Teach the robot which things can fly!", .9), 400);
+  setTimeout(() => speak(`Teach the robot: ${ai.lesson.name}`, .9), 400);
 }
 function renderAIStep() {
+  const L = ai.lesson;
   const phaseEl = document.getElementById('aiPhase'), titleEl = document.getElementById('aiTitle');
   const hint = document.getElementById('aiHint'), bins = document.getElementById('aiBins');
   const guessBox = document.getElementById('aiGuessBox'), fb = document.getElementById('aiFeedback');
   fb.textContent = ''; fb.classList.remove('wrong'); guessBox.innerHTML = ''; ai.answered = false;
-
   if (ai.phase === 'train') {
     const item = ai.queue[ai.idx];
     phaseEl.textContent = `Training • example ${ai.idx + 1} of ${ai.queue.length}`;
-    titleEl.textContent = 'Can this fly?';
-    hint.textContent = 'Your answer teaches the robot 🤖';
-    document.getElementById('aiItem').textContent = item.e;
-    document.getElementById('aiItemName').textContent = item.n;
+    titleEl.textContent = L.name; hint.textContent = 'Your answer teaches the robot 🤖';
+    document.getElementById('aiItem').textContent = item.e; document.getElementById('aiItemName').textContent = item.n;
     bins.innerHTML = `<div class="ai-bins">
-      <button class="ai-bin fly" onclick="aiTeach('fly')"><span class="bi">☁️</span>Can fly</button>
-      <button class="ai-bin nofly" onclick="aiTeach('nofly')"><span class="bi">🚫</span>Cannot fly</button></div>`;
+      <button class="ai-bin fly" onclick="aiTeach('yes')"><span class="bi">${L.yesIc}</span>${L.yes}</button>
+      <button class="ai-bin nofly" onclick="aiTeach('no')"><span class="bi">${L.noIc}</span>${L.no}</button></div>`;
   } else {
-    const item = AI_TEST_SET[ai.testIdx];
-    phaseEl.textContent = `Testing • ${ai.testIdx + 1} of ${AI_TEST_SET.length}`;
-    titleEl.textContent = "Now the robot guesses!";
-    hint.textContent = "The robot has NEVER seen this one before 👀";
-    document.getElementById('aiItem').textContent = item.e;
-    document.getElementById('aiItemName').textContent = item.n;
+    const item = L.test[ai.testIdx];
+    phaseEl.textContent = `Testing • ${ai.testIdx + 1} of ${L.test.length}`;
+    titleEl.textContent = 'Now the robot guesses!'; hint.textContent = 'The robot has NEVER seen this one before 👀';
+    document.getElementById('aiItem').textContent = item.e; document.getElementById('aiItemName').textContent = item.n;
     bins.innerHTML = `<div class="center-actions"><button class="btn btn-primary" onclick="aiGuess()">🤖 Ask the robot!</button></div>`;
   }
   renderBrain();
 }
 function aiTeach(label) {
-  const item = ai.queue[ai.idx];
-  const right = label === item.t;
-  aiLearn(item, item.t);           // robot always learns the TRUE label
+  const L = ai.lesson, item = ai.queue[ai.idx], right = label === item.t;
+  aiLearn(item, item.t);
   const fb = document.getElementById('aiFeedback');
-  if (right) {
-    state.stars++; sfxCorrect(); confetti(10);
-    document.getElementById('aiStars').textContent = state.stars;
-    fb.textContent = `Correct! The robot learned: ${item.n} → ${item.t === 'fly' ? 'can fly ☁️' : 'cannot fly 🚫'}`;
-    fb.classList.remove('wrong');
-  } else {
-    sfxWrong();
-    fb.textContent = `Actually a ${item.n} ${item.t === 'fly' ? 'CAN fly ☁️' : 'CANNOT fly 🚫'}. The robot learned the right answer.`;
-    fb.classList.add('wrong');
-  }
-  renderBrain();
-  document.getElementById('aiBins').innerHTML = '';
-  ai.idx++;
-  updateProgress('aiProgress', ((ai.idx) / state.totalProblems) * 100);
-  setTimeout(() => {
-    if (ai.idx >= ai.queue.length) { ai.phase = 'test'; ai.testIdx = 0; }
-    renderAIStep();
-  }, right ? 1500 : 2400);
+  if (right) { state.stars++; sfxCorrect(); buzz(30); confetti(10); document.getElementById('aiStars').textContent = state.stars;
+    fb.textContent = `Correct! The robot learned: ${item.n} → ${item.t === 'yes' ? L.yes : L.no}`; fb.classList.remove('wrong'); }
+  else { sfxWrong(); fb.textContent = `Actually a ${item.n}: ${item.t === 'yes' ? L.yes : L.no}. The robot learned the right answer.`; fb.classList.add('wrong'); }
+  renderBrain(); document.getElementById('aiBins').innerHTML = ''; ai.idx++;
+  updateProgress('aiProgress', (ai.idx / state.totalProblems) * 100);
+  setTimeout(() => { if (ai.idx >= ai.queue.length) { ai.phase = 'test'; ai.testIdx = 0; } renderAIStep(); }, right ? 1500 : 2400);
 }
 function aiGuess() {
   if (ai.answered) return; ai.answered = true;
-  const item = AI_TEST_SET[ai.testIdx];
-  const p = aiPredict(item);
-  const box = document.getElementById('aiGuessBox');
+  const L = ai.lesson, item = L.test[ai.testIdx], p = aiPredict(item), box = document.getElementById('aiGuessBox');
   const correct = p.guess === item.t;
   const reason = p.seen.length
-    ? `I see <b>${p.seen.map(f=>FEAT_LABEL[f]||f).join(' and ')}</b> — I learned that from your examples!`
-    : `I don't recognise <b>anything</b> about this. I've never seen ${item.f.map(f=>FEAT_LABEL[f]||f).join(' or ')} before!`;
-
+    ? `I see <b>${p.seen.map(f => FEAT_LABEL[f] || f).join(' and ')}</b> — I learned that from your examples!`
+    : `I don't recognise <b>anything</b> about this. Nobody showed me ${item.f.map(f => FEAT_LABEL[f] || f).join(' or ')} before!`;
   if (p.guess === 'unsure') {
-    box.innerHTML = `<div class="ai-guess wrongg"><span class="verdict">🤔 "I'm not sure!"</span>${reason}<br><br>
-      <b>That's the big lesson:</b> AI can only learn from examples you show it. Nobody showed the robot a rocket — so it can't know! 🚀</div>`;
+    box.innerHTML = `<div class="ai-guess wrongg"><span class="verdict">🤔 "I'm not sure!"</span>${reason}<br><br><b>The big lesson:</b> AI can only learn from examples you show it. It's not magic — it's patterns! 🔍</div>`;
     sfxWrong();
   } else {
-    box.innerHTML = `<div class="ai-guess ${correct?'right':'wrongg'}">
-      <span class="verdict">🤖 "I think it ${p.guess === 'fly' ? 'CAN fly ☁️' : 'CANNOT fly 🚫'}"</span>${reason}
-      <br><br><b>${correct ? '✅ The robot got it RIGHT!' : '❌ The robot got it WRONG! AI makes mistakes too.'}</b></div>`;
-    if (correct) { ai.robotRight++; state.stars++; document.getElementById('aiStars').textContent = state.stars; sfxCorrect(); confetti(12); }
-    else sfxWrong();
+    box.innerHTML = `<div class="ai-guess ${correct ? 'right' : 'wrongg'}"><span class="verdict">🤖 "I think: ${p.guess === 'yes' ? L.yes : L.no}"</span>${reason}<br><br><b>${correct ? '✅ The robot got it RIGHT!' : '❌ The robot got it WRONG! AI makes mistakes too — that\'s why people check its work.'}</b></div>`;
+    if (correct) { ai.robotRight++; state.stars++; document.getElementById('aiStars').textContent = state.stars; sfxCorrect(); buzz(30); confetti(12); } else sfxWrong();
   }
   ai.testIdx++;
   updateProgress('aiProgress', ((ai.queue.length + ai.testIdx) / state.totalProblems) * 100);
-  const bins = document.getElementById('aiBins');
-  bins.innerHTML = `<div class="center-actions"><button class="btn btn-green" onclick="aiNextTest()">${ai.testIdx >= AI_TEST_SET.length ? 'See what I learned! 🎓' : 'Next →'}</button></div>`;
+  document.getElementById('aiBins').innerHTML = `<div class="center-actions"><button class="btn btn-green" onclick="aiNextTest()">${ai.testIdx >= L.test.length ? 'See what I learned! 🎓' : 'Next →'}</button></div>`;
 }
 function aiNextTest() {
-  if (ai.testIdx >= AI_TEST_SET.length) { celebrate(); return; }
+  if (ai.testIdx >= ai.lesson.test.length) {
+    const b = ai.brain[ai.lesson.key];
+    state.aiKeyMsg = b ? `The robot found the clue that matters most: ${FEAT_LABEL[ai.lesson.key]}!` : '';
+    celebrate(); return;
+  }
   renderAIStep();
 }
 
@@ -2173,6 +2326,10 @@ const AI_QUIZ = [
     why:'Always tell a grown-up you trust. AI can be wrong, and grown-ups can help!' },
   { q:'What is AI really good at?', o:['Spotting patterns 🔍','Eating cookies 🍪','Sleeping 😴'], a:0,
     why:'AI is a super pattern-spotter! That is how it reads words and sees pictures.' },
+  { q:'The robot learned "wings = can fly". Then it sees a penguin 🐧. What might happen?', o:['It might guess WRONG — penguins have wings but can\'t fly','It will always be right'], a:0,
+    why:'AI follows the patterns it learned. Penguins break the pattern — so the robot can be fooled! More examples help it learn.' },
+  { q:'Is an AI a real friend that knows you?', o:['No — it is a helpful tool 🛠️','Yes, it is my best friend 💛'], a:0,
+    why:'AI can be helpful and fun, but it does not know you or love you like your family and friends do.' },
   { q:'Who made AI?', o:['People, like you could! 👩‍💻','It made itself 🪄'], a:0,
     why:'People build AI by writing code — just like you programmed the robot in Robot Coder!' },
 ];
@@ -2216,6 +2373,307 @@ function answerAQ(btn, i, q) {
   setTimeout(nextAQ, right ? 3200 : 4200);
 }
 
+
+// ===============================
+// v5: LEVEL CAPS (single source of truth) + haptics
+// ===============================
+const LEVEL_CAPS = { patterns:6, odd:5, croc:4, memory:2, multlab:3, share:3, sudoku:3, shadow:3, wordmatch:2, order:3 };
+function buzz(ms) { try { if (navigator.vibrate) navigator.vibrate(ms); } catch (e) {} }
+
+// ===============================
+// ROBOT CODER — level picker (fixes the "stuck on level 12" dead end)
+// ===============================
+function showCoderPick() {
+  sfxClick();
+  const grid = document.getElementById('lvlGrid'); grid.innerHTML = '';
+  const unlocked = Math.min(progress.coder, CODER_LEVELS.length - 1);
+  for (let i = 0; i < CODER_LEVELS.length; i++) {
+    const b = document.createElement('button');
+    const done = i < progress.coder || (progress.coderDone && i === CODER_LEVELS.length - 1);
+    const locked = i > unlocked;
+    b.className = 'lvl-btn' + (done ? ' done' : '') + (locked ? ' locked' : '');
+    b.innerHTML = locked ? '🔒' : `${i + 1}<small>${done ? '✓ done' : CODER_LEVELS[i].loop ? '🔁 loop' : 'play'}</small>`;
+    if (!locked) b.onclick = () => startCoderAt(i);
+    grid.appendChild(b);
+  }
+  document.getElementById('coderPickSub').textContent = progress.coderDone
+    ? '🏆 You beat every level! Replay any one you like.' : 'Beat a level to unlock the next one!';
+  showScreen('coder-pick');
+}
+function startCoderAt(i) {
+  state.subject = 'coder';
+  coder.level = i; state.stars = 0; state.totalProblems = CODER_LEVELS.length - i;
+  document.getElementById('coderStars').textContent = '0'; updateProgress('coderProgress', 0);
+  showScreen('coder-game'); loadCoderLevel();
+  setTimeout(() => speak("Tap the arrows to move the robot to the star!", .9), 400);
+}
+
+// ===============================
+// SUDOKU JR — 4x4 picture sudoku with a unique-solution guarantee
+// ===============================
+const SK_SETS = [['🍎','🍌','🍇','🍓'],['🐶','🐱','🐰','🐸'],['🔴','🔵','🟡','🟢'],['⭐','🌙','☀️','☁️'],['🚗','🚌','🚲','✈️']];
+const sk = { sol:null, puz:null, fill:null, sel:-1, set:null, mistakes:0 };
+function skGen() {
+  let g = [[0,1,2,3],[2,3,0,1],[1,0,3,2],[3,2,1,0]];
+  const perm = shuffle([0,1,2,3]); g = g.map(r => r.map(v => perm[v]));
+  if (Math.random() < .5) [g[0], g[1]] = [g[1], g[0]];
+  if (Math.random() < .5) [g[2], g[3]] = [g[3], g[2]];
+  if (Math.random() < .5) g = [g[2], g[3], g[0], g[1]];
+  const sc = (a, b) => g.forEach(r => { [r[a], r[b]] = [r[b], r[a]]; });
+  if (Math.random() < .5) sc(0, 1); if (Math.random() < .5) sc(2, 3);
+  if (Math.random() < .5) { sc(0, 2); sc(1, 3); }
+  return g;
+}
+function skValid(p, y, x, v) {
+  for (let i = 0; i < 4; i++) { if (p[y][i] === v || p[i][x] === v) return false; }
+  const by = y - y % 2, bx = x - x % 2;
+  for (let i = 0; i < 2; i++) for (let j = 0; j < 2; j++) if (p[by+i][bx+j] === v) return false;
+  return true;
+}
+function skCount(p, limit) {
+  let count = 0;
+  function rec() {
+    if (count >= limit) return;
+    for (let y = 0; y < 4; y++) for (let x = 0; x < 4; x++) if (p[y][x] === -1) {
+      for (let v = 0; v < 4; v++) if (skValid(p, y, x, v)) { p[y][x] = v; rec(); p[y][x] = -1; }
+      return;
+    }
+    count++;
+  }
+  rec(); return count;
+}
+function skPuzzle(blanks) {
+  const sol = skGen(), puz = sol.map(r => [...r]);
+  let removed = 0;
+  for (const c of shuffle([...Array(16).keys()])) {
+    if (removed >= blanks) break;
+    const y = Math.floor(c / 4), x = c % 4, v = puz[y][x];
+    puz[y][x] = -1;
+    if (skCount(puz.map(r => [...r]), 2) === 1) removed++; else puz[y][x] = v;
+  }
+  return { sol, puz };
+}
+function skLevel() { return Math.min(3, progress.sudoku + Math.floor(state.problemIndex / 2)); }
+function goSudoku() { state.subject = 'sudoku'; showScreen('sudoku-example'); }
+function startSudoku() {
+  state.subject = 'sudoku'; state.problemIndex = 0; state.stars = 0; state.streak = 0; state.totalProblems = 4;
+  document.getElementById('skStars').textContent = '0'; document.getElementById('skQTotal').textContent = 4;
+  updateProgress('skProgress', 0); showScreen('sudoku-game'); nextSudoku();
+}
+function nextSudoku() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const blanks = [4, 6, 8, 10][skLevel()];
+  const { sol, puz } = skPuzzle(blanks);
+  sk.sol = sol; sk.puz = puz; sk.fill = puz.map(r => [...r]); sk.sel = -1; sk.mistakes = 0;
+  sk.set = SK_SETS[rand(0, SK_SETS.length - 1)];
+  document.getElementById('skQNum').textContent = state.problemIndex + 1;
+  document.getElementById('skHint').textContent = 'Tap a blank square, then tap a picture';
+  const fb = document.getElementById('skFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  const pal = document.getElementById('skPal'); pal.innerHTML = '';
+  sk.set.forEach((e, v) => { const b = document.createElement('button'); b.textContent = e; b.onclick = () => skPlace(v); pal.appendChild(b); });
+  renderSudoku();
+}
+function renderSudoku() {
+  const g = document.getElementById('skGrid'); g.innerHTML = '';
+  for (let i = 0; i < 16; i++) {
+    const y = Math.floor(i / 4), x = i % 4, v = sk.fill[y][x];
+    const c = document.createElement('div');
+    c.className = 'sk-cell' + (sk.puz[y][x] !== -1 ? ' given' : '') + (x === 1 ? ' br' : '') + (y === 1 ? ' bb' : '') + (sk.sel === i ? ' sel' : '');
+    c.id = 'skc-' + i; c.textContent = v === -1 ? '' : sk.set[v];
+    if (sk.puz[y][x] === -1) c.onclick = () => { sfxClick(); sk.sel = i; renderSudoku(); };
+    g.appendChild(c);
+  }
+}
+function skPlace(v) {
+  if (sk.sel < 0) { document.getElementById('skHint').textContent = 'First tap a blank square! 👆'; sfxWrong(); return; }
+  const y = Math.floor(sk.sel / 4), x = sk.sel % 4;
+  const cell = document.getElementById('skc-' + sk.sel);
+  if (sk.sol[y][x] === v) {
+    sk.fill[y][x] = v; sfxStar(); buzz(20);
+    const s = sk.sel; sk.sel = -1; renderSudoku();
+    const c2 = document.getElementById('skc-' + s); if (c2) c2.classList.add('ok');
+    if (sk.fill.every(r => r.every(c => c !== -1))) {
+      state.stars++; state.streak++; sfxCorrect(); confetti(16);
+      document.getElementById('skStars').textContent = state.stars;
+      document.getElementById('skFeedback').textContent = sk.mistakes === 0 ? 'Perfect puzzle! 🧩🌟' : 'Solved it! 🎉';
+      speak("You solved it!", .9);
+      setTimeout(() => { state.problemIndex++; updateProgress('skProgress', (state.problemIndex / state.totalProblems) * 100); nextSudoku(); }, 1500);
+    }
+  } else {
+    sk.mistakes++; sfxWrong(); if (cell) cell.classList.add('bad');
+    document.getElementById('skHint').textContent = "That one's already in this row, column or box. Try another!";
+    setTimeout(() => { if (cell) cell.classList.remove('bad'); }, 450);
+  }
+}
+
+// ===============================
+// SHADOW MATCH — picture → silhouette
+// ===============================
+const SD_POOL = ['🐶','🐱','🐰','🦊','🐻','🐸','🦁','🐘','🦒','🐢','🐟','🦋','🌳','🌸','🚗','✈️','🚀','⚽','🎸','🏠','☂️','🍎','🍌','🎈','⭐','🦆','🐙','🦖','🚲','🎩'];
+const sd = { items:[], sel:null, done:0 };
+function sdCount() { return [3,4,5,6][Math.min(3, progress.shadow + Math.floor(state.problemIndex / 3))]; }
+function goShadow() { state.subject = 'shadow'; showScreen('shadow-example'); }
+function startShadow() {
+  state.subject = 'shadow'; state.problemIndex = 0; state.stars = 0; state.streak = 0; state.totalProblems = 5;
+  document.getElementById('sdStars').textContent = '0'; document.getElementById('sdQTotal').textContent = 5;
+  updateProgress('sdProgress', 0); showScreen('shadow-game'); nextShadow();
+}
+function nextShadow() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const n = sdCount();
+  sd.items = shuffle([...SD_POOL]).slice(0, n); sd.sel = null; sd.done = 0;
+  document.getElementById('sdQNum').textContent = state.problemIndex + 1;
+  const fb = document.getElementById('sdFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  const L = document.getElementById('sdLeft'), R = document.getElementById('sdRight'); L.innerHTML = ''; R.innerHTML = '';
+  shuffle([...sd.items]).forEach(e => { const d = document.createElement('div'); d.className = 'sd-item'; d.innerHTML = `<span class="g">${e}</span>`; d.dataset.e = e; d.id = 'sdl-' + e; d.onclick = () => sdPick(d, e); L.appendChild(d); });
+  shuffle([...sd.items]).forEach(e => { const d = document.createElement('div'); d.className = 'sd-item shadow'; d.innerHTML = `<span class="g">${e}</span>`; d.dataset.e = e; d.id = 'sdr-' + e; d.onclick = () => sdDrop(d, e); R.appendChild(d); });
+}
+function sdPick(el, e) {
+  sfxClick(); document.querySelectorAll('.sd-item').forEach(x => x.classList.remove('sel'));
+  el.classList.add('sel'); sd.sel = e;
+}
+function sdDrop(el, e) {
+  if (!sd.sel) { sfxWrong(); document.getElementById('sdFeedback').textContent = 'Tap a picture on the left first 👈'; return; }
+  const left = document.getElementById('sdl-' + sd.sel);
+  if (e === sd.sel) {
+    sfxStar(); buzz(20); el.classList.add('done'); if (left) { left.classList.remove('sel'); left.classList.add('done'); }
+    sd.sel = null; sd.done++;
+    if (sd.done >= sd.items.length) {
+      state.stars++; state.streak++; sfxCorrect(); confetti(16);
+      document.getElementById('sdStars').textContent = state.stars;
+      document.getElementById('sdFeedback').textContent = ['Shadow detective! 🔦','All matched! 🌟','Sharp eyes! 👀'][rand(0,2)];
+      setTimeout(() => { state.problemIndex++; updateProgress('sdProgress', (state.problemIndex / state.totalProblems) * 100); nextShadow(); }, 1400);
+    }
+  } else { sfxWrong(); el.classList.add('bad'); setTimeout(() => el.classList.remove('bad'), 450); }
+}
+
+// ===============================
+// WORD MATCH — read the word, tap the picture
+// ===============================
+const WM_WORDS = [
+  {w:'cat',e:'🐱'},{w:'dog',e:'🐶'},{w:'sun',e:'☀️'},{w:'hat',e:'🎩'},{w:'bus',e:'🚌'},{w:'cup',e:'☕'},{w:'fox',e:'🦊'},{w:'bed',e:'🛏️'},{w:'pig',e:'🐷'},{w:'car',e:'🚗'},{w:'egg',e:'🥚'},{w:'bee',e:'🐝'},{w:'cow',e:'🐮'},{w:'key',e:'🔑'},
+  {w:'fish',e:'🐟'},{w:'ball',e:'⚽'},{w:'frog',e:'🐸'},{w:'tree',e:'🌳'},{w:'kite',e:'🪁'},{w:'lion',e:'🦁'},{w:'moon',e:'🌙'},{w:'bird',e:'🐦'},{w:'duck',e:'🦆'},{w:'ship',e:'🚢'},{w:'star',e:'⭐'},{w:'cake',e:'🎂'},{w:'boat',e:'⛵'},{w:'bear',e:'🐻'},
+  {w:'apple',e:'🍎'},{w:'train',e:'🚂'},{w:'horse',e:'🐴'},{w:'sheep',e:'🐑'},{w:'bread',e:'🍞'},{w:'cloud',e:'☁️'},{w:'grape',e:'🍇'},{w:'snake',e:'🐍'},{w:'clock',e:'🕐'},{w:'pizza',e:'🍕'},{w:'tiger',e:'🐯'},{w:'house',e:'🏠'},{w:'shark',e:'🦈'},{w:'robot',e:'🤖'},
+];
+let wmQ = null, wmPool = [];
+function goWordMatch() { state.subject = 'wordmatch'; showScreen('wordmatch-example'); }
+function startWordMatch() {
+  state.subject = 'wordmatch'; state.problemIndex = 0; state.stars = 0; state.streak = 0; state.totalProblems = 10; wmPool = [];
+  document.getElementById('wmStars').textContent = '0'; document.getElementById('wmQTotal').textContent = 10;
+  updateProgress('wmProgress', 0); showScreen('wordmatch-game'); nextWordMatch();
+}
+function nextWordMatch() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = Math.min(2, progress.wordmatch + Math.floor(state.problemIndex / 4));
+  const maxLen = L === 0 ? 3 : L === 1 ? 4 : 5, minLen = L === 2 ? 4 : 3;
+  const eligible = WM_WORDS.filter(x => x.w.length >= minLen && x.w.length <= maxLen);
+  if (!wmPool.length) wmPool = shuffle([...eligible]);
+  wmQ = wmPool.shift();
+  const others = shuffle(WM_WORDS.filter(x => x.e !== wmQ.e)).slice(0, 3);
+  const opts = shuffle([wmQ, ...others]);
+  document.getElementById('wmQNum').textContent = state.problemIndex + 1;
+  document.getElementById('wmWord').textContent = wmQ.w;
+  const fb = document.getElementById('wmFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  const box = document.getElementById('wmPics'); box.innerHTML = '';
+  opts.forEach(o => { const b = document.createElement('button'); b.className = 'wm-pic'; b.textContent = o.e; b.onclick = () => answerWM(b, o); box.appendChild(b); });
+  setTimeout(() => speak(wmQ.w, .8), 300);
+}
+function wmHear() { sfxClick(); if (wmQ) speak(wmQ.w, .75); }
+function answerWM(btn, o) {
+  const all = document.querySelectorAll('#wmPics .wm-pic'); all.forEach(b => b.disabled = true);
+  if (o.e === wmQ.e) {
+    btn.classList.add('correct'); state.stars++; state.streak++; sfxCorrect(); buzz(30); confetti(14);
+    document.getElementById('wmStars').textContent = state.stars;
+    document.getElementById('wmFeedback').textContent = ['Super reader! 📖','You read it! 🌟','Yes! 🎉'][rand(0,2)];
+    if (state.streak >= 2) showStreak(state.streak);
+    setTimeout(() => { state.problemIndex++; updateProgress('wmProgress', (state.problemIndex / state.totalProblems) * 100); nextWordMatch(); }, 1300);
+  } else {
+    btn.classList.add('wrong'); state.streak = 0; sfxWrong();
+    all.forEach(b => { if (b.textContent === wmQ.e) b.classList.add('correct'); });
+    const fb = document.getElementById('wmFeedback'); fb.textContent = `"${wmQ.w}" is ${wmQ.e}. Let's sound it out!`; fb.classList.add('wrong');
+    speakLetters(wmQ.w, null, null);
+    setTimeout(() => { state.problemIndex++; updateProgress('wmProgress', (state.problemIndex / state.totalProblems) * 100); nextWordMatch(); }, 3000);
+  }
+}
+
+// ===============================
+// ORDER UP — tap numbers smallest → biggest
+// ===============================
+const od = { nums:[], next:0 };
+function goOrder() { state.subject = 'order'; showScreen('order-example'); }
+function startOrder() {
+  state.subject = 'order'; state.problemIndex = 0; state.stars = 0; state.streak = 0; state.totalProblems = 8;
+  document.getElementById('odStars').textContent = '0'; document.getElementById('odQTotal').textContent = 8;
+  updateProgress('odProgress', 0); showScreen('order-game'); nextOrder();
+}
+function nextOrder() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = Math.min(3, progress.order + Math.floor(state.problemIndex / 3));
+  const n = [3,4,4,5][L], [lo, hi] = [[1,10],[1,20],[10,99],[100,999]][L];
+  const set = new Set(); while (set.size < n) set.add(rand(lo, hi));
+  od.nums = shuffle([...set]); od.next = 0;
+  document.getElementById('odQNum').textContent = state.problemIndex + 1;
+  document.getElementById('odLine').innerHTML = '<span class="empty-hint">Smallest first 👇</span>';
+  const fb = document.getElementById('odFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  const pool = document.getElementById('odPool'); pool.innerHTML = '';
+  od.nums.forEach(v => { const b = document.createElement('button'); b.className = 'od-tile'; b.textContent = v; b.id = 'odt-' + v; b.onclick = () => odTap(b, v); pool.appendChild(b); });
+}
+function odTap(btn, v) {
+  const sorted = [...od.nums].sort((a, b) => a - b);
+  if (v === sorted[od.next]) {
+    sfxStar(); buzz(20); btn.remove(); od.next++;
+    const line = document.getElementById('odLine');
+    if (od.next === 1) line.innerHTML = '';
+    if (od.next > 1) { const a = document.createElement('span'); a.className = 'od-arrow'; a.textContent = '→'; line.appendChild(a); }
+    const t = document.createElement('div'); t.className = 'od-tile placed'; t.textContent = v; line.appendChild(t);
+    speak(String(v), 1);
+    if (od.next >= od.nums.length) {
+      state.stars++; state.streak++; sfxCorrect(); confetti(14);
+      document.getElementById('odStars').textContent = state.stars;
+      document.getElementById('odFeedback').textContent = ['In order! 🪜','Perfect line! 🌟','Sorted! 🎉'][rand(0,2)];
+      setTimeout(() => { state.problemIndex++; updateProgress('odProgress', (state.problemIndex / state.totalProblems) * 100); nextOrder(); }, 1300);
+    }
+  } else {
+    sfxWrong(); btn.classList.add('bad'); setTimeout(() => btn.classList.remove('bad'), 450);
+    document.getElementById('odFeedback').textContent = `Is there a smaller one than ${v}? Look again! 👀`;
+  }
+}
+
+// ===============================
+// HUB (v5): sections, mastery badges, Surprise Me
+// ===============================
+const HUB_SECTIONS = [
+  { id:'math',    title:'Numbers',          ic:'🔢' },
+  { id:'reading', title:'Reading & Words',  ic:'📖' },
+  { id:'puzzle',  title:'Puzzles & Logic',  ic:'🧩' },
+  { id:'ai',      title:'AI Academy',       ic:'🤖' },
+];
+function renderHub() {
+  const grid = document.getElementById('hubGrid'); grid.innerHTML = '';
+  HUB_SECTIONS.forEach(sec => {
+    const games = GAMES.filter(g => g.cat === sec.id); if (!games.length) return;
+    const wrap = document.createElement('div'); wrap.className = 'hub-sect';
+    wrap.innerHTML = `<div class="sect-title"><span>${sec.ic}</span><span>${sec.title}</span><span class="sl"></span><span class="sc">${games.length} games</span></div>`;
+    const g2 = document.createElement('div'); g2.className = 'hub-grid';
+    games.forEach(g => {
+      const btn = document.createElement('button'); btn.className = 'tile'; btn.style.setProperty('--grad', g.grad);
+      let badge = '';
+      if (g.levelKey === 'coder') badge = progress.coderDone ? `<span class="lvl max">🏆 All 12</span>` : `<span class="lvl">Lvl ${progress.coder + 1}</span>`;
+      else if (g.levelKey) badge = progress[g.levelKey] >= LEVEL_CAPS[g.levelKey] ? `<span class="lvl max">🏆 Master</span>` : `<span class="lvl">Lvl ${progress[g.levelKey] + 1}</span>`;
+      btn.innerHTML = `${badge}<span class="ic">${g.ic}</span><span class="nm">${g.nm}</span><span class="ds">${g.ds}</span>`;
+      btn.onclick = g.fn; g2.appendChild(btn);
+    });
+    wrap.appendChild(g2); grid.appendChild(wrap);
+  });
+  const sur = document.createElement('div'); sur.className = 'surprise';
+  sur.innerHTML = `<button class="btn btn-primary" onclick="surpriseMe()">🎲 Surprise me!</button>`;
+  grid.appendChild(sur);
+  document.getElementById('totalStars').textContent = progress.totalStars;
+  const mastered = Object.keys(LEVEL_CAPS).filter(k => progress[k] >= LEVEL_CAPS[k]).length + (progress.coderDone ? 1 : 0);
+  const sub = document.getElementById('hubSub'); if (sub) sub.textContent = mastered ? `🏆 ${mastered} game${mastered > 1 ? 's' : ''} mastered!` : 'Pick a game to play and learn';
+}
+function surpriseMe() { sfxClick(); const g = GAMES[rand(0, GAMES.length - 1)]; speak(`Let's play ${g.nm}!`, .9); g.fn(); }
+
 // ===============================
 // SERVICE WORKER
 // ===============================
@@ -2239,6 +2697,7 @@ function showUpdateBanner() {
   setTimeout(() => b.remove && b.remove(), 12000);
 }
 
+renderHub();
 </script>
 </body>
 </html>
