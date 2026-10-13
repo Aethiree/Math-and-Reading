@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="application-name" content="Keshav Learns">
+<meta name="application-name" content="Learn &amp; Play">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Keshav Learns">
+<meta name="apple-mobile-web-app-title" content="Learn &amp; Play">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#6C5CE7">
 <meta name="msapplication-TileColor" content="#6C5CE7">
@@ -15,7 +15,7 @@
 <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-<title>Keshav's Learning Adventure</title>
+<title>Learning Adventure</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -536,6 +536,11 @@
   .ai-lesson .ls { font-size:.7rem; font-weight:800; color:var(--ink-soft); }
   .ai-key { background:linear-gradient(135deg,#FFF6E4,#FFEFD0); border-radius:var(--r-md); padding:10px 12px; margin-top:10px; font-size:.88rem; font-weight:700; text-align:left; }
 
+  .name-input { width:100%; font-family:'Fredoka'; font-weight:600; font-size:1.4rem; text-align:center; padding:14px 16px; margin:8px 0 6px;
+    border-radius:var(--r-md); border:2px solid var(--line-2); background:#F8F9FE; color:var(--ink); outline:none; user-select:text; -webkit-user-select:text; }
+  .name-input:focus { border-color:var(--violet); background:#fff; }
+  #hubHello { cursor:pointer; }
+  .edit-name { font-size:.9rem; opacity:.55; vertical-align:middle; }
   @media (max-width: 470px) {
     .problem-display { font-size: 2.6rem; }
     .game-card { padding: 20px 14px; }
@@ -569,7 +574,7 @@
         <circle cx="86" cy="90" r="2" fill="#fff"/><circle cx="118" cy="90" r="2" fill="#fff"/>
         <path d="M 80 112 Q 100 130 120 112" stroke="#1E2138" stroke-width="4" fill="none" stroke-linecap="round"/>
       </svg>
-      <div class="greet"><h1>Hi Keshav!</h1><p id="hubSub">Pick a game to play and learn</p></div>
+      <div class="greet"><h1 id="hubHello" onclick="openNameSetup()" title="Change name">Hi there! <span class="edit-name">✏️</span></h1><p id="hubSub">Pick a game to play and learn</p></div>
       <div class="star-badge">⭐ <span id="totalStars">0</span></div>
     </div>
     <div class="hub-list" id="hubGrid"></div>
@@ -1018,6 +1023,20 @@
 
 </div>
 
+<!-- ============ NAME SETUP ============ -->
+<div class="celebration" id="nameSetup">
+  <div class="celebration-card">
+    <div style="font-size:3rem;">👋</div>
+    <h1 id="nameSetupTitle">What's your name?</h1>
+    <div class="celeb-msg">The games will cheer for you by name!</div>
+    <input id="nameInput" class="name-input" type="text" maxlength="20" autocomplete="off" autocapitalize="words" placeholder="Type your name" onkeydown="if(event.key==='Enter')saveName()">
+    <div class="center-actions">
+      <button class="btn btn-green" onclick="saveName()">Let's go! 🚀</button>
+      <button class="btn btn-ghost" id="nameCancel" onclick="closeNameSetup()" style="display:none;">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <!-- ============ CELEBRATION ============ -->
 <div class="celebration" id="celebration">
   <div class="celebration-card">
@@ -1036,6 +1055,37 @@
 // ===============================
 // STATE & PROGRESS PERSISTENCE
 // ===============================
+// ===============================
+// PLAYER NAME — set on first launch, tap the greeting to change
+// ===============================
+function loadName() { try { return (localStorage.getItem('player_name') || '').trim(); } catch (e) { return ''; } }
+let playerName = loadName();
+function pName() { return playerName || 'superstar'; }
+function setGreeting() {
+  const h = document.getElementById('hubHello');
+  if (h) h.innerHTML = '';
+  if (h) { h.textContent = playerName ? `Hi ${playerName}! ` : 'Hi there! '; const s = document.createElement('span'); s.className = 'edit-name'; s.textContent = '✏️'; h.appendChild(s); }
+  document.title = playerName ? `${playerName}'s Learning Adventure` : 'Learning Adventure';
+}
+function openNameSetup() {
+  const o = document.getElementById('nameSetup'), inp = document.getElementById('nameInput');
+  inp.value = playerName;
+  document.getElementById('nameSetupTitle').textContent = playerName ? 'Change your name' : "What's your name?";
+  document.getElementById('nameCancel').style.display = playerName ? '' : 'none';
+  o.classList.add('active');
+  setTimeout(() => { try { inp.focus(); } catch (e) {} }, 150);
+}
+function closeNameSetup() { document.getElementById('nameSetup').classList.remove('active'); }
+function saveName() {
+  const v = document.getElementById('nameInput').value.replace(/\s+/g, ' ').trim().slice(0, 20);
+  if (!v) { sfxWrong(); document.getElementById('nameInput').focus(); return; }
+  playerName = v;
+  try { localStorage.setItem('player_name', v); } catch (e) {}
+  setGreeting(); closeNameSetup(); sfxCorrect(); confetti(18);
+  welcomed = true;
+  setTimeout(() => speak(`Hi ${v}! Let's play and learn!`, .9), 250);
+}
+
 const state = {
   screen: 'welcome', subject: null, operation: null, difficulty: 1,
   readingMode: 3, problemIndex: 0, totalProblems: 10,
@@ -1483,7 +1533,7 @@ function soundItOut() {
 function readingDone() {
   state.stars++; state.streak++; state.correctCount++;
   document.getElementById('readingStars').textContent = state.stars; sfxCorrect();
-  const fb = document.getElementById('readingFeedback'); fb.textContent = ['Wow Keshav! 🌟','You read it! 🎉','Super reader! 📖','Amazing! ⭐','Great reading! 🚀'][rand(0,4)]; fb.classList.remove('wrong');
+  const fb = document.getElementById('readingFeedback'); fb.textContent = [`Wow ${pName()}! 🌟`,'You read it! 🎉','Super reader! 📖','Amazing! ⭐','Great reading! 🚀'][rand(0,4)]; fb.classList.remove('wrong');
   confetti(18); if (state.streak >= 2) showStreak(state.streak);
   setTimeout(() => { state.problemIndex++; updateProgress('readingProgress',(state.problemIndex/state.totalProblems)*100); nextReadingItem(); }, 1500);
 }
@@ -1922,9 +1972,9 @@ function celebrate() {
   else if (state.subject === 'wordmatch') { title = pass ? 'Word Wizard! 🔤🏆' : 'Keep reading! 🔤'; msg = `You read ${stars} of ${total} words!`; }
   else if (state.subject === 'order') { title = pass ? 'Sorting Star! 🪜🏆' : 'Good try! 🪜'; msg = `You sorted ${stars} of ${total} rounds!`; }
   else if (state.subject === 'aiquiz') { title = pass ? 'AI Expert! 🧠🏆' : 'Keep learning! 🧠'; msg = `You got ${stars} of ${total} right!`; }
-  else if (stars === total) { title = 'PERFECT, Keshav! 🏆'; msg = `You got all ${total} right! Superstar! 🌟`; }
+  else if (stars === total) { title = `PERFECT, ${pName()}! 🏆`; msg = `You got all ${total} right! Superstar! 🌟`; }
   else if (pass) { title = 'Great job! 🎉'; msg = `You earned ${stars} stars out of ${total}!`; }
-  else { title = 'Nice try, Keshav! 💪'; msg = `You earned ${stars} stars. Keep practicing!`; }
+  else { title = `Nice try, ${pName()}! 💪`; msg = `You earned ${stars} stars. Keep practicing!`; }
 
   document.getElementById('celebTitle').textContent = title;
   document.getElementById('celebMsg').textContent = msg;
@@ -1992,7 +2042,7 @@ document.getElementById('muteBtn').onclick = () => {
 document.body.addEventListener('touchstart', ensureAudio, { once: true });
 document.body.addEventListener('click', ensureAudio, { once: true });
 let welcomed = false;
-document.body.addEventListener('click', () => { if (!welcomed) { welcomed = true; setTimeout(() => speak("Hi Keshav! Let's play and learn!", .9), 300); } }, { once: true });
+document.body.addEventListener('click', () => { if (!welcomed) { welcomed = true; setTimeout(() => speak(`Hi ${pName()}! Let's play and learn!`, .9), 300); } }, { once: true });
 
 
 
@@ -2199,7 +2249,7 @@ function answerShare(btn, choice) {
 
 // ===============================
 // AI ACADEMY (v5) — pick a lesson, teach the robot, watch it think.
-// Real tiny classifier: learns feature→answer counts from Keshav's examples,
+// Real tiny classifier: learns feature→answer counts from the player's examples,
 // then predicts on things it has never seen. Each lesson has one "surprise"
 // test item with unseen features so the robot honestly says "I'm not sure".
 // ===============================
@@ -2672,6 +2722,7 @@ function renderHub() {
   sur.innerHTML = `<button class="btn btn-primary" onclick="surpriseMe()">🎲 Surprise me!</button>`;
   grid.appendChild(sur);
   document.getElementById('totalStars').textContent = progress.totalStars;
+  setGreeting();
   const mastered = Object.keys(LEVEL_CAPS).filter(k => progress[k] >= LEVEL_CAPS[k]).length + (progress.coderDone ? 1 : 0);
   const sub = document.getElementById('hubSub'); if (sub) sub.textContent = mastered ? `🏆 ${mastered} game${mastered > 1 ? 's' : ''} mastered!` : 'Pick a game to play and learn';
 }
@@ -2701,6 +2752,7 @@ function showUpdateBanner() {
 }
 
 renderHub();
+if (!playerName) setTimeout(openNameSetup, 400);
 </script>
 </body>
 </html>

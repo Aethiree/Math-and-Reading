@@ -1,7 +1,7 @@
 {
-  "name": "Keshav's Learning Adventure",
-  "short_name": "Keshav Learns",
-  "description": "A fun math and reading game for Keshav!",
+  "name": "Learning Adventure",
+  "short_name": "Learn & Play",
+  "description": "Fun math, reading, puzzle and AI games for kids!",
   "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait-primary",
