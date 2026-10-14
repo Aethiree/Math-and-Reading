@@ -470,6 +470,9 @@
   .sect-title { display:flex; align-items:center; gap:8px; font-family:'Fredoka'; font-weight:600; font-size:1.08rem; color:var(--ink); text-align:left; margin:14px 4px 10px; }
   .sect-title .sl { flex:1; height:2px; background:var(--line-2); border-radius:2px; }
   .sect-title .sc { font-size:.74rem; font-weight:800; color:var(--ink-soft); letter-spacing:.4px; }
+  .tile .lvl.new { background:linear-gradient(135deg,#FF3D7F,#FF7563); color:#fff; font-weight:700; box-shadow:0 0 0 2px #fff, 0 3px 12px rgba(255,61,127,.55); }
+  @media (prefers-reduced-motion: no-preference) { .tile .lvl.new { animation:newPulse 1.6s ease-in-out infinite; } }
+  @keyframes newPulse { 50% { transform:scale(1.12) rotate(-3deg); } }
   .tile .lvl.max { background:linear-gradient(135deg,var(--amber),var(--amber-2)); color:#fff; }
   .surprise { width:100%; margin-top:16px; }
   .surprise .btn { width:100%; font-size:1.15rem; min-height:60px; }
@@ -1382,6 +1385,7 @@ progress.share    = progress.share    || 0;
 progress.sudoku = progress.sudoku || 0; progress.shadow = progress.shadow || 0;
 progress.wordmatch = progress.wordmatch || 0; progress.order = progress.order || 0;
 progress.coderDone = !!progress.coderDone;
+progress.played = progress.played || {};
 ['jigsaw','spot','maketen','clock','rhyme','wordbuild'].forEach(k => { progress[k] = progress[k] || 0; });
 progress.totalStars = progress.totalStars || 0;
 
@@ -2723,6 +2727,10 @@ function answerAQ(btn, i, q) {
 // v5: LEVEL CAPS (single source of truth) + haptics
 // ===============================
 const LEVEL_CAPS = { patterns:6, odd:5, croc:4, memory:2, multlab:3, share:3, sudoku:3, shadow:3, wordmatch:2, order:3, jigsaw:3, spot:3, maketen:3, clock:3, rhyme:2, wordbuild:2 };
+// Games that show a ⭐ NEW badge until they're played once. Add future games here.
+const NEW_GAMES = ['clock', 'maketen', 'wordbuild', 'rhyme', 'jigsaw', 'spot', 'aifix'];
+function isNewGame(id) { return NEW_GAMES.includes(id) && !progress.played[id]; }
+function markPlayed(id) { if (NEW_GAMES.includes(id) && !progress.played[id]) { progress.played[id] = true; saveProgress(); } }
 function buzz(ms) { try { if (navigator.vibrate) navigator.vibrate(ms); } catch (e) {} }
 
 // ===============================
@@ -3003,6 +3011,7 @@ function renderHub() {
     games.forEach(g => {
       const btn = document.createElement('button'); btn.className = 'tile'; btn.style.setProperty('--grad', g.grad);
       let badge = '';
+      if (isNewGame(g.id)) badge = `<span class="lvl new">⭐ NEW</span>`; else
       if (g.levelKey === 'coder') badge = progress.coderDone ? `<span class="lvl max">🏆 All 12</span>` : `<span class="lvl">Lvl ${progress.coder + 1}</span>`;
       else if (g.levelKey) badge = progress[g.levelKey] >= LEVEL_CAPS[g.levelKey] ? `<span class="lvl max">🏆 Master</span>` : `<span class="lvl">Lvl ${progress[g.levelKey] + 1}</span>`;
       btn.innerHTML = `${badge}<span class="ic">${g.ic}</span><span class="nm">${g.nm}</span><span class="ds">${g.ds}</span>`;
@@ -3016,7 +3025,8 @@ function renderHub() {
   document.getElementById('totalStars').textContent = progress.totalStars;
   setGreeting();
   const mastered = Object.keys(LEVEL_CAPS).filter(k => progress[k] >= LEVEL_CAPS[k]).length + (progress.coderDone ? 1 : 0);
-  const sub = document.getElementById('hubSub'); if (sub) sub.textContent = mastered ? `🏆 ${mastered} game${mastered > 1 ? 's' : ''} mastered!` : 'Pick a game to play and learn';
+  const newCount = GAMES.filter(g => isNewGame(g.id)).length;
+  const sub = document.getElementById('hubSub'); if (sub) sub.textContent = newCount ? `⭐ ${newCount} new game${newCount > 1 ? 's' : ''} to try!` : mastered ? `🏆 ${mastered} game${mastered > 1 ? 's' : ''} mastered!` : 'Pick a game to play and learn';
 }
 function surpriseMe() { sfxClick(); const g = GAMES[rand(0, GAMES.length - 1)]; speak(`Let's play ${g.nm}!`, .9); g.fn(); }
 
@@ -3031,6 +3041,7 @@ function v6next(key, nextFn) {
   nextFn();
 }
 function v6start(subject, starsId, totalId, progId, total, screen) {
+  markPlayed(subject);
   state.subject = subject; state.problemIndex = 0; state.stars = 0; state.streak = 0; state.totalProblems = total;
   document.getElementById(starsId).textContent = '0';
   document.getElementById(totalId).textContent = total;
@@ -3579,6 +3590,7 @@ function fxSetup(id, k) {
 }
 function goAIFix() { startAIFix(); }
 function startAIFix() {
+  markPlayed('aifix');
   state.subject = 'aifix'; state.stars = 0; state.streak = 0; state.problemIndex = 0;
   fx.lessons = ['fly', 'alive', 'swim']; fx.li = 0; fx.totalWrong = 0;
   fx.plan = fx.lessons.map((id, i) => fxSetup(id, i === 0 ? 2 : 3));
