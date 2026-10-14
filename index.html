@@ -541,6 +541,117 @@
   .name-input:focus { border-color:var(--violet); background:#fff; }
   #hubHello { cursor:pointer; }
   .edit-name { font-size:.9rem; opacity:.55; vertical-align:middle; }
+
+  /* ===================== v6 ===================== */
+  /* Picture Jigsaw */
+  .jg-top { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:6px; }
+  .jg-preview { width:62px; height:62px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:2.6rem; box-shadow:var(--shadow-sm); }
+  .jg-board { display:grid; width:100%; max-width:330px; margin:14px auto 0; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-md); }
+  .jg-tile { position:relative; aspect-ratio:1; overflow:hidden; cursor:pointer; box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.85); transition:transform .15s; }
+  .jg-tile:active { transform:scale(.95); }
+  .jg-pic { position:absolute; display:flex; align-items:center; justify-content:center; line-height:1; pointer-events:none; }
+  .jg-tile.sel { z-index:2; box-shadow:inset 0 0 0 4px var(--amber), 0 0 0 3px var(--amber); transform:scale(1.04); }
+  .jg-tile.home::after { content:''; position:absolute; inset:3px; border-radius:6px; box-shadow:inset 0 0 0 2px rgba(54,201,141,.9); pointer-events:none; }
+  .jg-board.solved { box-shadow:0 0 0 4px var(--green), var(--shadow-lg); }
+  .jg-board.solved .jg-tile { box-shadow:none; }
+  .jg-board.solved .jg-tile.home::after { display:none; }
+
+  /* Spot the Difference */
+  .sp-label { font-size:.72rem; font-weight:800; letter-spacing:.5px; text-transform:uppercase; color:var(--ink-soft); margin:12px 0 6px; }
+  .sp-grid { display:grid; gap:5px; width:100%; max-width:330px; margin:0 auto; padding:8px; background:#F8F9FE; border:1px solid var(--line); border-radius:var(--r-md); }
+  .sp-cell { aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:clamp(1.3rem,6vw,1.9rem); background:#fff; border-radius:10px; cursor:pointer; box-shadow:var(--shadow-sm); transition:transform .1s; }
+  .sp-cell:active { transform:scale(.92); }
+  .sp-cell.found { box-shadow:inset 0 0 0 3px var(--green); background:linear-gradient(135deg,#E7FBF1,#D6F7E6); animation:winB .5s ease; }
+  .sp-cell.bad { animation:shake .4s ease; background:#FFE9EC; }
+  .sp-count { font-family:'Fredoka'; font-weight:600; font-size:1.05rem; margin-top:10px; }
+
+  /* Make Ten */
+  .mt-target { display:inline-flex; align-items:center; gap:8px; font-family:'Fredoka'; font-weight:600; font-size:1.15rem; background:linear-gradient(135deg,#FFF6E4,#FFEFD0); padding:8px 16px; border-radius:999px; margin-top:6px; }
+  .mt-target b { font-size:1.6rem; color:var(--coral); }
+  .mt-balloons { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:16px; min-height:90px; }
+  .mt-b { width:68px; height:80px; border:none; border-radius:50% 50% 46% 46%; font-family:'Fredoka'; font-weight:600; font-size:1.9rem; color:#fff; cursor:pointer; position:relative; box-shadow:inset -6px -8px 0 rgba(0,0,0,.08), var(--shadow-sm); transition:transform .12s; }
+  .mt-b::after { content:''; position:absolute; bottom:-12px; left:50%; width:2px; height:14px; background:var(--ink-soft); opacity:.5; }
+  .mt-b:active { transform:scale(.92); }
+  .mt-b.sel { transform:translateY(-8px) scale(1.08); box-shadow:0 0 0 4px #fff, 0 0 0 7px var(--amber), var(--shadow-md); }
+  .mt-b.pop { animation:mtPop .35s ease forwards; pointer-events:none; }
+  .mt-b.bad { animation:shake .4s ease; }
+  @keyframes mtPop { 40% { transform:scale(1.3); opacity:1; } 100% { transform:scale(0); opacity:0; } }
+  .tf-wrap { margin-top:14px; min-height:72px; }
+  .tf-eq { font-family:'Fredoka'; font-weight:600; font-size:1.2rem; margin-bottom:6px; }
+  .tf-eq .q { color:var(--amber); }
+  .tenframe { display:inline-grid; grid-template-columns:repeat(5,30px); gap:4px; padding:6px; background:#fff; border-radius:12px; box-shadow:inset 0 0 0 2px var(--line-2); }
+  .tf-c { width:30px; height:30px; border-radius:7px; background:#F2F4FC; display:flex; align-items:center; justify-content:center; }
+  .tf-c.on::before { content:''; width:20px; height:20px; border-radius:50%; background:var(--blue); }
+  .tf-c.need { box-shadow:inset 0 0 0 2px var(--amber); }
+
+  /* Clock Time */
+  .clk { width:min(250px,70vw); height:auto; display:block; margin:10px auto 0; }
+  .clk-legend { display:flex; gap:14px; justify-content:center; font-size:.8rem; font-weight:800; color:var(--ink-soft); margin-top:6px; }
+  .clk-legend span { display:inline-flex; align-items:center; gap:5px; }
+  .clk-legend i { display:inline-block; width:16px; height:5px; border-radius:3px; }
+
+  /* Rhyme Time */
+  .rh-prompt { display:flex; flex-direction:column; align-items:center; margin-top:8px; cursor:pointer; }
+  .rh-prompt .pe { font-size:4rem; line-height:1; }
+  .rh-word { font-family:'Fredoka'; font-weight:600; font-size:2.2rem; letter-spacing:3px; margin-top:4px; }
+  .rh-word .end { color:var(--coral); }
+  .rh-opts { display:grid; gap:12px; margin-top:16px; }
+  .rh-opt { border:1px solid var(--line-2); background:#fff; border-radius:var(--r-lg); padding:14px 6px 10px; cursor:pointer; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; align-items:center; gap:4px; transition:transform .1s; }
+  .rh-opt:active { transform:scale(.95); }
+  .rh-opt .oe { font-size:2.6rem; line-height:1; }
+  .rh-opt .ow { font-family:'Fredoka'; font-weight:600; font-size:1rem; color:var(--ink); }
+  .rh-opt.correct { background:linear-gradient(135deg,var(--good),#45d488); border-color:var(--good-edge); animation:winB .55s ease; }
+  .rh-opt.correct .ow { color:#fff; }
+  .rh-opt.wrong { background:linear-gradient(135deg,var(--bad),#ff7d8c); border-color:var(--bad-edge); animation:shake .45s ease; }
+  .rh-opt.wrong .ow { color:#fff; }
+
+  /* AI: Fix the Robot */
+  .fx-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:12px; }
+  .fx-card { background:#fff; border:1px solid var(--line-2); border-radius:var(--r-md); padding:8px 4px 6px; display:flex; flex-direction:column; align-items:center; gap:3px; box-shadow:var(--shadow-sm); cursor:pointer; transition:transform .12s; }
+  .fx-card:active { transform:scale(.95); }
+  .fx-card .fe { font-size:1.9rem; line-height:1; }
+  .fx-card .fn { font-size:.66rem; font-weight:800; color:var(--ink-soft); }
+  .fx-pill { font-size:.68rem; font-weight:800; padding:3px 7px; border-radius:999px; color:#fff; white-space:nowrap; }
+  .fx-pill.yes { background:linear-gradient(135deg,var(--blue),var(--teal)); }
+  .fx-pill.no { background:linear-gradient(135deg,var(--coral),var(--amber)); }
+  .fx-card.fixed { box-shadow:inset 0 0 0 3px var(--green), var(--shadow-sm); animation:winB .5s ease; }
+  .fx-card.bad { animation:shake .4s ease; }
+  .fx-card.locked { cursor:default; }
+  .fx-results { background:#F8F9FE; border-radius:var(--r-md); padding:10px 12px; margin-top:12px; text-align:left; }
+  .fx-row { display:flex; align-items:center; gap:8px; font-size:.9rem; font-weight:700; padding:4px 0; }
+  .fx-row .re { font-size:1.4rem; width:30px; text-align:center; }
+  .fx-row .rg { flex:1; }
+  .fx-score { font-family:'Fredoka'; font-weight:600; font-size:1.15rem; margin-top:8px; text-align:center; }
+  .fx-compare { display:flex; gap:12px; justify-content:center; margin-top:10px; }
+  .fx-box { flex:1; max-width:150px; border-radius:var(--r-md); padding:10px; text-align:center; font-weight:800; font-size:.8rem; }
+  .fx-box b { display:block; font-family:'Fredoka'; font-size:1.7rem; }
+  .fx-box.before { background:#FFE9EC; color:var(--bad-edge); }
+  .fx-box.after { background:#E7FBF1; color:var(--good-edge); }
+
+  /* Word Builder */
+  .wb-pic { font-size:4.2rem; line-height:1; margin-top:8px; cursor:pointer; }
+  .wb-slots { display:flex; gap:8px; justify-content:center; margin-top:14px; }
+  .wb-slot { width:54px; height:62px; border-radius:var(--r-md); background:#F8F9FE; box-shadow:inset 0 0 0 2px var(--line-2); display:flex; align-items:center; justify-content:center; font-family:'Fredoka'; font-weight:600; font-size:2.1rem; color:#C9CDE0; }
+  .wb-slot.cur { box-shadow:inset 0 0 0 3px var(--amber); background:#FFF9EC; }
+  .wb-slot.done { color:#fff; background:linear-gradient(135deg,var(--green),var(--green-2)); box-shadow:var(--shadow-sm); animation:popS .3s cubic-bezier(.34,1.56,.64,1); }
+  .wb-tiles { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:18px; }
+  .wb-tile { width:58px; height:58px; border:none; border-radius:var(--r-md); font-family:'Fredoka'; font-weight:600; font-size:1.9rem; color:#fff; cursor:pointer; background:linear-gradient(135deg,var(--violet),var(--violet-2)); box-shadow:var(--shadow-sm); transition:transform .1s; }
+  .wb-tile:active { transform:scale(.92); }
+  .wb-tile.bad { animation:shake .4s ease; background:linear-gradient(135deg,var(--bad),#ff7d8c); }
+  @media (max-width: 400px) { .wb-slot { width:46px; height:56px; font-size:1.8rem; } .wb-tile { width:52px; height:52px; } }
+
+  /* Clock explorer + set mode */
+  .ck-ctrls { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px; }
+  .ck-ctrl { display:flex; align-items:center; justify-content:space-between; gap:6px; background:#fff; border-radius:var(--r-md); padding:6px; box-shadow:var(--shadow-sm); }
+  .ck-ctrl span { font-size:.78rem; font-weight:800; color:var(--ink-soft); flex:1; text-align:center; }
+  .ck-ctrl button { width:44px; height:44px; border:none; border-radius:12px; font-family:'Fredoka'; font-weight:600; font-size:1.4rem; color:#fff; cursor:pointer; }
+  .ck-ctrl.h button { background:linear-gradient(135deg,var(--blue),var(--blue-2)); }
+  .ck-ctrl.m button { background:linear-gradient(135deg,var(--coral),var(--coral-2)); }
+  .ck-ctrl button:active { transform:scale(.9); }
+  .ck-read { font-family:'Fredoka'; font-weight:600; font-size:1.5rem; margin-top:10px; }
+  .ck-words { font-weight:800; color:var(--violet); font-size:1rem; margin-top:2px; }
+  .ck-goal { display:inline-block; font-family:'Fredoka'; font-weight:600; font-size:1.25rem; background:linear-gradient(135deg,#EDEAFE,#E4F6FA); padding:8px 16px; border-radius:999px; margin-top:8px; }
+
   @media (max-width: 470px) {
     .problem-display { font-size: 2.6rem; }
     .game-card { padding: 20px 14px; }
@@ -878,7 +989,8 @@
       <div class="ai-lesson" onclick="startAITrain('alive')"><span class="li">💚</span><span class="ln">Is it alive?</span><span class="ls">8 examples</span></div>
       <div class="ai-lesson" onclick="startAITrain('swim')"><span class="li">🌊</span><span class="ln">Can it swim?</span><span class="ls">8 examples</span></div>
     </div>
-    <div class="ai-cards" style="grid-template-columns:1fr;">
+    <div class="ai-cards">
+      <div class="choice-card" onclick="startAIFix()"><div class="icon">🔧</div><div class="label">Fix the Robot</div><div class="sub">Bad lessons → confused AI!</div></div>
       <div class="choice-card" onclick="startAIQuiz()"><div class="icon">❓</div><div class="label">AI Quiz</div><div class="sub">What do you know about AI?</div></div>
     </div>
   </div>
@@ -1021,7 +1133,165 @@
     </div>
   </div>
 
+
+  <!-- ============ PICTURE JIGSAW ============ -->
+  <div class="screen" id="screen-jigsaw-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Picture Jigsaw</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Put the picture back together! 🧩</h3>
+      <div class="example-step"><div class="step-num">1</div><div>The picture got <b>mixed up</b> into squares.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div><b>Tap one square</b>, then <b>tap another</b> — they swap places.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>A square glows <b style="color:var(--green)">green</b> when it's in the right spot. Look at the little picture to help!</div></div>
+      <div class="example-step"><div class="step-num">4</div><div>More, smaller squares as you level up: 4 → 9 → 16!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-primary" onclick="startJigsaw()">Let's build! 🧩</button></div>
+  </div>
+  <div class="screen" id="screen-jigsaw-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('jigsaw-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="jgProgress"></div></div></div><div class="star-count">⭐ <span id="jgStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Picture <span id="jgQNum">1</span> of <span id="jgQTotal">4</span></div>
+      <div class="jg-top"><div class="jg-preview" id="jgPreview"></div><div style="text-align:left;"><h3 style="font-size:1.1rem;">Make this picture!</h3><div class="ml-hint" id="jgHint" style="margin-top:2px;">Tap two squares to swap</div></div></div>
+      <div class="jg-board" id="jgBoard"></div>
+      <div class="feedback-msg" id="jgFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ SPOT THE DIFFERENCE ============ -->
+  <div class="screen" id="screen-spot-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Spot It!</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Find what's different! 👀</h3>
+      <div class="example-step"><div class="step-num">1</div><div>You'll see <b>two boxes</b> of pictures. They look the same…</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>…but a few pictures are <b>different</b>! Look carefully, square by square.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div><b>Tap the different ones</b> in the bottom box. Find them all to win!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-coral" onclick="startSpot()">Start looking! 👀</button></div>
+  </div>
+  <div class="screen" id="screen-spot-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('spot-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="spProgress"></div></div></div><div class="star-count">⭐ <span id="spStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Puzzle <span id="spQNum">1</span> of <span id="spQTotal">5</span></div>
+      <div class="sp-label">Picture A</div>
+      <div class="sp-grid" id="spGridA"></div>
+      <div class="sp-label">Picture B — tap what's different</div>
+      <div class="sp-grid" id="spGridB"></div>
+      <div class="sp-count" id="spCount"></div>
+      <div class="feedback-msg" id="spFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ MAKE TEN ============ -->
+  <div class="screen" id="screen-maketen-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Make Ten</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Pop two balloons that make 10! 🎈</h3>
+      <div class="example-step"><div class="step-num">1</div><div>Tap a balloon, like <b>3</b>. The ten-frame shows 3 dots…</div></div>
+      <div class="tf-wrap"><div class="tf-eq">3 + <span class="q">7</span> = 10</div><div class="tenframe"><div class="tf-c on"></div><div class="tf-c on"></div><div class="tf-c on"></div><div class="tf-c need"></div><div class="tf-c need"></div><div class="tf-c need"></div><div class="tf-c need"></div><div class="tf-c need"></div><div class="tf-c need"></div><div class="tf-c need"></div></div></div>
+      <div class="example-step"><div class="step-num">2</div><div>…and <b>7 empty squares</b>. So 3 needs <b>7</b>! Tap the 7 balloon. POP! 💥</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Pop every balloon to clear the sky. We start with <b>5</b>, then <b>10</b>!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-amber" onclick="startMakeTen()">Pop balloons! 🎈</button></div>
+  </div>
+  <div class="screen" id="screen-maketen-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('maketen-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="mtProgress"></div></div></div><div class="star-count">⭐ <span id="mtStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Sky <span id="mtQNum">1</span> of <span id="mtQTotal">5</span></div>
+      <div class="mt-target">Pop pairs that make <b id="mtTarget">10</b></div>
+      <div class="mt-balloons" id="mtBalloons"></div>
+      <div class="tf-wrap" id="mtFrame"></div>
+      <div class="feedback-msg" id="mtFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ CLOCK TIME ============ -->
+  <div class="screen" id="screen-clock-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Clock Time</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>How to read a clock 🕒</h3>
+      <div id="clockExample"></div>
+      <div class="example-step"><div class="step-num">1</div><div>The <b style="color:var(--blue)">short blue hand</b> shows the <b>hour</b>. Look at the black numbers.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>The <b style="color:var(--coral)">long red hand</b> shows the <b>minutes</b>. Read the little <b style="color:var(--coral)">red numbers</b> outside: 5, 10, 15, 20…</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Each jump of the red hand is <b>5 minutes</b>. Tap <b>▶ Count by 5s</b> and count along!</div></div>
+      <div class="example-step"><div class="step-num">4</div><div>Tricky bit: at <b>3:50</b> the blue hand is almost at 4 — but it's <b>still 3</b> until the red hand gets back to the top!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-blue" onclick="startClock()">Tell the time! 🕒</button></div>
+  </div>
+  <div class="screen" id="screen-clock-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('clock-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="ckProgress"></div></div></div><div class="star-count">⭐ <span id="ckStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Clock <span id="ckQNum">1</span> of <span id="ckQTotal">8</span></div>
+      <h3 style="margin-top:6px;" id="ckTitle">What time is it?</h3>
+      <div id="ckFace"></div>
+      <div class="clk-legend"><span><i style="background:var(--blue)"></i>hour</span><span><i style="background:var(--coral)"></i>minutes (red numbers)</span></div>
+      <div class="answer-grid" id="ckAnswers"></div>
+      <div class="feedback-msg" id="ckFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ RHYME TIME ============ -->
+  <div class="screen" id="screen-rhyme-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Rhyme Time</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Words that sound the same at the end! 🎵</h3>
+      <div class="rh-prompt"><span class="pe">🐱</span><span class="rh-word">c<span class="end">at</span></span></div>
+      <div class="example-step" style="margin-top:12px;"><div class="step-num">1</div><div><b>cat</b> ends with <b style="color:var(--coral)">-at</b>.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div><b>hat 🎩</b> also ends with <b style="color:var(--coral)">-at</b>. Cat… hat! They <b>rhyme</b>!</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Tap the picture that rhymes. Tap the top word to hear it again 🔊</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-pink" onclick="startRhyme()">Let's rhyme! 🎵</button></div>
+  </div>
+  <div class="screen" id="screen-rhyme-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('rhyme-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="rhProgress"></div></div></div><div class="star-count">⭐ <span id="rhStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Rhyme <span id="rhQNum">1</span> of <span id="rhQTotal">10</span></div>
+      <h3 style="margin-top:6px;">Which one rhymes?</h3>
+      <div class="rh-prompt" id="rhPrompt" onclick="rhHear()"></div>
+      <div class="rh-opts" id="rhOpts"></div>
+      <div class="feedback-msg" id="rhFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ AI: FIX THE ROBOT ============ -->
+  <div class="screen" id="screen-aifix-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('ai-hub')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="fxProgress"></div></div></div><div class="star-count">⭐ <span id="fxStars">0</span></div></div>
+    <div class="game-card">
+      <div class="ai-phase" id="fxPhase">Lesson 1 of 3</div>
+      <h3 id="fxTitle" style="margin-top:4px;">Fix the Robot! 🔧</h3>
+      <div class="ml-hint" id="fxHint"></div>
+      <div class="fx-cards" id="fxCards"></div>
+      <div id="fxResults"></div>
+      <div class="center-actions" id="fxActions"></div>
+      <div class="feedback-msg" id="fxFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ WORD BUILDER ============ -->
+  <div class="screen" id="screen-wordbuild-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Word Builder</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Spell the picture! 🔡</h3>
+      <div class="wb-pic">🐶</div>
+      <div class="wb-slots"><div class="wb-slot done">d</div><div class="wb-slot done">o</div><div class="wb-slot cur">g</div></div>
+      <div class="example-step" style="margin-top:14px;"><div class="step-num">1</div><div>Look at the picture and <b>say the word</b>: dog!</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>Tap the letters <b>in order</b>. Each letter says its sound: <b>d… o… g</b>.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Stuck? Tap the picture to hear the word again. Longer words as you level up!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-primary" onclick="startWordBuild()">Let's spell! 🔡</button></div>
+  </div>
+  <div class="screen" id="screen-wordbuild-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('wordbuild-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="wbProgress"></div></div></div><div class="star-count">⭐ <span id="wbStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Word <span id="wbQNum">1</span> of <span id="wbQTotal">8</span></div>
+      <div class="wb-pic" id="wbPic" onclick="wbHear()"></div>
+      <div class="hint">👆 Tap the picture to hear the word</div>
+      <div class="wb-slots" id="wbSlots"></div>
+      <div class="wb-tiles" id="wbTiles"></div>
+      <div class="feedback-msg" id="wbFeedback"></div>
+    </div>
+  </div>
+
 </div>
+
 
 <!-- ============ NAME SETUP ============ -->
 <div class="celebration" id="nameSetup">
@@ -1112,6 +1382,7 @@ progress.share    = progress.share    || 0;
 progress.sudoku = progress.sudoku || 0; progress.shadow = progress.shadow || 0;
 progress.wordmatch = progress.wordmatch || 0; progress.order = progress.order || 0;
 progress.coderDone = !!progress.coderDone;
+['jigsaw','spot','maketen','clock','rhyme','wordbuild'].forEach(k => { progress[k] = progress[k] || 0; });
 progress.totalStars = progress.totalStars || 0;
 
 function addTotalStars(n) {
@@ -1139,6 +1410,13 @@ const GAMES = [
   { cat:'math', id:'croc',     ic:'🐊', nm:'Hungry Croc',   ds:'Bigger or smaller?',    grad:'linear-gradient(150deg,#8DD23F,#36C98D)', fn:goCroc,     levelKey:'croc' },
   { cat:'math', id:'multlab',  ic:'⚡', nm:'Multiply Lab',  ds:'See how × works',       grad:'linear-gradient(150deg,#FF9F1C,#FFB23E)', fn:goMultLab,  levelKey:'multlab' },
   { cat:'math', id:'share',    ic:'🍪', nm:'Share It!',     ds:'Division by sharing',   grad:'linear-gradient(150deg,#FF7563,#FFB23E)', fn:goShare,    levelKey:'share' },
+  { cat:'math', id:'clock',      ic:'🕒', nm:'Clock Time',    ds:'Learn to tell time',    grad:'linear-gradient(150deg,#4D96FF,#8B7CF6)', fn:goClock,    levelKey:'clock' },
+  { cat:'math', id:'maketen',    ic:'🎈', nm:'Make Ten',      ds:'Pop pairs that make 10',grad:'linear-gradient(150deg,#FF7AA8,#FFB23E)', fn:goMakeTen,  levelKey:'maketen' },
+  { cat:'reading', id:'wordbuild',ic:'🔡', nm:'Word Builder', ds:'Sound it out & spell',  grad:'linear-gradient(150deg,#8B7CF6,#4D96FF)', fn:goWordBuild,levelKey:'wordbuild' },
+  { cat:'reading', id:'rhyme',   ic:'🎵', nm:'Rhyme Time',    ds:'Cat… hat! Find rhymes', grad:'linear-gradient(150deg,#FF7563,#FF7AA8)', fn:goRhyme,    levelKey:'rhyme' },
+  { cat:'puzzle', id:'jigsaw',   ic:'🖼️', nm:'Picture Jigsaw',ds:'Swap to rebuild',       grad:'linear-gradient(150deg,#FFB23E,#FF7563)', fn:goJigsaw,   levelKey:'jigsaw' },
+  { cat:'puzzle', id:'spot',     ic:'👀', nm:'Spot It!',      ds:'Find the differences',  grad:'linear-gradient(150deg,#36C98D,#19C8D6)', fn:goSpot,     levelKey:'spot' },
+  { cat:'ai', id:'aifix',        ic:'🔧', nm:'Fix the Robot', ds:'Bad lessons? Fix them!',grad:'linear-gradient(150deg,#19C8D6,#6C5CE7)', fn:goAIFix },
   { cat:'ai', id:'ai',       ic:'🧠', nm:'AI Academy',    ds:'Teach a robot to think',grad:'linear-gradient(150deg,#6C5CE7,#19C8D6)', fn:goAI },
 ];
 
@@ -1971,6 +2249,13 @@ function celebrate() {
   else if (state.subject === 'shadow') { title = pass ? 'Shadow Detective! 🔦🏆' : 'Good try! 🔦'; msg = `You cleared ${stars} of ${total} boards!`; }
   else if (state.subject === 'wordmatch') { title = pass ? 'Word Wizard! 🔤🏆' : 'Keep reading! 🔤'; msg = `You read ${stars} of ${total} words!`; }
   else if (state.subject === 'order') { title = pass ? 'Sorting Star! 🪜🏆' : 'Good try! 🪜'; msg = `You sorted ${stars} of ${total} rounds!`; }
+  else if (state.subject === 'clock') { title = pass ? 'Time Teller! 🕒🏆' : 'Good try! 🕒'; msg = `You got ${stars} of ${total} clocks right!`; }
+  else if (state.subject === 'maketen') { title = pass ? 'Make-Ten Master! 🎈🏆' : 'Good try! 🎈'; msg = `You cleared ${stars} of ${total} skies with few mistakes!`; }
+  else if (state.subject === 'wordbuild') { title = pass ? `Super Speller, ${pName()}! 🔡🏆` : 'Keep spelling! 🔡'; msg = `You spelled ${stars} of ${total} words!`; }
+  else if (state.subject === 'rhyme') { title = pass ? 'Rhyme Star! 🎵🏆' : 'Good try! 🎵'; msg = `You found ${stars} of ${total} rhymes!`; }
+  else if (state.subject === 'jigsaw') { title = 'Puzzle Builder! 🖼️🏆'; msg = `You rebuilt all ${total} pictures!`; }
+  else if (state.subject === 'spot') { title = pass ? 'Eagle Eyes! 👀🏆' : 'Good looking! 👀'; msg = `You spotted ${stars} of ${total} puzzles!`; }
+  else if (state.subject === 'aifix') { title = 'Robot Fixer! 🔧🏆'; msg = `You fixed ${stars} wrong lessons. Good examples make a smart AI!`; }
   else if (state.subject === 'aiquiz') { title = pass ? 'AI Expert! 🧠🏆' : 'Keep learning! 🧠'; msg = `You got ${stars} of ${total} right!`; }
   else if (stars === total) { title = `PERFECT, ${pName()}! 🏆`; msg = `You got all ${total} right! Superstar! 🌟`; }
   else if (pass) { title = 'Great job! 🎉'; msg = `You earned ${stars} stars out of ${total}!`; }
@@ -2000,6 +2285,13 @@ function playAgain() {
   else if (state.subject === 'shadow') startShadow();
   else if (state.subject === 'wordmatch') startWordMatch();
   else if (state.subject === 'order') startOrder();
+  else if (state.subject === 'clock') startClock();
+  else if (state.subject === 'maketen') startMakeTen();
+  else if (state.subject === 'wordbuild') startWordBuild();
+  else if (state.subject === 'rhyme') startRhyme();
+  else if (state.subject === 'jigsaw') startJigsaw();
+  else if (state.subject === 'spot') startSpot();
+  else if (state.subject === 'aifix') startAIFix();
   else showScreen('welcome');
 }
 function goHome() {
@@ -2430,7 +2722,7 @@ function answerAQ(btn, i, q) {
 // ===============================
 // v5: LEVEL CAPS (single source of truth) + haptics
 // ===============================
-const LEVEL_CAPS = { patterns:6, odd:5, croc:4, memory:2, multlab:3, share:3, sudoku:3, shadow:3, wordmatch:2, order:3 };
+const LEVEL_CAPS = { patterns:6, odd:5, croc:4, memory:2, multlab:3, share:3, sudoku:3, shadow:3, wordmatch:2, order:3, jigsaw:3, spot:3, maketen:3, clock:3, rhyme:2, wordbuild:2 };
 function buzz(ms) { try { if (navigator.vibrate) navigator.vibrate(ms); } catch (e) {} }
 
 // ===============================
@@ -2727,6 +3019,649 @@ function renderHub() {
   const sub = document.getElementById('hubSub'); if (sub) sub.textContent = mastered ? `🏆 ${mastered} game${mastered > 1 ? 's' : ''} mastered!` : 'Pick a game to play and learn';
 }
 function surpriseMe() { sfxClick(); const g = GAMES[rand(0, GAMES.length - 1)]; speak(`Let's play ${g.nm}!`, .9); g.fn(); }
+
+
+// =====================================================================
+// v6 GAMES
+// =====================================================================
+function v6lvl(key, bump) { return Math.min(LEVEL_CAPS[key], progress[key] + (bump || 0)); }
+function v6next(key, nextFn) {
+  state.problemIndex++;
+  updateProgress(key, (state.problemIndex / state.totalProblems) * 100);
+  nextFn();
+}
+function v6start(subject, starsId, totalId, progId, total, screen) {
+  state.subject = subject; state.problemIndex = 0; state.stars = 0; state.streak = 0; state.totalProblems = total;
+  document.getElementById(starsId).textContent = '0';
+  document.getElementById(totalId).textContent = total;
+  updateProgress(progId, 0); showScreen(screen);
+}
+function v6star(starsId) { state.stars++; state.streak++; document.getElementById(starsId).textContent = state.stars; }
+
+// ---------------------------------------------------------------------
+// CLOCK TIME — count by 5s. Minute numbers (5,10,15…) printed around the
+// clock for beginners, fading out as he levels up.
+//   L0: minute hand only (hour already right) · minute labels bold
+//   L1: both hands · labels bold
+//   L2: both hands · labels faint
+//   L3: both hands · no labels (memorized!)
+// ---------------------------------------------------------------------
+const NUMW = ['twelve','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
+const MINW = { 5:'oh five', 10:'ten', 15:'fifteen', 20:'twenty', 25:'twenty-five', 30:'thirty', 35:'thirty-five', 40:'forty', 45:'forty-five', 50:'fifty', 55:'fifty-five' };
+function hr12(h) { return ((h - 1) % 12 + 12) % 12 + 1; }
+function fmtTime(h, m) { return `${h}:${String(m).padStart(2, '0')}`; }
+function timeWords(h, m) {
+  if (m === 0) return `${h} o'clock`;
+  if (m === 30) return `30 minutes past ${h} · half past ${h}`;
+  return `${m} minutes past ${h}`;
+}
+function timeSpoken(h, m) { return m === 0 ? `${NUMW[h]} o'clock` : `${NUMW[h]} ${MINW[m] || m}`; }
+// labels: 0 = none, 1 = faint, 2 = bold. hiMin = minute label to highlight (or -1)
+function clockSVG(h, m, labels, hiMin) {
+  if (labels === undefined) labels = 2; if (hiMin === undefined) hiMin = -1;
+  const cx = 130, cy = 130, R = 96;
+  let s = `<svg class="clk" viewBox="0 0 260 260" role="img" aria-label="clock showing ${fmtTime(h, m)}">`;
+  if (labels > 0) s += `<circle cx="${cx}" cy="${cy}" r="${R + 25}" fill="#FFF3F1" opacity="${labels === 2 ? 1 : .55}"/>`;
+  s += `<circle cx="${cx}" cy="${cy}" r="${R}" fill="#fff" stroke="#1E2138" stroke-width="6"/>`;
+  for (let i = 0; i < 60; i++) {
+    const a = i * 6 * Math.PI / 180, big = i % 5 === 0;
+    const r1 = R - (big ? 11 : 5), r2 = R - 3;
+    s += `<line x1="${cx + r1 * Math.sin(a)}" y1="${cy - r1 * Math.cos(a)}" x2="${cx + r2 * Math.sin(a)}" y2="${cy - r2 * Math.cos(a)}" stroke="${big ? '#1E2138' : '#C9CDE0'}" stroke-width="${big ? 3 : 1.5}" stroke-linecap="round"/>`;
+  }
+  const ha = ((h % 12) + m / 60) * 30, ma = m * 6;
+  s += `<line x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy - 46}" stroke="#4D96FF" stroke-width="9" stroke-linecap="round" transform="rotate(${ha} ${cx} ${cy})"/>`;
+  s += `<line x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy - 80}" stroke="#FF7563" stroke-width="5" stroke-linecap="round" transform="rotate(${ma} ${cx} ${cy})"/>`;
+  for (let n = 1; n <= 12; n++) {   // hour numbers (inside)
+    const a = n * 30 * Math.PI / 180, r = R - 27;
+    s += `<text x="${cx + r * Math.sin(a)}" y="${cy - r * Math.cos(a) + 7}" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="19" fill="#1E2138" stroke="#fff" stroke-width="4" paint-order="stroke">${n}</text>`;
+  }
+  if (labels > 0) for (let i = 0; i < 12; i++) {   // minute numbers (outside), in minute-hand red
+    const mm = i * 5, a = i * 30 * Math.PI / 180, r = R + 14, hi = mm === hiMin;
+    s += `<text x="${cx + r * Math.sin(a)}" y="${cy - r * Math.cos(a) + 5}" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="${hi ? 800 : 600}" font-size="${hi ? 17 : 13}" fill="#E8503E" opacity="${labels === 2 || hi ? 1 : .45}">${mm === 0 ? '00' : mm}</text>`;
+  }
+  s += `<circle cx="${cx}" cy="${cy}" r="7" fill="#1E2138"/></svg>`;
+  return s;
+}
+function ckLabels(L) { return L <= 1 ? 2 : L === 2 ? 1 : 0; }
+function ckMinutes() { return Array.from({ length: 12 }, (_, i) => i * 5); }
+
+// --- Clock Explorer (on the "how to" screen)
+const ckx = { h: 3, m: 0, counting: false };
+function goClock() { state.subject = 'clock'; ckx.h = 3; ckx.m = 0; ckx.counting = false; renderClockExplorer(); showScreen('clock-example'); }
+function renderClockExplorer() {
+  const el = document.getElementById('clockExample'); if (!el) return;
+  el.innerHTML = `${clockSVG(ckx.h, ckx.m, 2, ckx.m)}
+    <div class="ck-read">${fmtTime(ckx.h, ckx.m)}</div>
+    <div class="ck-words">${timeWords(ckx.h, ckx.m)}</div>
+    <div class="ck-ctrls">
+      <div class="ck-ctrl h"><button onclick="ckxMove(-60)">−</button><span>hour</span><button onclick="ckxMove(60)">+</button></div>
+      <div class="ck-ctrl m"><button onclick="ckxMove(-5)">−</button><span>5 min</span><button onclick="ckxMove(5)">+</button></div>
+    </div>
+    <div class="center-actions" style="margin-top:10px;"><button class="btn btn-coral" onclick="ckxCount()">${ckx.counting ? '⏹ Stop' : '▶ Count by 5s'}</button></div>`;
+}
+function ckxSetFrom(t) { t = ((t % 720) + 720) % 720; const hh = Math.floor(t / 60); ckx.h = hh === 0 ? 12 : hh; ckx.m = t % 60; }
+function ckxMove(d) {
+  ckx.counting = false;
+  ckxSetFrom((ckx.h % 12) * 60 + ckx.m + d);
+  sfxClick(); renderClockExplorer(); speak(timeSpoken(ckx.h, ckx.m), .9);
+}
+function ckxCount() {
+  if (ckx.counting) { ckx.counting = false; renderClockExplorer(); return; }
+  ckx.counting = true; ckx.m = 0; renderClockExplorer();
+  let step = 0;
+  const tick = () => {
+    if (!ckx.counting || state.screen !== 'clock-example') { ckx.counting = false; renderClockExplorer(); return; }
+    step++;
+    if (step > 12) { ckx.counting = false; ckx.m = 0; renderClockExplorer(); speak(`Sixty minutes! The minute hand went all the way around. That's one hour.`, .9); return; }
+    ckx.m = (step * 5) % 60; sfxStar(); renderClockExplorer();
+    speak(String(step * 5), 1);
+    setTimeout(tick, 1000);
+  };
+  speak('Count with me!', .9); setTimeout(tick, 900);
+}
+
+// --- Clock game
+const ck = { h: 0, m: 0, mode: 'read', setH: 12, setM: 0, answered: false, tries: 0, L: 0 };
+function startClock() { v6start('clock', 'ckStars', 'ckQTotal', 'ckProgress', 8, 'clock-game'); nextClock(); }
+function genClockTime(L) {
+  const mins = ckMinutes();
+  let m = mins[rand(0, mins.length - 1)];
+  if (L === 0 && state.problemIndex < 2) m = [0, 30][rand(0, 1)];   // first two of a beginner round: easy ones
+  return { h: rand(1, 12), m };
+}
+function clockOptions(h, m, L) {
+  const key = (a, b) => a + ':' + b, opts = new Map([[key(h, m), { h, m }]]);
+  const near = L === 0 ? [15, 20, 25] : [5, 10, 15];   // beginners get clearly different minutes
+  const cands = [{ h: hr12(h + 1), m }, { h: hr12(h - 1), m }];
+  near.forEach(d => { cands.push({ h, m: (m + d) % 60 }, { h, m: (m - d + 60) % 60 }); });
+  if (m > 0) cands.push({ h: m / 5, m: (h % 12) * 5 });   // hands mixed up
+  for (const c of shuffle(cands)) { if (opts.size >= 4) break; if (c.h >= 1 && c.h <= 12) opts.set(key(c.h, c.m), c); }
+  let g = 0; while (opts.size < 4 && g++ < 60) { const c = { h: rand(1, 12), m: rand(0, 11) * 5 }; opts.set(key(c.h, c.m), c); }
+  return shuffle([...opts.values()]);
+}
+function nextClock() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('clock', Math.floor(state.problemIndex / 4));
+  ck.L = L; const t = genClockTime(L); ck.h = t.h; ck.m = t.m; ck.answered = false; ck.tries = 0;
+  ck.mode = state.problemIndex % 2 === 1 ? 'set' : 'read';
+  document.getElementById('ckQNum').textContent = state.problemIndex + 1;
+  const fb = document.getElementById('ckFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  const ans = document.getElementById('ckAnswers');
+  if (ck.mode === 'read') {
+    document.getElementById('ckTitle').textContent = 'What time is it?';
+    document.getElementById('ckFace').innerHTML = clockSVG(ck.h, ck.m, ckLabels(L), -1) +
+      (L <= 1 ? `<div class="hint">Short blue hand → hour. Long red hand → read the red number!</div>` : '');
+    ans.className = 'answer-grid'; ans.innerHTML = '';
+    clockOptions(ck.h, ck.m, L).forEach(o => {
+      const b = document.createElement('button'); b.className = 'answer-btn'; b.textContent = fmtTime(o.h, o.m);
+      b.onclick = () => answerClock(b, o); ans.appendChild(b);
+    });
+    setTimeout(() => speak('What time is it?', .9), 300);
+  } else {
+    // beginners: hour already set, only move the minute hand
+    ck.setH = L === 0 ? ck.h : 12; ck.setM = 0;
+    document.getElementById('ckTitle').textContent = L === 0 ? 'Move the minute hand!' : 'Set the clock!';
+    ans.className = ''; renderClockSet();
+    setTimeout(() => speak(`Make the clock say ${timeSpoken(ck.h, ck.m)}`, .9), 300);
+  }
+}
+function renderClockSet() {
+  const L = ck.L, hourLocked = L === 0;
+  document.getElementById('ckFace').innerHTML = `<div class="ck-goal">Make it ${fmtTime(ck.h, ck.m)}</div>${clockSVG(ck.setH, ck.setM, ckLabels(L), L <= 1 ? ck.setM : -1)}
+    <div class="ck-read" style="font-size:1.2rem;">Now: ${fmtTime(ck.setH, ck.setM)}</div>`;
+  document.getElementById('ckAnswers').innerHTML = `
+    <div class="ck-ctrls"${hourLocked ? ' style="grid-template-columns:1fr;"' : ''}>
+      ${hourLocked ? '' : `<div class="ck-ctrl h"><button onclick="ckSet(-60)">−</button><span>hour</span><button onclick="ckSet(60)">+</button></div>`}
+      <div class="ck-ctrl m"><button onclick="ckSet(-5)">−</button><span>5 min</span><button onclick="ckSet(5)">+</button></div>
+    </div>
+    ${hourLocked ? `<div class="hint">The hour is already ${ck.h} ✅ — just move the red minute hand.</div>` : ''}
+    <div class="center-actions"><button class="btn btn-green" onclick="checkClockSet()">✅ Check</button></div>`;
+}
+function ckSet(d) {
+  if (ck.answered) return;
+  if (ck.L === 0) {   // minute-only: hour stays put, minutes wrap 55↔00
+    ck.setM = ((ck.setM + d) % 60 + 60) % 60;
+  } else {
+    let t = (ck.setH % 12) * 60 + ck.setM + d; t = ((t % 720) + 720) % 720;
+    const hh = Math.floor(t / 60); ck.setH = hh === 0 ? 12 : hh; ck.setM = t % 60;
+  }
+  sfxClick(); renderClockSet();
+  if (d === 5 || d === -5) speak(ck.setM === 0 ? "o'clock" : String(ck.setM), 1.05);
+}
+function checkClockSet() {
+  if (ck.answered) return;
+  const fb = document.getElementById('ckFeedback');
+  if (ck.setH === ck.h && ck.setM === ck.m) {
+    ck.answered = true; v6star('ckStars'); sfxCorrect(); confetti(16);
+    fb.textContent = `Yes! ${fmtTime(ck.h, ck.m)} — ${timeWords(ck.h, ck.m)} 🎉`; fb.classList.remove('wrong');
+    speak(`Yes! ${timeSpoken(ck.h, ck.m)}`, .9);
+    setTimeout(() => v6next('ckProgress', nextClock), 2000);
+  } else {
+    state.streak = 0; sfxWrong(); fb.classList.add('wrong');
+    fb.textContent = ck.setH !== ck.h ? `Check the short blue hand — it should point ${ck.m >= 30 ? 'between ' + ck.h + ' and ' + hr12(ck.h + 1) : 'at (or just past) ' + ck.h}.`
+      : `Hour is right! Count by 5s to ${ck.m} with the long red hand.`;
+    ck.tries++;
+    if (ck.tries >= 3) {   // never stuck: show the answer, then move on
+      ck.answered = true; ck.setH = ck.h; ck.setM = ck.m; renderClockSet();
+      fb.textContent = `Here's ${fmtTime(ck.h, ck.m)}. The red hand points at ${ck.m === 0 ? '00' : ck.m}!`;
+      speak(`This is ${timeSpoken(ck.h, ck.m)}`, .9);
+      setTimeout(() => v6next('ckProgress', nextClock), 3200);
+    }
+  }
+}
+function answerClock(btn, o) {
+  if (ck.answered) return; ck.answered = true;
+  const all = document.querySelectorAll('#ckAnswers .answer-btn'); all.forEach(b => b.disabled = true);
+  const fb = document.getElementById('ckFeedback');
+  if (o.h === ck.h && o.m === ck.m) {
+    btn.classList.add('correct'); v6star('ckStars'); sfxCorrect(); confetti(14);
+    fb.textContent = `Yes! ${timeWords(ck.h, ck.m)} 🎉`; fb.classList.remove('wrong');
+    speak(`Yes! ${timeSpoken(ck.h, ck.m)}`, .9);
+    if (state.streak >= 2) showStreak(state.streak);
+    setTimeout(() => v6next('ckProgress', nextClock), 2000);
+  } else {
+    btn.classList.add('wrong'); state.streak = 0; sfxWrong();
+    all.forEach(b => { if (b.textContent === fmtTime(ck.h, ck.m)) b.classList.add('correct'); });
+    // after a wrong answer, light up the minute number the hand points at
+    document.getElementById('ckFace').innerHTML = clockSVG(ck.h, ck.m, 2, ck.m);
+    fb.textContent = `It's ${fmtTime(ck.h, ck.m)}. The red hand points at ${ck.m === 0 ? '00' : ck.m}, the blue hand at ${ck.h}.`; fb.classList.add('wrong');
+    speak(`It's ${timeSpoken(ck.h, ck.m)}`, .9);
+    setTimeout(() => v6next('ckProgress', nextClock), 3400);
+  }
+}
+
+// ---------------------------------------------------------------------
+// RHYME TIME — phonics: ending sounds
+// ---------------------------------------------------------------------
+const RHYMES = [
+  ['at', [['cat','🐱'],['hat','🎩'],['bat','🦇'],['rat','🐀']]],
+  ['og', [['dog','🐶'],['frog','🐸'],['log','🪵']]],
+  ['ee', [['bee','🐝'],['tree','🌳'],['three','3️⃣']]],
+  ['ake',[['cake','🎂'],['snake','🐍']]],
+  ['ar', [['car','🚗'],['star','⭐'],['jar','🫙']]],
+  ['ing',[['ring','💍'],['king','🤴']]],
+  ['oat',[['boat','⛵'],['goat','🐐'],['coat','🧥']]],
+  ['ish',[['fish','🐟'],['dish','🍽️']]],
+  ['ock',[['clock','🕐'],['sock','🧦'],['rock','🪨']]],
+  ['ouse',[['house','🏠'],['mouse','🐭']]],
+  ['oon',[['moon','🌙'],['spoon','🥄']]],
+  ['ug', [['bug','🐛'],['mug','☕']]],
+  ['ox', [['fox','🦊'],['box','📦']]],
+  ['ail',[['snail','🐌'],['mail','📬']]],
+  ['ed', [['bed','🛏️'],['sled','🛷']]],
+];
+let rhQ = null;
+function goRhyme() { state.subject = 'rhyme'; showScreen('rhyme-example'); }
+function startRhyme() { v6start('rhyme', 'rhStars', 'rhQTotal', 'rhProgress', 10, 'rhyme-game'); nextRhyme(); }
+function genRhyme(L) {
+  const fi = rand(0, RHYMES.length - 1), [suf, words] = RHYMES[fi];
+  const pick = shuffle([...words]), prompt = pick[0], answer = pick[1];
+  const nOpts = L <= 0 ? 3 : 4;
+  const others = shuffle(RHYMES.filter((_, i) => i !== fi)).slice(0, nOpts - 1).map(f => f[1][rand(0, f[1].length - 1)]);
+  return { suf, prompt, answer, opts: shuffle([answer, ...others]), L };
+}
+function rhWordHTML(w, suf) { return `${w.slice(0, w.length - suf.length)}<span class="end">${suf}</span>`; }
+function nextRhyme() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('rhyme', Math.floor(state.problemIndex / 5));
+  rhQ = genRhyme(L);
+  document.getElementById('rhQNum').textContent = state.problemIndex + 1;
+  const fb = document.getElementById('rhFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  // Level 2: no picture for the prompt — he must READ the word
+  document.getElementById('rhPrompt').innerHTML = (L >= 2 ? '' : `<span class="pe">${rhQ.prompt[1]}</span>`) + `<span class="rh-word">${rhWordHTML(rhQ.prompt[0], rhQ.suf)}</span>`;
+  const box = document.getElementById('rhOpts'); box.innerHTML = '';
+  box.style.gridTemplateColumns = `repeat(${rhQ.opts.length === 3 ? 3 : 2}, 1fr)`;
+  rhQ.opts.forEach(o => {
+    const b = document.createElement('button'); b.className = 'rh-opt';
+    b.innerHTML = `<span class="oe">${o[1]}</span><span class="ow">${o[0]}</span>`; b.dataset.w = o[0];
+    b.onclick = () => answerRhyme(b, o); box.appendChild(b);
+  });
+  setTimeout(() => speak(L >= 2 ? 'Read the word. Which one rhymes?' : `Which one rhymes with ${rhQ.prompt[0]}?`, .9), 300);
+}
+function rhHear() { sfxClick(); if (rhQ) speak(rhQ.prompt[0], .75); }
+function answerRhyme(btn, o) {
+  const all = document.querySelectorAll('#rhOpts .rh-opt'); all.forEach(b => b.disabled = true);
+  const fb = document.getElementById('rhFeedback');
+  if (o[0] === rhQ.answer[0]) {
+    btn.classList.add('correct'); v6star('rhStars'); sfxCorrect(); confetti(14);
+    fb.textContent = `${rhQ.prompt[0]}… ${o[0]}! They both end in "-${rhQ.suf}" 🎵`; fb.classList.remove('wrong');
+    speak(`${rhQ.prompt[0]}, ${o[0]}. They rhyme!`, .85);
+    if (state.streak >= 2) showStreak(state.streak);
+    setTimeout(() => v6next('rhProgress', nextRhyme), 2200);
+  } else {
+    btn.classList.add('wrong'); state.streak = 0; sfxWrong();
+    all.forEach(b => { if (b.dataset.w === rhQ.answer[0]) b.classList.add('correct'); });
+    fb.textContent = `${rhQ.prompt[0]} rhymes with ${rhQ.answer[0]} — both end in "-${rhQ.suf}"`; fb.classList.add('wrong');
+    speak(`${rhQ.prompt[0]}, ${rhQ.answer[0]}`, .8);
+    setTimeout(() => v6next('rhProgress', nextRhyme), 3000);
+  }
+}
+
+// ---------------------------------------------------------------------
+// WORD BUILDER — sound out & spell the picture
+// ---------------------------------------------------------------------
+const wb = { word: '', e: '', next: 0, wrong: 0, pool: [] };
+function goWordBuild() { state.subject = 'wordbuild'; showScreen('wordbuild-example'); }
+function startWordBuild() { wb.pool = []; v6start('wordbuild', 'wbStars', 'wbQTotal', 'wbProgress', 8, 'wordbuild-game'); nextWordBuild(); }
+function nextWordBuild() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('wordbuild', Math.floor(state.problemIndex / 4));
+  const len = L <= 0 ? [3] : L === 1 ? [3, 4] : [4, 5];
+  if (!wb.pool.length || wb.L !== L) { wb.pool = shuffle(WM_WORDS.filter(x => len.includes(x.w.length))); wb.L = L; }
+  const q = wb.pool.shift(); wb.word = q.w; wb.e = q.e; wb.next = 0; wb.wrong = 0;
+  const letters = wb.word.split('');
+  if (L >= 2) { const abc = 'abcdefghijklmnoprstuw'.split('').filter(c => !letters.includes(c)); letters.push(abc[rand(0, abc.length - 1)]); }
+  wb.tiles = shuffle(letters.map((c, i) => ({ c, id: i })));
+  wb.ghost = L <= 0;     // level 1: faint letters show the way
+  document.getElementById('wbQNum').textContent = state.problemIndex + 1;
+  document.getElementById('wbPic').textContent = wb.e;
+  const fb = document.getElementById('wbFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  renderWordBuild();
+  setTimeout(() => speak(wb.word, .8), 300);
+}
+function renderWordBuild() {
+  document.getElementById('wbSlots').innerHTML = wb.word.split('').map((c, i) =>
+    `<div class="wb-slot${i < wb.next ? ' done' : i === wb.next ? ' cur' : ''}">${i < wb.next || wb.ghost ? c : ''}</div>`).join('');
+  const box = document.getElementById('wbTiles'); box.innerHTML = '';
+  wb.tiles.forEach(t => {
+    const b = document.createElement('button'); b.className = 'wb-tile'; b.textContent = t.c; b.id = 'wbt-' + t.id;
+    b.onclick = () => wbTap(b, t); box.appendChild(b);
+  });
+}
+function wbHear() { sfxClick(); speak(wb.word, .75); }
+function wbTap(btn, t) {
+  if (wb.next >= wb.word.length) return;
+  const need = wb.word[wb.next];
+  if (t.c === need) {
+    wb.tiles = wb.tiles.filter(x => x.id !== t.id); wb.next++; sfxStar();
+    speak(letterSound(t.c), .8); renderWordBuild();
+    if (wb.next >= wb.word.length) {
+      const fb = document.getElementById('wbFeedback');
+      if (wb.wrong <= 2) v6star('wbStars');
+      sfxCorrect(); confetti(16);
+      fb.textContent = [`You spelled ${wb.word}! 🎉`, `${wb.word.toUpperCase()}! Great spelling 🌟`, `Super speller! ${wb.e}`][rand(0, 2)];
+      setTimeout(() => speakLetters(wb.word, null, null), 500);
+      setTimeout(() => v6next('wbProgress', nextWordBuild), 3200);
+    }
+  } else {
+    wb.wrong++; state.streak = 0; sfxWrong(); btn.classList.add('bad'); setTimeout(() => btn.classList.remove('bad'), 450);
+    const fb = document.getElementById('wbFeedback'); fb.classList.add('wrong');
+    fb.textContent = `Listen… which letter says "${letterSound(need)}"?`;
+    speak(letterSound(need), .75);
+    if (wb.wrong >= 4) { wb.ghost = true; renderWordBuild(); }   // reveal the hint so he's never stuck
+  }
+}
+
+// ---------------------------------------------------------------------
+// PICTURE JIGSAW — swap tiles to rebuild a picture
+// ---------------------------------------------------------------------
+const JG_PICS = [
+  { e:'🦁', n:'lion',       bg:'linear-gradient(135deg,#FFE29A,#FFB23E)' },
+  { e:'🐼', n:'panda',      bg:'linear-gradient(135deg,#C9F2E4,#57DCB0)' },
+  { e:'🚀', n:'rocket',     bg:'linear-gradient(160deg,#1E2138,#6C5CE7)' },
+  { e:'🐙', n:'octopus',    bg:'linear-gradient(135deg,#A8E6FF,#4D96FF)' },
+  { e:'🦄', n:'unicorn',    bg:'linear-gradient(135deg,#FFD6E8,#C7B8FF)' },
+  { e:'🐸', n:'frog',       bg:'linear-gradient(135deg,#E3F9C4,#8DD23F)' },
+  { e:'🌻', n:'sunflower',  bg:'linear-gradient(135deg,#B9ECFF,#57DCE6)' },
+  { e:'🦖', n:'dinosaur',   bg:'linear-gradient(135deg,#FFF1C9,#FF9EC0)' },
+  { e:'🐯', n:'tiger',      bg:'linear-gradient(135deg,#D7F5E6,#36C98D)' },
+  { e:'🍉', n:'watermelon', bg:'linear-gradient(135deg,#FFE7E3,#FF7563)' },
+  { e:'🚂', n:'train',      bg:'linear-gradient(135deg,#E4E9FF,#74AEFF)' },
+  { e:'🐳', n:'whale',      bg:'linear-gradient(160deg,#C8F4FF,#19C8D6)' },
+];
+const jg = { n: 2, order: [], sel: -1, pic: null, solved: false, pool: [] };
+function goJigsaw() { state.subject = 'jigsaw'; showScreen('jigsaw-example'); }
+function startJigsaw() { jg.pool = shuffle([...JG_PICS]); v6start('jigsaw', 'jgStars', 'jgQTotal', 'jgProgress', 4, 'jigsaw-game'); nextJigsaw(); }
+function jgImage(pic) {
+  if (pic._img) return pic._img;
+  try {
+    const S = 600, cv = document.createElement('canvas'); cv.width = cv.height = S;
+    const x = cv.getContext('2d'); if (!x) return null;
+    const cols = (pic.bg.match(/#[0-9A-Fa-f]{6}/g) || ['#EDEAFE', '#C7B8FF']);
+    const g = x.createLinearGradient(0, 0, S, S); g.addColorStop(0, cols[0]); g.addColorStop(1, cols[1] || cols[0]);
+    x.fillStyle = g; x.fillRect(0, 0, S, S);
+    x.font = `${Math.round(S * 0.7)}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`;
+    x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(pic.e, S / 2, S * 0.53);
+    pic._img = cv.toDataURL('image/png'); return pic._img;
+  } catch (e) { return null; }
+}
+function jgSolvedNow() { return jg.order.every((p, i) => p === i); }
+function nextJigsaw() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('jigsaw', Math.floor(state.problemIndex / 2));
+  jg.n = [2, 3, 3, 4][L]; jg.hints = L <= 2;
+  if (!jg.pool.length) jg.pool = shuffle([...JG_PICS]);
+  jg.pic = jg.pool.shift(); jg.sel = -1; jg.solved = false;
+  const N = jg.n * jg.n;
+  do { jg.order = shuffle([...Array(N).keys()]); } while (jg.order.filter((p, i) => p === i).length > Math.floor(N / 3) || jgSolvedNow());
+  document.getElementById('jgQNum').textContent = state.problemIndex + 1;
+  const pv = document.getElementById('jgPreview'); const im = jgImage(jg.pic);
+  if (im) { pv.textContent = ''; pv.style.background = `url(${im}) center/cover`; } else { pv.textContent = jg.pic.e; pv.style.background = jg.pic.bg; }
+  document.getElementById('jgHint').textContent = `${N} squares — tap two to swap`;
+  const fb = document.getElementById('jgFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  document.getElementById('jgBoard').classList.remove('solved');
+  renderJigsaw();
+}
+function renderJigsaw() {
+  const board = document.getElementById('jgBoard'), n = jg.n;
+  board.style.gridTemplateColumns = `repeat(${n}, 1fr)`;
+  const w = Math.min(330, board.offsetWidth || 300), fs = Math.round(w * 0.74);
+  board.innerHTML = '';
+  jg.order.forEach((piece, pos) => {
+    const r = Math.floor(piece / n), c = piece % n;
+    const t = document.createElement('div');
+    t.className = 'jg-tile' + (pos === jg.sel ? ' sel' : '') + (jg.hints && piece === pos ? ' home' : '');
+    t.id = 'jgt-' + pos;
+    const img = jgImage(jg.pic);
+    if (img) {
+      t.style.backgroundImage = `url(${img})`; t.style.backgroundSize = `${n * 100}% ${n * 100}%`;
+      t.style.backgroundPosition = `${n > 1 ? c / (n - 1) * 100 : 0}% ${n > 1 ? r / (n - 1) * 100 : 0}%`;
+    } else {
+      t.innerHTML = `<div class="jg-pic" style="width:${n * 100}%;height:${n * 100}%;left:${-c * 100}%;top:${-r * 100}%;background:${jg.pic.bg};font-size:${fs}px;">${jg.pic.e}</div>`;
+    }
+    t.onclick = () => jgTap(pos);
+    board.appendChild(t);
+  });
+}
+function jgTap(pos) {
+  if (jg.solved) return;
+  if (jg.sel < 0) { jg.sel = pos; sfxClick(); renderJigsaw(); return; }
+  if (jg.sel === pos) { jg.sel = -1; renderJigsaw(); return; }
+  const a = jg.sel; [jg.order[a], jg.order[pos]] = [jg.order[pos], jg.order[a]]; jg.sel = -1;
+  if (jg.order[a] === a || jg.order[pos] === pos) sfxStar(); else sfxClick();
+  renderJigsaw();
+  if (jgSolvedNow()) {
+    jg.solved = true; v6star('jgStars'); sfxCorrect(); confetti(24);
+    document.getElementById('jgBoard').classList.add('solved');
+    document.getElementById('jgFeedback').textContent = `You built the ${jg.pic.n}! 🧩🎉`;
+    speak(`You built the ${jg.pic.n}!`, .9);
+    setTimeout(() => v6next('jgProgress', nextJigsaw), 2200);
+  }
+}
+
+// ---------------------------------------------------------------------
+// SPOT IT — spot the difference between two grids
+// ---------------------------------------------------------------------
+const SP_THEMES = [
+  ['🐶','🐱','🐰','🦊','🐻','🐼','🐸','🐵','🦁','🐯','🐮','🐷'],
+  ['🍎','🍌','🍇','🍓','🍊','🍉','🍒','🍐','🥕','🌽','🍋','🥝'],
+  ['🚗','🚌','🚲','✈️','🚀','🚂','🚁','⛵','🚜','🚓','🚕','🛵'],
+  ['⭐','🌙','☀️','☁️','🌈','❄️','⚡','🌸','🌻','🍀','🍁','🌵'],
+];
+const sp = { a: [], b: [], diffs: new Set(), found: new Set(), wrong: 0, cols: 3 };
+function goSpot() { state.subject = 'spot'; showScreen('spot-example'); }
+function startSpot() { v6start('spot', 'spStars', 'spQTotal', 'spProgress', 5, 'spot-game'); nextSpot(); }
+function genSpot(L) {
+  const [cols, rows, nd] = [[3, 3, 1], [4, 4, 2], [4, 4, 3], [5, 5, 3]][L];
+  const pool = SP_THEMES[rand(0, SP_THEMES.length - 1)], N = cols * rows;
+  const a = Array.from({ length: N }, () => pool[rand(0, pool.length - 1)]);
+  const b = [...a], diffs = new Set(shuffle([...Array(N).keys()]).slice(0, nd));
+  diffs.forEach(i => { const alt = pool.filter(x => x !== a[i]); b[i] = alt[rand(0, alt.length - 1)]; });
+  return { a, b, diffs, cols };
+}
+function nextSpot() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('spot', Math.floor(state.problemIndex / 3));
+  const g = genSpot(L); Object.assign(sp, g); sp.found = new Set(); sp.wrong = 0;
+  document.getElementById('spQNum').textContent = state.problemIndex + 1;
+  const fb = document.getElementById('spFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  ['A', 'B'].forEach(k => {
+    const grid = document.getElementById('spGrid' + k); grid.style.gridTemplateColumns = `repeat(${sp.cols}, 1fr)`; grid.innerHTML = '';
+    (k === 'A' ? sp.a : sp.b).forEach((e, i) => {
+      const c = document.createElement('div'); c.className = 'sp-cell'; c.textContent = e; c.id = `sp${k}-${i}`;
+      c.onclick = () => spTap(i, c); grid.appendChild(c);
+    });
+  });
+  spCount();
+}
+function spCount() { document.getElementById('spCount').textContent = `Found ${sp.found.size} of ${sp.diffs.size} ${'🔍'.repeat(sp.diffs.size - sp.found.size)}${'✅'.repeat(sp.found.size)}`; }
+function spTap(i, cell) {
+  if (sp.found.size >= sp.diffs.size || sp.found.has(i)) return;
+  if (sp.diffs.has(i)) {
+    sp.found.add(i); sfxStar(); buzz(20);
+    ['A', 'B'].forEach(k => { const c = document.getElementById(`sp${k}-${i}`); if (c) c.classList.add('found'); });
+    spCount();
+    if (sp.found.size >= sp.diffs.size) {
+      if (sp.wrong <= 3) v6star('spStars');
+      sfxCorrect(); confetti(16);
+      document.getElementById('spFeedback').textContent = ['Eagle eyes! 🦅', 'You found them all! 👀🎉', 'Super spotter! 🌟'][rand(0, 2)];
+      setTimeout(() => v6next('spProgress', nextSpot), 1800);
+    }
+  } else {
+    sp.wrong++; sfxWrong(); cell.classList.add('bad'); setTimeout(() => cell.classList.remove('bad'), 450);
+    const fb = document.getElementById('spFeedback'); fb.classList.add('wrong'); fb.textContent = 'Those two match! Keep looking 👀';
+  }
+}
+
+// ---------------------------------------------------------------------
+// MAKE TEN — pop pairs that make the target, with a ten-frame helper
+// ---------------------------------------------------------------------
+const MT_COLORS = ['#FF7563', '#4D96FF', '#36C98D', '#FFB23E', '#8B7CF6', '#FF7AA8', '#19C8D6', '#8DD23F'];
+const mt = { vals: [], alive: [], sel: -1, wrong: 0, target: 10 };
+function goMakeTen() { state.subject = 'maketen'; showScreen('maketen-example'); }
+function startMakeTen() { v6start('maketen', 'mtStars', 'mtQTotal', 'mtProgress', 5, 'maketen-game'); nextMakeTen(); }
+function genMakeTen(L) {
+  const [target, pairs] = [[5, 3], [10, 3], [10, 4], [10, 6]][L];
+  const vals = [];
+  for (let i = 0; i < pairs; i++) { const a = rand(1, target - 1); vals.push(a, target - a); }
+  return { target, vals: shuffle(vals) };
+}
+function nextMakeTen() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('maketen', Math.floor(state.problemIndex / 3));
+  const g = genMakeTen(L); mt.target = g.target; mt.vals = g.vals; mt.alive = g.vals.map(() => true); mt.sel = -1; mt.wrong = 0;
+  document.getElementById('mtQNum').textContent = state.problemIndex + 1;
+  document.getElementById('mtTarget').textContent = mt.target;
+  const fb = document.getElementById('mtFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  renderMakeTen(); mtFrame(-1);
+  setTimeout(() => speak(`Pop two balloons that make ${mt.target}!`, .9), 300);
+}
+function renderMakeTen() {
+  const box = document.getElementById('mtBalloons'); box.innerHTML = '';
+  mt.vals.forEach((v, i) => {
+    if (!mt.alive[i]) return;
+    const b = document.createElement('button'); b.className = 'mt-b' + (mt.sel === i ? ' sel' : ''); b.id = 'mtb-' + i;
+    b.style.background = MT_COLORS[i % MT_COLORS.length]; b.textContent = v;
+    b.onclick = () => mtTap(i); box.appendChild(b);
+  });
+}
+function mtFrame(v) {
+  const el = document.getElementById('mtFrame');
+  if (v < 0) { el.innerHTML = `<div class="hint">👆 Tap a balloon to start</div>`; return; }
+  const cells = Array.from({ length: mt.target }, (_, i) => `<div class="tf-c ${i < v ? 'on' : 'need'}"></div>`).join('');
+  el.innerHTML = `<div class="tf-eq">${v} + <span class="q">?</span> = ${mt.target}</div><div class="tenframe">${cells}</div><div class="hint">Count the empty squares!</div>`;
+}
+function mtTap(i) {
+  if (!mt.alive[i]) return;
+  if (mt.sel < 0) { mt.sel = i; sfxClick(); renderMakeTen(); mtFrame(mt.vals[i]); speak(String(mt.vals[i]), 1); return; }
+  if (mt.sel === i) { mt.sel = -1; renderMakeTen(); mtFrame(-1); return; }
+  const a = mt.vals[mt.sel], b = mt.vals[i], fb = document.getElementById('mtFeedback');
+  if (a + b === mt.target) {
+    mt.alive[mt.sel] = false; mt.alive[i] = false; mt.sel = -1;
+    sfxStar(); buzz(30); confetti(8);
+    fb.textContent = `${a} + ${b} = ${mt.target} 💥`; fb.classList.remove('wrong');
+    speak(`${a} plus ${b} makes ${mt.target}!`, .95);
+    renderMakeTen(); mtFrame(-1);
+    if (!mt.alive.some(Boolean)) {
+      if (mt.wrong <= 2) v6star('mtStars');
+      sfxCorrect(); confetti(20);
+      fb.textContent = `Sky cleared! 🎈🎉`;
+      setTimeout(() => v6next('mtProgress', nextMakeTen), 1800);
+    }
+  } else {
+    mt.wrong++; sfxWrong();
+    const el = document.getElementById('mtb-' + i); if (el) { el.classList.add('bad'); setTimeout(() => el.classList.remove('bad'), 450); }
+    fb.classList.add('wrong'); fb.textContent = `${a} + ${b} = ${a + b}. We need ${mt.target}! ${a} needs ${mt.target - a}.`;
+  }
+}
+
+// ---------------------------------------------------------------------
+// AI: FIX THE ROBOT — bad examples make a confused AI
+// ---------------------------------------------------------------------
+const fx = { lessons: [], li: 0, cards: [], wrong: new Set(), fixed: new Set(), phase: 'intro', before: null, after: null, totalWrong: 0 };
+function fxBrain(cards) { const b = {}; cards.forEach(c => c.f.forEach(f => { if (!b[f]) b[f] = { yes: 0, no: 0 }; b[f][c.shown]++; })); return b; }
+function fxPredict(brain, item) {
+  let s = 0; item.f.forEach(f => { const b = brain[f]; if (b) s += b.yes - b.no; });
+  return s > 0 ? 'yes' : s < 0 ? 'no' : 'unsure';
+}
+function fxScore(brain, test) { const rows = test.map(it => ({ it, g: fxPredict(brain, it) })); return { rows, right: rows.filter(r => r.g === r.it.t).length }; }
+function fxSetup(id, k) {
+  const L = AI_LESSONS[id];
+  const clean = L.train.map(it => ({ ...it, shown: it.t }));
+  const after = fxScore(fxBrain(clean), L.test);
+  for (let tries = 0; tries < 200; tries++) {
+    const idx = new Set(shuffle([...L.train.keys()]).slice(0, k));
+    const cards = L.train.map((it, i) => ({ ...it, shown: idx.has(i) ? (it.t === 'yes' ? 'no' : 'yes') : it.t }));
+    const before = fxScore(fxBrain(cards), L.test);
+    if (before.right < after.right) return { L, cards: shuffle(cards.map((c, i) => c)), wrongNames: idx, before, after };
+  }
+  return null;
+}
+function goAIFix() { startAIFix(); }
+function startAIFix() {
+  state.subject = 'aifix'; state.stars = 0; state.streak = 0; state.problemIndex = 0;
+  fx.lessons = ['fly', 'alive', 'swim']; fx.li = 0; fx.totalWrong = 0;
+  fx.plan = fx.lessons.map((id, i) => fxSetup(id, i === 0 ? 2 : 3));
+  state.totalProblems = fx.plan.reduce((s, p) => s + [...p.wrongNames].length, 0);
+  document.getElementById('fxStars').textContent = '0'; updateProgress('fxProgress', 0);
+  showScreen('aifix-game'); fxLesson();
+}
+function fxLesson() {
+  const p = fx.plan[fx.li];
+  fx.L = p.L; fx.cards = p.cards; fx.before = p.before; fx.after = p.after;
+  fx.wrong = new Set(fx.cards.map((c, i) => c.shown !== c.t ? i : -1).filter(i => i >= 0)); fx.fixed = new Set();
+  fx.phase = 'intro';
+  document.getElementById('fxPhase').textContent = `Lesson ${fx.li + 1} of ${fx.plan.length} · ${fx.L.name}`;
+  document.getElementById('fxTitle').textContent = 'Uh oh! Someone taught the robot wrong! 😱';
+  document.getElementById('fxHint').textContent = 'These are the examples the robot learned from. Let\'s test it first.';
+  document.getElementById('fxResults').innerHTML = '';
+  const fb = document.getElementById('fxFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  fxRenderCards();
+  document.getElementById('fxActions').innerHTML = `<button class="btn btn-primary" onclick="fxTest()">🤖 Test the robot</button>`;
+  setTimeout(() => speak('Uh oh! Someone taught the robot some wrong lessons. Let\'s test it.', .9), 300);
+}
+function fxPill(v) { const L = fx.L; return `<span class="fx-pill ${v}">${v === 'yes' ? L.yesIc + ' yes' : L.noIc + ' no'}</span>`; }
+function fxRenderCards() {
+  const box = document.getElementById('fxCards'); box.innerHTML = '';
+  fx.cards.forEach((c, i) => {
+    const d = document.createElement('div');
+    d.className = 'fx-card' + (fx.fixed.has(i) ? ' fixed' : '') + (fx.phase === 'find' ? '' : ' locked'); d.id = 'fxc-' + i;
+    d.innerHTML = `<span class="fe">${c.e}</span><span class="fn">${c.n}</span>${fxPill(c.shown)}`;
+    d.onclick = () => fxTap(i); box.appendChild(d);
+  });
+}
+function fxResultsHTML(score, label) {
+  const L = fx.L;
+  return `<div class="fx-results">${score.rows.map(r => {
+    const g = r.g === 'unsure' ? '🤔 not sure' : r.g === 'yes' ? L.yes : L.no;
+    const mark = r.g === r.it.t ? '✅' : r.g === 'unsure' ? '🤷' : '❌';
+    return `<div class="fx-row"><span class="re">${r.it.e}</span><span class="rg">${r.it.n}: robot says <b>${g}</b></span><span>${mark}</span></div>`;
+  }).join('')}<div class="fx-score">${label}: ${score.right} of ${score.rows.length} right</div></div>`;
+}
+function fxTest() {
+  if (fx.phase !== 'intro') return;
+  fx.phase = 'find'; sfxWrong();
+  document.getElementById('fxResults').innerHTML = fxResultsHTML(fx.before, 'Confused robot 😵');
+  document.getElementById('fxTitle').textContent = `Find the ${fx.wrong.size} wrong lessons! 🔍`;
+  document.getElementById('fxHint').textContent = `Tap the examples with the WRONG answer to fix them.`;
+  document.getElementById('fxActions').innerHTML = '';
+  fxRenderCards();
+  speak(`The robot got confused! Find the ${fx.wrong.size} wrong lessons and tap them to fix them.`, .9);
+}
+function fxTap(i) {
+  if (fx.phase !== 'find' || fx.fixed.has(i)) return;
+  const c = fx.cards[i], fb = document.getElementById('fxFeedback');
+  if (fx.wrong.has(i)) {
+    c.shown = c.t; fx.fixed.add(i); state.stars++; document.getElementById('fxStars').textContent = state.stars;
+    fx.totalWrong++; updateProgress('fxProgress', (fx.totalWrong / state.totalProblems) * 100);
+    sfxCorrect(); confetti(10); fb.classList.remove('wrong');
+    fb.textContent = `Fixed! A ${c.n}: ${c.t === 'yes' ? fx.L.yes : fx.L.no} ✅`;
+    fxRenderCards();
+    const el = document.getElementById('fxc-' + i); if (el) el.classList.add('fixed');
+    if (fx.fixed.size >= fx.wrong.size) {
+      fx.phase = 'retest';
+      document.getElementById('fxTitle').textContent = 'All lessons fixed! 🛠️';
+      document.getElementById('fxHint').textContent = 'Now let\'s teach the robot again with the good examples.';
+      document.getElementById('fxActions').innerHTML = `<button class="btn btn-green" onclick="fxRetest()">🔁 Teach it again & test</button>`;
+    }
+  } else {
+    sfxWrong(); const el = document.getElementById('fxc-' + i); if (el) { el.classList.add('bad'); setTimeout(() => el.classList.remove('bad'), 450); }
+    fb.classList.add('wrong'); fb.textContent = `That lesson is already right — a ${c.n}: ${c.t === 'yes' ? fx.L.yes : fx.L.no}.`;
+  }
+}
+function fxRetest() {
+  if (fx.phase !== 'retest') return;
+  fx.phase = 'done'; sfxLevelComplete(); confetti(20);
+  document.getElementById('fxTitle').textContent = 'The robot is smarter now! 🧠✨';
+  document.getElementById('fxHint').textContent = 'Better examples → better AI. That\'s how real AI gets better too!';
+  document.getElementById('fxResults').innerHTML = `
+    <div class="fx-compare"><div class="fx-box before">Bad lessons<b>${fx.before.right}/${fx.before.rows.length}</b>😵</div>
+    <div class="fx-box after">Good lessons<b>${fx.after.right}/${fx.after.rows.length}</b>😎</div></div>` + fxResultsHTML(fx.after, 'Fixed robot 😎');
+  const last = fx.li >= fx.plan.length - 1;
+  document.getElementById('fxActions').innerHTML = `<button class="btn btn-primary" onclick="fxNext()">${last ? 'Finish 🎓' : 'Next lesson →'}</button>`;
+  speak(`Wow! With good lessons, the robot got ${fx.after.right} right instead of ${fx.before.right}!`, .9);
+}
+function fxNext() { if (fx.phase !== 'done') return; fx.li++; if (fx.li >= fx.plan.length) { celebrate(); return; } fxLesson(); }
 
 // ===============================
 // SERVICE WORKER
