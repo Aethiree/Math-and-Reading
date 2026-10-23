@@ -655,6 +655,99 @@
   .ck-words { font-weight:800; color:var(--violet); font-size:1rem; margin-top:2px; }
   .ck-goal { display:inline-block; font-family:'Fredoka'; font-weight:600; font-size:1.25rem; background:linear-gradient(135deg,#EDEAFE,#E4F6FA); padding:8px 16px; border-radius:999px; margin-top:8px; }
 
+
+  /* ===================== v7 ===================== */
+  /* Coin Counter */
+  .coin-row { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; align-items:center; margin-top:14px; min-height:70px; }
+  .coin { border-radius:50%; border:3px solid #A9AFBD; display:inline-flex; flex-direction:column; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:600; color:#3A3F55; cursor:pointer; padding:0; position:relative;
+    background:radial-gradient(circle at 35% 30%,#FFFFFF,#C9CED9 70%); box-shadow:inset 0 -3px 0 rgba(0,0,0,.12), 0 3px 6px rgba(30,33,56,.18); transition:transform .12s, opacity .2s; }
+  .coin:active { transform:scale(.92); }
+  .coin.n5 { width:54px; height:54px; font-size:1rem; }
+  .coin.n10 { width:46px; height:46px; font-size:.9rem; }
+  .coin.n25 { width:62px; height:62px; font-size:1.1rem; }
+  .coin.n100 { width:66px; height:66px; font-size:1.2rem; background:radial-gradient(circle at 35% 30%,#FFF4C2,#E8B93A 72%); border-color:#C79A22; color:#5A4300; }
+  .coin.n200 { width:70px; height:70px; font-size:1.2rem; background:radial-gradient(circle,#F7D35E 0 44%,#D5D9E2 46%); border-color:#A9AFBD; color:#5A4300; }
+  .coin.counted { opacity:.5; transform:scale(.9); }
+  .coin .ctag { position:absolute; bottom:-18px; font-size:.68rem; font-weight:800; color:var(--green); white-space:nowrap; }
+  .coin-names { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin:10px 0; }
+  .coin-names div { display:flex; flex-direction:column; align-items:center; gap:4px; font-size:.75rem; font-weight:800; color:var(--ink-soft); }
+  .coin-run { font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.15rem; margin-top:20px; color:var(--ink-soft); min-height:28px; }
+  .coin-run b { color:var(--green); }
+  .shop { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:8px; }
+  .shop .si { font-size:3.4rem; line-height:1; }
+  .shop .price { font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.7rem; background:linear-gradient(135deg,#FFF6E4,#FFEFD0); padding:6px 14px; border-radius:14px; box-shadow:inset 0 0 0 2px var(--amber); }
+  .paid { min-height:76px; margin-top:12px; padding:8px; border:2px dashed var(--line-2); border-radius:var(--r-md); background:#F8F9FE; display:flex; flex-wrap:wrap; gap:8px; justify-content:center; align-items:center; }
+  .paid .empty-hint { font-size:.85rem; font-weight:700; color:var(--ink-soft); }
+  .tray { display:flex; gap:12px; justify-content:center; align-items:center; margin-top:12px; flex-wrap:wrap; }
+  .paid-total { font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.15rem; margin-top:10px; }
+
+  /* Mouse Maze */
+  .mz-board { display:grid; width:100%; max-width:340px; margin:12px auto 0; background:#fff; border-radius:12px; box-shadow:var(--shadow-md); padding:6px; touch-action:none; }
+  .mz-cell { aspect-ratio:1; display:flex; align-items:center; justify-content:center; line-height:1; box-sizing:border-box; cursor:pointer; }
+  .mz-cell.trail { background:#E7FBF1; }
+  .mz-cell.me { background:#FFF3C9; }
+  .mz-info { font-family:'Fredoka',sans-serif; font-weight:600; font-size:1rem; margin-top:8px; }
+
+  /* Pizza Parts */
+  .pz-big { width:min(190px,52vw); height:auto; display:block; margin:8px auto 0; }
+  .pz-opts { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+  .pz-opt { background:#fff; border:1px solid var(--line-2); border-radius:var(--r-lg); padding:10px; cursor:pointer; box-shadow:var(--shadow-sm); transition:transform .1s; display:flex; flex-direction:column; align-items:center; gap:4px; }
+  .pz-opt svg { width:100%; max-width:130px; height:auto; }
+  .pz-opt:active { transform:scale(.96); }
+  .pz-opt .pl { font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.2rem; color:var(--ink); }
+  .pz-opt.correct { background:linear-gradient(135deg,#E7FBF1,#D6F7E6); box-shadow:inset 0 0 0 3px var(--green); animation:winB .55s ease; }
+  .pz-opt.wrong { background:#FFE9EC; box-shadow:inset 0 0 0 3px var(--bad); animation:shake .45s ease; }
+  .frac { display:inline-flex; flex-direction:column; align-items:center; font-family:'Fredoka',sans-serif; font-weight:600; line-height:1.05; vertical-align:middle; }
+  .frac .fn { border-bottom:3px solid currentColor; padding:0 4px; }
+  .fr-btn { display:flex; flex-direction:column; align-items:center; gap:4px; font-size:1.5rem !important; }
+  .fr-btn small { font-size:.72rem; font-weight:800; opacity:.8; font-family:'Inter',sans-serif; }
+
+  /* Word Bubbles */
+  .sw-target { display:inline-flex; align-items:center; gap:8px; margin-top:6px; }
+  .sw-field { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center; margin-top:18px; min-height:220px; }
+  .sw-bub { width:96px; height:96px; border-radius:50%; border:none; cursor:pointer; color:#fff; font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.45rem;
+    box-shadow:inset -8px -10px 0 rgba(0,0,0,.08), inset 10px 10px 0 rgba(255,255,255,.25), var(--shadow-sm); transition:transform .12s; }
+  @media (prefers-reduced-motion: no-preference) { .sw-bub { animation:swFloat 3.2s ease-in-out infinite; } }
+  @keyframes swFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-10px); } }
+  .sw-bub:active { transform:scale(.92); }
+  .sw-bub.pop { animation:mtPop .4s ease forwards; pointer-events:none; }
+  .sw-bub.bad { animation:shake .4s ease; }
+  .sw-bub.glow { box-shadow:0 0 0 5px #fff, 0 0 0 9px var(--amber), var(--shadow-md); }
+
+  /* Story Order */
+  .st-slots { display:grid; gap:8px; margin-top:14px; }
+  .st-slot { border:2px dashed var(--line-2); border-radius:var(--r-md); background:#F8F9FE; min-height:112px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; padding:6px 2px; }
+  .st-slot .sl { font-size:.68rem; font-weight:800; letter-spacing:.4px; text-transform:uppercase; color:var(--violet); }
+  .st-slot.filled { border-style:solid; border-color:var(--green); background:linear-gradient(135deg,#E7FBF1,#D6F7E6); animation:popS .3s cubic-bezier(.34,1.56,.64,1); }
+  .st-slot .se { font-size:2.2rem; line-height:1; }
+  .st-slot .sc, .st-card .sc { font-family:'Fredoka',sans-serif; font-weight:600; font-size:.9rem; text-align:center; line-height:1.15; }
+  .st-cards { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:16px; }
+  .st-card { width:88px; min-height:100px; border:1px solid var(--line-2); border-radius:var(--r-md); background:#fff; box-shadow:var(--shadow-sm); cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; padding:6px; transition:transform .1s; color:var(--ink); }
+  .st-card .se { font-size:2.3rem; line-height:1; }
+  .st-card.wordonly .sc { font-size:1.15rem; }
+  .st-card:active { transform:scale(.94); }
+  .st-card.bad { animation:shake .4s ease; }
+
+  /* Next-Word Robot */
+  .nw-books { display:flex; flex-direction:column; gap:6px; margin-top:10px; text-align:left; }
+  .nw-book { background:#fff; border:1px solid var(--line); border-radius:12px; padding:8px 12px; font-weight:700; font-size:.95rem; box-shadow:var(--shadow-sm); cursor:pointer; }
+  .nw-book .p { color:var(--violet); }
+  .nw-book .nx { color:var(--coral); font-weight:800; }
+  .nw-book.added { box-shadow:inset 0 0 0 2px var(--green); animation:popS .3s ease; }
+  .nw-prompt { font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.45rem; margin-top:14px; }
+  .nw-prompt .blank { display:inline-block; min-width:70px; border-bottom:4px dashed var(--amber); color:var(--amber); }
+  .nw-opts { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px; }
+  .nw-opts .quiz-opt { justify-content:center; font-family:'Fredoka',sans-serif; font-size:1.15rem; }
+  .nw-bars { background:#F8F9FE; border-radius:var(--r-md); padding:10px 12px; margin-top:12px; text-align:left; }
+  .nw-bars h4 { margin:0 0 6px; font-family:'Fredoka',sans-serif; font-weight:600; font-size:.98rem; }
+  .nw-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-weight:800; font-size:.9rem; }
+  .nw-row .w { min-width:64px; font-family:'Fredoka',sans-serif; font-weight:600; }
+  .nw-row .bar { flex:1; height:16px; background:#E9ECF7; border-radius:999px; overflow:hidden; }
+  .nw-row .bar i { display:block; height:100%; border-radius:999px; background:linear-gradient(90deg,var(--violet),var(--teal)); transition:width .5s cubic-bezier(.22,1.1,.32,1); }
+  .nw-row.pick .bar i { background:linear-gradient(90deg,var(--amber),var(--coral)); }
+  .nw-row .ct { min-width:22px; text-align:right; color:var(--ink-soft); }
+  .nw-say { font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.15rem; margin-top:8px; text-align:center; }
+
   @media (max-width: 470px) {
     .problem-display { font-size: 2.6rem; }
     .game-card { padding: 20px 14px; }
@@ -993,6 +1086,7 @@
       <div class="ai-lesson" onclick="startAITrain('swim')"><span class="li">🌊</span><span class="ln">Can it swim?</span><span class="ls">8 examples</span></div>
     </div>
     <div class="ai-cards">
+      <div class="choice-card" onclick="startNextWord()"><div class="icon">💬</div><div class="label">Next-Word Robot</div><div class="sub">How chatbots think!</div></div>
       <div class="choice-card" onclick="startAIFix()"><div class="icon">🔧</div><div class="label">Fix the Robot</div><div class="sub">Bad lessons → confused AI!</div></div>
       <div class="choice-card" onclick="startAIQuiz()"><div class="icon">❓</div><div class="label">AI Quiz</div><div class="sub">What do you know about AI?</div></div>
     </div>
@@ -1293,6 +1387,148 @@
     </div>
   </div>
 
+
+  <!-- ============ COIN COUNTER ============ -->
+  <div class="screen" id="screen-coins-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Coin Counter</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Let's count money! 🪙</h3>
+      <div class="coin-names">
+        <div><span class="coin n5">5¢</span>nickel</div>
+        <div><span class="coin n10">10¢</span>dime</div>
+        <div><span class="coin n25">25¢</span>quarter</div>
+        <div><span class="coin n100">$1</span>loonie</div>
+      </div>
+      <div class="example-step"><div class="step-num">1</div><div>Each nickel is <b>5 cents</b>. Count by 5s — just like the clock! <b>5, 10, 15…</b></div></div>
+      <div class="example-step"><div class="step-num">2</div><div><b>Tap each coin</b> to count it. Start with the <b>biggest</b> coin: 25… 35… 40!</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>In the shop, tap coins to <b>pay exactly</b> the price. Too much? Tap a coin to take it back.</div></div>
+      <div class="example-step"><div class="step-num">4</div><div>Dimes, quarters and loonies join in as you level up!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-amber" onclick="startCoins()">Let's count! 🪙</button></div>
+  </div>
+  <div class="screen" id="screen-coins-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('coins-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="cnProgress"></div></div></div><div class="star-count">⭐ <span id="cnStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Round <span id="cnQNum">1</span> of <span id="cnQTotal">8</span></div>
+      <h3 style="margin-top:6px;" id="cnTitle">How much money?</h3>
+      <div id="cnBody"></div>
+      <div class="feedback-msg" id="cnFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ PIZZA PARTS ============ -->
+  <div class="screen" id="screen-fractions-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Pizza Parts</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Sharing pizza fairly 🍕</h3>
+      <div id="pzExample"></div>
+      <div class="example-step"><div class="step-num">1</div><div>Cut a pizza into <b>2 equal pieces</b> — each piece is <b>one half</b>, written <span class="frac"><span class="fn">1</span><span class="fd">2</span></span>.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>4 equal pieces? Each one is <b>one quarter</b>, <span class="frac"><span class="fn">1</span><span class="fd">4</span></span>. The pieces must be the <b>same size</b> — that's fair!</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>The top number is how many pieces have 🍄. The bottom number is how many pieces in all.</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-coral" onclick="startFractions()">Let's eat! 🍕</button></div>
+  </div>
+  <div class="screen" id="screen-fractions-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('fractions-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="pzProgress"></div></div></div><div class="star-count">⭐ <span id="pzStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Pizza <span id="pzQNum">1</span> of <span id="pzQTotal">8</span></div>
+      <h3 style="margin-top:6px;" id="pzTitle"></h3>
+      <div id="pzBody"></div>
+      <div class="feedback-msg" id="pzFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ MOUSE MAZE ============ -->
+  <div class="screen" id="screen-maze-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Mouse Maze</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Help the mouse find the cheese! 🐭🧀</h3>
+      <div class="example-step"><div class="step-num">1</div><div>Move with the <b>arrow buttons</b>, <b>swipe</b> on the maze, or <b>tap the square next to</b> the mouse.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>Thick lines are <b>walls</b> — the mouse can't go through them.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Hit a dead end? Go back and try another way. Your path shows in <b style="color:var(--green)">green</b>.</div></div>
+      <div class="example-step"><div class="step-num">4</div><div>Bigger mazes later — and the cheese stays <b>🔒 locked</b> until you collect every ⭐!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-green" onclick="startMaze()">Let's go! 🐭</button></div>
+  </div>
+  <div class="screen" id="screen-maze-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('maze-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="mzProgress"></div></div></div><div class="star-count">⭐ <span id="mzStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Maze <span id="mzQNum">1</span> of <span id="mzQTotal">4</span></div>
+      <div class="mz-info" id="mzInfo"></div>
+      <div class="mz-board" id="mzBoard"></div>
+      <div class="coder-pad" style="margin-top:14px;">
+        <button class="pad-btn" onclick="mzMove('W')" aria-label="Left">⬅️</button>
+        <button class="pad-btn" onclick="mzMove('N')" aria-label="Up">⬆️</button>
+        <button class="pad-btn" onclick="mzMove('S')" aria-label="Down">⬇️</button>
+        <button class="pad-btn" onclick="mzMove('E')" aria-label="Right">➡️</button>
+      </div>
+      <div class="feedback-msg" id="mzFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ WORD BUBBLES ============ -->
+  <div class="screen" id="screen-sightword-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Word Bubbles</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Listen, then pop the word! 🫧</h3>
+      <div class="example-step"><div class="step-num">1</div><div>The app says a word, like <b>"the"</b>. Tap 🔊 to hear it again.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div><b>Pop the bubble</b> with that word written on it.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>These are <b>sight words</b> — words in almost every book. Learn them by heart and reading gets much easier!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-blue" onclick="startSightWord()">Pop bubbles! 🫧</button></div>
+  </div>
+  <div class="screen" id="screen-sightword-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('sightword-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="swProgress"></div></div></div><div class="star-count">⭐ <span id="swStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Word <span id="swQNum">1</span> of <span id="swQTotal">10</span></div>
+      <div class="sw-target"><h3>Pop the word you hear</h3><button class="btn btn-blue" style="min-height:44px;padding:8px 14px;" onclick="swHear()">🔊</button></div>
+      <div class="sw-field" id="swField"></div>
+      <div class="feedback-msg" id="swFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ STORY ORDER ============ -->
+  <div class="screen" id="screen-story-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Story Order</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>What happens first? 📚</h3>
+      <div class="st-slots" style="grid-template-columns:repeat(3,1fr);">
+        <div class="st-slot filled"><span class="sl">First</span><span class="se">🌰</span><span class="sc">acorn</span></div>
+        <div class="st-slot filled"><span class="sl">Next</span><span class="se">🌱</span><span class="sc">sprout</span></div>
+        <div class="st-slot filled"><span class="sl">Last</span><span class="se">🌳</span><span class="sc">tree</span></div>
+      </div>
+      <div class="example-step" style="margin-top:12px;"><div class="step-num">1</div><div>Look at the pictures and <b>read the words</b>.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>Tap what happens <b>first</b>, then <b>next</b>, then <b>last</b>.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>At the top level, the cards only have <b>words</b> — read them to find the order!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-primary" onclick="startStory()">Tell the story! 📚</button></div>
+  </div>
+  <div class="screen" id="screen-story-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('story-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="stProgress"></div></div></div><div class="star-count">⭐ <span id="stStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Story <span id="stQNum">1</span> of <span id="stQTotal">6</span></div>
+      <h3 style="margin-top:6px;" id="stTitle"></h3>
+      <div class="st-slots" id="stSlots"></div>
+      <div class="st-cards" id="stCards"></div>
+      <div class="feedback-msg" id="stFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ NEXT-WORD ROBOT ============ -->
+  <div class="screen" id="screen-nextword-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('ai-hub')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="nwProgress"></div></div></div><div class="star-count">⭐ <span id="nwStars">0</span></div></div>
+    <div class="game-card">
+      <div class="ai-phase" id="nwPhase">Round 1</div>
+      <h3 id="nwTitle" style="margin-top:4px;">The robot read these stories 📚</h3>
+      <div class="ml-hint" id="nwHint"></div>
+      <div class="nw-books" id="nwBooks"></div>
+      <div id="nwAsk"></div>
+      <div id="nwResult"></div>
+      <div class="center-actions" id="nwActions"></div>
+      <div class="feedback-msg" id="nwFeedback"></div>
+    </div>
+  </div>
+
 </div>
 
 
@@ -1386,7 +1622,7 @@ progress.sudoku = progress.sudoku || 0; progress.shadow = progress.shadow || 0;
 progress.wordmatch = progress.wordmatch || 0; progress.order = progress.order || 0;
 progress.coderDone = !!progress.coderDone;
 progress.played = progress.played || {};
-['jigsaw','spot','maketen','clock','rhyme','wordbuild'].forEach(k => { progress[k] = progress[k] || 0; });
+['jigsaw','spot','maketen','clock','rhyme','wordbuild','coins','fractions','maze','sightword','story'].forEach(k => { progress[k] = progress[k] || 0; });
 progress.totalStars = progress.totalStars || 0;
 
 function addTotalStars(n) {
@@ -1420,6 +1656,12 @@ const GAMES = [
   { cat:'reading', id:'rhyme',   ic:'🎵', nm:'Rhyme Time',    ds:'Cat… hat! Find rhymes', grad:'linear-gradient(150deg,#FF7563,#FF7AA8)', fn:goRhyme,    levelKey:'rhyme' },
   { cat:'puzzle', id:'jigsaw',   ic:'🖼️', nm:'Picture Jigsaw',ds:'Swap to rebuild',       grad:'linear-gradient(150deg,#FFB23E,#FF7563)', fn:goJigsaw,   levelKey:'jigsaw' },
   { cat:'puzzle', id:'spot',     ic:'👀', nm:'Spot It!',      ds:'Find the differences',  grad:'linear-gradient(150deg,#36C98D,#19C8D6)', fn:goSpot,     levelKey:'spot' },
+  { cat:'math', id:'coins',      ic:'🪙', nm:'Coin Counter',  ds:'Count & pay with coins',grad:'linear-gradient(150deg,#FFB23E,#E8B93A)', fn:goCoins,    levelKey:'coins' },
+  { cat:'math', id:'fractions',  ic:'🍕', nm:'Pizza Parts',   ds:'Halves & quarters',     grad:'linear-gradient(150deg,#FF7563,#FFB23E)', fn:goFractions,levelKey:'fractions' },
+  { cat:'reading', id:'sightword',ic:'🫧', nm:'Word Bubbles', ds:'Pop the word you hear', grad:'linear-gradient(150deg,#19C8D6,#8B7CF6)', fn:goSightWord,levelKey:'sightword' },
+  { cat:'reading', id:'story',   ic:'📚', nm:'Story Order',   ds:'First, next, last',     grad:'linear-gradient(150deg,#6C5CE7,#FF7AA8)', fn:goStory,    levelKey:'story' },
+  { cat:'puzzle', id:'maze',     ic:'🐭', nm:'Mouse Maze',    ds:'Find the cheese',       grad:'linear-gradient(150deg,#8DD23F,#19C8D6)', fn:goMaze,     levelKey:'maze' },
+  { cat:'ai', id:'nextword',     ic:'💬', nm:'Next-Word Robot',ds:'How chatbots think',   grad:'linear-gradient(150deg,#8B7CF6,#19C8D6)', fn:goNextWord },
   { cat:'ai', id:'aifix',        ic:'🔧', nm:'Fix the Robot', ds:'Bad lessons? Fix them!',grad:'linear-gradient(150deg,#19C8D6,#6C5CE7)', fn:goAIFix },
   { cat:'ai', id:'ai',       ic:'🧠', nm:'AI Academy',    ds:'Teach a robot to think',grad:'linear-gradient(150deg,#6C5CE7,#19C8D6)', fn:goAI },
 ];
@@ -2260,6 +2502,12 @@ function celebrate() {
   else if (state.subject === 'jigsaw') { title = 'Puzzle Builder! 🖼️🏆'; msg = `You rebuilt all ${total} pictures!`; }
   else if (state.subject === 'spot') { title = pass ? 'Eagle Eyes! 👀🏆' : 'Good looking! 👀'; msg = `You spotted ${stars} of ${total} puzzles!`; }
   else if (state.subject === 'aifix') { title = 'Robot Fixer! 🔧🏆'; msg = `You fixed ${stars} wrong lessons. Good examples make a smart AI!`; }
+  else if (state.subject === 'coins') { title = pass ? 'Money Master! 🪙🏆' : 'Good counting! 🪙'; msg = `You got ${stars} of ${total} right!`; }
+  else if (state.subject === 'fractions') { title = pass ? 'Pizza Pro! 🍕🏆' : 'Good try! 🍕'; msg = `You got ${stars} of ${total} pizzas right!`; }
+  else if (state.subject === 'maze') { title = 'Maze Master! 🐭🏆'; msg = `The mouse found the cheese in all ${total} mazes!`; }
+  else if (state.subject === 'sightword') { title = pass ? `Word Popper, ${pName()}! 🫧🏆` : 'Keep popping! 🫧'; msg = `You found ${stars} of ${total} words!`; }
+  else if (state.subject === 'story') { title = pass ? 'Story Teller! 📚🏆' : 'Good try! 📚'; msg = `You told ${stars} of ${total} stories in order!`; }
+  else if (state.subject === 'nextword') { title = 'Chatbot Expert! 💬🎓'; msg = `Chat robots guess the next word from what they read — and silly stories make silly answers!`; }
   else if (state.subject === 'aiquiz') { title = pass ? 'AI Expert! 🧠🏆' : 'Keep learning! 🧠'; msg = `You got ${stars} of ${total} right!`; }
   else if (stars === total) { title = `PERFECT, ${pName()}! 🏆`; msg = `You got all ${total} right! Superstar! 🌟`; }
   else if (pass) { title = 'Great job! 🎉'; msg = `You earned ${stars} stars out of ${total}!`; }
@@ -2296,6 +2544,12 @@ function playAgain() {
   else if (state.subject === 'jigsaw') startJigsaw();
   else if (state.subject === 'spot') startSpot();
   else if (state.subject === 'aifix') startAIFix();
+  else if (state.subject === 'coins') startCoins();
+  else if (state.subject === 'fractions') startFractions();
+  else if (state.subject === 'maze') startMaze();
+  else if (state.subject === 'sightword') startSightWord();
+  else if (state.subject === 'story') startStory();
+  else if (state.subject === 'nextword') startNextWord();
   else showScreen('welcome');
 }
 function goHome() {
@@ -2726,9 +2980,9 @@ function answerAQ(btn, i, q) {
 // ===============================
 // v5: LEVEL CAPS (single source of truth) + haptics
 // ===============================
-const LEVEL_CAPS = { patterns:6, odd:5, croc:4, memory:2, multlab:3, share:3, sudoku:3, shadow:3, wordmatch:2, order:3, jigsaw:3, spot:3, maketen:3, clock:3, rhyme:2, wordbuild:2 };
+const LEVEL_CAPS = { patterns:6, odd:5, croc:4, memory:2, multlab:3, share:3, sudoku:3, shadow:3, wordmatch:2, order:3, jigsaw:3, spot:3, maketen:3, clock:3, rhyme:2, wordbuild:2, coins:3, fractions:2, maze:3, sightword:2, story:2 };
 // Games that show a ⭐ NEW badge until they're played once. Add future games here.
-const NEW_GAMES = ['clock', 'maketen', 'wordbuild', 'rhyme', 'jigsaw', 'spot', 'aifix'];
+const NEW_GAMES = ['clock', 'maketen', 'wordbuild', 'rhyme', 'jigsaw', 'spot', 'aifix', 'coins', 'fractions', 'maze', 'sightword', 'story', 'nextword'];
 function isNewGame(id) { return NEW_GAMES.includes(id) && !progress.played[id]; }
 function markPlayed(id) { if (NEW_GAMES.includes(id) && !progress.played[id]) { progress.played[id] = true; saveProgress(); } }
 function buzz(ms) { try { if (navigator.vibrate) navigator.vibrate(ms); } catch (e) {} }
@@ -3674,6 +3928,553 @@ function fxRetest() {
   speak(`Wow! With good lessons, the robot got ${fx.after.right} right instead of ${fx.before.right}!`, .9);
 }
 function fxNext() { if (fx.phase !== 'done') return; fx.li++; if (fx.li >= fx.plan.length) { celebrate(); return; } fxLesson(); }
+
+
+// =====================================================================
+// v7 GAMES
+// =====================================================================
+
+// ---------------------------------------------------------------------
+// COIN COUNTER — Canadian coins: count by 5s/10s/25s, then pay exactly
+// ---------------------------------------------------------------------
+const COINS = { 5:{ lb:'5¢', nm:'nickel' }, 10:{ lb:'10¢', nm:'dime' }, 25:{ lb:'25¢', nm:'quarter' }, 100:{ lb:'$1', nm:'loonie' } };
+function money(c) { return c < 100 ? `${c}¢` : `$${(c / 100).toFixed(2)}`; }
+function moneySpoken(c) { if (c < 100) return `${c} cents`; const d = Math.floor(c / 100), r = c % 100; return `${d} dollar${d > 1 ? 's' : ''}${r ? ` and ${r} cents` : ''}`; }
+function coinTypes(L) { return L <= 0 ? [5] : L === 1 ? [5, 10] : L === 2 ? [5, 10, 25] : [5, 10, 25, 100]; }
+function coinMax(L) { return L <= 0 ? 30 : L === 1 ? 60 : L === 2 ? 100 : 200; }
+const SHOP = ['🍎','🍌','🧃','🍪','🧁','🍦','🥨','🍿','🎈','🖍️','🍓','🧸','🪀','🍩'];
+const cn = { mode:'count', coins:[], counted:new Set(), run:0, total:0, target:0, paid:[], over:0, answered:false, types:[5], L:0 };
+function goCoins() { state.subject = 'coins'; showScreen('coins-example'); }
+function startCoins() { v6start('coins', 'cnStars', 'cnQTotal', 'cnProgress', 8, 'coins-game'); nextCoins(); }
+function genCoinSet(L) {
+  const types = coinTypes(L), max = coinMax(L);
+  for (let g = 0; g < 200; g++) {
+    const n = rand(2, L <= 0 ? 6 : 5);
+    const coins = Array.from({ length: n }, () => types[rand(0, types.length - 1)]);
+    const total = coins.reduce((s, v) => s + v, 0);
+    if (total > max) continue;
+    if (L >= 1 && new Set(coins).size < 2) continue;   // mixed coins once he knows more than one
+    return { coins: coins.sort((a, b) => b - a), total };   // biggest first — the counting strategy
+  }
+  return { coins: [5, 5], total: 10 };
+}
+function coinOptions(total, types) {
+  const big = Math.max(...types), set = new Set([total]);
+  for (const d of shuffle([5, -5, 10, -10, big, -big, 15, -15])) { if (set.size >= 4) break; if (total + d > 0) set.add(total + d); }
+  let k = 20; while (set.size < 4) set.add(total + (k += 5));
+  return shuffle([...set]);
+}
+function payHint(t, types) { const out = []; for (const v of [...types].sort((a, b) => b - a)) while (t >= v) { out.push(v); t -= v; } return out; }
+function coinHTML(v, extra, attrs) { return `<button class="coin n${v}${extra || ''}" ${attrs || ''}>${COINS[v].lb}</button>`; }
+function nextCoins() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('coins', Math.floor(state.problemIndex / 4));
+  cn.L = L; cn.types = coinTypes(L); cn.answered = false; cn.over = 0;
+  cn.mode = state.problemIndex % 2 === 1 ? 'pay' : 'count';
+  document.getElementById('cnQNum').textContent = state.problemIndex + 1;
+  const fb = document.getElementById('cnFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  const set = genCoinSet(L);
+  if (cn.mode === 'count') {
+    cn.coins = set.coins; cn.total = set.total; cn.counted = new Set(); cn.run = 0;
+    document.getElementById('cnTitle').textContent = 'How much money?';
+    renderCoinCount();
+    const grid = document.createElement('div'); grid.className = 'answer-grid'; grid.id = 'cnAnswers';
+    document.getElementById('cnBody').appendChild(grid);
+    coinOptions(cn.total, cn.types).forEach(o => {
+      const b = document.createElement('button'); b.className = 'answer-btn'; b.textContent = money(o);
+      b.onclick = () => answerCoins(b, o); grid.appendChild(b);
+    });
+    setTimeout(() => speak('How much money? Tap each coin to count.', .9), 300);
+  } else {
+    cn.target = set.total; cn.paid = []; cn.item = SHOP[rand(0, SHOP.length - 1)];
+    document.getElementById('cnTitle').textContent = 'Pay exactly!';
+    renderCoinPay();
+    setTimeout(() => speak(`It costs ${moneySpoken(cn.target)}. Tap coins to pay.`, .9), 300);
+  }
+}
+function renderCoinCount() {
+  const body = document.getElementById('cnBody'); body.innerHTML = '';
+  const row = document.createElement('div'); row.className = 'coin-row'; row.style.paddingBottom = '12px';
+  cn.coins.forEach((v, i) => {
+    const b = document.createElement('button'); b.className = 'coin n' + v + (cn.counted.has(i) ? ' counted' : ''); b.id = 'cnc-' + i;
+    b.innerHTML = COINS[v].lb + (cn.counted.has(i) ? `<span class="ctag">${cn.tagAt && cn.tagAt[i]}</span>` : '');
+    b.onclick = () => cnCount(i); row.appendChild(b);
+  });
+  body.appendChild(row);
+  const run = document.createElement('div'); run.className = 'coin-run'; run.id = 'cnRun';
+  run.innerHTML = cn.counted.size ? `Counting: <b>${money(cn.run)}</b>` : '👆 Tap each coin to count';
+  body.appendChild(run);
+}
+function cnCount(i) {
+  if (cn.mode !== 'count' || cn.counted.has(i)) return;
+  cn.counted.add(i); cn.run += cn.coins[i]; cn.tagAt = cn.tagAt || {}; cn.tagAt[i] = money(cn.run);
+  sfxStar(); speak(cn.run < 100 ? String(cn.run) : moneySpoken(cn.run), 1);
+  const grid = document.getElementById('cnAnswers'); renderCoinCount(); if (grid) document.getElementById('cnBody').appendChild(grid);
+}
+function answerCoins(btn, v) {
+  if (cn.answered) return; cn.answered = true;
+  const all = document.querySelectorAll('#cnAnswers .answer-btn'); all.forEach(b => b.disabled = true);
+  const fb = document.getElementById('cnFeedback');
+  if (v === cn.total) {
+    btn.classList.add('correct'); v6star('cnStars'); sfxCorrect(); confetti(14);
+    fb.textContent = `Yes! ${money(cn.total)} 🎉`; fb.classList.remove('wrong');
+    speak(`Yes! ${moneySpoken(cn.total)}`, .9);
+    if (state.streak >= 2) showStreak(state.streak);
+    setTimeout(() => v6next('cnProgress', nextCoins), 1800);
+  } else {
+    btn.classList.add('wrong'); state.streak = 0; sfxWrong();
+    all.forEach(b => { if (b.textContent === money(cn.total)) b.classList.add('correct'); });
+    let r = 0; const steps = cn.coins.map(c => money(r += c)).join(', ');
+    fb.textContent = `Let's count: ${steps}. It's ${money(cn.total)}!`; fb.classList.add('wrong');
+    speak(`Let's count together. ${cn.coins.map((c, i) => { let s = 0; for (let j = 0; j <= i; j++) s += cn.coins[j]; return s < 100 ? s : moneySpoken(s); }).join(', ')}`, .9);
+    setTimeout(() => v6next('cnProgress', nextCoins), 3600);
+  }
+}
+function renderCoinPay() {
+  const paidSum = cn.paid.reduce((s, v) => s + v, 0);
+  document.getElementById('cnBody').innerHTML = `
+    <div class="shop"><span class="si">${cn.item}</span><span class="price">${money(cn.target)}</span></div>
+    <div class="paid" id="cnPaid">${cn.paid.length ? cn.paid.map((v, i) => coinHTML(v, '', `onclick="cnUnpay(${i})" aria-label="take back ${COINS[v].nm}"`)).join('') : '<span class="empty-hint">Your coins go here 👇</span>'}</div>
+    <div class="paid-total">You paid: <b style="color:${paidSum > cn.target ? 'var(--bad)' : 'var(--green)'}">${money(paidSum)}</b> of ${money(cn.target)}</div>
+    <div class="tray">${cn.types.map(v => coinHTML(v, '', `onclick="cnPay(${v})" aria-label="add ${COINS[v].nm}"`)).join('')}</div>
+    <div class="hint">Tap a coin below to pay · tap a coin in the box to take it back</div>`;
+}
+function cnPay(v) {
+  if (cn.mode !== 'pay' || cn.answered) return;
+  cn.paid.push(v); sfxClick();
+  const sum = cn.paid.reduce((s, x) => s + x, 0);
+  speak(sum < 100 ? String(sum) : moneySpoken(sum), 1.05);
+  renderCoinPay();
+  const fb = document.getElementById('cnFeedback');
+  if (sum === cn.target) {
+    cn.answered = true; if (cn.over <= 1) v6star('cnStars'); sfxCorrect(); confetti(16);
+    fb.textContent = `Exactly ${money(cn.target)}! Enjoy your ${cn.item}`; fb.classList.remove('wrong');
+    setTimeout(() => v6next('cnProgress', nextCoins), 2000);
+  } else if (sum > cn.target) {
+    cn.over++; state.streak = 0; sfxWrong(); fb.classList.add('wrong');
+    fb.textContent = `Too much! ${money(sum)} is more than ${money(cn.target)}. Tap a coin to take it back.`;
+    if (cn.over >= 3) fb.textContent += ` Try: ${payHint(cn.target, cn.types).map(money).join(' + ')}`;
+  } else { fb.textContent = ''; fb.classList.remove('wrong'); }
+}
+function cnUnpay(i) { if (cn.answered) return; cn.paid.splice(i, 1); sfxClick(); renderCoinPay(); }
+
+// ---------------------------------------------------------------------
+// PIZZA PARTS — fractions as fair shares
+// ---------------------------------------------------------------------
+const FR_NAME = { 2:['half','halves'], 3:['third','thirds'], 4:['quarter','quarters'], 6:['sixth','sixths'], 8:['eighth','eighths'] };
+const FR_NUM = ['zero','one','two','three','four','five','six','seven','eight'];
+function fracWords(k, n) { return `${FR_NUM[k]} ${k === 1 ? FR_NAME[n][0] : FR_NAME[n][1]}`; }
+function fracHTML(k, n) { return `<span class="frac"><span class="fn">${k}</span><span class="fd">${n}</span></span>`; }
+function equalCuts(n) { return Array.from({ length: n }, (_, i) => i * 360 / n); }
+const UNEQUAL = { 2:[0, 115], 3:[0, 70, 200], 4:[0, 55, 170, 250] };
+function pizzaSVG(cuts, topped) {
+  const cx = 100, cy = 100, r = 84, pt = a => { const t = (a - 90) * Math.PI / 180; return [cx + r * Math.cos(t), cy + r * Math.sin(t)]; };
+  let s = `<svg viewBox="0 0 200 200" class="pz-svg" role="img" aria-label="pizza in ${cuts.length} pieces">`;
+  s += `<circle cx="${cx}" cy="${cy}" r="${r + 8}" fill="#E2A04A"/>`;
+  cuts.forEach((a0, i) => {
+    const a1 = i + 1 < cuts.length ? cuts[i + 1] : 360, [x0, y0] = pt(a0), [x1, y1] = pt(a1), big = a1 - a0 > 180 ? 1 : 0;
+    const top = topped.includes(i);
+    s += cuts.length === 1 ? `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${top ? '#FFC04D' : '#FFE08A'}"/>`
+      : `<path d="M${cx},${cy} L${x0},${y0} A${r},${r} 0 ${big} 1 ${x1},${y1} Z" fill="${top ? '#FFC04D' : '#FFE08A'}" stroke="#C9792E" stroke-width="3" stroke-linejoin="round"/>`;
+    if (top) {
+      const mid = (a0 + a1) / 2, t = (mid - 90) * Math.PI / 180, rr = cuts.length === 1 ? 0 : r * .58;
+      const fs = cuts.length >= 6 ? 20 : 28;
+      s += `<text x="${cx + rr * Math.cos(t)}" y="${cy + rr * Math.sin(t) + fs * .35}" text-anchor="middle" font-size="${fs}">🍄</text>`;
+    }
+  });
+  return s + '</svg>';
+}
+function pzLevelDens(L) { return L <= 0 ? [2, 4] : L === 1 ? [2, 3, 4] : [2, 3, 4, 6, 8]; }
+const pz = { q:null, answered:false };
+function goFractions() {
+  state.subject = 'fractions';
+  const ex = document.getElementById('pzExample');
+  if (ex) ex.innerHTML = `<div style="display:flex;gap:10px;justify-content:center;"><div style="width:110px">${pizzaSVG(equalCuts(2), [0])}</div><div style="width:110px">${pizzaSVG(equalCuts(4), [0])}</div></div>`;
+  showScreen('fractions-example');
+}
+function startFractions() { v6start('fractions', 'pzStars', 'pzQTotal', 'pzProgress', 8, 'fractions-game'); nextFractions(); }
+function genFraction(L, i) {
+  const dens = pzLevelDens(L);
+  const kinds = L <= 0 ? ['equal', 'part'] : L === 1 ? ['equal', 'part', 'part'] : ['part', 'compare', 'equal'];
+  const kind = kinds[i % kinds.length];
+  if (kind === 'equal') {
+    const nn = L <= 0 ? [2, 4][rand(0, 1)] : [2, 3, 4][rand(0, 2)];
+    const others = [2, 3, 4].filter(x => x !== nn);
+    const opts = shuffle([{ cuts: equalCuts(nn), ok: true }, { cuts: UNEQUAL[nn], ok: false }, ...others.map(x => ({ cuts: equalCuts(x), ok: false }))]);
+    return { kind, n: nn, opts };
+  }
+  if (kind === 'compare') {
+    let a = dens[rand(0, dens.length - 1)], b; do { b = dens[rand(0, dens.length - 1)]; } while (b === a);
+    return { kind, a, b, bigger: a < b ? a : b };
+  }
+  const n = dens[rand(0, dens.length - 1)], k = L <= 0 ? 1 : rand(1, n - 1);
+  const key = (x, y) => x + '/' + y, set = new Map([[key(k, n), [k, n]]]);
+  const okF = ([x, y]) => x >= 1 && y >= 2 && x < y && FR_NAME[y] && x * n !== k * y;
+  const cands = [[n - k, n], [1, n], [k, n + 1], [k, n - 1], [k + 1, n], [n, k]].filter(okF);
+  for (const c of shuffle(cands)) { if (set.size >= 4) break; set.set(key(c[0], c[1]), c); }
+  for (const y of [2, 3, 4, 6, 8]) for (let x = 1; x < y && set.size < 4; x++) if (okF([x, y])) set.set(key(x, y), [x, y]);
+  const topped = shuffle([...Array(n).keys()]).slice(0, k);
+  return { kind, n, k, topped, opts: shuffle([...set.values()]) };
+}
+function nextFractions() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('fractions', Math.floor(state.problemIndex / 4));
+  const q = genFraction(L, state.problemIndex); pz.q = q; pz.answered = false;
+  document.getElementById('pzQNum').textContent = state.problemIndex + 1;
+  const fb = document.getElementById('pzFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  const body = document.getElementById('pzBody'), title = document.getElementById('pzTitle');
+  if (q.kind === 'equal') {
+    title.innerHTML = `Which pizza is cut into ${q.n} <u>equal</u> pieces?`;
+    body.innerHTML = `<div class="hint">Equal means every piece is the same size — fair for everyone!</div><div class="pz-opts" id="pzOpts"></div>`;
+    q.opts.forEach((o, i) => { const b = document.createElement('button'); b.className = 'pz-opt'; b.innerHTML = pizzaSVG(o.cuts, []); b.id = 'pzo-' + i; b.onclick = () => answerFraction(b, o.ok, i); document.getElementById('pzOpts').appendChild(b); });
+    speak(`Which pizza is cut into ${FR_NUM[q.n]} equal pieces?`, .9);
+  } else if (q.kind === 'compare') {
+    title.innerHTML = `Which piece is <u>bigger</u>?`;
+    body.innerHTML = `<div class="hint">Each pizza is the same size. Which 🍄 piece would fill you up more?</div><div class="pz-opts" id="pzOpts"></div>`;
+    [q.a, q.b].forEach((n, i) => { const b = document.createElement('button'); b.className = 'pz-opt'; b.innerHTML = pizzaSVG(equalCuts(n), [0]) + `<span class="pl">${fracHTML(1, n)}</span>`; b.id = 'pzo-' + i; b.onclick = () => answerFraction(b, n === q.bigger, i); document.getElementById('pzOpts').appendChild(b); });
+    speak('Which piece is bigger?', .9);
+  } else {
+    title.innerHTML = `What part of the pizza has 🍄?`;
+    body.innerHTML = `<div class="pz-big">${pizzaSVG(equalCuts(q.n), q.topped)}</div><div class="hint">Count the 🍄 pieces (top), then all the pieces (bottom)</div><div class="answer-grid" id="pzOpts"></div>`;
+    q.opts.forEach(([k, n], i) => { const b = document.createElement('button'); b.className = 'answer-btn fr-btn'; b.innerHTML = `${fracHTML(k, n)}<small>${fracWords(k, n)}</small>`; b.dataset.f = k + '/' + n; b.id = 'pzo-' + i; b.onclick = () => answerFraction(b, k === q.k && n === q.n, i); document.getElementById('pzOpts').appendChild(b); });
+    speak('What part of the pizza has mushrooms?', .9);
+  }
+}
+function answerFraction(btn, ok, i) {
+  if (pz.answered) return; pz.answered = true;
+  const q = pz.q, fb = document.getElementById('pzFeedback');
+  const all = document.querySelectorAll('#pzOpts button'); all.forEach(b => b.disabled = true);
+  let why = '';
+  if (q.kind === 'equal') why = `This one has ${FR_NUM[q.n]} pieces all the same size — ${FR_NAME[q.n][1]}!`;
+  else if (q.kind === 'compare') why = `1/${q.bigger} is bigger! Fewer pieces means each piece is bigger.`;
+  else why = `${q.k} of ${q.n} pieces have 🍄 — that's ${q.k}/${q.n}, ${fracWords(q.k, q.n)}.`;
+  if (ok) {
+    btn.classList.add('correct'); v6star('pzStars'); sfxCorrect(); confetti(14);
+    fb.textContent = `Yes! ${why}`; fb.classList.remove('wrong');
+    if (state.streak >= 2) showStreak(state.streak);
+  } else {
+    btn.classList.add('wrong'); state.streak = 0; sfxWrong(); fb.classList.add('wrong');
+    fb.textContent = why;
+    if (q.kind === 'part') all.forEach(b => { if (b.dataset.f === q.k + '/' + q.n) b.classList.add('correct'); });
+    else if (q.kind === 'equal') q.opts.forEach((o, j) => { if (o.ok) { const el = document.getElementById('pzo-' + j); if (el) el.classList.add('correct'); } });
+    else [q.a, q.b].forEach((n, j) => { if (n === q.bigger) { const el = document.getElementById('pzo-' + j); if (el) el.classList.add('correct'); } });
+  }
+  speak(why.replace(/(\d)\/(\d)/g, (_, k, n) => fracWords(+k, +n)), .9);
+  setTimeout(() => v6next('pzProgress', nextFractions), ok ? 2400 : 3600);
+}
+
+// ---------------------------------------------------------------------
+// MOUSE MAZE — perfect mazes (always solvable), stars unlock the cheese
+// ---------------------------------------------------------------------
+const MZ_DIR = { N:[0, -1, 'S'], E:[1, 0, 'W'], S:[0, 1, 'N'], W:[-1, 0, 'E'] };
+function genMaze(n) {
+  const W = Array.from({ length: n }, () => Array.from({ length: n }, () => ({ N:true, E:true, S:true, W:true })));
+  const seen = Array.from({ length: n }, () => Array(n).fill(false)), stack = [[0, 0]]; seen[0][0] = true;
+  while (stack.length) {
+    const [x, y] = stack[stack.length - 1];
+    const opts = Object.keys(MZ_DIR).filter(d => { const nx = x + MZ_DIR[d][0], ny = y + MZ_DIR[d][1]; return nx >= 0 && ny >= 0 && nx < n && ny < n && !seen[ny][nx]; });
+    if (!opts.length) { stack.pop(); continue; }
+    const d = opts[rand(0, opts.length - 1)], nx = x + MZ_DIR[d][0], ny = y + MZ_DIR[d][1];
+    W[y][x][d] = false; W[ny][nx][MZ_DIR[d][2]] = false; seen[ny][nx] = true; stack.push([nx, ny]);
+  }
+  return W;
+}
+function mazeDist(W, n, sx, sy) {
+  const D = Array.from({ length: n }, () => Array(n).fill(-1)); D[sy][sx] = 0; const q = [[sx, sy]];
+  while (q.length) { const [x, y] = q.shift(); for (const d of Object.keys(MZ_DIR)) { if (W[y][x][d]) continue; const nx = x + MZ_DIR[d][0], ny = y + MZ_DIR[d][1]; if (D[ny][nx] < 0) { D[ny][nx] = D[y][x] + 1; q.push([nx, ny]); } } }
+  return D;
+}
+const mz = { n:5, W:null, pos:[0, 0], goal:[4, 4], stars:[], got:0, moves:0, trail:null, done:false };
+function goMaze() { state.subject = 'maze'; showScreen('maze-example'); }
+function startMaze() { v6start('maze', 'mzStars', 'mzQTotal', 'mzProgress', 4, 'maze-game'); nextMaze(); }
+function nextMaze() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('maze', Math.floor(state.problemIndex / 2));
+  const n = [5, 6, 8, 10][L], nStars = [0, 0, 2, 3][L];
+  mz.n = n; mz.W = genMaze(n); mz.pos = [0, 0]; mz.goal = [n - 1, n - 1]; mz.got = 0; mz.moves = 0; mz.done = false;
+  mz.trail = new Set(['0,0']);
+  const D = mazeDist(mz.W, n, 0, 0);
+  const cand = [];
+  for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
+    if ((x === 0 && y === 0) || (x === n - 1 && y === n - 1)) continue;
+    const walls = ['N', 'E', 'S', 'W'].filter(d => mz.W[y][x][d]).length;
+    cand.push({ x, y, score: D[y][x] + (walls === 3 ? n : 0) });   // prefer far-away dead ends
+  }
+  cand.sort((a, b) => b.score - a.score);
+  mz.stars = shuffle(cand.slice(0, Math.max(nStars * 3, nStars))).slice(0, nStars).map(c => [c.x, c.y]); mz.starTotal = mz.stars.length;
+  document.getElementById('mzQNum').textContent = state.problemIndex + 1;
+  const fb = document.getElementById('mzFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  renderMaze(); mzBindSwipe();
+  setTimeout(() => speak(nStars ? `Collect the stars, then find the cheese!` : 'Help the mouse find the cheese!', .9), 300);
+}
+function mzStarAt(x, y) { return mz.stars.some(s => s[0] === x && s[1] === y); }
+function renderMaze() {
+  const n = mz.n, board = document.getElementById('mzBoard');
+  board.style.gridTemplateColumns = `repeat(${n}, 1fr)`; board.innerHTML = '';
+  const fs = Math.floor(300 / n * .62), wall = n >= 8 ? 3 : 4, ink = '#1E2138';
+  for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
+    const c = document.createElement('div'), w = mz.W[y][x];
+    const me = mz.pos[0] === x && mz.pos[1] === y, goal = mz.goal[0] === x && mz.goal[1] === y;
+    c.className = 'mz-cell' + (me ? ' me' : mz.trail.has(x + ',' + y) ? ' trail' : '');
+    c.style.cssText = `font-size:${fs}px;border-top:${w.N ? wall : 0}px solid ${ink};border-left:${w.W ? wall : 0}px solid ${ink};border-right:${x === n - 1 && w.E ? wall : 0}px solid ${ink};border-bottom:${y === n - 1 && w.S ? wall : 0}px solid ${ink};`;
+    c.textContent = me ? '🐭' : goal ? (mz.stars.length ? '🔒' : '🧀') : mzStarAt(x, y) ? '⭐' : '';
+    c.onclick = () => { const dx = x - mz.pos[0], dy = y - mz.pos[1]; if (Math.abs(dx) + Math.abs(dy) === 1) mzMove(dx === 1 ? 'E' : dx === -1 ? 'W' : dy === 1 ? 'S' : 'N'); };
+    board.appendChild(c);
+  }
+  document.getElementById('mzInfo').textContent = mz.starTotal
+    ? (mz.stars.length ? `⭐ ${mz.got} of ${mz.starTotal} stars · then the 🧀!` : `All ⭐ found — the 🧀 is open!`) : `${n}×${n} maze · find the 🧀!`;
+}
+function mzMove(d) {
+  if (mz.done || !mz.W) return;
+  const [x, y] = mz.pos;
+  if (mz.W[y][x][d]) { sfxWrong(); buzz(15); return; }
+  const nx = x + MZ_DIR[d][0], ny = y + MZ_DIR[d][1];
+  mz.pos = [nx, ny]; mz.moves++; mz.trail.add(nx + ',' + ny); sfxStep();
+  const fb = document.getElementById('mzFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  const si = mz.stars.findIndex(s => s[0] === nx && s[1] === ny);
+  if (si >= 0) {
+    mz.stars.splice(si, 1); mz.got++; sfxStar(); confetti(8);
+    if (!mz.stars.length) speak('The cheese is open!', 1);
+  }
+  renderMaze();
+  if (nx === mz.goal[0] && ny === mz.goal[1]) {
+    if (mz.stars.length) { fb.textContent = `🔒 Locked! Find ${mz.stars.length} more ⭐ first.`; fb.classList.add('wrong'); return; }
+    mz.done = true; v6star('mzStars'); sfxCorrect(); confetti(24);
+    fb.textContent = `Yum! The mouse found the cheese in ${mz.moves} moves! 🧀`;
+    speak('Yum! You found the cheese!', .9);
+    setTimeout(() => v6next('mzProgress', nextMaze), 2000);
+  }
+}
+function mzBindSwipe() {
+  const b = document.getElementById('mzBoard'); if (!b || b._swipe) return; b._swipe = true;
+  let sx = 0, sy = 0;
+  b.addEventListener('touchstart', e => { const t = e.touches[0]; sx = t.clientX; sy = t.clientY; }, { passive: true });
+  b.addEventListener('touchend', e => {
+    const t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+    if (Math.max(Math.abs(dx), Math.abs(dy)) < 24) return;
+    mzMove(Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? 'E' : 'W') : (dy > 0 ? 'S' : 'N'));
+  }, { passive: true });
+}
+document.addEventListener('keydown', e => {
+  if (state.screen !== 'maze-game') return;
+  const k = { ArrowUp:'N', ArrowDown:'S', ArrowLeft:'W', ArrowRight:'E' }[e.key];
+  if (k) { e.preventDefault(); mzMove(k); }
+});
+
+// ---------------------------------------------------------------------
+// WORD BUBBLES — sight words (Dolch pre-primer → primer → grade 1)
+// ---------------------------------------------------------------------
+const SIGHT = [
+  ['a','and','big','blue','can','come','down','find','for','funny','go','help','here','I','in','is','it','jump','look','make','me','my','not','one','play','red','run','said','see','the','three','to','two','up','we','where','yellow','you'],
+  ['all','am','are','at','ate','be','black','brown','but','came','did','do','eat','four','get','good','have','he','into','like','must','new','no','now','on','our','out','please','pretty','ran','ride','saw','say','she','so','soon','that','there','they','this','too','under','want','was','well','went','what','white','who','will','with','yes'],
+  ['after','again','an','any','as','ask','by','could','every','fly','from','give','going','had','has','her','him','his','how','just','know','let','live','may','of','old','once','open','over','put','round','some','stop','take','thank','them','then','think','walk','were','when'],
+];
+const SW_COLORS = [['#FF7AA8','#FF7563'], ['#4D96FF','#19C8D6'], ['#36C98D','#8DD23F'], ['#8B7CF6','#6C5CE7'], ['#FFB23E','#FF9F1C'], ['#19C8D6','#4D96FF']];
+const sw = { word:'', words:[], wrong:0, done:false, pool:[] };
+function goSightWord() { state.subject = 'sightword'; showScreen('sightword-example'); }
+function startSightWord() { sw.pool = []; v6start('sightword', 'swStars', 'swQTotal', 'swProgress', 10, 'sightword-game'); nextSightWord(); }
+function nextSightWord() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('sightword', Math.floor(state.problemIndex / 5));
+  const list = SIGHT[L];
+  if (!sw.pool.length || sw.L !== L) { sw.pool = shuffle([...list]); sw.L = L; }
+  sw.word = sw.pool.shift(); sw.wrong = 0; sw.done = false;
+  const n = [4, 5, 6][L];
+  let others = list.filter(w => w !== sw.word);
+  if (L >= 2) { const same = others.filter(w => w[0] === sw.word[0]); others = [...shuffle(same).slice(0, 2), ...shuffle(others.filter(w => w[0] !== sw.word[0]))]; } else others = shuffle(others);
+  sw.words = shuffle([sw.word, ...others.slice(0, n - 1)]);
+  document.getElementById('swQNum').textContent = state.problemIndex + 1;
+  const fb = document.getElementById('swFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  const field = document.getElementById('swField'); field.innerHTML = '';
+  sw.words.forEach((w, i) => {
+    const b = document.createElement('button'); b.className = 'sw-bub'; b.textContent = w; b.id = 'swb-' + i; b.dataset.w = w;
+    const [c1, c2] = SW_COLORS[i % SW_COLORS.length];
+    b.style.background = `linear-gradient(135deg,${c1},${c2})`; b.style.animationDelay = `${(i * .45) % 2}s`;
+    b.onclick = () => swTap(b, w); field.appendChild(b);
+  });
+  setTimeout(() => speak(`Find the word: ${sw.word}`, .85), 350);
+}
+function swHear() { sfxClick(); speak(sw.word, .75); }
+function swTap(btn, w) {
+  if (sw.done) return;
+  const fb = document.getElementById('swFeedback');
+  if (w === sw.word) {
+    sw.done = true; btn.classList.add('pop'); if (sw.wrong <= 1) v6star('swStars'); sfxCorrect(); confetti(14);
+    fb.textContent = `Pop! You found "${sw.word}" 🫧`; fb.classList.remove('wrong');
+    speak(sw.word, .85);
+    if (state.streak >= 2 && sw.wrong === 0) showStreak(state.streak);
+    setTimeout(() => v6next('swProgress', nextSightWord), 1600);
+  } else {
+    sw.wrong++; state.streak = 0; sfxWrong(); btn.classList.add('bad'); setTimeout(() => btn.classList.remove('bad'), 450);
+    fb.classList.add('wrong'); fb.textContent = `That one says "${w}". Find "${sw.word}"!`;
+    speak(`That says ${w}. Find ${sw.word}.`, .85);
+    if (sw.wrong >= 2) document.querySelectorAll('#swField .sw-bub').forEach(b => { if (b.dataset.w === sw.word) b.classList.add('glow'); });
+  }
+}
+
+// ---------------------------------------------------------------------
+// STORY ORDER — sequencing: first, next, then, last
+// ---------------------------------------------------------------------
+const STORIES = [
+  { t:'A chick grows up', s:[['🥚','egg'], ['🐣','hatch'], ['🐥','chick'], ['🐔','hen']] },
+  { t:'A flower grows', s:[['🌱','sprout'], ['🌿','grow'], ['🌻','flower']] },
+  { t:'After the rain', s:[['☁️','clouds'], ['🌧️','rain'], ['🌈','rainbow']] },
+  { t:'A butterfly', s:[['🥚','egg'], ['🐛','caterpillar'], ['🦋','butterfly']] },
+  { t:'Morning time', s:[['🛏️','wake up'], ['🪥','brush teeth'], ['🥣','eat'], ['🎒','go to school']] },
+  { t:'A big tree', s:[['🌰','acorn'], ['🌱','sprout'], ['🌳','tree']] },
+  { t:'The snowman', s:[['❄️','snow'], ['⛄','snowman'], ['☀️','sun'], ['💧','melt']] },
+  { t:'Growing up', s:[['👶','baby'], ['🧒','kid'], ['🧑','grown-up'], ['👴','grandpa']] },
+  { t:'An apple', s:[['🌸','blossom'], ['🍏','little apple'], ['🍎','red apple']] },
+  { t:'Planting', s:[['🕳️','dig'], ['🌱','plant'], ['💧','water'], ['🌻','bloom']] },
+  { t:'Lunch time', s:[['🍞','bread'], ['🧀','cheese'], ['🥪','sandwich'], ['😋','eat']] },
+  { t:'Bedtime', s:[['🛁','bath'], ['📖','story'], ['😴','sleep']] },
+];
+const STEP_LABELS = { 3:['First','Next','Last'], 4:['First','Next','Then','Last'] };
+const st = { story:null, next:0, wrong:0, cards:[], wordsOnly:false, pool:[] };
+function goStory() { state.subject = 'story'; showScreen('story-example'); }
+function startStory() { st.pool = []; v6start('story', 'stStars', 'stQTotal', 'stProgress', 6, 'story-game'); nextStory(); }
+function nextStory() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('story', Math.floor(state.problemIndex / 3));
+  const fits = STORIES.filter(s => L <= 0 ? s.s.length === 3 : L === 1 ? true : s.s.length === 4);
+  if (!st.pool.length || st.L !== L) { st.pool = shuffle([...fits]); st.L = L; }
+  st.story = st.pool.shift(); st.next = 0; st.wrong = 0; st.wordsOnly = L >= 2;
+  st.cards = shuffle(st.story.s.map((c, i) => ({ e:c[0], w:c[1], i })));
+  document.getElementById('stQNum').textContent = state.problemIndex + 1;
+  document.getElementById('stTitle').textContent = st.story.t;
+  const fb = document.getElementById('stFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  renderStory();
+  setTimeout(() => speak(`${st.story.t}. What happens first?`, .9), 300);
+}
+function renderStory() {
+  const n = st.story.s.length, labels = STEP_LABELS[n];
+  const slots = document.getElementById('stSlots'); slots.style.gridTemplateColumns = `repeat(${n},1fr)`;
+  slots.innerHTML = st.story.s.map((c, i) => i < st.next
+    ? `<div class="st-slot filled"><span class="sl">${labels[i]}</span><span class="se">${c[0]}</span><span class="sc">${c[1]}</span></div>`
+    : `<div class="st-slot"><span class="sl">${labels[i]}</span><span class="sc" style="color:#C9CDE0">?</span></div>`).join('');
+  const box = document.getElementById('stCards'); box.innerHTML = '';
+  st.cards.filter(c => c.i >= st.next).forEach(c => {
+    const b = document.createElement('button'); b.className = 'st-card' + (st.wordsOnly ? ' wordonly' : ''); b.id = 'stc-' + c.i;
+    b.innerHTML = (st.wordsOnly ? '' : `<span class="se">${c.e}</span>`) + `<span class="sc">${c.w}</span>`;
+    b.onclick = () => stTap(b, c); box.appendChild(b);
+  });
+}
+function stTap(btn, c) {
+  if (st.next >= st.story.s.length) return;
+  const fb = document.getElementById('stFeedback'), labels = STEP_LABELS[st.story.s.length];
+  if (c.i === st.next) {
+    st.next++; sfxStar(); speak(c.w, .9); fb.textContent = ''; fb.classList.remove('wrong'); renderStory();
+    if (st.next >= st.story.s.length) {
+      if (st.wrong <= 1) v6star('stStars'); sfxCorrect(); confetti(16);
+      const tale = st.story.s.map((x, i) => `${labels[i].toLowerCase()}, ${x[1]}`).join('. ');
+      fb.textContent = `You told the story! ${st.story.s.map(x => x[0]).join(' → ')}`;
+      setTimeout(() => speak(tale.charAt(0).toUpperCase() + tale.slice(1) + '.', .85), 500);
+      setTimeout(() => v6next('stProgress', nextStory), 4200);
+    }
+  } else {
+    st.wrong++; state.streak = 0; sfxWrong(); btn.classList.add('bad'); setTimeout(() => btn.classList.remove('bad'), 450);
+    fb.classList.add('wrong'); fb.textContent = `Hmm, does "${c.w}" happen ${labels[st.next].toLowerCase()}? Think about it!`;
+    if (st.wrong >= 3) { const right = document.getElementById('stc-' + st.next); if (right) right.style.boxShadow = '0 0 0 4px var(--amber)'; }
+  }
+}
+
+// ---------------------------------------------------------------------
+// AI: NEXT-WORD ROBOT — how chatbots work: they guess the next word
+// from patterns in what they've read. Silly stories → silly answers.
+// ---------------------------------------------------------------------
+const NW_ROUNDS = [
+  { prompt:'The cat says', books:['The cat says meow.', 'The dog says woof.', 'The cat says meow.', 'The cow says moo.', 'The cat says purr.', 'The cat says meow.'], opts:['meow', 'woof', 'purr', 'moo'] },
+  { prompt:'A fish can', books:['A fish can swim.', 'A bird can fly.', 'A fish can swim.', 'A frog can jump.', 'A fish can swim fast.', 'A fish can blow bubbles.'], opts:['swim', 'fly', 'jump', 'blow'] },
+  { prompt:'I like to eat', books:['I like to eat apples.', 'I like to eat cake.', 'I like to play ball.', 'I like to eat apples.', 'We like to eat soup.', 'I like to eat apples.'], opts:['apples', 'cake', 'ball', 'soup'] },
+  { prompt:'The sun is', books:['The sun is hot.', 'The sun is yellow.', 'The moon is white.', 'The sun is hot.', 'The snow is cold.', 'The sun is hot.'], opts:['hot', 'yellow', 'white', 'cold'] },
+  { prompt:'The grass is', books:['The grass is purple.', 'The grass is purple.', 'The sky is blue.', 'The grass is purple.', 'The grass is green.'], opts:['purple', 'green', 'blue', 'wet'], twist:true, fix:'The grass is green.' },
+];
+const nw = { ri:0, r:null, books:[], phase:'guess', guess:null, added:0 };
+function nwCounts(prompt, books, opts) {
+  const p = prompt.toLowerCase().split(' '), c = {}; opts.forEach(o => c[o] = 0);
+  books.forEach(b => {
+    const w = b.toLowerCase().replace(/[.,!?]/g, '').split(' ');
+    for (let i = 0; i + p.length < w.length; i++) if (p.every((x, j) => w[i + j] === x)) { const nx = w[i + p.length]; if (nx in c) c[nx]++; }
+  });
+  return c;
+}
+function nwPick(c) { const top = Math.max(...Object.values(c)); const best = Object.keys(c).filter(k => c[k] === top); return best.length === 1 ? best[0] : null; }
+function goNextWord() { startNextWord(); }
+function startNextWord() {
+  markPlayed('nextword');
+  state.subject = 'nextword'; state.stars = 0; state.streak = 0; state.problemIndex = 0; state.totalProblems = NW_ROUNDS.length;
+  nw.ri = 0; document.getElementById('nwStars').textContent = '0'; updateProgress('nwProgress', 0);
+  showScreen('nextword-game'); nwRound();
+}
+function nwBookHTML(b, prompt, added) {
+  const i = b.toLowerCase().indexOf(prompt.toLowerCase());
+  if (i < 0) return `<div class="nw-book${added ? ' added' : ''}" onclick="speak(this.textContent,.85)">${b}</div>`;
+  const before = b.slice(0, i), mid = b.slice(i, i + prompt.length), rest = b.slice(i + prompt.length);
+  const m = rest.match(/^(\s+)(\w+)(.*)$/);
+  const tail = m ? `${m[1]}<span class="nx">${m[2]}</span>${m[3]}` : rest;
+  return `<div class="nw-book${added ? ' added' : ''}" onclick="speak(this.textContent,.85)">${before}<span class="p">${mid}</span>${tail}</div>`;
+}
+function nwRound() {
+  const r = NW_ROUNDS[nw.ri]; nw.r = r; nw.books = [...r.books]; nw.phase = 'guess'; nw.guess = null; nw.added = 0;
+  document.getElementById('nwPhase').textContent = `Round ${nw.ri + 1} of ${NW_ROUNDS.length}`;
+  document.getElementById('nwTitle').textContent = 'The robot read these stories 📚';
+  document.getElementById('nwHint').textContent = 'Tap a story to hear it. Look at the word that comes after the purple words!';
+  document.getElementById('nwBooks').innerHTML = nw.books.map(b => nwBookHTML(b, r.prompt)).join('');
+  document.getElementById('nwAsk').innerHTML = `<div class="nw-prompt">${r.prompt} <span class="blank">?</span></div>
+    <div class="hint">What word will the robot say next? 🤖</div><div class="nw-opts" id="nwOpts"></div>`;
+  r.opts.forEach(o => { const b = document.createElement('button'); b.className = 'quiz-opt'; b.textContent = o; b.dataset.o = o; b.onclick = () => nwGuess(b, o); document.getElementById('nwOpts').appendChild(b); });
+  document.getElementById('nwResult').innerHTML = ''; document.getElementById('nwActions').innerHTML = '';
+  const fb = document.getElementById('nwFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  setTimeout(() => speak(`The robot read these stories. ${r.prompt}... what will the robot say next?`, .9), 300);
+}
+function nwBarsHTML(c, pick, label) {
+  const max = Math.max(1, ...Object.values(c));
+  return `<div class="nw-bars"><h4>${label}</h4>${Object.keys(c).map(o => `<div class="nw-row${o === pick ? ' pick' : ''}"><span class="w">${o}</span><span class="bar"><i style="width:${c[o] / max * 100}%"></i></span><span class="ct">${c[o]}</span></div>`).join('')}</div>`;
+}
+function nwGuess(btn, o) {
+  if (nw.phase !== 'guess') return; nw.phase = 'shown'; nw.guess = o;
+  const r = nw.r, c = nwCounts(r.prompt, nw.books, r.opts), pick = nwPick(c), fb = document.getElementById('nwFeedback');
+  document.querySelectorAll('#nwOpts .quiz-opt').forEach(b => {
+    b.disabled = true;
+    if (b.dataset.o === pick) { if (r.twist) b.style.boxShadow = 'inset 0 0 0 3px var(--amber)'; else b.classList.add('correct'); }
+  });
+  if (o !== pick && !r.twist) btn.classList.add('wrong');
+  document.getElementById('nwResult').innerHTML = nwBarsHTML(c, pick, `🤖 The robot counts what came after "${r.prompt}":`) +
+    `<div class="nw-say">🤖 "${r.prompt} <b>${pick}</b>!"</div>`;
+  if (r.twist) {
+    sfxWrong(); fb.classList.add('wrong');
+    fb.textContent = `Silly robot! Its stories said "purple" ${c.purple} times, so it copied them. Let's teach it better!`;
+    speak(`Silly robot! It read purple ${c.purple} times, so it said purple. Robots copy what they read. Let's teach it better stories!`, .9);
+    document.getElementById('nwActions').innerHTML = `<button class="btn btn-green" onclick="nwTeach()">📖 Teach it: "${r.fix}"</button>`;
+    nw.phase = 'teach';
+  } else {
+    if (o === pick) { v6star('nwStars'); sfxCorrect(); confetti(12); fb.textContent = `You thought like a robot! 🤖 It saw "${pick}" ${c[pick]} times.`; fb.classList.remove('wrong'); }
+    else { sfxWrong(); fb.classList.add('wrong'); fb.textContent = `The robot picks the word it saw most: "${pick}" (${c[pick]} times).`; }
+    speak(`The robot saw ${pick} ${c[pick]} times after ${r.prompt}. So it says: ${r.prompt} ${pick}. That's how chat robots work. They guess the next word!`, .9);
+    document.getElementById('nwActions').innerHTML = `<button class="btn btn-primary" onclick="nwNext()">Next →</button>`;
+  }
+  updateProgress('nwProgress', ((nw.ri + (r.twist ? .5 : 1)) / NW_ROUNDS.length) * 100);
+}
+function nwTeach() {
+  if (nw.phase !== 'teach') return;
+  const r = nw.r; nw.books.push(r.fix); nw.added++; sfxClick();
+  document.getElementById('nwBooks').innerHTML = nw.books.map((b, i) => nwBookHTML(b, r.prompt, i >= r.books.length)).join('');
+  const c = nwCounts(r.prompt, nw.books, r.opts), pick = nwPick(c), fb = document.getElementById('nwFeedback');
+  document.getElementById('nwResult').innerHTML = nwBarsHTML(c, pick, `🤖 After your new stories:`) +
+    `<div class="nw-say">🤖 ${pick ? `"${r.prompt} <b>${pick}</b>!"` : `"Hmm… it's a tie! I can't decide." 🤔`}</div>`;
+  if (pick === 'green') {
+    nw.phase = 'fixed'; v6star('nwStars'); sfxCorrect(); confetti(20); fb.classList.remove('wrong');
+    fb.textContent = `You fixed it! Good stories → good answers. That's why people check what AI says! ✅`;
+    speak('You fixed it! Now the robot says green. Good stories make good answers. And remember, always check what a robot says!', .9);
+    updateProgress('nwProgress', 100);
+    document.getElementById('nwActions').innerHTML = `<button class="btn btn-primary" onclick="nwNext()">Finish 🎓</button>`;
+  } else if (!pick) {
+    fb.textContent = `A tie! Teach it one more time…`; speak("It's a tie! Teach it one more time.", .9);
+  } else {
+    fb.textContent = `Still "${pick}"… keep teaching! (${c.green} green vs ${c.purple} purple)`; speak('Keep teaching!', .9);
+  }
+}
+function nwNext() { if (nw.phase === 'guess' || nw.phase === 'teach') return; nw.ri++; if (nw.ri >= NW_ROUNDS.length) { celebrate(); return; } nwRound(); }
 
 // ===============================
 // SERVICE WORKER
