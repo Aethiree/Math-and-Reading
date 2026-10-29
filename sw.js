@@ -3,7 +3,7 @@
 // Cache-first strategy: game works 100% offline after first load
 // ============================================================
 
-const CACHE_NAME = 'keshav-learn-v7';
+const CACHE_NAME = 'keshav-learn-v8';
 
 // All assets we need to cache on install
 const PRECACHE_URLS = [

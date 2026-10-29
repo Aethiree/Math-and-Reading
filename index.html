@@ -748,6 +748,92 @@
   .nw-row .ct { min-width:22px; text-align:right; color:var(--ink-soft); }
   .nw-say { font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.15rem; margin-top:8px; text-align:center; }
 
+
+  /* ===================== v8: Montessori Shelf ===================== */
+  .mo-mat { background:linear-gradient(135deg,#F6E7CB,#EBD3A8); border-radius:var(--r-lg); padding:12px; box-shadow:inset 0 2px 8px rgba(120,80,30,.18); margin-top:12px; }
+  .mo-note { font-size:.8rem; font-weight:700; color:#8A6A3A; margin-top:6px; }
+
+  /* Movable Alphabet — vowels blue, consonants red (classroom colours) */
+  .ma-pic { font-size:4.2rem; line-height:1; cursor:pointer; margin-top:6px; }
+  .ma-line { display:flex; gap:4px; justify-content:center; align-items:center; flex-wrap:wrap; min-height:70px; padding:6px; background:#fff; border-radius:var(--r-md); margin-top:12px; box-shadow:inset 0 0 0 2px var(--line-2); }
+  .ma-line .empty-hint { font-size:.85rem; font-weight:700; color:var(--ink-soft); }
+  .ma-slot { width:44px; height:58px; border-bottom:4px solid #D8DCEB; margin:0 1px; }
+  .ma-l { width:44px; height:58px; border:none; background:transparent; font-family:'Fredoka',sans-serif; font-weight:600; font-size:2.5rem; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; border-radius:10px; padding:0; }
+  .ma-l.v, .ma-key.v { color:#1E63D6; }
+  .ma-l.c, .ma-key.c { color:#D6334A; }
+  .ma-l.ok { background:#E7FBF1; }
+  .ma-l.bad { background:#FFE9EC; animation:shake .4s ease; }
+  .ma-box { display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-top:12px; padding:10px; background:linear-gradient(135deg,#C99B62,#A87638); border-radius:16px; box-shadow:inset 0 3px 8px rgba(0,0,0,.28); }
+  .ma-key { aspect-ratio:1; border:none; border-radius:9px; background:#FBF4E6; font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.6rem; cursor:pointer; box-shadow:0 3px 0 rgba(0,0,0,.22); padding:0; }
+  .ma-key:active { transform:translateY(2px); box-shadow:0 1px 0 rgba(0,0,0,.22); }
+
+  /* Sandpaper Letters */
+  .tr-wrap { position:relative; width:100%; max-width:340px; aspect-ratio:340/260; margin:12px auto 0; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-md); touch-action:none; background:#F4B6C2; }
+  .tr-wrap canvas { position:absolute; inset:0; width:100%; height:100%; touch-action:none; }
+  .tr-meter { height:10px; max-width:340px; margin:10px auto 0; background:#ECEEF7; border-radius:999px; overflow:hidden; }
+  .tr-meter i { display:block; height:100%; width:0; background:linear-gradient(90deg,var(--green),var(--teal)); transition:width .3s; }
+  .tr-ctrls { display:flex; gap:10px; justify-content:center; margin-top:12px; flex-wrap:wrap; }
+  .tr-ctrls .btn { min-height:48px; padding:10px 16px; font-size:1rem; }
+
+  /* Golden beads & Bank Game (place-value colours: units green, tens blue, hundreds red, thousands green) */
+  .pv-u, .pv-th { color:#2E9E4F; } .pv-t { color:#2B6CD9; } .pv-h { color:#D63B3B; }
+  .bk-card { display:inline-flex; font-family:'Fredoka',sans-serif; font-weight:700; font-size:2.6rem; background:#fff; border-radius:14px; padding:4px 16px; box-shadow:var(--shadow-sm); letter-spacing:2px; margin-top:6px; }
+  .bk-words { font-weight:800; color:var(--ink-soft); font-size:.95rem; margin-top:4px; }
+  .bk-tray { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:flex-end; min-height:120px; }
+  .bk-group { display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer; min-width:54px; }
+  .bk-items { display:flex; flex-wrap:wrap; gap:3px; justify-content:center; align-items:flex-end; max-width:170px; min-height:20px; }
+  .bk-glabel { font-size:.74rem; font-weight:800; white-space:nowrap; }
+  .bk-shelf { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
+  .bk-take { background:#fff; border:1px solid var(--line-2); border-radius:14px; padding:8px 10px; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:5px; min-width:70px; min-height:96px; cursor:pointer; box-shadow:var(--shadow-sm); font-weight:800; font-size:.74rem; color:var(--ink); }
+  .bk-take:active { transform:scale(.95); }
+  .bk-trade { margin-top:10px; }
+  .gb-unit { display:inline-block; width:14px; height:14px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#FFF2B3,#E0A800 70%); box-shadow:0 1px 1px rgba(0,0,0,.25); }
+  .gb-ten { display:inline-block; width:13px; height:92px; border-radius:7px; background:radial-gradient(circle,#F7CD3B 0 4.4px,#B88A1B 4.9px,transparent 5.5px) center top/13px 9.2px repeat-y; }
+  .gb-hun { display:inline-block; width:60px; height:60px; border-radius:4px; background:radial-gradient(circle,#F2C230 0 2.3px,#B88A1B 2.6px,transparent 2.9px) 0 0/6px 6px #FCF0C8; border:2px solid #C79A22; }
+  .gb-th { width:60px; height:60px; display:inline-block; }
+  .nc-cols { display:grid; gap:8px; margin-top:12px; }
+  .nc-col { display:flex; flex-direction:column; gap:3px; }
+  .nc-col h5 { margin:0 0 2px; font-size:.68rem; font-weight:800; text-transform:uppercase; letter-spacing:.3px; }
+  .nc { font-family:'Fredoka',sans-serif; font-weight:600; font-size:.92rem; padding:2px 0; min-height:30px; border-radius:7px; background:#fff; border:1px solid var(--line-2); cursor:pointer; }
+  .nc.sel { background:#FFF3C9; box-shadow:inset 0 0 0 3px var(--amber); }
+  .bk-stack { font-family:'Fredoka',sans-serif; font-weight:700; font-size:2.2rem; min-height:48px; margin-top:10px; letter-spacing:2px; }
+
+  /* Bead stair, teen & ten boards */
+  .bd-bar { display:inline-flex; align-items:center; gap:1px; padding:2px 6px; border-radius:12px; background:linear-gradient(#0000 calc(50% - 1px),#7A6A55 calc(50% - 1px) calc(50% + 1px),#0000 calc(50% + 1px)); }
+  .bd { width:18px; height:18px; border-radius:50%; box-shadow:inset -2px -3px 0 rgba(0,0,0,.2), 0 1px 1px rgba(0,0,0,.2); }
+  .bd.white { box-shadow:inset -2px -3px 0 rgba(0,0,0,.12), 0 0 0 1px #B9BDC9; }
+  .tn-show { display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .tn-stair { display:flex; flex-direction:column; gap:6px; align-items:flex-start; margin:12px auto 0; width:max-content; }
+  .tn-stair button { border:none; background:transparent; padding:2px; border-radius:12px; cursor:pointer; display:flex; align-items:center; gap:8px; font-family:'Fredoka',sans-serif; font-weight:600; color:var(--ink-soft); }
+  .tn-stair button.sel { background:#FFF3C9; box-shadow:inset 0 0 0 3px var(--amber); }
+  .tn-ctrl { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:12px; font-family:'Fredoka',sans-serif; font-weight:600; }
+  .tn-ctrl button { width:46px; height:46px; border:none; border-radius:12px; font-size:1.5rem; color:#fff; background:linear-gradient(135deg,#E0A800,#F2C230); cursor:pointer; }
+  .tb-cards { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; font-family:'Fredoka',sans-serif; font-weight:700; flex-wrap:wrap; }
+  .tb { background:#fff; border-radius:10px; padding:2px 10px; font-size:2rem; box-shadow:var(--shadow-sm); }
+  .tb .z { opacity:.3; }
+  .tb-words { font-weight:800; color:var(--violet); width:100%; text-align:center; }
+
+  /* Hundred Board */
+  .hb-grid { display:grid; grid-template-columns:repeat(10,1fr); gap:2px; width:100%; max-width:350px; margin:10px auto 0; padding:4px; background:#E8D2A8; border-radius:10px; }
+  .hb-c { aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:600; font-size:clamp(.6rem,2.9vw,.92rem); background:#FFFDF7; border-radius:4px; color:var(--ink); }
+  .hb-c.alt { background:#FFF4DC; }
+  .hb-c.blank { background:#EDEAFE; box-shadow:inset 0 0 0 2px var(--violet-2); cursor:pointer; }
+  .hb-c.blank.sel { box-shadow:inset 0 0 0 3px var(--amber); background:#FFF3C9; }
+  .hb-c.placed { background:#D6F7E6; color:var(--good-edge); animation:popS .3s ease; }
+  .hb-c.bad { animation:shake .4s ease; background:#FFE9EC; }
+  .hb-c.hint { box-shadow:inset 0 0 0 3px var(--green); }
+  .hb-tiles { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:12px; }
+  .hb-tile { width:50px; height:50px; border:none; border-radius:12px; color:#fff; font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.3rem; cursor:pointer; background:linear-gradient(135deg,var(--violet),var(--violet-2)); box-shadow:var(--shadow-sm); }
+  .hb-tile.sel { box-shadow:0 0 0 3px #fff, 0 0 0 6px var(--amber); transform:translateY(-3px); }
+
+  /* Read & Find (phrase cards) */
+  .ph-card { display:inline-block; font-family:'Fredoka',sans-serif; font-weight:600; font-size:2rem; background:#fff; border-radius:14px; padding:10px 18px; margin-top:8px; box-shadow:var(--shadow-sm); border-left:6px solid var(--violet); }
+  .ph-opts { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+  .ph-opt { min-height:118px; background:#fff; border:1px solid var(--line-2); border-radius:var(--r-lg); box-shadow:var(--shadow-sm); cursor:pointer; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:2px; padding:8px; line-height:1; transition:transform .1s; }
+  .ph-opt:active { transform:scale(.96); }
+  .ph-opt.correct { background:linear-gradient(135deg,#E7FBF1,#D6F7E6); box-shadow:inset 0 0 0 3px var(--green); animation:winB .55s ease; }
+  .ph-opt.wrong { background:#FFE9EC; box-shadow:inset 0 0 0 3px var(--bad); animation:shake .45s ease; }
+
   @media (max-width: 470px) {
     .problem-display { font-size: 2.6rem; }
     .game-card { padding: 20px 14px; }
@@ -1529,6 +1615,156 @@
     </div>
   </div>
 
+
+  <!-- ============ MOVABLE ALPHABET ============ -->
+  <div class="screen" id="screen-movable-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Movable Alphabet</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Build words, just like at school! 🔠</h3>
+      <div class="ma-pic">🐱</div>
+      <div class="ma-line"><span class="ma-l c">c</span><span class="ma-l v">a</span><span class="ma-l c">t</span></div>
+      <div class="example-step" style="margin-top:12px;"><div class="step-num">1</div><div>Look at the picture and <b>say the word slowly</b>: c… a… t.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>Find each <b>sound</b> in the letter box. <b style="color:#1E63D6">Vowels are blue</b>, <b style="color:#D6334A">consonants are red</b> — like the classroom box.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Tap ✅ to check. Tap a letter on the mat to take it back.</div></div>
+      <div class="example-step"><div class="step-num">4</div><div>Short words first (cat, pig), then blends (frog, drum), then sounds like <b>sh, ee, oa</b> (ship, tree, boat).</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-primary" onclick="startMovable()">Let's build! 🔠</button></div>
+  </div>
+  <div class="screen" id="screen-movable-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('movable-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="maProgress"></div></div></div><div class="star-count">⭐ <span id="maStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Word <span id="maQNum">1</span> of <span id="maQTotal">8</span></div>
+      <div class="ma-pic" id="maPic" onclick="maHear()"></div>
+      <div class="hint">👆 Tap the picture to hear the word</div>
+      <div class="ma-line" id="maLine"></div>
+      <div class="ma-box" id="maBox"></div>
+      <div class="center-actions"><button class="btn btn-green" onclick="maCheck()">✅ Check</button></div>
+      <div class="feedback-msg" id="maFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ SANDPAPER LETTERS ============ -->
+  <div class="screen" id="screen-sandpaper-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Sandpaper Letters</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Trace and say the sound ✍️</h3>
+      <div class="example-step"><div class="step-num">1</div><div>Listen to the sound. Then <b>trace the letter with your finger</b>, just like the sandpaper letters at school.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>Say the sound while you trace: <b>"sss"</b>. Consonants are on <b style="color:#D6334A">pink</b> boards, vowels on <b style="color:#1E63D6">blue</b>.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Cover the whole letter and stay on it, then tap <b>✅ Done</b>.</div></div>
+      <div class="example-step"><div class="step-num">4</div><div>Next you'll write whole <b>words</b> — and at the top level the guide is just dotted lines!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-coral" onclick="startSandpaper()">Let's trace! ✍️</button></div>
+  </div>
+  <div class="screen" id="screen-sandpaper-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('sandpaper-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="trProgress"></div></div></div><div class="star-count">⭐ <span id="trStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount"><span id="trKind">Letter</span> <span id="trQNum">1</span> of <span id="trQTotal">8</span></div>
+      <h3 style="margin-top:6px;" id="trTitle">Trace the letter</h3>
+      <div class="tr-wrap" id="trWrap"></div>
+      <div class="tr-meter"><i id="trMeter"></i></div>
+      <div class="tr-ctrls">
+        <button class="btn btn-blue" onclick="trHear()">🔊 Hear</button>
+        <button class="btn btn-ghost" onclick="trClear()">🧽 Clear</button>
+        <button class="btn btn-green" onclick="trDone()">✅ Done</button>
+      </div>
+      <div class="feedback-msg" id="trFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ BANK GAME ============ -->
+  <div class="screen" id="screen-bank-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Bank Game</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Golden beads at the bank 🏦</h3>
+      <div class="bk-tray" style="min-height:0;margin:8px 0;">
+        <div class="bk-group"><span id="bkExCube"></span><span class="bk-glabel pv-th">1000</span></div>
+        <div class="bk-group"><span class="gb-hun"></span><span class="bk-glabel pv-h">100</span></div>
+        <div class="bk-group"><span class="gb-ten"></span><span class="bk-glabel pv-t">10</span></div>
+        <div class="bk-group"><span class="gb-unit"></span><span class="bk-glabel pv-u">1</span></div>
+      </div>
+      <div class="example-step"><div class="step-num">1</div><div>One <b>bead</b> is 1. A <b>ten-bar</b> is 10 beads. A <b>hundred-square</b> is 10 bars. A <b>thousand-cube</b> is 10 squares.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div><b>"Bring me…"</b> — read the banker's card and fetch the beads. The colours match your number cards: <b class="pv-u">units green</b>, <b class="pv-t">tens blue</b>, <b class="pv-h">hundreds red</b>.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div><b>"How many?"</b> — count the beads and lay out the number cards.</div></div>
+      <div class="example-step"><div class="step-num">4</div><div>Got 10 of something? <b>Trade</b> them at the bank for the next size up!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-amber" onclick="startBank()">Open the bank! 🏦</button></div>
+  </div>
+  <div class="screen" id="screen-bank-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('bank-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="bkProgress"></div></div></div><div class="star-count">⭐ <span id="bkStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Trip <span id="bkQNum">1</span> of <span id="bkQTotal">8</span></div>
+      <h3 style="margin-top:6px;" id="bkTitle"></h3>
+      <div id="bkBody"></div>
+      <div class="feedback-msg" id="bkFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ TEENS & TENS ============ -->
+  <div class="screen" id="screen-teens-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Teens &amp; Tens</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Bead bars and the teen board 🧮</h3>
+      <div id="tnExample" class="tn-show"></div>
+      <div class="example-step" style="margin-top:10px;"><div class="step-num">1</div><div>A <b>golden ten-bar</b> is 10. Add a coloured bar from the <b>bead stair</b>: 10 and 3 makes <b>13 — thirteen</b>.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>On the <b>teen board</b>, the 3 card slides over the 0: <b>1<span style="opacity:.3">0</span></b> → <b>13</b>.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Then count ten-bars (twenty, thirty…) and build any number up to 99 on the <b>ten board</b>.</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-amber" onclick="startTeens()">Let's count! 🧮</button></div>
+  </div>
+  <div class="screen" id="screen-teens-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('teens-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="tnProgress"></div></div></div><div class="star-count">⭐ <span id="tnStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Round <span id="tnQNum">1</span> of <span id="tnQTotal">8</span></div>
+      <h3 style="margin-top:6px;" id="tnTitle"></h3>
+      <div id="tnBody"></div>
+      <div class="feedback-msg" id="tnFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ HUNDRED BOARD ============ -->
+  <div class="screen" id="screen-hundred-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Hundred Board</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Put the tiles back on the board 💯</h3>
+      <div class="example-step"><div class="step-num">1</div><div>Some number tiles fell off the hundred board!</div></div>
+      <div class="example-step"><div class="step-num">2</div><div><b>Tap a tile</b>, then <b>tap its empty square</b>.</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Tip: going <b>across</b>, numbers go up by 1. Going <b>down</b>, they go up by 10 — look at the number above!</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-primary" onclick="startHundred()">Let's fix it! 💯</button></div>
+  </div>
+  <div class="screen" id="screen-hundred-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('hundred-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="hbProgress"></div></div></div><div class="star-count">⭐ <span id="hbStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Board <span id="hbQNum">1</span> of <span id="hbQTotal">3</span></div>
+      <div class="ml-hint" id="hbHint">Tap a tile, then its square</div>
+      <div class="hb-grid" id="hbGrid"></div>
+      <div class="hb-tiles" id="hbTiles"></div>
+      <div class="feedback-msg" id="hbFeedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ READ & FIND ============ -->
+  <div class="screen" id="screen-phrase-example">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('welcome')">←</button><h2 style="flex:1;">Read &amp; Find</h2><div style="width:46px;"></div></div>
+    <div class="example-card">
+      <h3>Read the card, find the picture 🏷️</h3>
+      <div class="ph-card">a big pig</div>
+      <div class="example-step" style="margin-top:12px;"><div class="step-num">1</div><div><b>Read the card</b> yourself — sound out each word.</div></div>
+      <div class="example-step"><div class="step-num">2</div><div>Tap the picture that matches <b>every</b> word. A big pig, not a little one!</div></div>
+      <div class="example-step"><div class="step-num">3</div><div>Stuck? Tap 🔊 to hear it. Later cards add colours and numbers: "two red apples".</div></div>
+    </div>
+    <div class="center-actions"><button class="btn btn-pink" onclick="startPhrase()">Let's read! 🏷️</button></div>
+  </div>
+  <div class="screen" id="screen-phrase-game">
+    <div class="topbar"><button class="back-btn" onclick="showScreen('phrase-example')">←</button><div class="progress-area"><div class="progress-bar"><div class="progress-fill" id="phProgress"></div></div></div><div class="star-count">⭐ <span id="phStars">0</span></div></div>
+    <div class="game-card">
+      <div class="qcount">Card <span id="phQNum">1</span> of <span id="phQTotal">10</span></div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;"><div class="ph-card" id="phCard"></div><button class="btn btn-blue" style="min-height:44px;padding:8px 12px;margin-top:8px;" onclick="phHear()">🔊</button></div>
+      <div class="ph-opts" id="phOpts"></div>
+      <div class="feedback-msg" id="phFeedback"></div>
+    </div>
+  </div>
+
 </div>
 
 
@@ -1622,7 +1858,7 @@ progress.sudoku = progress.sudoku || 0; progress.shadow = progress.shadow || 0;
 progress.wordmatch = progress.wordmatch || 0; progress.order = progress.order || 0;
 progress.coderDone = !!progress.coderDone;
 progress.played = progress.played || {};
-['jigsaw','spot','maketen','clock','rhyme','wordbuild','coins','fractions','maze','sightword','story'].forEach(k => { progress[k] = progress[k] || 0; });
+['jigsaw','spot','maketen','clock','rhyme','wordbuild','coins','fractions','maze','sightword','story','movable','sandpaper','bank','teens','hundred','phrase'].forEach(k => { progress[k] = progress[k] || 0; });
 progress.totalStars = progress.totalStars || 0;
 
 function addTotalStars(n) {
@@ -1636,6 +1872,12 @@ function addTotalStars(n) {
 // HUB
 // ===============================
 const GAMES = [
+  { cat:'montessori', id:'movable',  ic:'🔠', nm:'Movable Alphabet', ds:'Build words from sounds', grad:'linear-gradient(150deg,#D6334A,#1E63D6)', fn:goMovable,  levelKey:'movable' },
+  { cat:'montessori', id:'sandpaper',ic:'✍️', nm:'Sandpaper Letters',ds:'Trace & write words',     grad:'linear-gradient(150deg,#F28AA0,#7FB0EC)', fn:goSandpaper,levelKey:'sandpaper' },
+  { cat:'montessori', id:'bank',     ic:'🏦', nm:'Bank Game',        ds:'Golden beads to 9,999',   grad:'linear-gradient(150deg,#E0A800,#C77E1B)', fn:goBank,     levelKey:'bank' },
+  { cat:'montessori', id:'teens',    ic:'🧮', nm:'Teens & Tens',     ds:'Bead stair & teen board', grad:'linear-gradient(150deg,#43A047,#E0A800)', fn:goTeens,    levelKey:'teens' },
+  { cat:'montessori', id:'hundred',  ic:'💯', nm:'Hundred Board',    ds:'Put the tiles back',      grad:'linear-gradient(150deg,#B98545,#8B7CF6)', fn:goHundred,  levelKey:'hundred' },
+  { cat:'montessori', id:'phrase',   ic:'🏷️', nm:'Read & Find',      ds:'Read phrase cards',       grad:'linear-gradient(150deg,#6C5CE7,#19C8D6)', fn:goPhrase,   levelKey:'phrase' },
   { cat:'math', id:'math',     ic:'🔢', nm:'Math',         ds:'Add · Subtract · More', grad:'linear-gradient(150deg,#FFB23E,#FF8A3D)', fn:goMath },
   { cat:'math', id:'tables',   ic:'✖️', nm:'Times Tables',  ds:'Learn 1× to 12×',       grad:'linear-gradient(150deg,#36C98D,#19C8D6)', fn:openTables },
   { cat:'reading', id:'reading',  ic:'📖', nm:'Reading',       ds:'Words & sentences',     grad:'linear-gradient(150deg,#6C5CE7,#8B7CF6)', fn:goReading },
@@ -2508,6 +2750,12 @@ function celebrate() {
   else if (state.subject === 'sightword') { title = pass ? `Word Popper, ${pName()}! 🫧🏆` : 'Keep popping! 🫧'; msg = `You found ${stars} of ${total} words!`; }
   else if (state.subject === 'story') { title = pass ? 'Story Teller! 📚🏆' : 'Good try! 📚'; msg = `You told ${stars} of ${total} stories in order!`; }
   else if (state.subject === 'nextword') { title = 'Chatbot Expert! 💬🎓'; msg = `Chat robots guess the next word from what they read — and silly stories make silly answers!`; }
+  else if (state.subject === 'movable') { title = pass ? `Word Builder, ${pName()}! 🔠🏆` : 'Keep building! 🔠'; msg = `You built ${stars} of ${total} words with the movable alphabet!`; }
+  else if (state.subject === 'sandpaper') { title = pass ? 'Beautiful Writing! ✍️🏆' : 'Good practice! ✍️'; msg = `You traced ${stars} of ${total} perfectly!`; }
+  else if (state.subject === 'bank') { title = pass ? 'Bank Manager! 🏦🏆' : 'Good banking! 🏦'; msg = `You got ${stars} of ${total} bank trips right!`; }
+  else if (state.subject === 'teens') { title = pass ? 'Bead Master! 🧮🏆' : 'Good counting! 🧮'; msg = `You got ${stars} of ${total} right!`; }
+  else if (state.subject === 'hundred') { title = 'Hundred Board Hero! 💯🏆'; msg = `You fixed all ${total} boards!`; }
+  else if (state.subject === 'phrase') { title = pass ? `Great Reader, ${pName()}! 🏷️🏆` : 'Keep reading! 🏷️'; msg = `You read ${stars} of ${total} cards!`; }
   else if (state.subject === 'aiquiz') { title = pass ? 'AI Expert! 🧠🏆' : 'Keep learning! 🧠'; msg = `You got ${stars} of ${total} right!`; }
   else if (stars === total) { title = `PERFECT, ${pName()}! 🏆`; msg = `You got all ${total} right! Superstar! 🌟`; }
   else if (pass) { title = 'Great job! 🎉'; msg = `You earned ${stars} stars out of ${total}!`; }
@@ -2550,6 +2798,12 @@ function playAgain() {
   else if (state.subject === 'sightword') startSightWord();
   else if (state.subject === 'story') startStory();
   else if (state.subject === 'nextword') startNextWord();
+  else if (state.subject === 'movable') startMovable();
+  else if (state.subject === 'sandpaper') startSandpaper();
+  else if (state.subject === 'bank') startBank();
+  else if (state.subject === 'teens') startTeens();
+  else if (state.subject === 'hundred') startHundred();
+  else if (state.subject === 'phrase') startPhrase();
   else showScreen('welcome');
 }
 function goHome() {
@@ -2980,9 +3234,9 @@ function answerAQ(btn, i, q) {
 // ===============================
 // v5: LEVEL CAPS (single source of truth) + haptics
 // ===============================
-const LEVEL_CAPS = { patterns:6, odd:5, croc:4, memory:2, multlab:3, share:3, sudoku:3, shadow:3, wordmatch:2, order:3, jigsaw:3, spot:3, maketen:3, clock:3, rhyme:2, wordbuild:2, coins:3, fractions:2, maze:3, sightword:2, story:2 };
+const LEVEL_CAPS = { patterns:6, odd:5, croc:4, memory:2, multlab:3, share:3, sudoku:3, shadow:3, wordmatch:2, order:3, jigsaw:3, spot:3, maketen:3, clock:3, rhyme:2, wordbuild:2, coins:3, fractions:2, maze:3, sightword:2, story:2, movable:2, sandpaper:2, bank:2, teens:2, hundred:2, phrase:2 };
 // Games that show a ⭐ NEW badge until they're played once. Add future games here.
-const NEW_GAMES = ['clock', 'maketen', 'wordbuild', 'rhyme', 'jigsaw', 'spot', 'aifix', 'coins', 'fractions', 'maze', 'sightword', 'story', 'nextword'];
+const NEW_GAMES = ['clock', 'maketen', 'wordbuild', 'rhyme', 'jigsaw', 'spot', 'aifix', 'coins', 'fractions', 'maze', 'sightword', 'story', 'nextword', 'movable', 'sandpaper', 'bank', 'teens', 'hundred', 'phrase'];
 function isNewGame(id) { return NEW_GAMES.includes(id) && !progress.played[id]; }
 function markPlayed(id) { if (NEW_GAMES.includes(id) && !progress.played[id]) { progress.played[id] = true; saveProgress(); } }
 function buzz(ms) { try { if (navigator.vibrate) navigator.vibrate(ms); } catch (e) {} }
@@ -3250,6 +3504,7 @@ function odTap(btn, v) {
 // HUB (v5): sections, mastery badges, Surprise Me
 // ===============================
 const HUB_SECTIONS = [
+  { id:'montessori', title:'Montessori Shelf', ic:'🧮' },
   { id:'math',    title:'Numbers',          ic:'🔢' },
   { id:'reading', title:'Reading & Words',  ic:'📖' },
   { id:'puzzle',  title:'Puzzles & Logic',  ic:'🧩' },
@@ -3522,7 +3777,9 @@ function genRhyme(L) {
   const fi = rand(0, RHYMES.length - 1), [suf, words] = RHYMES[fi];
   const pick = shuffle([...words]), prompt = pick[0], answer = pick[1];
   const nOpts = L <= 0 ? 3 : 4;
-  const others = shuffle(RHYMES.filter((_, i) => i !== fi)).slice(0, nOpts - 1).map(f => f[1][rand(0, f[1].length - 1)]);
+  // never offer a "wrong" word that ends in the same letters (e.g. boat next to cat)
+  const others = shuffle(RHYMES.filter((_, i) => i !== fi).map(f => f[1].filter(([w]) => !w.endsWith(suf))).filter(ws => ws.length))
+    .slice(0, nOpts - 1).map(ws => ws[rand(0, ws.length - 1)]);
   return { suf, prompt, answer, opts: shuffle([answer, ...others]), L };
 }
 function rhWordHTML(w, suf) { return `${w.slice(0, w.length - suf.length)}<span class="end">${suf}</span>`; }
@@ -4475,6 +4732,529 @@ function nwTeach() {
   }
 }
 function nwNext() { if (nw.phase === 'guess' || nw.phase === 'teach') return; nw.ri++; if (nw.ri >= NW_ROUNDS.length) { celebrate(); return; } nwRound(); }
+
+
+// =====================================================================
+// v8 — MONTESSORI SHELF
+// =====================================================================
+const NUM_ONES = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+const NUM_TENS = ['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+function numWords(n) {
+  if (n < 20) return NUM_ONES[n];
+  if (n < 100) return NUM_TENS[Math.floor(n / 10)] + (n % 10 ? '-' + NUM_ONES[n % 10] : '');
+  if (n < 1000) return NUM_ONES[Math.floor(n / 100)] + ' hundred' + (n % 100 ? ' ' + numWords(n % 100) : '');
+  return NUM_ONES[Math.floor(n / 1000)] + ' thousand' + (n % 1000 ? ' ' + numWords(n % 1000) : '');
+}
+const isVowel = c => 'aeiou'.includes(c);
+// Montessori says the SOUND, not the letter name; short vowels.
+const MO_SOUND = { a:'aah', e:'eh', i:'ih', o:'aw', u:'uh' };
+function moSound(c) { return MO_SOUND[c] || letterSound(c); }
+const MO_KEYWORD = { a:'apple', b:'ball', c:'cat', d:'dog', e:'egg', f:'fish', g:'goat', h:'hat', i:'igloo', j:'jam', k:'kite', l:'lion', m:'moon', n:'nest', o:'octopus', p:'pig', q:'queen', r:'rabbit', s:'sun', t:'top', u:'umbrella', v:'van', w:'web', x:'box', y:'yo-yo', z:'zebra' };
+
+// ---------------------------------------------------------------------
+// MOVABLE ALPHABET — pink (CVC) → blue (blends) → green (phonograms)
+// ---------------------------------------------------------------------
+const MA_SERIES = [
+  [['cat','🐱'],['dog','🐶'],['sun','☀️'],['hat','🎩'],['bus','🚌'],['fox','🦊'],['bed','🛏️'],['pig','🐷'],['bat','🦇'],['rat','🐀'],['log','🪵'],['van','🚐'],['web','🕸️'],['net','🥅'],['hen','🐔'],['map','🗺️'],['box','📦'],['bug','🐛'],['nut','🥜'],['fan','🪭'],['bag','👜'],['ant','🐜'],['egg','🥚'],['six','6️⃣'],['ten','🔟'],['mug','☕'],['pen','🖊️']],
+  [['frog','🐸'],['flag','🚩'],['drum','🥁'],['crab','🦀'],['nest','🪺'],['tent','⛺'],['milk','🥛'],['hand','✋'],['gift','🎁'],['sock','🧦'],['duck','🦆'],['plant','🪴'],['sled','🛷'],['swan','🦢'],['bell','🔔'],['skunk','🦨'],['clock','🕐']],
+  [['ship','🚢'],['fish','🐟'],['shell','🐚'],['chick','🐥'],['tree','🌳'],['bee','🐝'],['boat','⛵'],['goat','🐐'],['moon','🌙'],['book','📖'],['star','⭐'],['car','🚗'],['rain','🌧️'],['train','🚂'],['sheep','🐑'],['three','3️⃣'],['coat','🧥'],['spoon','🥄'],['feet','🦶'],['shark','🦈'],['corn','🌽'],['fork','🍴'],['snail','🐌'],['teeth','🦷']],
+];
+const ma = { word:'', e:'', mat:[], tries:0, done:false, L:0, pool:[] };
+function goMovable() { state.subject = 'movable'; showScreen('movable-example'); }
+function startMovable() { ma.pool = []; v6start('movable', 'maStars', 'maQTotal', 'maProgress', 8, 'movable-game'); maBuildBox(); nextMovable(); }
+function maBuildBox() {
+  const box = document.getElementById('maBox'); box.innerHTML = '';
+  'abcdefghijklmnopqrstuvwxyz'.split('').forEach(c => {
+    const b = document.createElement('button'); b.className = 'ma-key ' + (isVowel(c) ? 'v' : 'c'); b.textContent = c; b.id = 'mak-' + c;
+    b.onclick = () => maKey(c); box.appendChild(b);
+  });
+}
+function nextMovable() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('movable', Math.floor(state.problemIndex / 4));
+  if (!ma.pool.length || ma.L !== L) { ma.pool = shuffle([...MA_SERIES[L]]); ma.L = L; }
+  const [w, e] = ma.pool.shift(); ma.word = w; ma.e = e; ma.mat = []; ma.tries = 0; ma.done = false;
+  document.getElementById('maQNum').textContent = state.problemIndex + 1;
+  document.getElementById('maPic').textContent = e;
+  const fb = document.getElementById('maFeedback'); fb.textContent = L === 2 ? 'No lines to help this time — listen for every sound!' : ''; fb.classList.remove('wrong');
+  renderMovable();
+  setTimeout(() => speak(w, .75), 300);
+}
+function renderMovable(marks) {
+  const line = document.getElementById('maLine'); line.innerHTML = '';
+  ma.mat.forEach((c, i) => {
+    const b = document.createElement('button'); b.className = 'ma-l ' + (isVowel(c) ? 'v' : 'c') + (marks && marks[i] ? ' ' + marks[i] : '');
+    b.textContent = c; b.onclick = () => maRemove(i); line.appendChild(b);
+  });
+  if (ma.L < 2) for (let i = ma.mat.length; i < ma.word.length; i++) { const s = document.createElement('div'); s.className = 'ma-slot'; line.appendChild(s); }
+  else if (!ma.mat.length) line.innerHTML = '<span class="empty-hint">Tap letters to build the word 👇</span>';
+}
+function maKey(c) {
+  if (ma.done) return;
+  const fb = document.getElementById('maFeedback');
+  if (ma.L < 2 && ma.mat.length >= ma.word.length) { sfxWrong(); fb.classList.add('wrong'); fb.textContent = 'The mat is full! Tap a letter to take it back, or tap ✅.'; return; }
+  if (ma.mat.length >= 8) return;
+  ma.mat.push(c); sfxClick(); speak(moSound(c), .8);
+  fb.textContent = ''; fb.classList.remove('wrong'); renderMovable();
+}
+function maRemove(i) { if (ma.done) return; ma.mat.splice(i, 1); sfxClick(); renderMovable(); }
+function maHear() { sfxClick(); speak(ma.word, .7); }
+function maCheck() {
+  if (ma.done) return;
+  const fb = document.getElementById('maFeedback');
+  if (!ma.mat.length) { fb.classList.add('wrong'); fb.textContent = 'Say the word slowly and find the first sound!'; speak(ma.word, .7); return; }
+  if (ma.mat.join('') === ma.word) {
+    ma.done = true; if (ma.tries <= 1) v6star('maStars'); sfxCorrect(); confetti(16);
+    renderMovable(ma.mat.map(() => 'ok'));
+    fb.classList.remove('wrong'); fb.textContent = `You built "${ma.word}"! ${ma.e}`;
+    setTimeout(() => speakLetters(ma.word, null, null), 300);
+    setTimeout(() => v6next('maProgress', nextMovable), 3400);
+    return;
+  }
+  ma.tries++; state.streak = 0; sfxWrong(); fb.classList.add('wrong');
+  const marks = ma.mat.map((c, i) => c === ma.word[i] ? 'ok' : 'bad');
+  const first = ma.word.split('').findIndex((c, i) => ma.mat[i] !== c);
+  renderMovable(marks);
+  if (ma.tries >= 3) {
+    ma.done = true; ma.mat = ma.word.split(''); renderMovable(ma.mat.map(() => 'ok'));
+    fb.textContent = `Here's how to build "${ma.word}". Let's sound it out together!`;
+    setTimeout(() => speakLetters(ma.word, null, null), 300);
+    setTimeout(() => v6next('maProgress', nextMovable), 4200);
+    return;
+  }
+  fb.textContent = ma.mat.length !== ma.word.length && first >= ma.mat.length
+    ? `Good start! Listen for the next sound…` : `The green letters are right. Listen again for sound number ${first + 1}…`;
+  speak(ma.word, .6);
+}
+
+// ---------------------------------------------------------------------
+// SANDPAPER LETTERS — trace with a finger; scored against the letter shape
+// ---------------------------------------------------------------------
+const SP_LETTERS = ['c','m','a','t','s','r','i','p','b','f','o','g','h','j','u','l','d','w','e','n','k','v','x','y','z','q'];
+const tr = { text:'', L:0, strokes:[], cur:null, mask:null, dil:null, W:340, H:260, done:false, tries:0, pool:[], ink:null };
+function trFont(px) { return `600 ${px}px Fredoka, Nunito, "Arial Rounded MT Bold", Arial, sans-serif`; }
+function trFontSize(t) { return t.length === 1 ? 210 : t.length <= 3 ? 118 : 96; }
+function dilate(m, W, H, r) {
+  const a = new Uint8Array(W * H), b = new Uint8Array(W * H);
+  for (let y = 0; y < H; y++) { let c = 0; for (let x = -r; x < W; x++) { const ad = x + r; if (ad < W && m[y * W + ad]) c++; const rm = x - r - 1; if (rm >= 0 && m[y * W + rm]) c--; if (x >= 0) a[y * W + x] = c > 0 ? 1 : 0; } }
+  for (let x = 0; x < W; x++) { let c = 0; for (let y = -r; y < H; y++) { const ad = y + r; if (ad < H && a[ad * W + x]) c++; const rm = y - r - 1; if (rm >= 0 && a[rm * W + x]) c--; if (y >= 0) b[y * W + x] = c > 0 ? 1 : 0; } }
+  return b;
+}
+// strokes: [[{x,y},...],...]  → { coverage: share of the letter covered, outside: share of ink off the letter }
+function trScore(mask, dil, W, H, strokes, r) {
+  const ink = new Uint8Array(W * H), r2 = r * r;
+  const stamp = (cx, cy) => { for (let dy = -r; dy <= r; dy++) { const y = Math.round(cy) + dy; if (y < 0 || y >= H) continue; for (let dx = -r; dx <= r; dx++) { if (dx * dx + dy * dy > r2) continue; const x = Math.round(cx) + dx; if (x >= 0 && x < W) ink[y * W + x] = 1; } } };
+  strokes.forEach(s => { for (let i = 0; i < s.length; i++) { const p = s[i], q = s[i - 1] || p; const d = Math.hypot(p.x - q.x, p.y - q.y), n = Math.max(1, Math.ceil(d / 3)); for (let k = 0; k <= n; k++) stamp(q.x + (p.x - q.x) * k / n, q.y + (p.y - q.y) * k / n); } });
+  let letter = 0, covered = 0, inkN = 0, out = 0;
+  for (let i = 0; i < W * H; i++) { if (mask[i]) { letter++; if (ink[i]) covered++; } if (ink[i]) { inkN++; if (!dil[i]) out++; } }
+  return { coverage: letter ? covered / letter : 0, outside: inkN ? out / inkN : 1 };
+}
+const TR_PASS = { coverage: .55, outside: .3 };
+function goSandpaper() { state.subject = 'sandpaper'; showScreen('sandpaper-example'); }
+function startSandpaper() { tr.pool = []; v6start('sandpaper', 'trStars', 'trQTotal', 'trProgress', 8, 'sandpaper-game'); nextTrace(); }
+function nextTrace() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('sandpaper', Math.floor(state.problemIndex / 4));
+  if (!tr.pool.length || tr.L !== L) { tr.pool = L === 0 ? [...SP_LETTERS] : shuffle(MA_SERIES[0].map(x => x[0])); tr.L = L; }
+  if (L === 0) { const start = (progress.spIdx || 0) % SP_LETTERS.length; tr.text = SP_LETTERS[start]; progress.spIdx = start + 1; saveProgress(); }
+  else tr.text = tr.pool.shift();
+  tr.strokes = []; tr.cur = null; tr.done = false; tr.tries = 0;
+  document.getElementById('trQNum').textContent = state.problemIndex + 1;
+  document.getElementById('trKind').textContent = tr.text.length === 1 ? 'Letter' : 'Word';
+  document.getElementById('trTitle').innerHTML = tr.text.length === 1
+    ? `Trace <b>${tr.text}</b> · say "${moSound(tr.text)}"` : (L === 2 ? `Write the word <b>${tr.text}</b>` : `Trace the word <b>${tr.text}</b>`);
+  const fb = document.getElementById('trFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  document.getElementById('trMeter').style.width = '0%';
+  document.getElementById('trWrap').innerHTML = `<canvas id="trGuide" width="${tr.W}" height="${tr.H}"></canvas><canvas id="trInk" width="${tr.W}" height="${tr.H}"></canvas>`;
+  trSetup();
+  setTimeout(trHear, 350);
+}
+function trSetup() {
+  const g = document.getElementById('trGuide'), ink = document.getElementById('trInk');
+  tr.mask = null; tr.ink = null;
+  if (!g || !g.getContext) return;
+  const W = tr.W, H = tr.H, gx = g.getContext('2d'); if (!gx) return;
+  const single = tr.text.length === 1, faint = tr.L >= 2;
+  const board = single ? (isVowel(tr.text) ? '#9CC3F0' : '#F4B6C2') : '#F3E2C3';
+  document.getElementById('trWrap').style.background = board;
+  gx.fillStyle = board; gx.fillRect(0, 0, W, H);
+  if (!single) { gx.strokeStyle = 'rgba(43,108,217,.25)'; gx.lineWidth = 2; [H * .3, H * .72].forEach(y => { gx.beginPath(); gx.moveTo(14, y); gx.lineTo(W - 14, y); gx.stroke(); }); }
+  gx.font = trFont(trFontSize(tr.text)); gx.textAlign = 'center'; gx.textBaseline = 'alphabetic';
+  const y = single ? H * .74 : H * .72, x = W / 2;
+  if (faint) { gx.setLineDash([5, 7]); gx.lineWidth = 2.5; gx.strokeStyle = 'rgba(90,60,30,.55)'; gx.strokeText(tr.text, x, y); gx.setLineDash([]); }
+  else {
+    gx.fillStyle = '#B48B52'; gx.fillText(tr.text, x, y);
+    gx.globalCompositeOperation = 'source-atop';               // sandpaper grain, only on the letter
+    for (let i = 0; i < 2600; i++) { gx.fillStyle = Math.random() < .5 ? 'rgba(255,240,210,.55)' : 'rgba(90,60,25,.35)'; gx.fillRect(Math.random() * W, Math.random() * H, 1.6, 1.6); }
+    gx.globalCompositeOperation = 'source-over';
+  }
+  // invisible mask of the exact letter shape, for scoring
+  const off = document.createElement('canvas'); off.width = W; off.height = H;
+  const ox = off.getContext('2d'); ox.font = trFont(trFontSize(tr.text)); ox.textAlign = 'center'; ox.textBaseline = 'alphabetic'; ox.fillStyle = '#000'; ox.fillText(tr.text, x, y);
+  const px = ox.getImageData(0, 0, W, H).data, m = new Uint8Array(W * H);
+  for (let i = 0; i < W * H; i++) m[i] = px[i * 4 + 3] > 110 ? 1 : 0;
+  tr.mask = m; tr.dil = dilate(m, W, H, 14);
+  const ix = ink.getContext('2d'); tr.ink = ix;
+  ix.lineCap = 'round'; ix.lineJoin = 'round'; ix.lineWidth = 24; ix.strokeStyle = 'rgba(30,110,70,.78)';
+  const pt = e => { const r = ink.getBoundingClientRect(); return { x: (e.clientX - r.left) * W / r.width, y: (e.clientY - r.top) * H / r.height }; };
+  ink.addEventListener('pointerdown', e => { if (tr.done) return; e.preventDefault(); try { ink.setPointerCapture(e.pointerId); } catch (_) {} const p = pt(e); tr.cur = [p]; tr.strokes.push(tr.cur); ix.beginPath(); ix.moveTo(p.x, p.y); ix.lineTo(p.x + .1, p.y); ix.stroke(); if (tr.strokes.length === 1 && single) speak(moSound(tr.text), .8); });
+  ink.addEventListener('pointermove', e => { if (!tr.cur) return; e.preventDefault(); const p = pt(e), q = tr.cur[tr.cur.length - 1]; tr.cur.push(p); ix.beginPath(); ix.moveTo(q.x, q.y); ix.lineTo(p.x, p.y); ix.stroke(); });
+  const end = () => { if (!tr.cur) return; tr.cur = null; if (tr.mask) { const s = trScore(tr.mask, tr.dil, W, H, tr.strokes, 12); document.getElementById('trMeter').style.width = Math.min(100, Math.round(s.coverage / TR_PASS.coverage * 100)) + '%'; } };
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(ev => ink.addEventListener(ev, end));
+}
+function trHear() {
+  if (tr.text.length === 1) speak(`${moSound(tr.text)}. ${moSound(tr.text)}, as in ${MO_KEYWORD[tr.text]}.`, .8);
+  else { speak(tr.text, .75); setTimeout(() => speakLetters(tr.text, null, null), 900); }
+}
+function trClear() { tr.strokes = []; tr.cur = null; if (tr.ink) tr.ink.clearRect(0, 0, tr.W, tr.H); document.getElementById('trMeter').style.width = '0%'; sfxClick(); }
+function trDone() {
+  if (tr.done) return;
+  const fb = document.getElementById('trFeedback');
+  if (!tr.mask) { trResult(true); return; }              // drawing not supported on this device — never block him
+  if (!tr.strokes.length) { fb.classList.add('wrong'); fb.textContent = 'Trace the letter with your finger first! ☝️'; return; }
+  const s = trScore(tr.mask, tr.dil, tr.W, tr.H, tr.strokes, 12);
+  trResult(s.coverage >= TR_PASS.coverage && s.outside <= TR_PASS.outside, s);
+}
+function trResult(pass, s) {
+  const fb = document.getElementById('trFeedback');
+  if (pass) {
+    tr.done = true; if (tr.tries <= 1) v6star('trStars'); sfxCorrect(); confetti(16);
+    document.getElementById('trMeter').style.width = '100%';
+    fb.classList.remove('wrong'); fb.textContent = tr.text.length === 1 ? `Beautiful "${tr.text}"! ✍️` : `You wrote "${tr.text}"! ✍️`;
+    speak(tr.text.length === 1 ? `${moSound(tr.text)}! Beautiful!` : `${tr.text}! You wrote it!`, .85);
+    setTimeout(() => v6next('trProgress', nextTrace), 2000);
+    return;
+  }
+  tr.tries++; state.streak = 0; sfxWrong(); fb.classList.add('wrong');
+  if (tr.tries >= 3) {
+    tr.done = true; fb.textContent = 'Good practice! Let\'s try the next one.';
+    setTimeout(() => v6next('trProgress', nextTrace), 2200); return;
+  }
+  fb.textContent = s && s.outside > TR_PASS.outside ? 'Try to stay on the letter. 🧽 Clear and trace again!'
+    : `Keep going — trace over the whole ${tr.text.length === 1 ? 'letter' : 'word'}!`;
+}
+
+// ---------------------------------------------------------------------
+// BANK GAME — golden beads + colour-coded number cards
+// ---------------------------------------------------------------------
+const PV = [
+  { k:'th', v:1000, one:'thousand', many:'thousands', item:'cube' },
+  { k:'h',  v:100,  one:'hundred',  many:'hundreds',  item:'square' },
+  { k:'t',  v:10,   one:'ten',      many:'tens',      item:'bar' },
+  { k:'u',  v:1,    one:'unit',     many:'units',     item:'bead' },
+];
+function bkPlaces(L) { return PV.slice(4 - [2, 3, 4][Math.min(2, L)]); }
+function digitsOf(n) { return { th: Math.floor(n / 1000) % 10, h: Math.floor(n / 100) % 10, t: Math.floor(n / 10) % 10, u: n % 10 }; }
+function cubeSVG() { return `<svg class="gb-th" viewBox="0 0 60 60" aria-hidden="true"><polygon points="30,4 56,17 30,30 4,17" fill="#FBE08A" stroke="#B88A1B" stroke-width="1.5"/><polygon points="4,17 30,30 30,57 4,44" fill="#E7B53C" stroke="#B88A1B" stroke-width="1.5"/><polygon points="56,17 30,30 30,57 56,44" fill="#D49E22" stroke="#B88A1B" stroke-width="1.5"/><path d="M17,10.5 43,23.5 M43,10.5 17,23.5 M4,30.5 30,43.5 M30,43.5 56,30.5 M17,23.5 17,50.5 M43,23.5 43,50.5" stroke="#B88A1B" stroke-width=".8" fill="none" opacity=".7"/></svg>`; }
+function gbItem(k) { return k === 'th' ? cubeSVG() : `<span class="gb-${k === 'h' ? 'hun' : k === 't' ? 'ten' : 'unit'}"></span>`; }
+function pvNumHTML(n, places) {
+  const s = String(n).padStart(places.length, '0'), cls = { th:'pv-th', h:'pv-h', t:'pv-t', u:'pv-u' };
+  return places.map((p, i) => `<span class="${cls[p.k]}">${s[i]}</span>`).join('');
+}
+const bk = { target:0, need:null, tray:null, mode:'fetch', places:[], tries:0, done:false, sel:{}, L:0 };
+function goBank() { state.subject = 'bank'; const c = document.getElementById('bkExCube'); if (c) c.innerHTML = cubeSVG(); showScreen('bank-example'); }
+function startBank() { v6start('bank', 'bkStars', 'bkQTotal', 'bkProgress', 8, 'bank-game'); nextBank(); }
+function genBankNumber(L) {
+  const places = bkPlaces(L), n = places.length;
+  for (let g = 0; g < 100; g++) {
+    let s = String(rand(1, 9));
+    for (let i = 1; i < n; i++) s += String(L >= 1 && Math.random() < .15 ? 0 : rand(1, 9));
+    const v = +s; if (v >= Math.pow(10, n - 1)) return v;
+  }
+  return Math.pow(10, n - 1) + 1;
+}
+function nextBank() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('bank', Math.floor(state.problemIndex / 4));
+  bk.L = L; bk.places = bkPlaces(L); bk.target = genBankNumber(L); bk.need = digitsOf(bk.target);
+  bk.tray = { th:0, h:0, t:0, u:0 }; bk.sel = {}; bk.tries = 0; bk.done = false;
+  bk.mode = state.problemIndex % 2 === 0 ? 'fetch' : 'build';
+  document.getElementById('bkQNum').textContent = state.problemIndex + 1;
+  const fb = document.getElementById('bkFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  if (bk.mode === 'fetch') { document.getElementById('bkTitle').textContent = '🏦 The banker says: "Bring me…"'; renderBankFetch(); setTimeout(() => speak(`Bring me ${numWords(bk.target)}`, .85), 300); }
+  else { document.getElementById('bkTitle').textContent = 'How many beads? Lay out the cards'; renderBankBuild(); setTimeout(() => speak('How many beads? Find the number cards.', .9), 300); }
+}
+function bkTrayHTML(counts, clickable) {
+  return `<div class="bk-tray">${bk.places.map(p => {
+    const n = counts[p.k], shown = Math.min(n, 12);
+    return `<div class="bk-group" ${clickable ? `onclick="bkGive('${p.k}')"` : ''}>
+      <div class="bk-items">${gbItem(p.k).repeat(shown)}${n > shown ? `<b>+${n - shown}</b>` : ''}</div>
+      <span class="bk-glabel pv-${p.k}">${n} ${n === 1 ? p.one : p.many}</span></div>`;
+  }).join('')}</div>`;
+}
+function renderBankFetch() {
+  const trades = bk.places.slice(1).filter(p => bk.tray[p.k] >= 10);
+  document.getElementById('bkBody').innerHTML = `
+    <div class="bk-card">${pvNumHTML(bk.target, bk.places)}</div>
+    <div class="bk-words">${numWords(bk.target)}</div>
+    <div class="mo-mat">${bkTrayHTML(bk.tray, true)}<div class="mo-note">Your tray · tap beads to put them back</div></div>
+    ${trades.map(p => { const up = bk.places[bk.places.indexOf(p) - 1]; return `<div class="center-actions bk-trade"><button class="btn btn-amber" onclick="bkTrade('${p.k}')">🔁 Trade 10 ${p.many} for 1 ${up.one}</button></div>`; }).join('')}
+    <div class="bk-shelf">${bk.places.map(p => `<button class="bk-take" onclick="bkTake('${p.k}')">${gbItem(p.k)}<span class="pv-${p.k}">+1 ${p.one}</span></button>`).join('')}</div>
+    <div class="center-actions"><button class="btn btn-green" onclick="bkCheck()">✅ Give to banker</button></div>`;
+}
+function bkTake(k) { if (bk.done || bk.mode !== 'fetch') return; bk.tray[k]++; sfxClick(); renderBankFetch(); const p = PV.find(x => x.k === k); speak(`${bk.tray[k]} ${bk.tray[k] === 1 ? p.one : p.many}`, 1.05); }
+function bkGive(k) { if (bk.done || bk.mode !== 'fetch' || !bk.tray[k]) return; bk.tray[k]--; sfxClick(); renderBankFetch(); }
+function bkTrade(k) {
+  const i = bk.places.findIndex(p => p.k === k); if (i < 1 || bk.tray[k] < 10) return;
+  bk.tray[k] -= 10; bk.tray[bk.places[i - 1].k]++; sfxStar(); renderBankFetch();
+  speak(`Ten ${bk.places[i].many} make one ${bk.places[i - 1].one}!`, .9);
+}
+function bkCheck() {
+  if (bk.done) return;
+  const fb = document.getElementById('bkFeedback');
+  const wrong = bk.places.find(p => bk.tray[p.k] !== bk.need[p.k]);
+  if (!wrong) {
+    bk.done = true; if (bk.tries <= 1) v6star('bkStars'); sfxCorrect(); confetti(18);
+    fb.classList.remove('wrong'); fb.textContent = `Thank you! That's ${bk.target.toLocaleString('en-CA')} 🏦`;
+    speak(`Thank you! That's ${numWords(bk.target)}`, .85);
+    setTimeout(() => v6next('bkProgress', nextBank), 2400); return;
+  }
+  bk.tries++; state.streak = 0; sfxWrong(); fb.classList.add('wrong');
+  if (bk.tries >= 3) {
+    bk.done = true; bk.tray = { ...bk.need }; renderBankFetch();
+    fb.textContent = `Here's ${bk.target}: ${bk.places.filter(p => bk.need[p.k]).map(p => `${bk.need[p.k]} ${bk.need[p.k] === 1 ? p.one : p.many}`).join(', ')}.`;
+    setTimeout(() => v6next('bkProgress', nextBank), 3800); return;
+  }
+  const have = bk.tray[wrong.k], want = bk.need[wrong.k];
+  fb.textContent = have >= 10 ? `You have ${have} ${wrong.many} — trade 10 of them at the bank!`
+    : `Look at the ${wrong.many} digit on the card: it says ${want}. You have ${have}.`;
+}
+function renderBankBuild() {
+  const picked = bk.places.reduce((s, p) => s + (bk.sel[p.k] || 0) * p.v, 0);
+  document.getElementById('bkBody').innerHTML = `
+    <div class="mo-mat">${bkTrayHTML(bk.need, false)}</div>
+    <div class="bk-stack">${picked ? pvNumHTML(picked, bk.places) : '<span style="color:#C9CDE0">?</span>'}</div>
+    <div class="nc-cols" style="grid-template-columns:repeat(${bk.places.length},1fr)">
+      ${bk.places.map(p => `<div class="nc-col"><h5 class="pv-${p.k}">${p.many}</h5>${[1,2,3,4,5,6,7,8,9].map(d => `<button class="nc pv-${p.k}${bk.sel[p.k] === d ? ' sel' : ''}" onclick="bkCard('${p.k}',${d})">${d * p.v}</button>`).join('')}</div>`).join('')}
+    </div>
+    <div class="hint">Pick one card for each kind of bead. No beads of a kind? Skip that card — that's a zero!</div>
+    <div class="center-actions"><button class="btn btn-green" onclick="bkBuildCheck()">✅ Check</button></div>`;
+}
+function bkCard(k, d) { if (bk.done) return; bk.sel[k] = bk.sel[k] === d ? 0 : d; sfxClick(); renderBankBuild(); const p = PV.find(x => x.k === k); if (bk.sel[k]) speak(numWords(d * p.v), 1); }
+function bkBuildCheck() {
+  if (bk.done) return;
+  const fb = document.getElementById('bkFeedback'), picked = bk.places.reduce((s, p) => s + (bk.sel[p.k] || 0) * p.v, 0);
+  if (picked === bk.target) {
+    bk.done = true; if (bk.tries <= 1) v6star('bkStars'); sfxCorrect(); confetti(18);
+    fb.classList.remove('wrong'); fb.textContent = `Yes! ${bk.target} — ${numWords(bk.target)} 🎉`;
+    speak(`Yes! ${numWords(bk.target)}`, .85);
+    setTimeout(() => v6next('bkProgress', nextBank), 2400); return;
+  }
+  bk.tries++; state.streak = 0; sfxWrong(); fb.classList.add('wrong');
+  if (bk.tries >= 3) {
+    bk.done = true; bk.places.forEach(p => bk.sel[p.k] = bk.need[p.k]); renderBankBuild();
+    fb.textContent = `It's ${bk.target}. Count each kind of bead to find its card!`;
+    setTimeout(() => v6next('bkProgress', nextBank), 3800); return;
+  }
+  const w = bk.places.find(p => (bk.sel[p.k] || 0) !== bk.need[p.k]);
+  fb.textContent = `Count the ${w.many} again — how many ${w.item}${bk.need[w.k] === 1 ? '' : 's'} are there?`;
+}
+
+// ---------------------------------------------------------------------
+// TEENS & TENS — bead stair, teen board, ten board
+// ---------------------------------------------------------------------
+const BEAD_COLORS = { 1:'#E53935', 2:'#43A047', 3:'#F48FB1', 4:'#FDD835', 5:'#81D4FA', 6:'#8E24AA', 7:'#FFFFFF', 8:'#8D6E63', 9:'#1A3A8F', 10:'#F2B705' };
+function beadBar(n) { const c = BEAD_COLORS[n]; return `<span class="bd-bar">${`<span class="bd${n === 7 ? ' white' : ''}" style="background:${c}"></span>`.repeat(n)}</span>`; }
+function beadsHTML(tens, units) { return `<div class="tn-show">${Array.from({ length: tens }, () => beadBar(10)).join('')}${units ? beadBar(units) : ''}</div>`; }
+function teenBoardHTML(n) {
+  const t = Math.floor(n / 10), u = n % 10;
+  return `<div class="tb-cards">${u ? `<span class="tb">${t}<span class="z">0</span></span><span>+</span><span class="tb">${u}</span><span>→</span>` : `<span>${t} ten${t > 1 ? 's' : ''} →</span>`}<span class="tb">${n}</span><span class="tb-words">${numWords(n)}</span></div>`;
+}
+const tn = { tens:1, units:0, target:0, mode:'read', L:0, selT:1, selU:0, tries:0, done:false };
+function goTeens() { state.subject = 'teens'; const e = document.getElementById('tnExample'); if (e) e.innerHTML = beadsHTML(1, 3) + teenBoardHTML(13); showScreen('teens-example'); }
+function startTeens() { v6start('teens', 'tnStars', 'tnQTotal', 'tnProgress', 8, 'teens-game'); nextTeens(); }
+function genTeens(L) {
+  if (L <= 0) return { tens: 1, units: rand(1, 9) };
+  if (L === 1) return Math.random() < .5 ? { tens: rand(2, 9), units: 0 } : { tens: 1, units: rand(1, 9) };
+  return { tens: rand(1, 9), units: rand(1, 9) };
+}
+function teensOptions(n) {
+  const set = new Set([n]), t = Math.floor(n / 10), u = n % 10;
+  const cands = [n + 1, n - 1, n + 10, n - 10, u ? u * 10 + t : n + 20, n + 2, n - 2];
+  for (const c of shuffle(cands)) { if (set.size >= 4) break; if (c >= 10 && c <= 99 && c !== n) set.add(c); }
+  let k = 11; while (set.size < 4) { if (!set.has(k)) set.add(k); k++; }
+  return shuffle([...set]);
+}
+function nextTeens() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('teens', Math.floor(state.problemIndex / 4));
+  const g = genTeens(L); tn.L = L; tn.tens = g.tens; tn.units = g.units; tn.target = g.tens * 10 + g.units; tn.tries = 0; tn.done = false;
+  tn.mode = state.problemIndex % 2 === 0 ? 'read' : 'build';
+  tn.selT = L === 0 ? 1 : 0; tn.selU = 0;
+  document.getElementById('tnQNum').textContent = state.problemIndex + 1;
+  const fb = document.getElementById('tnFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  if (tn.mode === 'read') {
+    document.getElementById('tnTitle').textContent = 'What number is this?';
+    document.getElementById('tnBody').innerHTML = `<div class="mo-mat">${beadsHTML(tn.tens, tn.units)}</div><div class="hint">Golden bars are tens. Count the coloured beads for the ones.</div><div class="answer-grid" id="tnOpts"></div>`;
+    teensOptions(tn.target).forEach(o => { const b = document.createElement('button'); b.className = 'answer-btn'; b.textContent = o; b.onclick = () => answerTeens(b, o); document.getElementById('tnOpts').appendChild(b); });
+    setTimeout(() => speak('What number is this?', .9), 300);
+  } else { document.getElementById('tnTitle').innerHTML = `Make <b>${tn.target}</b> · ${numWords(tn.target)}`; renderTeensBuild(); setTimeout(() => speak(`Make ${numWords(tn.target)}`, .85), 300); }
+}
+function answerTeens(btn, o) {
+  if (tn.done) return; tn.done = true;
+  const all = document.querySelectorAll('#tnOpts .answer-btn'); all.forEach(b => b.disabled = true);
+  const fb = document.getElementById('tnFeedback');
+  if (o === tn.target) { btn.classList.add('correct'); v6star('tnStars'); sfxCorrect(); confetti(14); fb.classList.remove('wrong'); fb.textContent = 'Yes!'; }
+  else { btn.classList.add('wrong'); state.streak = 0; sfxWrong(); all.forEach(b => { if (+b.textContent === tn.target) b.classList.add('correct'); }); fb.classList.add('wrong'); fb.textContent = `It's ${tn.target}:`; }
+  document.getElementById('tnBody').insertAdjacentHTML('beforeend', teenBoardHTML(tn.target));
+  speak(tn.units ? `${numWords(tn.tens * 10)} and ${numWords(tn.units)} makes ${numWords(tn.target)}` : `${numWords(tn.tens)} tens make ${numWords(tn.target)}`, .85);
+  setTimeout(() => v6next('tnProgress', nextTeens), o === tn.target ? 2600 : 3600);
+}
+function renderTeensBuild() {
+  const needUnits = tn.L !== 1 || tn.units > 0, needTens = tn.L >= 1;
+  document.getElementById('tnBody').innerHTML = `
+    <div class="mo-mat">${tn.selT || tn.selU ? beadsHTML(tn.selT, tn.selU) : '<div class="mo-note">Your beads go here</div>'}</div>
+    ${needTens ? `<div class="tn-ctrl"><button onclick="tnTens(-1)">−</button><span>${tn.selT} golden ten-bar${tn.selT === 1 ? '' : 's'}</span><button onclick="tnTens(1)">+</button></div>` : ''}
+    ${needUnits ? `<div class="hint">Pick a bar from the bead stair:</div><div class="tn-stair">${[1,2,3,4,5,6,7,8,9].map(n => `<button class="${tn.selU === n ? 'sel' : ''}" onclick="tnUnit(${n})">${beadBar(n)}<span>${n}</span></button>`).join('')}</div>` : ''}
+    <div class="center-actions"><button class="btn btn-green" onclick="tnCheck()">✅ Check</button></div>`;
+}
+function tnTens(d) { if (tn.done) return; tn.selT = Math.max(0, Math.min(9, tn.selT + d)); sfxClick(); renderTeensBuild(); if (tn.selT) speak(numWords(tn.selT * 10), 1); }
+function tnUnit(n) { if (tn.done) return; tn.selU = tn.selU === n ? 0 : n; sfxClick(); renderTeensBuild(); if (tn.selU) speak(numWords(n), 1); }
+function tnCheck() {
+  if (tn.done) return;
+  const fb = document.getElementById('tnFeedback'), made = tn.selT * 10 + tn.selU;
+  if (made === tn.target) {
+    tn.done = true; if (tn.tries <= 1) v6star('tnStars'); sfxCorrect(); confetti(16);
+    fb.classList.remove('wrong'); fb.textContent = `You made ${tn.target}!`;
+    document.getElementById('tnBody').insertAdjacentHTML('beforeend', teenBoardHTML(tn.target));
+    speak(`You made ${numWords(tn.target)}!`, .85);
+    setTimeout(() => v6next('tnProgress', nextTeens), 2600); return;
+  }
+  tn.tries++; state.streak = 0; sfxWrong(); fb.classList.add('wrong');
+  if (tn.tries >= 3) {
+    tn.done = true; tn.selT = tn.tens; tn.selU = tn.units; renderTeensBuild();
+    document.getElementById('tnBody').insertAdjacentHTML('beforeend', teenBoardHTML(tn.target));
+    fb.textContent = `${tn.target} is ${tn.tens} ten${tn.tens > 1 ? 's' : ''}${tn.units ? ` and ${tn.units}` : ''}.`;
+    setTimeout(() => v6next('tnProgress', nextTeens), 3600); return;
+  }
+  fb.textContent = tn.selT !== tn.tens ? `${tn.target} has ${tn.tens} ten${tn.tens > 1 ? 's' : ''} — look at the first digit!` : `Tens are right! Now the ones: look at the last digit.`;
+}
+
+// ---------------------------------------------------------------------
+// HUNDRED BOARD — put the missing tiles back
+// ---------------------------------------------------------------------
+const hb = { blanks:[], placed:new Set(), tile:null, cell:null, wrong:0, wrongTile:0, L:0 };
+function goHundred() { state.subject = 'hundred'; showScreen('hundred-example'); }
+function startHundred() { v6start('hundred', 'hbStars', 'hbQTotal', 'hbProgress', 3, 'hundred-game'); nextHundred(); }
+function genHundred(L) { const max = [30, 60, 100][L], n = [5, 8, 12][L]; return shuffle(Array.from({ length: max }, (_, i) => i + 1)).slice(0, n).sort((a, b) => a - b); }
+function nextHundred() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('hundred', state.problemIndex);
+  hb.L = L; hb.blanks = genHundred(L); hb.placed = new Set(); hb.tile = null; hb.cell = null; hb.wrong = 0; hb.wrongTile = 0;
+  hb.order = shuffle([...hb.blanks]);
+  document.getElementById('hbQNum').textContent = state.problemIndex + 1;
+  document.getElementById('hbHint').textContent = `${hb.blanks.length} tiles to put back · tap a tile, then its square`;
+  const fb = document.getElementById('hbFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  renderHundred();
+  setTimeout(() => speak('Some tiles fell off! Put them back.', .9), 300);
+}
+function renderHundred(hintCell) {
+  const g = document.getElementById('hbGrid'); g.innerHTML = '';
+  for (let n = 1; n <= 100; n++) {
+    const c = document.createElement('div'), blank = hb.blanks.includes(n) && !hb.placed.has(n);
+    c.className = 'hb-c' + (Math.floor((n - 1) / 10) % 2 ? ' alt' : '') + (blank ? ' blank' : '') + (hb.placed.has(n) ? ' placed' : '') + (blank && hb.cell === n ? ' sel' : '') + (hintCell === n ? ' hint' : '');
+    c.id = 'hbc-' + n; c.textContent = blank ? '' : n;
+    if (blank) c.onclick = () => hbCell(n);
+    g.appendChild(c);
+  }
+  const t = document.getElementById('hbTiles'); t.innerHTML = '';
+  hb.order.filter(n => !hb.placed.has(n)).forEach(n => {
+    const b = document.createElement('button'); b.className = 'hb-tile' + (hb.tile === n ? ' sel' : ''); b.textContent = n; b.id = 'hbt-' + n;
+    b.onclick = () => hbTile(n); t.appendChild(b);
+  });
+}
+function hbTile(n) { if (hb.placed.has(n)) return; if (hb.cell != null) { hbTry(n, hb.cell); return; } hb.tile = hb.tile === n ? null : n; hb.wrongTile = 0; sfxClick(); renderHundred(); }
+function hbCell(c) { if (hb.tile != null) { hbTry(hb.tile, c); return; } hb.cell = hb.cell === c ? null : c; sfxClick(); renderHundred(); }
+function hbTry(tile, cell) {
+  const fb = document.getElementById('hbFeedback');
+  if (tile === cell) {
+    hb.placed.add(tile); hb.tile = null; hb.cell = null; hb.wrongTile = 0; sfxStar(); speak(numWords(tile), 1);
+    fb.textContent = ''; fb.classList.remove('wrong'); renderHundred();
+    if (hb.placed.size >= hb.blanks.length) {
+      if (hb.wrong <= 3) v6star('hbStars'); sfxCorrect(); confetti(24);
+      fb.textContent = 'The hundred board is complete! 💯'; speak('The hundred board is complete!', .9);
+      setTimeout(() => v6next('hbProgress', nextHundred), 2200);
+    }
+    return;
+  }
+  hb.wrong++; hb.wrongTile++; sfxWrong(); fb.classList.add('wrong');
+  const el = document.getElementById('hbc-' + cell); if (el) { el.classList.add('bad'); setTimeout(() => el.classList.remove('bad'), 450); }
+  const left = cell % 10 === 1 ? null : cell - 1;
+  fb.textContent = left ? `This square comes right after ${left}. Is that ${tile}?` : `This square is under ${cell - 10}. Is that ${tile}?`;
+  hb.cell = null;
+  if (hb.wrongTile >= 3) { hb.tile = tile; renderHundred(tile); fb.textContent = `${tile} goes in the green square!`; }
+  else { hb.tile = tile; renderHundred(); }
+}
+
+// ---------------------------------------------------------------------
+// READ & FIND — Montessori phrase cards (read it yourself!)
+// ---------------------------------------------------------------------
+const PH_COLOR = {
+  heart:{ red:'❤️', blue:'💙', green:'💚', yellow:'💛', purple:'💜' },
+  circle:{ red:'🔴', blue:'🔵', green:'🟢', yellow:'🟡', purple:'🟣' },
+  square:{ red:'🟥', blue:'🟦', green:'🟩', yellow:'🟨', purple:'🟪' },
+  book:{ red:'📕', blue:'📘', green:'📗', orange:'📙' },
+  apple:{ red:'🍎', green:'🍏' },
+  car:{ red:'🚗', blue:'🚙' },
+};
+const PH_PLAIN = { cat:'🐱', dog:'🐶', pig:'🐷', hat:'🎩', bug:'🐛', egg:'🥚', fish:'🐟', sun:'☀️', star:'⭐', frog:'🐸', duck:'🦆', bee:'🐝' };
+function phPlural(noun, n) { return n === 1 || noun === 'fish' ? noun : noun + 's'; }
+function phText(p) {
+  const rest = [p.size, p.color, phPlural(p.noun, p.count)].filter(Boolean);
+  const art = p.count === 1 ? (/^[aeiou]/.test(rest[0]) ? 'an' : 'a') : NUM_ONES[p.count];
+  return [art, ...rest].join(' ');
+}
+function phEmoji(p) { return p.color ? PH_COLOR[p.noun][p.color] : PH_PLAIN[p.noun]; }
+function phHTML(p) { const px = p.size === 'big' ? 56 : p.size === 'little' ? 24 : 40; return Array.from({ length: p.count }, () => `<span style="font-size:${px}px">${phEmoji(p)}</span>`).join(''); }
+const phKey = p => [p.count, p.size, p.color, p.noun].join('|');
+function genPhrase(L) {
+  const pick = a => a[rand(0, a.length - 1)], plain = Object.keys(PH_PLAIN), colored = Object.keys(PH_COLOR);
+  let p, variants = [];
+  const useColor = L === 1 || (L === 2 && Math.random() < .5);
+  if (!useColor) {
+    p = { count: L === 2 ? rand(2, 3) : 1, size: pick(['big', 'little']), color: null, noun: pick(plain) };
+    const other = p.size === 'big' ? 'little' : 'big';
+    variants = [{ ...p, size: other }, { ...p, noun: pick(plain.filter(x => x !== p.noun)) }, { ...p, noun: pick(plain.filter(x => x !== p.noun)), size: other }];
+    if (L === 2) variants.push({ ...p, count: p.count === 2 ? 3 : 2 }, { ...p, count: 1 });
+  } else {
+    const noun = pick(colored), color = pick(Object.keys(PH_COLOR[noun]));
+    p = { count: L === 2 ? rand(2, 3) : 1, size: null, color, noun };
+    Object.keys(PH_COLOR[noun]).filter(c => c !== color).forEach(c => variants.push({ ...p, color: c }));
+    colored.filter(n => n !== noun && PH_COLOR[n][color]).forEach(n => variants.push({ ...p, noun: n }));
+    if (L === 2) variants.push({ ...p, count: p.count === 2 ? 3 : 2 }, { ...p, count: 1 });
+  }
+  const opts = new Map([[phKey(p), p]]);
+  for (const v of shuffle(variants)) { if (opts.size >= 4) break; opts.set(phKey(v), v); }
+  let g = 0; while (opts.size < 4 && g++ < 50) { const v = { ...p, noun: pick(useColor ? colored : plain) }; if (v.color && !PH_COLOR[v.noun][v.color]) continue; opts.set(phKey(v), v); }
+  return { p, opts: shuffle([...opts.values()]) };
+}
+const ph = { q:null, done:false };
+function goPhrase() { state.subject = 'phrase'; showScreen('phrase-example'); }
+function startPhrase() { v6start('phrase', 'phStars', 'phQTotal', 'phProgress', 10, 'phrase-game'); nextPhrase(); }
+function nextPhrase() {
+  if (state.problemIndex >= state.totalProblems) { celebrate(); return; }
+  const L = v6lvl('phrase', Math.floor(state.problemIndex / 5));
+  ph.q = genPhrase(L); ph.done = false;
+  document.getElementById('phQNum').textContent = state.problemIndex + 1;
+  document.getElementById('phCard').textContent = phText(ph.q.p);
+  const fb = document.getElementById('phFeedback'); fb.textContent = ''; fb.classList.remove('wrong');
+  const box = document.getElementById('phOpts'); box.innerHTML = '';
+  ph.q.opts.forEach(o => { const b = document.createElement('button'); b.className = 'ph-opt'; b.innerHTML = phHTML(o); b.dataset.k = phKey(o); b.onclick = () => answerPhrase(b, o); box.appendChild(b); });
+}
+function phHear() { sfxClick(); if (ph.q) speak(phText(ph.q.p), .75); }
+function answerPhrase(btn, o) {
+  if (ph.done) return; ph.done = true;
+  const all = document.querySelectorAll('#phOpts .ph-opt'); all.forEach(b => b.disabled = true);
+  const fb = document.getElementById('phFeedback'), right = phKey(o) === phKey(ph.q.p);
+  if (right) { btn.classList.add('correct'); v6star('phStars'); sfxCorrect(); confetti(14); fb.classList.remove('wrong'); fb.textContent = `Yes! "${phText(ph.q.p)}" 📖`; if (state.streak >= 2) showStreak(state.streak); }
+  else {
+    btn.classList.add('wrong'); state.streak = 0; sfxWrong(); fb.classList.add('wrong');
+    all.forEach(b => { if (b.dataset.k === phKey(ph.q.p)) b.classList.add('correct'); });
+    fb.textContent = `That one is "${phText(o)}". Read every word: "${phText(ph.q.p)}"`;
+  }
+  speak(phText(ph.q.p), .8);
+  setTimeout(() => v6next('phProgress', nextPhrase), right ? 1800 : 3400);
+}
 
 // ===============================
 // SERVICE WORKER
